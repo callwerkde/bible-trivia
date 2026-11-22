@@ -1,2 +1,2 @@
 // Written by scripts/build-timeline.mjs
-export const TIMELINE_VERSION = '4b9ac26df9';
+export const TIMELINE_VERSION = '2fcdde5a58';
