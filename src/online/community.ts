@@ -1,6 +1,6 @@
 import { supabase } from './supabase';
 import { useAccount, sendPendingPushes } from './account';
-import type { PlanSpec } from '../engine/readingPlan';
+import { chaptersFor, daysDue, totalDays, type PlanSpec } from '../engine/readingPlan';
 
 /*
  * Communities and their reading plans (tables communities, community_members,
@@ -31,6 +31,14 @@ export interface Member {
   days_read: number;
   read_today: boolean;
   last_read: string | null;
+  /** Their progress in the current plan, worked out by the database. */
+  chapters_read: number;
+  /** Their first unread day (null when finished). */
+  next_day: number | null;
+  /** Reading days that have come round but aren't read. */
+  behind: number;
+  /** Read anything in the last 7 days. */
+  read_week: boolean;
 }
 export interface Plan extends PlanSpec {
   id: string;
@@ -106,10 +114,88 @@ export async function resetCode(id: string): Promise<string> {
   return data as string;
 }
 
-export async function members(id: string): Promise<Member[]> {
+/** The members with their progress in the current plan. The database works the progress
+ *  out; before that update is on the server, the app works it out from the reading log. */
+export async function members(id: string, current?: Plan | null | Promise<Plan | null>): Promise<Member[]> {
   const { data, error } = await need().rpc('community_members_for', { p_community: id });
   if (error) throw error;
-  return data as Member[];
+  const list = data as Member[];
+  if (!list.length || 'chapters_read' in list[0]) return list;
+  const plan = await current;
+  const log = plan ? await groupLog([plan.id]) : [];
+  const due = plan ? daysDue(plan) : 0;
+  const total = plan ? totalDays(plan) : 0;
+  const weekAgo = Date.now() - 7 * 86_400_000;
+  return list.map((m) => {
+    const mine = log.filter((l) => l.user_id === m.user_id);
+    const days = new Set(mine.map((l) => l.day));
+    let next: number | null = null;
+    for (let d = 1; d <= total; d++)
+      if (!days.has(d)) {
+        next = d;
+        break;
+      }
+    let behind = 0;
+    for (let d = 1; d <= due; d++) if (!days.has(d)) behind++;
+    return {
+      ...m,
+      chapters_read: plan ? [...days].reduce((n, d) => n + chaptersFor(plan, d).length, 0) : 0,
+      next_day: plan ? next : null,
+      behind,
+      read_week: mine.some((l) => new Date(l.done_at).getTime() > weekAgo),
+    };
+  });
+}
+
+/** When one member read since a date (for the calendar in their sheet). */
+export async function memberDays(community: string, user: string, since: Date, planIds: string[]): Promise<{ done_at: string; day: number; plan_id: string }[]> {
+  const db = need();
+  const r = await db.rpc('member_reading_days', { p_community: community, p_user: user, p_since: since.toISOString() });
+  if (!r.error) return r.data as { done_at: string; day: number; plan_id: string }[];
+  if (!planIds.length) return [];
+  const { data, error } = await db.from('reading_log').select('done_at, day, plan_id').eq('user_id', user).in('plan_id', planIds).gte('done_at', since.toISOString());
+  if (error) throw error;
+  return data as { done_at: string; day: number; plan_id: string }[];
+}
+
+// ---------- shown at once, then refreshed ----------
+
+/** The last copy of something seen on this phone (null if none or unreadable). */
+export function cached<T>(key: string): T | null {
+  try {
+    const v = localStorage.getItem(`bt-cm:${me() ?? ''}:${key}`);
+    return v ? (JSON.parse(v) as T) : null;
+  } catch {
+    return null;
+  }
+}
+export function remember(key: string, value: unknown) {
+  try {
+    localStorage.setItem(`bt-cm:${me() ?? ''}:${key}`, JSON.stringify(value));
+  } catch {
+    /* storage full or blocked: it only makes the next open slower */
+  }
+}
+
+/** Calls back (at most every ~1.5 s) when anyone in the group ticks a reading day or a task.
+ *  The database only sends changes the person may see. Returns a function to stop. */
+export function watchGroup(community: string, planId: string | null, onChange: (what: 'reading' | 'tasks') => void): () => void {
+  if (!supabase || !me()) return () => {};
+  const db = supabase;
+  const timers: Partial<Record<'reading' | 'tasks', ReturnType<typeof setTimeout>>> = {};
+  const fire = (what: 'reading' | 'tasks') => {
+    clearTimeout(timers[what]);
+    timers[what] = setTimeout(() => onChange(what), 1500);
+  };
+  let ch = db.channel(`cm-${community}-${Math.random().toString(36).slice(2, 8)}`);
+  if (planId) ch = ch.on('postgres_changes', { event: '*', schema: 'public', table: 'reading_log', filter: `plan_id=eq.${planId}` }, () => fire('reading'));
+  ch = ch.on('postgres_changes', { event: '*', schema: 'public', table: 'community_task_done' }, () => fire('tasks'));
+  ch.subscribe();
+  return () => {
+    clearTimeout(timers.reading);
+    clearTimeout(timers.tasks);
+    void db.removeChannel(ch);
+  };
 }
 
 export async function manageMember(community: string, user: string, action: 'approve' | 'make_admin' | 'make_member' | 'remove') {

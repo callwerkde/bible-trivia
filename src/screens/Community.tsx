@@ -21,7 +21,6 @@ import {
   chaptersFor,
   chaptersLabel,
   dateOfDay,
-  daysDue,
   finishDate,
   isoDay,
   planStatus,
@@ -39,7 +38,10 @@ import {
   manageMember,
   markDay,
   members as loadMembers,
-  groupLog,
+  memberDays,
+  cached,
+  remember,
+  watchGroup,
   nudgeMember,
   myCommunities,
   myDays,
@@ -77,7 +79,7 @@ export function Community({
   const uiLang = useApp((s) => s.uiLang);
   const signedIn = useAccount((s) => Boolean(s.session));
   const [section, setSection] = useState<'groups' | 'friends'>('groups');
-  const [groups, setGroups] = useState<Group[] | null>(null);
+  const [groups, setGroups] = useState<Group[] | null>(() => cached<Group[]>('groups'));
   const [failed, setFailed] = useState(false);
   const current = useApp((s) => s.communityId);
   const setApp = useApp((s) => s.set);
@@ -91,6 +93,7 @@ export function Community({
     }
     setFailed(false);
     setGroups(g);
+    remember('groups', g);
     if (g.length && !g.some((x) => x.id === useApp.getState().communityId)) setApp({ communityId: g[0].id });
     return g;
   }, [setApp]);
@@ -236,35 +239,47 @@ function GroupView({ group, onChanged }: { group: Group; onChanged: () => void }
   const uiLang = useApp((s) => s.uiLang);
   const myId = useAccount((s) => s.session?.user.id);
   const isAdmin = group.role === 'owner' || group.role === 'admin';
-  const [list, setList] = useState<Member[] | null>(null);
-  const [plan, setPlan] = useState<Plan | null | undefined>(undefined);
-  const [allPlans, setAllPlans] = useState<Plan[]>([]);
-  const [log, setLog] = useState<LogRow[]>([]);
-  const [logReady, setLogReady] = useState(false);
-  const [done, setDone] = useState<Set<number>>(new Set());
+  // The last copy seen on this phone shows at once; the fresh one replaces it quietly.
+  const cacheKey = `group:${group.id}`;
+  const [snap] = useState(() => cached<{ list: Member[]; plans: Plan[]; done: number[] }>(cacheKey));
+  const [list, setList] = useState<Member[] | null>(snap?.list ?? null);
+  const [plan, setPlan] = useState<Plan | null | undefined>(snap ? (snap.plans.find((p) => p.status !== 'done') ?? null) : undefined);
+  const [allPlans, setAllPlans] = useState<Plan[]>(snap?.plans ?? []);
+  const [done, setDone] = useState<Set<number>>(new Set(snap?.done ?? []));
+  const [tasksTick, setTasksTick] = useState(0);
   const [sheet, setSheet] = useState<null | 'invite' | 'plan' | 'settings' | { member: Member } | { read: number }>(null);
   const [msg, setMsg] = useState<string | null>(null);
 
   const load = useCallback(async () => {
     try {
-      const [m, ps] = await Promise.all([loadMembers(group.id), loadPlans(group.id)]);
-      setList(m);
-      const active = ps.find((p) => p.status !== 'done') ?? null;
+      // Plans, members (with their progress) and your days, all at once.
+      const psP = loadPlans(group.id);
+      const curP = psP.then((ps) => ps.find((p) => p.status !== 'done') ?? null);
+      const [ps, cur, m, d] = await Promise.all([psP, curP, loadMembers(group.id, curP), curP.then((c) => (c ? myDays(c.id) : new Set<number>()))]);
       setAllPlans(ps);
-      void groupLog(ps.map((p) => p.id))
-        .then((l) => {
-          setLog(l);
-          setLogReady(true);
-        })
-        .catch(() => setLogReady(true));
-      setPlan(active);
-      setDone(active ? await myDays(active.id) : new Set());
+      setPlan(cur);
+      setList(m);
+      setDone(d);
+      remember(cacheKey, { list: m, plans: ps, done: [...d] });
     } catch {
-      setMsg(t.cmFailed);
+      if (!snap) setMsg(t.cmFailed);
     }
-  }, [group.id, t.cmFailed]);
+  }, [group.id, cacheKey, snap, t.cmFailed]);
   useEffect(() => {
     void load();
+  }, [load]);
+  // Live: when anyone ticks a day or a task, the screen updates by itself.
+  const planId = plan?.id ?? null;
+  useEffect(() => watchGroup(group.id, planId, (what) => (what === 'reading' ? void load() : setTasksTick((n) => n + 1))), [group.id, planId, load]);
+  // And when you come back to the app.
+  useEffect(() => {
+    const back = () => {
+      if (document.visibilityState !== 'visible') return;
+      void load();
+      setTasksTick((n) => n + 1);
+    };
+    document.addEventListener('visibilitychange', back);
+    return () => document.removeEventListener('visibilitychange', back);
   }, [load]);
 
   const [nudged, setNudged] = useState<Record<string, boolean>>({});
@@ -281,23 +296,10 @@ function GroupView({ group, onChanged }: { group: Group; onChanged: () => void }
   }
   const active = list?.filter((m) => m.status === 'active') ?? [];
   // How each member is doing in the current plan: chapters done, where they are, how far behind.
+  // (The database works these out: one short row per member.)
   const planTotal = plan ? totalDays(plan) : 1;
-  const due = plan ? daysDue(plan) : 0;
   const progressRows = active
-    .map((m) => {
-      const mine = plan ? log.filter((l) => l.plan_id === plan.id && l.user_id === m.user_id) : [];
-      const days = new Set(mine.map((l) => l.day));
-      const chapters = plan ? [...days].reduce((n, d) => n + chaptersFor(plan, d).length, 0) : 0;
-      let next: number | null = null;
-      for (let d = 1; d <= planTotal; d++)
-        if (!days.has(d)) {
-          next = d;
-          break;
-        }
-      let behind = 0;
-      for (let d = 1; d <= due; d++) if (!days.has(d)) behind++;
-      return { m, done: days.size, chapters, behind, next };
-    })
+    .map((m) => ({ m, done: Number(m.days_read) || 0, chapters: Number(m.chapters_read) || 0, behind: m.behind ?? 0, next: m.next_day }))
     .sort((a, b) => (plan ? b.behind - a.behind || a.done - b.done : 0) || a.m.display_name.localeCompare(b.m.display_name));
   const pending = list?.filter((m) => m.status === 'pending') ?? [];
 
@@ -314,8 +316,7 @@ function GroupView({ group, onChanged }: { group: Group; onChanged: () => void }
         useApp.getState().markReadingDay();
         void pushProgress().catch(() => {});
       }
-      setList(await loadMembers(group.id));
-      setLog(await groupLog(allPlans.map((p) => p.id)));
+      void load();
     } catch {
       setDone(done);
       setMsg(t.cmFailed);
@@ -342,7 +343,7 @@ function GroupView({ group, onChanged }: { group: Group; onChanged: () => void }
         </div>
       </div>
 
-      {list && <GroupExtras group={group} isAdmin={isAdmin} members={list} />}
+      {list && <GroupExtras group={group} isAdmin={isAdmin} members={list} refresh={tasksTick} />}
 
       {plan === undefined ? null : plan ? (
         <TodayCard plan={plan} done={done} isAdmin={isAdmin} onRead={(day) => setSheet({ read: day })} onTick={tick} onChanged={load} />
@@ -358,7 +359,7 @@ function GroupView({ group, onChanged }: { group: Group; onChanged: () => void }
         </div>
       )}
 
-      {list && allPlans.length > 0 && <GroupStats plans={allPlans} plan={plan ?? null} log={log} members={active} />}
+      {list && allPlans.length > 0 && <GroupStats plan={plan ?? null} members={active} />}
 
       {isAdmin && pending.length > 0 && (
         <section className="cm-card glass">
@@ -395,8 +396,7 @@ function GroupView({ group, onChanged }: { group: Group; onChanged: () => void }
                   </span>
                 )}
               </strong>
-              {plan && !logReady && <span className="cm-skeleton" aria-hidden />}
-              {plan && logReady && (
+              {plan && (
                 <>
                   <span className="caption">
                     {t.cmChaptersN(chapters)} · {next ? t.cmOnDay(next) : t.cmFinishedShort}
@@ -459,7 +459,6 @@ function GroupView({ group, onChanged }: { group: Group; onChanged: () => void }
             m={sheet.member}
             canManage={isAdmin && sheet.member.user_id !== myId && sheet.member.role !== 'owner'}
             plan={plan ?? null}
-            log={log.filter((l) => l.user_id === sheet.member.user_id)}
             plans={allPlans}
             onDone={() => {
               setSheet(null);
@@ -788,17 +787,29 @@ function InviteSheet({ group, isAdmin, onChanged }: { group: Group; isAdmin: boo
   );
 }
 
-function MemberSheet({ group, m, canManage, plan, plans, log, onDone }: { group: Group; m: Member; canManage: boolean; plan: Plan | null; plans: Plan[]; log: LogRow[]; onDone: () => void }) {
+function MemberSheet({ group, m, canManage, plan, plans, onDone }: { group: Group; m: Member; canManage: boolean; plan: Plan | null; plans: Plan[]; onDone: () => void }) {
   const t = useT();
   const [note, setNote] = useState<string | null>(null);
+  // Only this week's days are needed for the calendar: fetched when the sheet opens.
+  const [log, setLog] = useState<{ done_at: string }[]>([]);
+  useEffect(() => {
+    const now = new Date();
+    const sunday = new Date(now.getFullYear(), now.getMonth(), now.getDate() - now.getDay());
+    let live = true;
+    memberDays(group.id, m.user_id, sunday, plans.map((p) => p.id))
+      .then((rows) => live && setLog(rows))
+      .catch(() => {});
+    return () => {
+      live = false;
+    };
+  }, [group.id, m.user_id, plans]);
   const act = async (a: 'make_admin' | 'make_member' | 'remove') => {
     if (a === 'remove' && !confirm(t.cmRemoveConfirm(m.display_name))) return;
     await manageMember(group.id, m.user_id, a).catch(() => {});
     onDone();
   };
-  const byId = new Map(plans.map((p) => [p.id, p]));
-  const chapters = log.reduce((n, l) => n + (byId.get(l.plan_id) ? chaptersFor(byId.get(l.plan_id)!, l.day).length : 0), 0);
-  const planDone = plan ? log.filter((l) => l.plan_id === plan.id).length : 0;
+  const chapters = Number(m.chapters_read) || 0;
+  const planDone = Number(m.days_read) || 0;
   return (
     <div className="tl-panel">
       <div className="cm-member is-big">
@@ -845,7 +856,6 @@ function MemberSheet({ group, m, canManage, plan, plans, log, onDone }: { group:
   );
 }
 
-type LogRow = { plan_id: string; user_id: string; day: number; done_at: string };
 
 function Stat({ value, label }: { value: string | number; label: string }) {
   return (
@@ -857,15 +867,13 @@ function Stat({ value, label }: { value: string | number; label: string }) {
 }
 
 /** The group at a glance: chapters read, readers this week, longest streak, plan progress. */
-function GroupStats({ plans, plan, log, members }: { plans: Plan[]; plan: Plan | null; log: LogRow[]; members: Member[] }) {
+function GroupStats({ plan, members }: { plan: Plan | null; members: Member[] }) {
   const t = useT();
-  const byId = new Map(plans.map((p) => [p.id, p]));
-  const chapters = log.reduce((n, l) => n + (byId.get(l.plan_id) ? chaptersFor(byId.get(l.plan_id)!, l.day).length : 0), 0);
-  const weekAgo = Date.now() - 7 * 86_400_000;
-  const readers = new Set(log.filter((l) => new Date(l.done_at).getTime() > weekAgo).map((l) => l.user_id)).size;
+  const chapters = members.reduce((n, m) => n + (Number(m.chapters_read) || 0), 0);
+  const readers = members.filter((m) => m.read_week).length;
   const best = Math.max(0, ...members.map((m) => m.streak));
   const total = plan ? totalDays(plan) : 0;
-  const pct = plan && members.length ? Math.round((members.reduce((n, m) => n + Math.min(total, log.filter((l) => l.plan_id === plan.id && l.user_id === m.user_id).length), 0) / (total * members.length)) * 100) : null;
+  const pct = plan && members.length ? Math.round((members.reduce((n, m) => n + Math.min(total, Number(m.days_read) || 0), 0) / (total * members.length)) * 100) : null;
   return (
     <section className="cm-card glass">
       <h3 className="eyebrow">{t.cmStats}</h3>
@@ -880,7 +888,7 @@ function GroupStats({ plans, plan, log, members }: { plans: Plan[]; plan: Plan |
 }
 
 /** This week (Sunday to Saturday): a mark on each day they read. */
-function ReadingCalendar({ log }: { log: LogRow[] }) {
+function ReadingCalendar({ log }: { log: { done_at: string }[] }) {
   const t = useT();
   const uiLang = useApp((s) => s.uiLang);
   const counts = new Map<string, number>();

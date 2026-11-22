@@ -20,6 +20,8 @@ import {
   addTaskComment,
   deleteTaskComment,
   tasks as loadTasks,
+  cached,
+  remember,
   type TaskDone,
   type TaskComment,
   type Community,
@@ -36,11 +38,11 @@ const fmtDate = (iso: string, lang: 'en' | 'ta') => new Date(iso + (iso.length =
 const daysUntil = (iso: string) => Math.round((new Date(iso + 'T00:00').getTime() - new Date(isoDay(new Date()) + 'T00:00').getTime()) / 86_400_000);
 
 /** The group's tasks (in the app or outside it). */
-export function GroupExtras({ group, isAdmin, members }: { group: Community; isAdmin: boolean; members: Member[] }) {
+export function GroupExtras({ group, isAdmin, members, refresh = 0 }: { group: Community; isAdmin: boolean; members: Member[]; refresh?: number }) {
   const t = useT();
   const uiLang = useApp((s) => s.uiLang);
   const myId = useAccount((s) => s.session?.user.id);
-  const [taskList, setTaskList] = useState<{ list: Task[]; done: TaskDone } | null>(null);
+  const [taskList, setTaskList] = useState<{ list: Task[]; done: TaskDone } | null>(() => cached(`tasks:${group.id}`));
   const [sheet, setSheet] = useState<null | 'task' | { task: Task } | { edit: Task }>(null);
   // One row of task cards (2 on a phone, 3 on wider screens); the rest behind "View all".
   const [showAll, setShowAll] = useState(false);
@@ -48,14 +50,17 @@ export function GroupExtras({ group, isAdmin, members }: { group: Community; isA
 
   const load = useCallback(async () => {
     try {
-      setTaskList(await loadTasks(group.id));
+      const fresh = await loadTasks(group.id);
+      setTaskList(fresh);
+      remember(`tasks:${group.id}`, fresh);
     } catch {
-      setTaskList({ list: [], done: {} });
+      setTaskList((cur) => cur ?? { list: [], done: {} });
     }
   }, [group.id]);
+  // Again when someone ticks a task (refresh goes up) or you come back to the app.
   useEffect(() => {
     void load();
-  }, [load]);
+  }, [load, refresh]);
 
   const active = members.filter((m) => m.status === 'active');
   /** Tick a part (or the whole task, part 0). Ticking the last part finishes the task. */
