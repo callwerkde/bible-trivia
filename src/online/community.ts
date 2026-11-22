@@ -186,3 +186,136 @@ export async function nudgeMember(community: string, user: string): Promise<'sen
   sendPendingPushes();
   return data as 'sent' | 'already' | 'not_member';
 }
+
+// ---------- tasks, goals, feed ----------
+
+export interface Task {
+  id: string;
+  community_id: string;
+  title: string;
+  note: string;
+  ref: { b: string; c: number; v?: number; v2?: number } | null;
+  kind: 'read' | 'listen' | 'watch' | 'do';
+  /** An outside page, sermon or recording. */
+  link: string | null;
+  /** Steps ticked off one by one ("Message 1", "Message 2"); empty = one tick. */
+  parts: string[];
+  due_on: string | null;
+  created_at: string;
+}
+/** Who ticked which parts: done[taskId][userId] = part numbers (0 = the whole task). */
+export type TaskDone = Record<string, Record<string, number[]>>;
+export const isTaskDone = (d: TaskDone, task: string, user: string) => Boolean(d[task]?.[user]?.includes(0));
+export interface Goal {
+  id: string;
+  community_id: string;
+  title: string;
+  kind: 'chapters' | 'finish';
+  target: number | null;
+  due_on: string;
+  created_at: string;
+}
+export interface FeedItem {
+  kind: 'read' | 'task' | 'joined';
+  user_id: string;
+  display_name: string;
+  avatar: string;
+  at: string;
+  item: string;
+  plan_title: string | null;
+  day: number | null;
+  task_title: string | null;
+  reactions: { emoji: Emoji; mine: boolean; name: string }[];
+}
+export type Emoji = 'pray' | 'heart' | 'clap';
+
+export async function tasks(community: string): Promise<{ list: Task[]; done: TaskDone }> {
+  const db = need();
+  const { data, error } = await db.from('community_tasks').select('*').eq('community_id', community).order('created_at', { ascending: false });
+  if (error) throw error;
+  const list = data as Task[];
+  const done: TaskDone = {};
+  if (list.length) {
+    const r = await db.from('community_task_done').select('task_id, user_id, part').in('task_id', list.map((t) => t.id));
+    if (r.error) throw r.error;
+    for (const d of r.data as { task_id: string; user_id: string; part: number }[]) ((done[d.task_id] ??= {})[d.user_id] ??= []).push(d.part);
+  }
+  return { list, done };
+}
+
+export async function createTask(community: string, t: Pick<Task, 'title' | 'note' | 'ref' | 'due_on' | 'kind' | 'link' | 'parts'>) {
+  const { error } = await need().from('community_tasks').insert({ community_id: community, ...t });
+  if (error) throw error;
+}
+export async function deleteTask(id: string) {
+  const { error } = await need().from('community_tasks').delete().eq('id', id);
+  if (error) throw error;
+}
+/** Tick or untick a part (0 = the whole task). `whole` also ticks / unticks the whole task. */
+export async function setTaskPart(task: string, part: number, done: boolean, whole: boolean) {
+  const db = need();
+  const rows = [part, ...(whole && part !== 0 ? [0] : [])].map((p) => ({ task_id: task, user_id: me()!, part: p }));
+  const { error } = done
+    ? await db.from('community_task_done').upsert(rows, { onConflict: 'task_id,user_id,part', ignoreDuplicates: true })
+    : await db.from('community_task_done').delete().eq('task_id', task).eq('user_id', me()!).in('part', rows.map((r) => r.part));
+  if (error) throw error;
+}
+
+export interface TaskComment {
+  id: string;
+  body: string;
+  created_at: string;
+  user_id: string;
+  display_name: string;
+  avatar: string;
+  mine: boolean;
+}
+export async function taskComments(task: string): Promise<TaskComment[]> {
+  const { data, error } = await need().rpc('task_comments_for', { p_task: task });
+  if (error) throw error;
+  return data as TaskComment[];
+}
+export async function addTaskComment(task: string, body: string) {
+  const { error } = await need().from('community_task_comments').insert({ task_id: task, user_id: me()!, body: body.trim() });
+  if (error) throw error;
+}
+export async function deleteTaskComment(id: string) {
+  const { error } = await need().from('community_task_comments').delete().eq('id', id);
+  if (error) throw error;
+}
+
+export async function goals(community: string): Promise<Goal[]> {
+  const { data, error } = await need().from('community_goals').select('*').eq('community_id', community).order('due_on');
+  if (error) throw error;
+  return data as Goal[];
+}
+export async function createGoal(community: string, g: Pick<Goal, 'title' | 'kind' | 'target' | 'due_on'>) {
+  const { error } = await need().from('community_goals').insert({ community_id: community, ...g });
+  if (error) throw error;
+}
+export async function deleteGoal(id: string) {
+  const { error } = await need().from('community_goals').delete().eq('id', id);
+  if (error) throw error;
+}
+
+/** Everyone's reading log for some plans (for goal progress). */
+export async function groupLog(planIds: string[]): Promise<{ plan_id: string; user_id: string; day: number; done_at: string }[]> {
+  if (!planIds.length) return [];
+  const { data, error } = await need().from('reading_log').select('plan_id, user_id, day, done_at').in('plan_id', planIds);
+  if (error) throw error;
+  return data as { plan_id: string; user_id: string; day: number; done_at: string }[];
+}
+
+export async function feed(community: string): Promise<FeedItem[]> {
+  const { data, error } = await need().rpc('community_feed', { p_community: community, p_limit: 40 });
+  if (error) throw error;
+  return data as FeedItem[];
+}
+
+export async function react(community: string, target: string, item: string, emoji: Emoji, on: boolean) {
+  const db = need();
+  const { error } = on
+    ? await db.from('community_reactions').upsert({ community_id: community, target_user: target, item, from_user: me()!, emoji }, { ignoreDuplicates: true })
+    : await db.from('community_reactions').delete().eq('community_id', community).eq('target_user', target).eq('item', item).eq('from_user', me()!).eq('emoji', emoji);
+  if (error) throw error;
+}

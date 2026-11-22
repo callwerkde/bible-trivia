@@ -2,7 +2,7 @@ import { db } from '../storage/db';
 import { supabase } from './supabase';
 
 export type ReportCategory = 'wrong_answer' | 'typo' | 'tamil' | 'confusing' | 'other';
-export type ReportKind = 'question' | 'recall' | 'verse' | 'faq' | 'gospel' | 'post' | 'comment' | 'timeline';
+export type ReportKind = 'question' | 'recall' | 'verse' | 'faq' | 'gospel' | 'post' | 'comment' | 'timeline' | 'task_comment';
 
 export interface ReportTarget {
   kind: ReportKind;
@@ -149,4 +149,8 @@ export function commentTarget(c: { id: string; body: string; display_name: strin
 
 export function timelineTarget(e: { id: string; text: string; added_by?: string }): ReportTarget {
   return { kind: 'timeline', id: `timeline-${e.id}`, snapshot: { name: e.added_by ?? '', text: e.text.slice(0, 400) } };
+}
+
+export function taskCommentTarget(c: { id: string; body: string; display_name: string }): ReportTarget {
+  return { kind: 'task_comment', id: `task-comment-${c.id}`, snapshot: { name: c.display_name, text: c.body.slice(0, 400) } };
 }

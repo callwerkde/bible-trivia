@@ -52,6 +52,7 @@ import {
   type Preview,
 } from '../online/community';
 import { Avatar, Friends } from './Friends';
+import { GroupExtras } from './CommunityExtras';
 import type { Challenge, Friend } from '../online/account';
 import type { ModeId } from '../engine/modes';
 
@@ -203,6 +204,7 @@ function GroupView({ group, onChanged }: { group: Group; onChanged: () => void }
   const isAdmin = group.role === 'owner' || group.role === 'admin';
   const [list, setList] = useState<Member[] | null>(null);
   const [plan, setPlan] = useState<Plan | null | undefined>(undefined);
+  const [allPlans, setAllPlans] = useState<Plan[]>([]);
   const [done, setDone] = useState<Set<number>>(new Set());
   const [sheet, setSheet] = useState<null | 'invite' | 'plan' | 'settings' | { member: Member } | { read: number }>(null);
   const [msg, setMsg] = useState<string | null>(null);
@@ -212,6 +214,7 @@ function GroupView({ group, onChanged }: { group: Group; onChanged: () => void }
       const [m, ps] = await Promise.all([loadMembers(group.id), loadPlans(group.id)]);
       setList(m);
       const active = ps.find((p) => p.status !== 'done') ?? null;
+      setAllPlans(ps);
       setPlan(active);
       setDone(active ? await myDays(active.id) : new Set());
     } catch {
@@ -290,6 +293,8 @@ function GroupView({ group, onChanged }: { group: Group; onChanged: () => void }
           )}
         </div>
       )}
+
+      {list && <GroupExtras group={group} isAdmin={isAdmin} plans={allPlans} members={list} />}
 
       {isAdmin && pending.length > 0 && (
         <section className="cm-card glass">

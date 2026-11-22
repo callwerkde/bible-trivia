@@ -139,6 +139,17 @@ export function message(row: QueueRow, lang: Lang, verses: Verse[], books: Recor
         : `${p.community_name} · Day ${p.day}${behind > 1 ? ` · ${behind} days behind` : ''}${p.streak ? ` · keep your ${p.streak}-day streak 🔥` : ''}`;
       return { title, body, url: '/#friends', tag: 'reading' };
     }
+    case 'community_task': {
+      const verb = ta
+        ? ({ read: 'வாசிக்க', listen: 'கேட்க', watch: 'பார்க்க', do: 'செய்ய' } as Record<string, string>)[String(p.kind)] ?? ''
+        : ({ read: 'to read', listen: 'to listen to', watch: 'to watch', do: 'to do' } as Record<string, string>)[String(p.kind)] ?? '';
+      return {
+        title: ta ? `${p.community_name}: புதிய பணி` : `${p.community_name}: something new ${verb}`,
+        body: String(p.title),
+        url: '/#friends',
+        tag: `task-${p.task}`,
+      };
+    }
     case 'community_nudge':
       return {
         title: ta ? `${p.name} உங்களை உற்சாகப்படுத்துகிறார்` : `${p.name} is cheering you on`,
