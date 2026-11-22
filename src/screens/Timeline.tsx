@@ -29,6 +29,7 @@ import {
   type Lang,
   type TEvent,
   type TPerson,
+  type TRelative,
   type TRef,
   type Text,
   type Timeline as TL,
@@ -731,6 +732,7 @@ function PanelView({
             </>
           )}
         </dl>
+        {p.family && <FamilyTree p={p} tl={tl} lang={lang} onPerson={(o) => replace({ k: 'person', p: o })} onVerse={(r) => open({ k: 'verse', r })} />}
         {p.events.length > 0 && (
           <>
             <h3 className="eyebrow">{t.tlEvents}</h3>
@@ -1013,5 +1015,86 @@ function VerseReader({ r }: { r: TRef }) {
         </div>
       )}
     </div>
+  );
+}
+
+/** A small family tree: parents, the person with husband or wife, children, then brothers and sisters. */
+function FamilyTree({ p, tl, lang, onPerson, onVerse }: { p: TPerson; tl: TL; lang: Lang; onPerson: (p: TPerson) => void; onVerse: (r: TRef) => void }) {
+  const t = useT();
+  const f = p.family!;
+  const parents = [f.father, f.mother].filter(Boolean) as TRelative[];
+  const spouses = f.spouses ?? [];
+  const children = f.children ?? [];
+  const siblings = f.siblings ?? [];
+  if (!parents.length && !spouses.length && !children.length && !siblings.length) return null;
+  const byId = (id?: string) => (id ? tl.people.find((x) => x.id === id) : undefined);
+  const Chip = ({ r }: { r: TRelative }) => {
+    const linked = byId(r.id);
+    const note = lang === 'ta' ? r.noteTa || r.note : r.note;
+    return (
+      <button
+        className={`fam-chip ${linked ? 'is-linked' : ''}`}
+        style={linked ? { ['--cat' as string]: `var(--tl-${linked.cat})` } : undefined}
+        onClick={() => (linked ? onPerson(linked) : r.ref && onVerse(r.ref))}
+        disabled={!linked && !r.ref}
+      >
+        {linked && <i className="tl-dot" />}
+        <span lang={lang}>{pick(r, lang)}</span>
+        {note && <small>{note}</small>}
+      </button>
+    );
+  };
+  return (
+    <section className="fam">
+      <h3 className="eyebrow">{t.famTitle}</h3>
+      <div className="fam-tree">
+        {parents.length > 0 && (
+          <>
+            <div className="fam-row" aria-label={t.famParents}>
+              {parents.map((r, i) => (
+                <Fragment key={r.en}>
+                  {i > 0 && <span className="fam-join" aria-hidden />}
+                  <Chip r={r} />
+                </Fragment>
+              ))}
+            </div>
+            <i className="fam-line" aria-hidden />
+          </>
+        )}
+        <div className="fam-row">
+          <span className="fam-chip is-self" style={{ ['--cat' as string]: `var(--tl-${p.cat})` }}>
+            <i className="tl-dot" />
+            <strong lang={lang}>{pick(p.name, lang)}</strong>
+          </span>
+          {spouses.map((r) => (
+            <Fragment key={r.en}>
+              <span className="fam-join" aria-hidden />
+              <Chip r={r} />
+            </Fragment>
+          ))}
+        </div>
+        {children.length > 0 && (
+          <>
+            <i className="fam-line" aria-hidden />
+            <div className="fam-row fam-kids" aria-label={t.famChildren}>
+              {children.map((r) => (
+                <Chip key={r.en} r={r} />
+              ))}
+            </div>
+          </>
+        )}
+      </div>
+      {siblings.length > 0 && (
+        <div className="fam-sibs">
+          <span className="caption">{t.famSiblings}</span>
+          <div className="fam-row is-left">
+            {siblings.map((r) => (
+              <Chip key={r.en} r={r} />
+            ))}
+          </div>
+        </div>
+      )}
+      <p className="caption fam-hint">{t.famHint}</p>
+    </section>
   );
 }

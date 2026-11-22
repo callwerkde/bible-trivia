@@ -24,6 +24,18 @@ for (const p of src.people) {
   if (p.born == null && !p.active) errors.push(`${p.id}: needs born/died or active years`);
   p.events.forEach((e) => year(e.y, p.id));
   refs(p.refs, p.id);
+  // Family: every relative needs a name and (if given) a real book; links must point at someone on the timeline.
+  const f = p.family ?? {};
+  for (const r of [f.father, f.mother, ...(f.spouses ?? []), ...(f.children ?? []), ...(f.siblings ?? [])].filter(Boolean)) {
+    if (!r.en) errors.push(`${p.id}: family member without a name`);
+    if (r.ref) refs([r.ref], `${p.id} family ${r.en}`);
+  }
+}
+const allIds = new Set(src.people.map((p) => p.id));
+for (const p of src.people) {
+  const f = p.family ?? {};
+  for (const r of [f.father, f.mother, ...(f.spouses ?? []), ...(f.children ?? []), ...(f.siblings ?? [])].filter(Boolean))
+    if (r.id && !allIds.has(r.id)) errors.push(`${p.id}: family link to unknown ${r.id}`);
 }
 if (errors.length) {
   console.error(errors.join('\n'));

@@ -1864,3 +1864,19 @@ textarea.field.post-body-input:lang(ta) { line-height: 1.85; }
 .gen-node.is-skipped { border-style: dashed; border-left-style: dashed; opacity: 0.7; background: none !important; }
 .gen-runs { position: relative; }
 .gen-runs::before { content: ''; position: absolute; left: 50%; top: -6px; bottom: -6px; border-left: 2px solid color-mix(in srgb, var(--tl-kj) 45%, transparent); }
+/* family tree in a person's sheet */
+.fam { display: flex; flex-direction: column; gap: 6px; }
+.fam h3 { margin: 12px 0 2px; }
+.fam-tree { display: flex; flex-direction: column; align-items: center; padding: 12px 8px; border-radius: var(--radius-md); background: var(--card); border: 1px solid var(--glass-edge); }
+.fam-row { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 6px; }
+.fam-row.is-left { justify-content: flex-start; }
+.fam-line { display: block; width: 2px; height: 16px; background: var(--line-strong); }
+.fam-join { display: inline-block; width: 14px; height: 2px; background: var(--line-strong); }
+.fam-chip { display: inline-flex; align-items: center; gap: 5px; padding: 5px 10px; border-radius: 999px; border: 1px solid var(--line); background: var(--bg-3); font: inherit; font-size: 0.86rem; color: var(--text); cursor: pointer; }
+.fam-chip:disabled { cursor: default; }
+.fam-chip small { font-size: 0.7rem; color: var(--text-3); }
+.fam-chip.is-linked { border-color: color-mix(in srgb, var(--cat) 45%, var(--line)); font-weight: 600; }
+.fam-chip.is-self { border: 2px solid var(--cat); background: color-mix(in srgb, var(--cat) 12%, var(--bg-3)); cursor: default; padding: 6px 12px; }
+.fam-kids { max-width: 100%; }
+.fam-sibs { display: flex; flex-direction: column; gap: 6px; margin-top: 4px; }
+.fam-hint { margin: 0; }

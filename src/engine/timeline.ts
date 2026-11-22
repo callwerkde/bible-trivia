@@ -58,6 +58,22 @@ export interface TPerson {
   note?: string;
   /** Names of readers whose corrections were applied. */
   correctedBy?: string[];
+  /** Relatives the Bible names, each with its verse. */
+  family?: TFamily;
+}
+export interface TRelative extends Text {
+  /** The same person on the timeline, if they are on it. */
+  id?: string;
+  ref?: TRef;
+  note?: string;
+  noteTa?: string;
+}
+export interface TFamily {
+  father?: TRelative | null;
+  mother?: TRelative | null;
+  spouses?: TRelative[];
+  children?: TRelative[];
+  siblings?: TRelative[];
 }
 export interface TPersonEvent extends Text {
   y: number;
