@@ -50,7 +50,7 @@ type Target = { a: number; done: boolean; n: number } | null;
 type View = 'story' | 'chart';
 
 /** The Bible Lives Timeline: a story list on phones, a to-scale chart on wide screens. */
-export function Timeline({ onExit }: { onExit: () => void }) {
+export function Timeline({ onExit, focus, onGenealogy }: { onExit: () => void; focus?: string; onGenealogy?: () => void }) {
   const t = useT();
   const uiLang = useApp((s) => s.uiLang);
   const qLang = useApp((s) => s.qLang);
@@ -94,6 +94,9 @@ export function Timeline({ onExit }: { onExit: () => void }) {
     loadTimeline()
       .then((base) => {
         setTl(base);
+        // Opened for one person (from Jesus' family line): show their sheet.
+        const p = focus ? base.people.find((x) => x.id === focus) : undefined;
+        if (p) setStack([{ k: 'person', p }]);
         // Readers' approved suggestions, added on top when online.
         void loadApproved().then((rows) => rows?.length && setTl(withApproved(base, rows)));
       })
@@ -289,7 +292,7 @@ export function Timeline({ onExit }: { onExit: () => void }) {
                     </Pressable>
                   </div>
                 ) : (
-                <PanelView panel={stack[stack.length - 1]} tl={tl} lang={lang} sec={sec} open={open} replace={(p) => setStack((s) => [...s.slice(0, -1), p])} prev={neighbour(-1)} next={neighbour(1)} onStep={goPerson} />
+                <PanelView panel={stack[stack.length - 1]} tl={tl} lang={lang} sec={sec} open={open} replace={(p) => setStack((s) => [...s.slice(0, -1), p])} prev={neighbour(-1)} next={neighbour(1)} onStep={goPerson} onGenealogy={onGenealogy} />
                 )}
               </motion.div>
             </AnimatePresence>
@@ -618,6 +621,7 @@ function PanelView({
   prev,
   next,
   onStep,
+  onGenealogy,
 }: {
   panel: Panel;
   tl: TL;
@@ -628,6 +632,7 @@ function PanelView({
   prev?: TPerson | null;
   next?: TPerson | null;
   onStep?: (d: number) => void;
+  onGenealogy?: () => void;
 }) {
   const t = useT();
   const other: Lang = lang === 'en' ? 'ta' : 'en';
@@ -772,6 +777,11 @@ function PanelView({
           </>
         )}
         {refs(p.refs)}
+        {p.id === 'jesus' && onGenealogy && (
+          <button className="btn btn-primary small gen-open" onClick={onGenealogy}>
+            {t.genFamilyLine} <ChevronRight size={16} strokeWidth={STROKE} />
+          </button>
+        )}
         <div className="tl-suggest">
           <button className="btn glass small" onClick={() => open({ k: 'add', draft: eventDraft(p) })}>
             <Plus size={16} strokeWidth={STROKE} /> {t.tlSuggestEvent}

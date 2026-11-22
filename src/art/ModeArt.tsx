@@ -289,6 +289,32 @@ const TimelineScroll = () => (
   </>
 );
 
+/** Jesus' family line: a smiling family tree with a small crown (David's line) on top. */
+const FamilyTree = () => (
+  <>
+    <Shadow />
+    <path d="M74 104 L76 70 Q78 62 70 54 M78 70 Q82 60 92 54 M76 84 Q66 78 58 80" fill="none" {...line} strokeWidth={6} stroke="#9c7656" />
+    <path d="M74 104 L76 70" {...line} />
+    <circle cx={56} cy={50} r={20} fill={C.green} {...line} />
+    <circle cx={98} cy={48} r={20} fill={C.greenDeep} {...line} />
+    <circle cx={78} cy={36} r={22} fill={C.green} {...line} />
+    <circle cx={52} cy={82} r={12} fill={C.greenDeep} {...line} />
+    <Face x={78} y={38} gap={16} smile={7} />
+    <path d="M66 12 L70 4 L76 11 L80 3 L84 11 L90 4 L92 14 Z" fill={C.red} {...line} strokeWidth={2.4} />
+    <circle cx={50} cy={46} r={4} fill={C.white} />
+    <circle cx={104} cy={52} r={4} fill={C.white} />
+    <circle cx={92} cy={30} r={4} fill={C.white} />
+  </>
+);
+
+export function GenealogyArt({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 160 120" className={className} aria-hidden>
+      <FamilyTree />
+    </svg>
+  );
+}
+
 export function TimelineArt({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 160 120" className={className} aria-hidden>

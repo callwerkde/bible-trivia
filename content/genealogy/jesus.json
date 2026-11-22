@@ -1,0 +1,1143 @@
+{
+ "about": "Genealogy of Jesus: Matthew 1 (Joseph, through Solomon) and Luke 3 (often read as Mary's line, through Nathan). KJV names, familiar Old Testament forms in alt, BSI Tamil as printed. Lists run top-down (older first).",
+ "promise": [
+  {
+   "b": "2SA",
+   "c": 7,
+   "v": 12,
+   "v2": 13
+  },
+  {
+   "b": "ISA",
+   "c": 11,
+   "v": 1
+  },
+  {
+   "b": "JER",
+   "c": 23,
+   "v": 5
+  },
+  {
+   "b": "LUK",
+   "c": 1,
+   "v": 31,
+   "v2": 33
+  },
+  {
+   "b": "ACT",
+   "c": 2,
+   "v": 30
+  },
+  {
+   "b": "ROM",
+   "c": 1,
+   "v": 3
+  },
+  {
+   "b": "2TI",
+   "c": 2,
+   "v": 8
+  },
+  {
+   "b": "REV",
+   "c": 22,
+   "v": 16
+  }
+ ],
+ "before": [
+  {
+   "en": "Adam",
+   "ta": "ஆதாம்",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 38
+   },
+   "tl": "adam"
+  },
+  {
+   "en": "Seth",
+   "ta": "சேத்",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 38
+   },
+   "tl": "seth"
+  },
+  {
+   "en": "Enos",
+   "ta": "ஏனோஸ்",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 38
+   },
+   "alt": "Enosh",
+   "tl": "enosh"
+  },
+  {
+   "en": "Cainan",
+   "ta": "கேனான்",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 37
+   },
+   "alt": "Kenan",
+   "tl": "kenan"
+  },
+  {
+   "en": "Maleleel",
+   "ta": "மகலாலெயேல்",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 37
+   },
+   "alt": "Mahalalel",
+   "tl": "mahalalel"
+  },
+  {
+   "en": "Jared",
+   "ta": "யாரேத்",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 37
+   },
+   "tl": "jared"
+  },
+  {
+   "en": "Enoch",
+   "ta": "ஏனோக்கு",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 37
+   },
+   "tl": "enoch"
+  },
+  {
+   "en": "Mathusala",
+   "ta": "மெத்தூசலா",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 37
+   },
+   "alt": "Methuselah",
+   "tl": "methuselah"
+  },
+  {
+   "en": "Lamech",
+   "ta": "லாமேக்கு",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 36
+   },
+   "tl": "lamech"
+  },
+  {
+   "en": "Noe",
+   "ta": "நோவா",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 36
+   },
+   "alt": "Noah",
+   "tl": "noah"
+  },
+  {
+   "en": "Sem",
+   "ta": "சேம்",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 36
+   },
+   "alt": "Shem",
+   "tl": "shem"
+  },
+  {
+   "en": "Arphaxad",
+   "ta": "அர்ப்பகசாத்",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 36
+   },
+   "tl": "arphaxad"
+  },
+  {
+   "en": "Cainan",
+   "ta": "காயினான்",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 36
+   }
+  },
+  {
+   "en": "Sala",
+   "ta": "சாலா",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 35
+   },
+   "alt": "Shelah",
+   "tl": "shelah"
+  },
+  {
+   "en": "Heber",
+   "ta": "ஏபேர்",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 35
+   },
+   "alt": "Eber",
+   "tl": "eber"
+  },
+  {
+   "en": "Phalec",
+   "ta": "பேலேக்",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 35
+   },
+   "alt": "Peleg",
+   "tl": "peleg"
+  },
+  {
+   "en": "Ragau",
+   "ta": "ரெகூ",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 35
+   },
+   "alt": "Reu",
+   "tl": "reu"
+  },
+  {
+   "en": "Saruch",
+   "ta": "சேரூக்",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 35
+   },
+   "alt": "Serug",
+   "tl": "serug"
+  },
+  {
+   "en": "Nachor",
+   "ta": "நாகோர்",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 34
+   },
+   "alt": "Nahor",
+   "tl": "nahor"
+  },
+  {
+   "en": "Thara",
+   "ta": "தேரா",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 34
+   },
+   "alt": "Terah",
+   "tl": "terah"
+  }
+ ],
+ "shared": [
+  {
+   "en": "Abraham",
+   "ta": "ஆபிரகாம்",
+   "ref": {
+    "b": "MAT",
+    "c": 1,
+    "v": 2
+   },
+   "lk": {
+    "b": "LUK",
+    "c": 3,
+    "v": 34
+   },
+   "tl": "abraham"
+  },
+  {
+   "en": "Isaac",
+   "ta": "ஈசாக்கு",
+   "ref": {
+    "b": "MAT",
+    "c": 1,
+    "v": 2
+   },
+   "lk": {
+    "b": "LUK",
+    "c": 3,
+    "v": 34
+   },
+   "tl": "isaac"
+  },
+  {
+   "en": "Jacob",
+   "ta": "யாக்கோபு",
+   "ref": {
+    "b": "MAT",
+    "c": 1,
+    "v": 2
+   },
+   "lk": {
+    "b": "LUK",
+    "c": 3,
+    "v": 34
+   },
+   "tl": "jacob"
+  },
+  {
+   "en": "Judas",
+   "ta": "யூதா",
+   "ref": {
+    "b": "MAT",
+    "c": 1,
+    "v": 2
+   },
+   "alt": "Judah",
+   "lk": {
+    "b": "LUK",
+    "c": 3,
+    "v": 33
+   }
+  },
+  {
+   "en": "Phares",
+   "ta": "பாரேஸ்",
+   "ref": {
+    "b": "MAT",
+    "c": 1,
+    "v": 3
+   },
+   "alt": "Perez",
+   "mother": {
+    "en": "Thamar",
+    "ta": "தாமார்"
+   },
+   "lk": {
+    "b": "LUK",
+    "c": 3,
+    "v": 33
+   }
+  },
+  {
+   "en": "Esrom",
+   "ta": "எஸ்ரோம்",
+   "ref": {
+    "b": "MAT",
+    "c": 1,
+    "v": 3
+   },
+   "alt": "Hezron",
+   "lk": {
+    "b": "LUK",
+    "c": 3,
+    "v": 33
+   }
+  },
+  {
+   "en": "Aram",
+   "ta": "ஆராம்",
+   "ref": {
+    "b": "MAT",
+    "c": 1,
+    "v": 3
+   },
+   "alt": "Ram",
+   "lk": {
+    "b": "LUK",
+    "c": 3,
+    "v": 33
+   }
+  },
+  {
+   "en": "Aminadab",
+   "ta": "அம்மினதாப்",
+   "ref": {
+    "b": "MAT",
+    "c": 1,
+    "v": 4
+   },
+   "lk": {
+    "b": "LUK",
+    "c": 3,
+    "v": 33
+   }
+  },
+  {
+   "en": "Naasson",
+   "ta": "நகசோன்",
+   "ref": {
+    "b": "MAT",
+    "c": 1,
+    "v": 4
+   },
+   "alt": "Nahshon",
+   "lk": {
+    "b": "LUK",
+    "c": 3,
+    "v": 32
+   }
+  },
+  {
+   "en": "Salmon",
+   "ta": "சல்மோன்",
+   "ref": {
+    "b": "MAT",
+    "c": 1,
+    "v": 4
+   },
+   "lk": {
+    "b": "LUK",
+    "c": 3,
+    "v": 32
+   }
+  },
+  {
+   "en": "Booz",
+   "ta": "போவாஸ்",
+   "ref": {
+    "b": "MAT",
+    "c": 1,
+    "v": 5
+   },
+   "alt": "Boaz",
+   "mother": {
+    "en": "Rachab",
+    "ta": "ராகாப்"
+   },
+   "lk": {
+    "b": "LUK",
+    "c": 3,
+    "v": 32
+   }
+  },
+  {
+   "en": "Obed",
+   "ta": "ஓபேத்",
+   "ref": {
+    "b": "MAT",
+    "c": 1,
+    "v": 5
+   },
+   "mother": {
+    "en": "Ruth",
+    "ta": "ரூத்"
+   },
+   "lk": {
+    "b": "LUK",
+    "c": 3,
+    "v": 32
+   }
+  },
+  {
+   "en": "Jesse",
+   "ta": "ஈசாய்",
+   "ref": {
+    "b": "MAT",
+    "c": 1,
+    "v": 5
+   },
+   "lk": {
+    "b": "LUK",
+    "c": 3,
+    "v": 32
+   }
+  },
+  {
+   "en": "David",
+   "ta": "தாவீது",
+   "ref": {
+    "b": "MAT",
+    "c": 1,
+    "v": 6
+   },
+   "lk": {
+    "b": "LUK",
+    "c": 3,
+    "v": 31
+   },
+   "tl": "david"
+  }
+ ],
+ "matthew": [
+  {
+   "en": "Solomon",
+   "ta": "சாலொமோன்",
+   "ref": {
+    "b": "MAT",
+    "c": 1,
+    "v": 6
+   },
+   "mother": {
+    "en": "the wife of Urias (Bathsheba)",
+    "ta": "உரியாவின் மனைவியாயிருந்தவள் (பத்சேபாள்)"
+   },
+   "tl": "solomon"
+  },
+  {
+   "en": "Roboam",
+   "ta": "ரெகொபெயாம்",
+   "ref": {
+    "b": "MAT",
+    "c": 1,
+    "v": 7
+   },
+   "alt": "Rehoboam",
+   "tl": "rehoboam"
+  },
+  {
+   "en": "Abia",
+   "ta": "அபியா",
+   "ref": {
+    "b": "MAT",
+    "c": 1,
+    "v": 7
+   },
+   "alt": "Abijah"
+  },
+  {
+   "en": "Asa",
+   "ta": "ஆசா",
+   "ref": {
+    "b": "MAT",
+    "c": 1,
+    "v": 7
+   },
+   "tl": "asa"
+  },
+  {
+   "en": "Josaphat",
+   "ta": "யோசபாத்",
+   "ref": {
+    "b": "MAT",
+    "c": 1,
+    "v": 8
+   },
+   "alt": "Jehoshaphat",
+   "tl": "jehoshaphat"
+  },
+  {
+   "en": "Joram",
+   "ta": "யோராம்",
+   "ref": {
+    "b": "MAT",
+    "c": 1,
+    "v": 8
+   },
+   "alt": "Jehoram"
+  },
+  {
+   "en": "Ozias",
+   "ta": "உசியா",
+   "ref": {
+    "b": "MAT",
+    "c": 1,
+    "v": 8
+   },
+   "alt": "Uzziah",
+   "tl": "uzziah"
+  },
+  {
+   "en": "Joatham",
+   "ta": "யோதாம்",
+   "ref": {
+    "b": "MAT",
+    "c": 1,
+    "v": 9
+   },
+   "alt": "Jotham"
+  },
+  {
+   "en": "Achaz",
+   "ta": "ஆகாஸ்",
+   "ref": {
+    "b": "MAT",
+    "c": 1,
+    "v": 9
+   },
+   "alt": "Ahaz",
+   "tl": "ahaz"
+  },
+  {
+   "en": "Ezekias",
+   "ta": "எசேக்கியா",
+   "ref": {
+    "b": "MAT",
+    "c": 1,
+    "v": 9
+   },
+   "alt": "Hezekiah",
+   "tl": "hezekiah"
+  },
+  {
+   "en": "Manasses",
+   "ta": "மனாசே",
+   "ref": {
+    "b": "MAT",
+    "c": 1,
+    "v": 10
+   },
+   "alt": "Manasseh",
+   "tl": "manasseh"
+  },
+  {
+   "en": "Amon",
+   "ta": "ஆமோன்",
+   "ref": {
+    "b": "MAT",
+    "c": 1,
+    "v": 10
+   }
+  },
+  {
+   "en": "Josias",
+   "ta": "யோசியா",
+   "ref": {
+    "b": "MAT",
+    "c": 1,
+    "v": 10
+   },
+   "alt": "Josiah",
+   "tl": "josiah"
+  },
+  {
+   "en": "Jechonias",
+   "ta": "எகொனியா",
+   "ref": {
+    "b": "MAT",
+    "c": 1,
+    "v": 11
+   },
+   "alt": "Jehoiachin",
+   "tl": "jehoiachin"
+  },
+  {
+   "en": "Salathiel",
+   "ta": "சலாத்தியேல்",
+   "ref": {
+    "b": "MAT",
+    "c": 1,
+    "v": 12
+   },
+   "alt": "Shealtiel"
+  },
+  {
+   "en": "Zorobabel",
+   "ta": "சொரொபாபேல்",
+   "ref": {
+    "b": "MAT",
+    "c": 1,
+    "v": 12
+   },
+   "alt": "Zerubbabel",
+   "tl": "zerubbabel"
+  },
+  {
+   "en": "Abiud",
+   "ta": "அபியூத்",
+   "ref": {
+    "b": "MAT",
+    "c": 1,
+    "v": 13
+   }
+  },
+  {
+   "en": "Eliakim",
+   "ta": "எலியாக்கீம்",
+   "ref": {
+    "b": "MAT",
+    "c": 1,
+    "v": 13
+   }
+  },
+  {
+   "en": "Azor",
+   "ta": "ஆசோர்",
+   "ref": {
+    "b": "MAT",
+    "c": 1,
+    "v": 13
+   }
+  },
+  {
+   "en": "Sadoc",
+   "ta": "சாதோக்கு",
+   "ref": {
+    "b": "MAT",
+    "c": 1,
+    "v": 14
+   },
+   "alt": "Zadok"
+  },
+  {
+   "en": "Achim",
+   "ta": "ஆகீம்",
+   "ref": {
+    "b": "MAT",
+    "c": 1,
+    "v": 14
+   }
+  },
+  {
+   "en": "Eliud",
+   "ta": "எலியூத்",
+   "ref": {
+    "b": "MAT",
+    "c": 1,
+    "v": 14
+   }
+  },
+  {
+   "en": "Eleazar",
+   "ta": "எலெயாசார்",
+   "ref": {
+    "b": "MAT",
+    "c": 1,
+    "v": 15
+   }
+  },
+  {
+   "en": "Matthan",
+   "ta": "மாத்தான்",
+   "ref": {
+    "b": "MAT",
+    "c": 1,
+    "v": 15
+   }
+  },
+  {
+   "en": "Jacob",
+   "ta": "யாக்கோபு",
+   "ref": {
+    "b": "MAT",
+    "c": 1,
+    "v": 15
+   }
+  },
+  {
+   "en": "Joseph",
+   "ta": "யோசேப்பு",
+   "ref": {
+    "b": "MAT",
+    "c": 1,
+    "v": 16
+   }
+  }
+ ],
+ "luke": [
+  {
+   "en": "Nathan",
+   "ta": "நாத்தான்",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 31
+   }
+  },
+  {
+   "en": "Mattatha",
+   "ta": "மாத்தாத்தா",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 31
+   }
+  },
+  {
+   "en": "Menan",
+   "ta": "மயினான்",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 31
+   }
+  },
+  {
+   "en": "Melea",
+   "ta": "மெலெயா",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 31
+   }
+  },
+  {
+   "en": "Eliakim",
+   "ta": "எலியாக்கீம்",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 30
+   }
+  },
+  {
+   "en": "Jonan",
+   "ta": "யோனான்",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 30
+   }
+  },
+  {
+   "en": "Joseph",
+   "ta": "யோசேப்பு",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 30
+   }
+  },
+  {
+   "en": "Juda",
+   "ta": "யூதா",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 30
+   }
+  },
+  {
+   "en": "Simeon",
+   "ta": "சிமியோன்",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 30
+   }
+  },
+  {
+   "en": "Levi",
+   "ta": "லேவி",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 29
+   }
+  },
+  {
+   "en": "Matthat",
+   "ta": "மாத்தாத்",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 29
+   }
+  },
+  {
+   "en": "Jorim",
+   "ta": "யோரீம்",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 29
+   }
+  },
+  {
+   "en": "Eliezer",
+   "ta": "எலியேசர்",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 29
+   }
+  },
+  {
+   "en": "Jose",
+   "ta": "யோசே",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 29
+   }
+  },
+  {
+   "en": "Er",
+   "ta": "ஏர்",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 28
+   }
+  },
+  {
+   "en": "Elmodam",
+   "ta": "எல்மோதாம்",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 28
+   }
+  },
+  {
+   "en": "Cosam",
+   "ta": "கோசாம்",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 28
+   }
+  },
+  {
+   "en": "Addi",
+   "ta": "அத்தி",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 28
+   }
+  },
+  {
+   "en": "Melchi",
+   "ta": "மெல்கி",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 28
+   }
+  },
+  {
+   "en": "Neri",
+   "ta": "நேரி",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 27
+   }
+  },
+  {
+   "en": "Salathiel",
+   "ta": "சலாத்தியேல்",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 27
+   },
+   "alt": "Shealtiel"
+  },
+  {
+   "en": "Zorobabel",
+   "ta": "சொரொபாபேல்",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 27
+   },
+   "alt": "Zerubbabel",
+   "tl": "zerubbabel"
+  },
+  {
+   "en": "Rhesa",
+   "ta": "ரேசா",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 27
+   }
+  },
+  {
+   "en": "Joanna",
+   "ta": "யோவன்னா",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 27
+   }
+  },
+  {
+   "en": "Juda",
+   "ta": "யூதா",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 26
+   }
+  },
+  {
+   "en": "Joseph",
+   "ta": "யோசேப்பு",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 26
+   }
+  },
+  {
+   "en": "Semei",
+   "ta": "சேமேய்",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 26
+   }
+  },
+  {
+   "en": "Mattathias",
+   "ta": "மத்தத்தியா",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 26
+   }
+  },
+  {
+   "en": "Maath",
+   "ta": "மாகாத்",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 26
+   }
+  },
+  {
+   "en": "Nagge",
+   "ta": "நங்காய்",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 25
+   }
+  },
+  {
+   "en": "Esli",
+   "ta": "எஸ்லி",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 25
+   }
+  },
+  {
+   "en": "Naum",
+   "ta": "நாகூம்",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 25
+   }
+  },
+  {
+   "en": "Amos",
+   "ta": "ஆமோஸ்",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 25
+   }
+  },
+  {
+   "en": "Mattathias",
+   "ta": "மத்தத்தியா",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 25
+   }
+  },
+  {
+   "en": "Joseph",
+   "ta": "யோசேப்பு",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 24
+   }
+  },
+  {
+   "en": "Janna",
+   "ta": "யன்னா",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 24
+   }
+  },
+  {
+   "en": "Melchi",
+   "ta": "மெல்கி",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 24
+   }
+  },
+  {
+   "en": "Levi",
+   "ta": "லேவி",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 24
+   }
+  },
+  {
+   "en": "Matthat",
+   "ta": "மாத்தாத்",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 24
+   }
+  },
+  {
+   "en": "Heli",
+   "ta": "ஏலி",
+   "ref": {
+    "b": "LUK",
+    "c": 3,
+    "v": 23
+   }
+  }
+ ],
+ "mary": {
+  "en": "Mary",
+  "ta": "மரியாள்",
+  "ref": {
+   "b": "MAT",
+   "c": 1,
+   "v": 16
+  },
+  "tl": "mary"
+ },
+ "jesus": {
+  "en": "Jesus, called Christ",
+  "ta": "கிறிஸ்து எனப்படுகிற இயேசு",
+  "ref": {
+   "b": "MAT",
+   "c": 1,
+   "v": 16
+  },
+  "lk": {
+   "b": "LUK",
+   "c": 3,
+   "v": 23
+  },
+  "tl": "jesus"
+ },
+ "generations": [
+  {
+   "b": "MAT",
+   "c": 1,
+   "v": 17
+  }
+ ]
+}

@@ -11,6 +11,7 @@ import { Friends } from './screens/Friends';
 import { Practice, type PracticeAction } from './screens/Practice';
 import { MemoryVerses } from './screens/MemoryVerses';
 import { Timeline } from './screens/Timeline';
+import { Genealogy } from './screens/Genealogy';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { AdminTimeline } from './screens/AdminTimeline';
 import { Notebook } from './screens/Notebook';
@@ -51,7 +52,8 @@ type Route =
   | { kind: 'recall' }
   | { kind: 'quizpick' }
   | { kind: 'memory' }
-  | { kind: 'timeline' }
+  | { kind: 'timeline'; focus?: string }
+  | { kind: 'genealogy' }
   | { kind: 'saved' }
   | { kind: 'notebook' }
   | { kind: 'post'; post: Post; from: 'home' | 'list' | 'gospel' }
@@ -140,6 +142,7 @@ function routeKey(r: Route): string {
   if (r.kind === 'tab') return `tab-${r.tab}`;
   if (r.kind === 'game') return `game-${r.run}`;
   if (r.kind === 'post') return `post-${r.post.id}`;
+  if (r.kind === 'timeline' && r.focus) return `timeline-${r.focus}`;
   return r.kind;
 }
 
@@ -479,13 +482,14 @@ function MainApp() {
           >
             <ScrollPlace screenKey={screenKey} positions={scrollPos} current={currentScreen} />
             <ErrorBoundary resetKey={key} title={t.crashTitle} body={t.crashBody} home={t.tabPlay} onHome={() => goTab('play')}>
-            {route.kind === 'tab' && route.tab === 'play' && <Home onPlay={play} onMemory={() => setRoute({ kind: 'memory' })} onTimeline={() => setRoute({ kind: 'timeline' })} onResume={resumeGame} onShowSaved={() => setRoute({ kind: 'saved' })} onOpenPost={(post) => setRoute({ kind: 'post', post, from: 'home' })} onShowPosts={showThoughts} />}
+            {route.kind === 'tab' && route.tab === 'play' && <Home onPlay={play} onMemory={() => setRoute({ kind: 'memory' })} onTimeline={() => setRoute({ kind: 'timeline' })} onGenealogy={() => setRoute({ kind: 'genealogy' })} onResume={resumeGame} onShowSaved={() => setRoute({ kind: 'saved' })} onOpenPost={(post) => setRoute({ kind: 'post', post, from: 'home' })} onShowPosts={showThoughts} />}
             {route.kind === 'tab' && route.tab === 'friends' && <Friends onStartChallenge={startChallenge} onPlayChallenge={playChallenge} />}
             {route.kind === 'tab' && route.tab === 'gospel' && <Gospel section={gospelSection} onSection={setGospelSection} onOpenPost={(post) => setRoute({ kind: 'post', post, from: 'gospel' })} />}
             {route.kind === 'tab' && route.tab === 'progress' && <Practice onAction={practice} />}
             {route.kind === 'saved' && <SavedGames onBack={() => goTab('play')} onResume={resumeGame} />}
             {route.kind === 'memory' && <MemoryVerses onExit={() => goTab(lastTab)} />}
-            {route.kind === 'timeline' && <Timeline onExit={() => goTab(lastTab)} />}
+            {route.kind === 'timeline' && <Timeline focus={route.focus} onExit={() => goTab(lastTab)} onGenealogy={() => setRoute({ kind: 'genealogy' })} />}
+            {route.kind === 'genealogy' && <Genealogy onExit={() => goTab(lastTab)} onOpenTimeline={(id) => setRoute({ kind: 'timeline', focus: id })} />}
             {route.kind === 'notebook' && <Notebook onExit={() => goTab('progress')} />}
             {route.kind === 'tab' && route.tab === 'settings' && <Settings onAdmin={() => setRoute({ kind: 'admin' })} />}
             {route.kind === 'post' && <Thought post={route.post} onExit={() => (route.from === 'list' ? setRoute({ kind: 'posts' }) : route.from === 'gospel' ? goTab('gospel') : goTab('play'))} onShowAll={route.from === 'gospel' ? undefined : showThoughts} />}

@@ -12,7 +12,7 @@ import { VerseOfTheDay } from '../components/VerseCard';
 import { LangToggle } from '../components/LangToggle';
 import { IconTile, MODE_ICON, STROKE } from '../components/icons';
 import { Sheet } from '../components/Sheet';
-import { MemoryArt, ModeArt, TimelineArt } from '../art/ModeArt';
+import { GenealogyArt, MemoryArt, ModeArt, TimelineArt } from '../art/ModeArt';
 import { usePosts } from '../online/posts';
 import { InstallBanner } from '../components/Install';
 import { clearSnapshot, loadSnapshots, type GameSnapshot } from '../engine/resume';
@@ -28,7 +28,7 @@ const GROUPS: { id: 'quick' | 'learn' | 'challenge'; modes: ModeId[] }[] = [
 ];
 const NO_POSTS: string[] = [];
 
-export function Home({ onPlay, onMemory, onTimeline, onResume, onShowSaved, onOpenPost, onShowPosts }: { onPlay: (m: ModeId) => void; onMemory: () => void; onTimeline: () => void; onResume: (s: GameSnapshot) => void; onShowSaved: () => void; onOpenPost: (p: Post) => void; onShowPosts: () => void }) {
+export function Home({ onPlay, onMemory, onTimeline, onGenealogy, onResume, onShowSaved, onOpenPost, onShowPosts }: { onPlay: (m: ModeId) => void; onMemory: () => void; onTimeline: () => void; onGenealogy: () => void; onResume: (s: GameSnapshot) => void; onShowSaved: () => void; onOpenPost: (p: Post) => void; onShowPosts: () => void }) {
   const t = useT();
   const uiLang = useApp((s) => s.uiLang);
   const xp = useApp((s) => s.xp);
@@ -146,6 +146,19 @@ export function Home({ onPlay, onMemory, onTimeline, onResume, onShowSaved, onOp
                 <motion.span layout="position" transition={spring.calm} className="menu-text">
                   <strong>{t.timelineTitle}</strong>
                   <span className="caption">{t.timelineDesc}</span>
+                </motion.span>
+                <ChevronRight size={18} strokeWidth={STROKE} className="menu-chevron" />
+              </Pressable>
+              </motion.div>
+            )}
+            {/* Then Jesus' family line. */}
+            {g.id === 'learn' && (
+              <motion.div layout transition={spring.calm}>
+              <Pressable layout transition={spring.calm} className="mode-row glass horse-pale" onClick={onGenealogy}>
+                <motion.span layout transition={spring.calm} className="tile-art"><GenealogyArt className="mode-row-art" /></motion.span>
+                <motion.span layout="position" transition={spring.calm} className="menu-text">
+                  <strong>{t.genTitle}</strong>
+                  <span className="caption">{t.genDesc}</span>
                 </motion.span>
                 <ChevronRight size={18} strokeWidth={STROKE} className="menu-chevron" />
               </Pressable>

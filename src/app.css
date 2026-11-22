@@ -1792,3 +1792,62 @@ textarea.field.post-body-input:lang(ta) { line-height: 1.85; }
 .tl-dock-mini span { overflow: hidden; text-overflow: ellipsis; color: var(--text-2); font-variant-numeric: tabular-nums; }
 .tl-dock-mini strong { color: var(--text); }
 .tl-dock-dot { flex: none; width: 12px; height: 12px; border-radius: 4px; background: var(--drop); }
+
+/* ---------- Family line of Jesus ---------- */
+@media (min-width: 960px) { .genealogy { max-width: 760px; margin: 0 auto; width: 100%; } }
+.gen-lead { display: flex; flex-direction: column; gap: 8px; padding: 16px; border-radius: var(--radius-lg); }
+.gen-lead p { margin: 0; line-height: 1.5; color: var(--text-2); }
+.gen-lead h3 { margin: 6px 0 0; }
+.gen-flow { display: flex; flex-direction: column; align-items: stretch; gap: 0; padding-bottom: 40px; }
+.gen-label { margin: 14px 0 8px; text-align: center; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-3); }
+.gen-label:lang(ta), :lang(ta) .gen-label { text-transform: none; letter-spacing: 0; font-size: 0.8rem; }
+.gen-col { display: flex; flex-direction: column; align-items: stretch; }
+.gen-col > * + * { position: relative; margin-top: 14px; }
+.gen-col > * + *::before { content: ''; position: absolute; left: 50%; top: -15px; height: 14px; border-left: 2px solid var(--line-strong); }
+.gen-node { --c: var(--tl-anc); position: relative; display: flex; flex-direction: column; align-items: center; gap: 1px; width: 100%; padding: 8px 12px; border: 1px solid var(--glass-edge); border-left: 4px solid var(--c); border-radius: 14px; background: var(--card); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); font: inherit; color: var(--text); text-align: center; cursor: pointer; }
+.gen-node.is-before { --c: var(--text-3); }
+.gen-node.is-matthew { --c: var(--tl-kj); }
+.gen-node.is-luke { --c: var(--tl-nt); }
+.gen-name { display: flex; flex-wrap: wrap; justify-content: center; align-items: baseline; gap: 0 6px; }
+.gen-name strong { font-weight: 650; }
+.gen-alt { font-size: 0.82rem; color: var(--text-2); }
+.gen-sec { flex-basis: 100%; font-size: 0.86rem; color: var(--ta-ink); font-weight: 650; }
+.gen-sec:lang(en) { color: var(--text-2); font-weight: 500; }
+.gen-mother { font-size: 0.75rem; color: var(--text-3); font-style: italic; }
+.gen-both { position: absolute; top: -8px; right: 8px; padding: 1px 7px; border-radius: 999px; background: var(--accent-wash); color: var(--accent-ink); font-size: 0.66rem; font-weight: 700; }
+.gen-node.is-david { border: 2px solid var(--accent); border-left-width: 4px; background: var(--accent-wash); padding: 12px; }
+.gen-node.is-david strong { font-size: 1.15rem; color: var(--accent-ink); }
+.gen-crown { color: var(--accent-ink); }
+.gen-divider { align-self: center; margin: 12px 0 0; padding: 5px 12px; border: 1.5px dashed var(--line-strong); border-radius: 999px; background: none; font: inherit; font-size: 0.76rem; font-weight: 600; color: var(--accent-ink); cursor: pointer; }
+.gen-col .gen-divider { margin-top: 14px; }
+.gen-fold { display: flex; align-items: center; justify-content: center; gap: 6px; padding: 10px; border: 1px solid var(--glass-edge); border-radius: 999px; font: inherit; font-size: 0.86rem; font-weight: 600; color: var(--text-2); cursor: pointer; }
+.gen-col.is-before { overflow: hidden; margin-top: 10px; }
+.gen-god { text-align: center; font-size: 0.82rem; font-style: italic; color: var(--text-3); padding: 4px; }
+.gen-split, .gen-merge { position: relative; height: 30px; }
+.gen-split::before { content: ''; position: absolute; left: 50%; top: 0; height: 15px; border-left: 2px solid var(--line-strong); }
+.gen-split i { position: absolute; left: 25%; right: 25%; top: 15px; bottom: 0; border: 2px solid var(--line-strong); border-bottom: 0; border-radius: 12px 12px 0 0; }
+.gen-merge i { position: absolute; left: 25%; right: 25%; top: 0; height: 15px; border: 2px solid var(--line-strong); border-top: 0; border-radius: 0 0 12px 12px; }
+.gen-merge::after { content: ''; position: absolute; left: 50%; top: 15px; bottom: 0; border-left: 2px solid var(--line-strong); }
+.gen-two { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 10px; }
+.gen-two .gen-label { margin-top: 0; min-height: 2.4em; }
+.gen-two .gen-node { padding: 6px 6px; font-size: 0.86rem; }
+.gen-two .gen-alt { flex-basis: 100%; font-size: 0.72rem; }
+.gen-node.is-end { margin-top: 14px; position: relative; }
+.gen-node.is-end::before { content: ''; position: absolute; left: 50%; top: -15px; height: 14px; border-left: 2px solid var(--line-strong); }
+.gen-jesus { margin-top: 0; }
+.gen-node.is-jesus { border: 0; padding: 14px; background: var(--accent); color: var(--on-accent); }
+.gen-node.is-jesus strong { font-size: 1.2rem; }
+.gen-node.is-jesus .gen-mother, .gen-node.is-jesus .gen-sec { color: var(--on-accent); opacity: 0.9; font-style: normal; }
+.gen-note { margin: 12px 4px 0; text-align: center; }
+.gen-flow > .gen-col.is-matthew, .gen-flow > .gen-col.is-luke { margin-top: 14px; }
+.gen-sheet .gen-verse { margin: 0; padding: 12px 14px; border-radius: var(--radius-md); display: flex; flex-direction: column; gap: 6px; }
+.gen-sheet .gen-verse figcaption { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; color: var(--accent-ink); }
+.gen-sheet .gen-verse .verse { margin: 0; line-height: 1.6; }
+.gen-tl-link { align-self: flex-start; }
+.gen-open { align-self: flex-start; margin-top: 6px; }
+.gen-two > div { position: relative; display: flex; flex-direction: column; }
+.gen-two > div::before { content: ''; position: absolute; left: 50%; top: 2.4em; bottom: 0; border-left: 2px solid var(--line-strong); }
+.gen-two .gen-col, .gen-two .gen-node, .gen-two .gen-label { position: relative; z-index: 1; }
+.gen-two .gen-label { background: var(--bg); }
+.gen-two .gen-node.is-end { margin-top: auto; }
+.gen-two > div > .gen-col { margin-bottom: 14px; }
