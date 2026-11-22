@@ -1,5 +1,6 @@
 import { dayKey } from '../engine/picker';
 import { POPULAR, loadMcqIndex, pickBooks } from '../engine/mcq';
+import { BOOKS } from '../i18n/books';
 
 /**
  * Keeps questions on the phone for offline play. Once a day, while online, it
@@ -24,6 +25,40 @@ export async function cachedBooks(): Promise<Set<string>> {
   }
 }
 
+const BIBLE = BOOKS.map((b) => b.code);
+const bibleUrl = (b: string) => `/packs/bible/${b}.json`;
+
+/** How many books of the Bible text are on this phone (out of 66). */
+export async function bibleBooksSaved(): Promise<number> {
+  if (!('caches' in window)) return 0;
+  const found = await Promise.all(BIBLE.map((b) => caches.match(bibleUrl(b)).then(Boolean, () => false)));
+  return found.filter(Boolean).length;
+}
+
+let saving: Promise<number> | null = null;
+/** Saves the whole Bible (English and Tamil, about 3 MB) for reading offline, the books not
+ *  on the phone yet, one at a time. Returns how many books are saved. */
+export function saveBible(onProgress?: (saved: number) => void): Promise<number> {
+  saving ??= (async () => {
+    try {
+      if (!('caches' in window) || !navigator.serviceWorker?.controller) return bibleBooksSaved();
+      const have = await Promise.all(BIBLE.map((b) => caches.match(bibleUrl(b)).then(Boolean, () => false)));
+      let n = have.filter(Boolean).length;
+      onProgress?.(n);
+      for (let i = 0; i < BIBLE.length; i++) {
+        if (have[i]) continue;
+        if (!navigator.onLine) break;
+        const ok = await fetch(bibleUrl(BIBLE[i])).then((r) => r.ok, () => false);
+        if (ok) onProgress?.(++n);
+      }
+      return n;
+    } finally {
+      saving = null;
+    }
+  })();
+  return saving;
+}
+
 const idle = () => new Promise<void>((r) => ('requestIdleCallback' in window ? requestIdleCallback(() => r(), { timeout: 2000 }) : setTimeout(r, 300)));
 
 export async function stockUp(force = false) {
@@ -31,6 +66,8 @@ export async function stockUp(force = false) {
   if (!navigator.onLine || conn?.saveData || !('caches' in window)) return;
   // Packs are only kept once the service worker looks after this page.
   if (!navigator.serviceWorker?.controller) return;
+  // The Bible text first (small, and needed for the reading plans), until it's all there.
+  await saveBible().catch(() => {});
   const today = dayKey();
   try {
     if (!force && localStorage.getItem(KEY) === today) return;

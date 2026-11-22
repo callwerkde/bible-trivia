@@ -40,6 +40,13 @@ export default defineConfig({
         // Human-written question packs (one file per book) are downloaded when
         // first used and then kept for offline play.
         runtimeCaching: [
+          // The Bible text (KJV + Tamil, one file per book): kept apart from the question
+          // packs, so the whole Bible stays on the phone for reading offline.
+          {
+            urlPattern: ({ url }) => url.pathname.startsWith('/packs/bible/'),
+            handler: 'StaleWhileRevalidate',
+            options: { cacheName: 'bible-text', expiration: { maxEntries: 80 } },
+          },
           {
             urlPattern: ({ url }) => url.pathname.startsWith('/packs/'),
             handler: 'StaleWhileRevalidate',

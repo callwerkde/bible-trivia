@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
-import { Bell, ChevronLeft, ChevronRight, Download, Info, Languages, Monitor, Moon, Palette, ShieldCheck, Smartphone, Sun, Type, Vibrate, Volume2, Share2 } from 'lucide-react';
+import { Bell, BookOpen, ChevronLeft, ChevronRight, Download, Info, Languages, Monitor, Moon, Palette, ShieldCheck, Smartphone, Sun, Type, Vibrate, Volume2, Share2 } from 'lucide-react';
 import { useApp, useT, type QuestionLang, type ThemePref } from '../store';
 import { spring } from '../motion/springs';
 import { Pressable } from '../components/Pressable';
 import { IconTile, STROKE } from '../components/icons';
 import { useInstallAction } from '../components/Install';
-import { cachedBooks } from '../online/stock';
+import { bibleBooksSaved, cachedBooks, saveBible } from '../online/stock';
 import { AccountCard, ProfileDetails } from '../components/AccountCard';
 import { NotificationSettings } from '../components/NotificationsCard';
 import { Sheet } from '../components/Sheet';
@@ -126,9 +126,18 @@ export function Settings({ onAdmin }: { onAdmin: () => void }) {
   const [saved, setSaved] = useState(0);
   const [page, setPage] = useState<Page | null>(null);
   const [aboutOpen, setAboutOpen] = useState(false);
+  // The Bible text on this phone: n of 66 books, and whether it's saving now.
+  const [bible, setBible] = useState<{ n: number; saving: boolean } | null>(null);
   useEffect(() => {
     void cachedBooks().then((b) => setSaved(b.size));
+    void bibleBooksSaved().then((n) => setBible((cur) => cur ?? { n, saving: false }));
   }, []);
+  async function saveAllBible() {
+    if (!bible || bible.saving || bible.n >= 66) return;
+    setBible({ ...bible, saving: true });
+    const n = await saveBible((k) => setBible({ n: k, saving: true })).catch(() => bible.n);
+    setBible({ n, saving: false });
+  }
   // Each page starts at its top.
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -220,6 +229,16 @@ export function Settings({ onAdmin }: { onAdmin: () => void }) {
                 onClick={doInstall}
                 disabled={install === 'installed'}
               />
+              {bible && (
+                <MenuRow
+                  horse="white"
+                  icon={BookOpen}
+                  label={t.bibleOffline}
+                  sub={bible.n >= 66 ? t.bibleOfflineAll : bible.saving ? t.bibleOfflineSaving(bible.n) : navigator.onLine ? t.bibleOfflineSome(bible.n) : t.bibleOfflineNeedsNet}
+                  onClick={() => void saveAllBible()}
+                  disabled={bible.n >= 66 || bible.saving}
+                />
+              )}
               <MenuRow horse="red" icon={Share2} label={t.shareApp} sub={shared ? t.shareAppCopied : t.shareAppSub} onClick={() => void shareApp()} />
               {isAdmin && <MenuRow horse="black" icon={ShieldCheck} label={t.admin} sub={t.adminSub} onClick={onAdmin} />}
               <MenuRow horse="white" icon={Info} label={t.about} sub={t.aboutSub} onClick={() => setAboutOpen(true)} />
