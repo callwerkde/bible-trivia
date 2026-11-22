@@ -131,6 +131,12 @@ export function message(row: QueueRow, lang: Lang, verses: Verse[], books: Recor
       return { title: ta ? `${name} இப்போது உங்கள் நண்பர்` : `${name} is now your friend`, body: ta ? 'இப்போது ஒரு சவால் அனுப்புங்கள்!' : 'Send them a challenge!', url: '/?open=friends', tag: `friend-${name}` };
     case 'challenge_received':
       return { title: ta ? `${name} உங்களுக்குச் சவால் விட்டார்` : `${name} challenged you`, body: ta ? `${mode} · அதே கேள்விகள், எப்போது வேண்டுமானாலும் விளையாடலாம்.` : `${mode} · same questions, play any time.`, url: `/?open=challenge&id=${p.challenge_id}`, tag: `challenge-${p.challenge_id}` };
+    case 'community_joined': {
+      const title = p.pending
+        ? (ta ? `${p.name} உங்கள் குழுவில் சேர விரும்புகிறார்` : `${p.name} wants to join your group`)
+        : (ta ? `${p.name} உங்கள் குழுவில் சேர்ந்தார்` : `${p.name} joined your group`);
+      return { title, body: String(p.community_name ?? ''), url: '/#friends', tag: `community-${p.community}` };
+    }
     case 'timeline_reviewed': {
       const what = (ta ? p.title_ta || p.title_en : p.title_en || p.title_ta) as string;
       const ok = p.status === 'approved';

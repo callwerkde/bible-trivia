@@ -21,6 +21,8 @@ interface Settings {
   homeView?: 'list' | 'grid';
   /** Notifications turned on for this device (kept across app updates; re-subscribed on start). */
   pushWanted?: boolean;
+  /** Community tab: the group last looked at. */
+  communityId?: string;
   /** Bible Timeline: the era strip folded down to a small pill. */
   tlDockMin?: boolean;
   /** Seconds per question in timed games (all but Speed). */
@@ -56,6 +58,7 @@ interface Progress {
 interface AppState extends Settings, Progress {
   set: (patch: Partial<Settings>) => void;
   finishRound: (r: { xp: number; correct: number; total: number; daily?: boolean; score: number }) => void;
+  markReadingDay: () => void;
 }
 
 /** Phones set to Tamil start in Tamil. */
@@ -92,6 +95,20 @@ export const useApp = create<AppState>()(
       totalAnswered: 0,
       totalCorrect: 0,
       set: (patch) => set(linkLanguages(patch)),
+      // Reading the day's chapters in a community plan keeps the daily streak too.
+      markReadingDay: () =>
+        set((s) => {
+          const today = dayKey();
+          if (s.lastDay === today) return s;
+          const st = nextStreak({ streak: s.streak, lastDay: s.lastDay, hearts: s.hearts }, today);
+          return {
+            streak: st.streak,
+            lastDay: st.lastDay,
+            hearts: st.hearts ?? 0,
+            ...(st.healed ? { healedNote: { day: today, count: st.healed } } : {}),
+            ...(st.earned ? { heartEarnedOn: today } : {}),
+          };
+        }),
       finishRound: (r) =>
         set((s) => {
           const today = dayKey();

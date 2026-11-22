@@ -7,10 +7,10 @@ import { ART_KEYS } from './art/Illustrations';
 import { TabBar, type Tab } from './components/TabBar';
 import { Pressable } from './components/Pressable';
 import { Home } from './screens/Home';
-import { Friends } from './screens/Friends';
 import { Practice, type PracticeAction } from './screens/Practice';
 import { MemoryVerses } from './screens/MemoryVerses';
 import { Timeline } from './screens/Timeline';
+import { Community } from './screens/Community';
 import { Genealogy } from './screens/Genealogy';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { AdminTimeline } from './screens/AdminTimeline';
@@ -115,6 +115,19 @@ export default function App() {
   useDocumentSettings();
   if (import.meta.env.DEV && new URLSearchParams(location.search).has('art')) return <ArtGallery />;
   return <Gate />;
+}
+
+// Opened from a group's invite link (?join=CODE): keep the code until signed in.
+try {
+  const join = new URL(location.href).searchParams.get('join');
+  if (join) {
+    sessionStorage.setItem('bt-join', join.toUpperCase());
+    const u = new URL(location.href);
+    u.searchParams.delete('join');
+    history.replaceState(null, '', u.pathname + u.search + '#friends');
+  }
+} catch {
+  /* storage blocked */
 }
 
 // Opened from a friend's QR code with the phone camera: keep the invite until signed in.
@@ -268,6 +281,14 @@ function MainApp() {
   // old one has faded out, so nothing visible ever jumps.
 
   const [lastTab, setLastTab] = useState<Tab>(() => tabFromHash());
+  // A group invite link waits here until it's been shown.
+  const [joinCode, setJoinCode] = useState<string | null>(() => {
+    try {
+      return sessionStorage.getItem('bt-join');
+    } catch {
+      return null;
+    }
+  });
 
   const {
     needRefresh: [needRefresh],
@@ -483,7 +504,21 @@ function MainApp() {
             <ScrollPlace screenKey={screenKey} positions={scrollPos} current={currentScreen} />
             <ErrorBoundary resetKey={key} title={t.crashTitle} body={t.crashBody} home={t.tabPlay} onHome={() => goTab('play')}>
             {route.kind === 'tab' && route.tab === 'play' && <Home onPlay={play} onMemory={() => setRoute({ kind: 'memory' })} onTimeline={() => setRoute({ kind: 'timeline' })} onGenealogy={() => setRoute({ kind: 'genealogy' })} onResume={resumeGame} onShowSaved={() => setRoute({ kind: 'saved' })} onOpenPost={(post) => setRoute({ kind: 'post', post, from: 'home' })} onShowPosts={showThoughts} />}
-            {route.kind === 'tab' && route.tab === 'friends' && <Friends onStartChallenge={startChallenge} onPlayChallenge={playChallenge} />}
+            {route.kind === 'tab' && route.tab === 'friends' && (
+              <Community
+                onStartChallenge={startChallenge}
+                onPlayChallenge={playChallenge}
+                joinCode={joinCode}
+                onJoinHandled={() => {
+                  setJoinCode(null);
+                  try {
+                    sessionStorage.removeItem('bt-join');
+                  } catch {
+                    /* ignore */
+                  }
+                }}
+              />
+            )}
             {route.kind === 'tab' && route.tab === 'gospel' && <Gospel section={gospelSection} onSection={setGospelSection} onOpenPost={(post) => setRoute({ kind: 'post', post, from: 'gospel' })} />}
             {route.kind === 'tab' && route.tab === 'progress' && <Practice onAction={practice} />}
             {route.kind === 'saved' && <SavedGames onBack={() => goTab('play')} onResume={resumeGame} />}

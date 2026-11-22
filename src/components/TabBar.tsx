@@ -26,7 +26,7 @@ export function TabBar({ tab, onChange }: { tab: Tab; onChange: (t: Tab) => void
   const needsYou = useAccount((s) => s.friends.some((f) => f.status === 'pending' && f.incoming) || s.challenges.some(myTurn));
   const label: Record<Tab, string> = {
     play: t.tabPlay,
-    friends: t.tabFriends,
+    friends: t.cmTab,
     gospel: t.tabGospel,
     progress: t.tabProgress,
     settings: t.tabSettings,

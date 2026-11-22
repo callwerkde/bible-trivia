@@ -43,9 +43,12 @@ export function Avatar({ horse, size = 36 }: { horse: Friend['avatar']; size?: n
 export function Friends({
   onStartChallenge,
   onPlayChallenge,
+  embedded,
 }: {
   onStartChallenge: (mode: ModeId, friendIds: string[]) => void;
   onPlayChallenge: (c: Challenge) => void;
+  /** Inside the Community tab: no screen padding or title of its own. */
+  embedded?: boolean;
 }) {
   const t = useT();
   const uiLang = useApp((s) => s.uiLang);
@@ -63,8 +66,8 @@ export function Friends({
 
   if (!supabase || !session) {
     return (
-      <div className="screen" lang={uiLang}>
-        <h1 className="display">{t.friendsTitle}</h1>
+      <div className={embedded ? 'friends-embedded' : 'screen'} lang={uiLang}>
+        {!embedded && <h1 className="display">{t.friendsTitle}</h1>}
         <section className="glass card-pad signin-card">
           <IconTile horse="pale" icon={Users} size={44} />
           <h2 className="title">{t.signInTitle}</h2>
@@ -136,8 +139,8 @@ export function Friends({
 
   const dot = <span className="seg-dot" aria-hidden />;
   return (
-    <div className="screen" lang={uiLang}>
-      <h1 className="display">{t.friendsTitle}</h1>
+    <div className={embedded ? 'friends-embedded' : 'screen'} lang={uiLang}>
+      {!embedded && <h1 className="display">{t.friendsTitle}</h1>}
 
       {profile && <MyCard name={profile.display_name} avatar={profile.avatar} />}
 
