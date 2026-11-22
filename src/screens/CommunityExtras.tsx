@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { motion } from 'motion/react';
-import { BookOpen, Check, CheckSquare, ExternalLink, Flag, Headphones, ListChecks, Plus, Send, Trash2, Tv, X } from 'lucide-react';
+import { BookOpen, Check, CheckSquare, ExternalLink, Pencil, Flag, Headphones, ListChecks, Plus, Send, Trash2, Tv, X } from 'lucide-react';
 import { useApp, useT } from '../store';
 import { spring } from '../motion/springs';
 import { cue } from '../feedback';
@@ -15,6 +15,7 @@ import { useAccount } from '../online/account';
 import {
   createGoal,
   createTask,
+  updateTask,
   deleteGoal,
   deleteTask,
   feed as loadFeed,
@@ -56,7 +57,7 @@ export function GroupExtras({ group, isAdmin, plans, members }: { group: Communi
   const [goalList, setGoalList] = useState<Goal[]>([]);
   const [log, setLog] = useState<{ plan_id: string; user_id: string; day: number; done_at: string }[]>([]);
   const [items, setItems] = useState<FeedItem[] | null>(null);
-  const [sheet, setSheet] = useState<null | 'task' | 'goal' | { task: Task }>(null);
+  const [sheet, setSheet] = useState<null | 'task' | 'goal' | { task: Task } | { edit: Task }>(null);
   const [showAll, setShowAll] = useState(false);
 
   const load = useCallback(async () => {
@@ -256,6 +257,16 @@ export function GroupExtras({ group, isAdmin, plans, members }: { group: Communi
       </section>
 
       <Sheet open={sheet !== null} onClose={() => setSheet(null)} label={group.name}>
+        {sheet && typeof sheet === 'object' && 'edit' in sheet && (
+          <TaskBuilder
+            initial={sheet.edit}
+            onSave={async (task) => {
+              await updateTask(sheet.edit.id, task);
+              setSheet(null);
+              void load();
+            }}
+          />
+        )}
         {sheet === 'task' && (
           <TaskBuilder
             onSave={async (task) => {
@@ -275,13 +286,14 @@ export function GroupExtras({ group, isAdmin, plans, members }: { group: Communi
             }}
           />
         )}
-        {sheet && typeof sheet === 'object' && (
+        {sheet && typeof sheet === 'object' && 'task' in sheet && (
           <TaskSheet
             task={sheet.task}
             members={active}
             done={taskList?.done ?? {}}
             onPart={(part, on) => void togglePart(sheet.task, part, on)}
             isAdmin={isAdmin}
+            onEdit={() => setSheet({ edit: sheet.task })}
             onDelete={async () => {
               if (!confirm(t.cmDeleteTaskConfirm)) return;
               await deleteTask(sheet.task.id).catch(() => {});
@@ -309,7 +321,7 @@ function Ring({ pct }: { pct: number }) {
   );
 }
 
-function TaskSheet({ task, members, done, onPart, isAdmin, onDelete }: { task: Task; members: Member[]; done: TaskDone; onPart: (part: number, on: boolean) => void; isAdmin: boolean; onDelete: () => void }) {
+function TaskSheet({ task, members, done, onPart, isAdmin, onEdit, onDelete }: { task: Task; members: Member[]; done: TaskDone; onPart: (part: number, on: boolean) => void; isAdmin: boolean; onEdit: () => void; onDelete: () => void }) {
   const t = useT();
   const uiLang = useApp((s) => s.uiLang);
   const myId = useAccount((s) => s.session?.user.id);
@@ -368,6 +380,11 @@ function TaskSheet({ task, members, done, onPart, isAdmin, onDelete }: { task: T
         ))}
       </div>
       <TaskComments task={task} isAdmin={isAdmin} />
+      {isAdmin && (
+        <Pressable className="btn glass" onClick={onEdit}>
+          <Pencil size={16} strokeWidth={STROKE} /> {t.cmEditTask}
+        </Pressable>
+      )}
       {isAdmin && (
         <Pressable className="btn glass cm-danger" onClick={onDelete}>
           <Trash2 size={16} strokeWidth={STROKE} /> {t.cmDeleteTaskConfirm.replace('?', '')}
@@ -452,22 +469,22 @@ function TaskComments({ task, isAdmin }: { task: Task; isAdmin: boolean }) {
   );
 }
 
-function TaskBuilder({ onSave }: { onSave: (t: Pick<Task, 'title' | 'note' | 'ref' | 'due_on' | 'kind' | 'link' | 'parts'>) => Promise<void> }) {
+function TaskBuilder({ initial, onSave }: { initial?: Task; onSave: (t: Pick<Task, 'title' | 'note' | 'ref' | 'due_on' | 'kind' | 'link' | 'parts'>) => Promise<void> }) {
   const t = useT();
-  const [kind, setKind] = useState<Task['kind']>('read');
-  const [title, setTitle] = useState('');
-  const [note, setNote] = useState('');
-  const [link, setLink] = useState('');
-  const [parts, setParts] = useState<string[]>([]);
-  const [withVerse, setWithVerse] = useState(false);
-  const [pick, setPick] = useState<VersePick>({ book: 'PSA', chapter: 23, from: 1, to: 0 });
-  const [due, setDue] = useState('');
+  const [kind, setKind] = useState<Task['kind']>(initial?.kind ?? 'read');
+  const [title, setTitle] = useState(initial?.title ?? '');
+  const [note, setNote] = useState(initial?.note ?? '');
+  const [link, setLink] = useState(initial?.link ?? '');
+  const [parts, setParts] = useState<string[]>(initial?.parts ?? []);
+  const [withVerse, setWithVerse] = useState(Boolean(initial?.ref));
+  const [pick, setPick] = useState<VersePick>(initial?.ref ? { book: initial.ref.b, chapter: initial.ref.c, from: initial.ref.v ?? 1, to: initial.ref.v2 ?? 0 } : { book: 'PSA', chapter: 23, from: 1, to: 0 });
+  const [due, setDue] = useState(initial?.due_on ?? '');
   const [busy, setBusy] = useState(false);
   const [msg, setMsg] = useState<string | null>(null);
   const linkOk = !link.trim() || /^https?:\/\/\S+\.\S+/i.test(link.trim());
   return (
     <div className="tl-panel">
-      <h2 className="title">{t.cmNewTask}</h2>
+      <h2 className="title">{initial ? t.cmEditTask : t.cmNewTask}</h2>
       <div className="tl-formfield">
         <span className="caption">{t.cmTaskKind}</span>
         <div className="tl-pills">
@@ -516,7 +533,7 @@ function TaskBuilder({ onSave }: { onSave: (t: Pick<Task, 'title' | 'note' | 're
       {withVerse && <VersePicker value={pick} onChange={setPick} offlineNote={t.offlineNotLoaded} />}
       <label className="tl-formfield">
         <span className="caption">{t.cmDue}</span>
-        <input className="field" type="date" min={isoDay(new Date())} value={due} onChange={(e) => setDue(e.target.value)} />
+        <input className="field" type="date" min={initial ? undefined : isoDay(new Date())} value={due} onChange={(e) => setDue(e.target.value)} />
       </label>
       {msg && <p className="caption form-msg is-error">{msg}</p>}
       <Pressable
@@ -540,7 +557,7 @@ function TaskBuilder({ onSave }: { onSave: (t: Pick<Task, 'title' | 'note' | 're
           }
         }}
       >
-        <Plus size={17} strokeWidth={STROKE} /> {t.cmAddTask}
+        {initial ? <Check size={17} strokeWidth={STROKE} /> : <Plus size={17} strokeWidth={STROKE} />} {initial ? t.cmSaveTask : t.cmAddTask}
       </Pressable>
     </div>
   );

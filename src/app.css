@@ -2009,3 +2009,17 @@ textarea.field.post-body-input:lang(ta) { line-height: 1.85; }
 .cm-comments h3 { margin: 10px 0 0; }
 .cm-comment-new { display: flex; flex-direction: column; gap: 6px; }
 .cm-comment-new .btn { align-self: flex-end; }
+/* group stats + reading calendar */
+.cm-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(70px, 1fr)); gap: 8px; }
+.cm-stat { display: flex; flex-direction: column; align-items: center; gap: 1px; padding: 10px 6px; border-radius: var(--radius-md); background: color-mix(in srgb, var(--g, var(--accent)) 8%, transparent); text-align: center; }
+.cm-stat strong { font-size: 1.25rem; font-variant-numeric: tabular-nums; }
+.cm-stat .caption { font-size: 0.72rem; line-height: 1.25; }
+.cm-stats.is-small .cm-stat strong { font-size: 1.1rem; }
+.cm-cal { display: flex; flex-direction: column; gap: 6px; }
+.cm-cal-grid { display: flex; gap: 4px; justify-content: space-between; }
+.cm-cal-week { display: flex; flex-direction: column; gap: 4px; flex: 1; }
+.cm-cal-day { display: block; aspect-ratio: 1; border-radius: 4px; background: var(--line); }
+.cm-cal-day.is-1 { background: color-mix(in srgb, var(--g, var(--accent)) 55%, transparent); }
+.cm-cal-day.is-2 { background: var(--g, var(--accent)); }
+.cm-cal-day.is-today { box-shadow: 0 0 0 2px var(--text); }
+.cm-cal-grid { max-width: 300px; } .cm-cal-week { gap: 3px; } .cm-cal-grid { gap: 3px; }

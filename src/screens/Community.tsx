@@ -38,6 +38,7 @@ import {
   manageMember,
   markDay,
   members as loadMembers,
+  groupLog,
   nudgeMember,
   myCommunities,
   myDays,
@@ -205,6 +206,7 @@ function GroupView({ group, onChanged }: { group: Group; onChanged: () => void }
   const [list, setList] = useState<Member[] | null>(null);
   const [plan, setPlan] = useState<Plan | null | undefined>(undefined);
   const [allPlans, setAllPlans] = useState<Plan[]>([]);
+  const [log, setLog] = useState<LogRow[]>([]);
   const [done, setDone] = useState<Set<number>>(new Set());
   const [sheet, setSheet] = useState<null | 'invite' | 'plan' | 'settings' | { member: Member } | { read: number }>(null);
   const [msg, setMsg] = useState<string | null>(null);
@@ -215,6 +217,7 @@ function GroupView({ group, onChanged }: { group: Group; onChanged: () => void }
       setList(m);
       const active = ps.find((p) => p.status !== 'done') ?? null;
       setAllPlans(ps);
+      void groupLog(ps.map((p) => p.id)).then(setLog).catch(() => {});
       setPlan(active);
       setDone(active ? await myDays(active.id) : new Set());
     } catch {
@@ -294,6 +297,8 @@ function GroupView({ group, onChanged }: { group: Group; onChanged: () => void }
         </div>
       )}
 
+      {list && allPlans.length > 0 && <GroupStats plans={allPlans} plan={plan ?? null} log={log} members={active} />}
+
       {list && <GroupExtras group={group} isAdmin={isAdmin} plans={allPlans} members={list} />}
 
       {isAdmin && pending.length > 0 && (
@@ -320,7 +325,7 @@ function GroupView({ group, onChanged }: { group: Group; onChanged: () => void }
       <section className="cm-card glass">
         <h3 className="eyebrow">{t.cmMembers}</h3>
         {active.map((m) => (
-          <button key={m.user_id} className="cm-member" onClick={() => isAdmin && m.user_id !== myId && m.role !== 'owner' && setSheet({ member: m })} disabled={!isAdmin || m.user_id === myId || m.role === 'owner'}>
+          <button key={m.user_id} className="cm-member" onClick={() => setSheet({ member: m })}>
             <Avatar horse={m.avatar as Friend['avatar']} size={36} />
             <span className="grow cm-member-main">
               <strong>
@@ -382,6 +387,10 @@ function GroupView({ group, onChanged }: { group: Group; onChanged: () => void }
           <MemberSheet
             group={group}
             m={sheet.member}
+            canManage={isAdmin && sheet.member.user_id !== myId && sheet.member.role !== 'owner'}
+            plan={plan ?? null}
+            log={log.filter((l) => l.user_id === sheet.member.user_id)}
+            plans={allPlans}
             onDone={() => {
               setSheet(null);
               void load();
@@ -700,7 +709,7 @@ function InviteSheet({ group, isAdmin, onChanged }: { group: Group; isAdmin: boo
   );
 }
 
-function MemberSheet({ group, m, onDone }: { group: Group; m: Member; onDone: () => void }) {
+function MemberSheet({ group, m, canManage, plan, plans, log, onDone }: { group: Group; m: Member; canManage: boolean; plan: Plan | null; plans: Plan[]; log: LogRow[]; onDone: () => void }) {
   const t = useT();
   const [note, setNote] = useState<string | null>(null);
   const act = async (a: 'make_admin' | 'make_member' | 'remove') => {
@@ -708,6 +717,9 @@ function MemberSheet({ group, m, onDone }: { group: Group; m: Member; onDone: ()
     await manageMember(group.id, m.user_id, a).catch(() => {});
     onDone();
   };
+  const byId = new Map(plans.map((p) => [p.id, p]));
+  const chapters = log.reduce((n, l) => n + (byId.get(l.plan_id) ? chaptersFor(byId.get(l.plan_id)!, l.day).length : 0), 0);
+  const planDone = plan ? log.filter((l) => l.plan_id === plan.id).length : 0;
   return (
     <div className="tl-panel">
       <div className="cm-member is-big">
@@ -717,28 +729,107 @@ function MemberSheet({ group, m, onDone }: { group: Group; m: Member; onDone: ()
           <p className="caption">{t.cmRole[m.role]}</p>
         </div>
       </div>
-      <Pressable
-        className="btn btn-primary"
-        onClick={async () => {
-          const r = await nudgeMember(group.id, m.user_id).catch(() => null);
-          setNote(r === 'already' ? t.cmEncouragedAlready : r ? t.cmEncouraged : t.cmFailed);
-        }}
-      >
-        <HandHeart size={17} strokeWidth={STROKE} /> {t.cmEncourage}
-      </Pressable>
-      {note && <p className="caption form-msg is-ok">{note}</p>}
-      {m.role === 'member' ? (
-        <Pressable className="btn glass" onClick={() => act('make_admin')}>
-          <Shield size={16} strokeWidth={STROKE} /> {t.cmMakeAdmin}
-        </Pressable>
-      ) : (
-        <Pressable className="btn glass" onClick={() => act('make_member')}>
-          <Users size={16} strokeWidth={STROKE} /> {t.cmMakeMember}
-        </Pressable>
+      <div className="cm-stats is-small">
+        <Stat value={chapters} label={t.cmStatChapters} />
+        {plan && <Stat value={`${Math.round((planDone / totalDays(plan)) * 100)}%`} label={t.cmStatPlan} />}
+        <Stat value={`🔥 ${m.streak}`} label={t.cmStatStreak} />
+      </div>
+      <h3 className="eyebrow">{t.cmCalendar}</h3>
+      <ReadingCalendar log={log} />
+      {canManage && (
+        <>
+          <Pressable
+            className="btn btn-primary"
+            onClick={async () => {
+              const r = await nudgeMember(group.id, m.user_id).catch(() => null);
+              setNote(r === 'already' ? t.cmEncouragedAlready : r ? t.cmEncouraged : t.cmFailed);
+            }}
+          >
+            <HandHeart size={17} strokeWidth={STROKE} /> {t.cmEncourage}
+          </Pressable>
+          {note && <p className="caption form-msg is-ok">{note}</p>}
+          {m.role === 'member' ? (
+            <Pressable className="btn glass" onClick={() => act('make_admin')}>
+              <Shield size={16} strokeWidth={STROKE} /> {t.cmMakeAdmin}
+            </Pressable>
+          ) : (
+            <Pressable className="btn glass" onClick={() => act('make_member')}>
+              <Users size={16} strokeWidth={STROKE} /> {t.cmMakeMember}
+            </Pressable>
+          )}
+          <Pressable className="btn glass cm-danger" onClick={() => act('remove')}>
+            <Trash2 size={16} strokeWidth={STROKE} /> {t.cmRemove}
+          </Pressable>
+        </>
       )}
-      <Pressable className="btn glass cm-danger" onClick={() => act('remove')}>
-        <Trash2 size={16} strokeWidth={STROKE} /> {t.cmRemove}
-      </Pressable>
+    </div>
+  );
+}
+
+type LogRow = { plan_id: string; user_id: string; day: number; done_at: string };
+
+function Stat({ value, label }: { value: string | number; label: string }) {
+  return (
+    <div className="cm-stat">
+      <strong>{value}</strong>
+      <span className="caption">{label}</span>
+    </div>
+  );
+}
+
+/** The group at a glance: chapters read, readers this week, longest streak, plan progress. */
+function GroupStats({ plans, plan, log, members }: { plans: Plan[]; plan: Plan | null; log: LogRow[]; members: Member[] }) {
+  const t = useT();
+  const byId = new Map(plans.map((p) => [p.id, p]));
+  const chapters = log.reduce((n, l) => n + (byId.get(l.plan_id) ? chaptersFor(byId.get(l.plan_id)!, l.day).length : 0), 0);
+  const weekAgo = Date.now() - 7 * 86_400_000;
+  const readers = new Set(log.filter((l) => new Date(l.done_at).getTime() > weekAgo).map((l) => l.user_id)).size;
+  const best = Math.max(0, ...members.map((m) => m.streak));
+  const total = plan ? totalDays(plan) : 0;
+  const pct = plan && members.length ? Math.round((members.reduce((n, m) => n + Math.min(total, log.filter((l) => l.plan_id === plan.id && l.user_id === m.user_id).length), 0) / (total * members.length)) * 100) : null;
+  return (
+    <section className="cm-card glass">
+      <h3 className="eyebrow">{t.cmStats}</h3>
+      <div className="cm-stats">
+        <Stat value={chapters} label={t.cmStatChapters} />
+        <Stat value={`${readers}/${members.length}`} label={t.cmStatReaders} />
+        <Stat value={`🔥 ${best}`} label={t.cmStatBestStreak} />
+        {pct != null && <Stat value={`${pct}%`} label={t.cmStatGroupPlan} />}
+      </div>
+    </section>
+  );
+}
+
+/** The last 10 weeks, one square a day, filled on days they read. */
+function ReadingCalendar({ log }: { log: LogRow[] }) {
+  const t = useT();
+  const uiLang = useApp((s) => s.uiLang);
+  const counts = new Map<string, number>();
+  for (const l of log) {
+    const k = isoDay(new Date(l.done_at));
+    counts.set(k, (counts.get(k) ?? 0) + 1);
+  }
+  const today = new Date();
+  const start = new Date(today);
+  start.setDate(start.getDate() - 69 - start.getDay()); // 10 full weeks, starting on a Sunday
+  const days: Date[] = [];
+  for (const d = new Date(start); d <= today; d.setDate(d.getDate() + 1)) days.push(new Date(d));
+  const weeks: Date[][] = [];
+  days.forEach((d, i) => (i % 7 ? weeks[weeks.length - 1].push(d) : weeks.push([d])));
+  const read = days.filter((d) => counts.has(isoDay(d))).length;
+  return (
+    <div className="cm-cal">
+      <div className="cm-cal-grid" role="img" aria-label={t.cmCalendarSummary(read)}>
+        {weeks.map((w, i) => (
+          <div key={i} className="cm-cal-week">
+            {w.map((d) => {
+              const n = counts.get(isoDay(d)) ?? 0;
+              return <i key={isoDay(d)} className={`cm-cal-day ${n ? (n > 1 ? 'is-2' : 'is-1') : ''} ${isoDay(d) === isoDay(today) ? 'is-today' : ''}`} title={`${d.toLocaleDateString(uiLang === 'ta' ? 'ta-IN' : undefined, { day: 'numeric', month: 'short' })}${n ? ` · ${n}` : ''}`} />;
+            })}
+          </div>
+        ))}
+      </div>
+      <p className="caption">{t.cmCalendarSummary(read)}</p>
     </div>
   );
 }

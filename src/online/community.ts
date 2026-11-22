@@ -319,3 +319,8 @@ export async function react(community: string, target: string, item: string, emo
     : await db.from('community_reactions').delete().eq('community_id', community).eq('target_user', target).eq('item', item).eq('from_user', me()!).eq('emoji', emoji);
   if (error) throw error;
 }
+
+export async function updateTask(id: string, t: Pick<Task, 'title' | 'note' | 'ref' | 'due_on' | 'kind' | 'link' | 'parts'>) {
+  const { error } = await need().from('community_tasks').update(t).eq('id', id);
+  if (error) throw error;
+}

@@ -150,6 +150,13 @@ export function message(row: QueueRow, lang: Lang, verses: Verse[], books: Recor
         tag: `task-${p.task}`,
       };
     }
+    case 'task_due':
+      return {
+        title: ta ? `நாளை கடைசி நாள்: ${p.title}` : `Due tomorrow: ${p.title}`,
+        body: ta ? `${p.community_name} · முடித்தவுடன் குறியுங்கள்` : `${p.community_name} · tick it off when you're done`,
+        url: '/#friends',
+        tag: `taskdue-${p.task}`,
+      };
     case 'community_nudge':
       return {
         title: ta ? `${p.name} உங்களை உற்சாகப்படுத்துகிறார்` : `${p.name} is cheering you on`,
