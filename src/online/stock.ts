@@ -26,6 +26,25 @@ export async function cachedBooks(): Promise<Set<string>> {
 }
 
 const BIBLE = BOOKS.map((b) => b.code);
+
+/** Files are only kept offline once the service worker looks after this page. On the very
+ *  first visit it takes a few seconds to start, so wait for it (up to 30 s). */
+function controlled(): Promise<boolean> {
+  const sw = navigator.serviceWorker;
+  if (!sw) return Promise.resolve(false);
+  if (sw.controller) return Promise.resolve(true);
+  return new Promise((done) => {
+    const timer = setTimeout(() => done(false), 30_000);
+    sw.addEventListener(
+      'controllerchange',
+      () => {
+        clearTimeout(timer);
+        done(true);
+      },
+      { once: true },
+    );
+  });
+}
 const bibleUrl = (b: string) => `/packs/bible/${b}.json`;
 
 /** How many books of the Bible text are on this phone (out of 66). */
@@ -35,23 +54,53 @@ export async function bibleBooksSaved(): Promise<number> {
   return found.filter(Boolean).length;
 }
 
+// Books someone needs soon (their group's next readings and tasks) are saved first.
+// Kept on the phone so the next background save starts with them too.
+const FIRST_KEY = 'bt-bible-first';
+const readFirst = (): string[] => {
+  try {
+    return JSON.parse(localStorage.getItem(FIRST_KEY) ?? '[]') as string[];
+  } catch {
+    return [];
+  }
+};
+
+/** Save these books before the rest (newest wishes first), starting now. */
+export function bibleFirst(books: string[]) {
+  const wanted = books.filter((b) => BIBLE.includes(b));
+  if (!wanted.length) return;
+  const list = [...new Set([...wanted, ...readFirst()])].slice(0, 30);
+  try {
+    localStorage.setItem(FIRST_KEY, JSON.stringify(list));
+  } catch {
+    /* fine: they're still saved first this time */
+  }
+  void saveBible().catch(() => {});
+}
+
 let saving: Promise<number> | null = null;
-/** Saves the whole Bible (English and Tamil, about 3 MB) for reading offline, the books not
- *  on the phone yet, one at a time. Returns how many books are saved. */
+/** Saves the whole Bible (English and Tamil, about 3 MB) for reading offline, one book at
+ *  a time: first the books asked for with bibleFirst, then the rest in Bible order.
+ *  Returns how many books are saved. */
 export function saveBible(onProgress?: (saved: number) => void): Promise<number> {
   saving ??= (async () => {
     try {
-      if (!('caches' in window) || !navigator.serviceWorker?.controller) return bibleBooksSaved();
-      const have = await Promise.all(BIBLE.map((b) => caches.match(bibleUrl(b)).then(Boolean, () => false)));
-      let n = have.filter(Boolean).length;
-      onProgress?.(n);
-      for (let i = 0; i < BIBLE.length; i++) {
-        if (have[i]) continue;
-        if (!navigator.onLine) break;
-        const ok = await fetch(bibleUrl(BIBLE[i])).then((r) => r.ok, () => false);
-        if (ok) onProgress?.(++n);
+      if (!('caches' in window) || !(await controlled())) return bibleBooksSaved();
+      const flags = await Promise.all(BIBLE.map((b) => caches.match(bibleUrl(b)).then(Boolean, () => false)));
+      const have = new Set(BIBLE.filter((_, i) => flags[i]));
+      const failed = new Set<string>();
+      onProgress?.(have.size);
+      for (;;) {
+        // Looked up again each time, so books asked for while saving jump the queue.
+        const next = [...readFirst(), ...BIBLE].find((b) => BIBLE.includes(b) && !have.has(b) && !failed.has(b));
+        if (!next || !navigator.onLine) break;
+        const ok = await fetch(bibleUrl(next)).then((r) => r.ok, () => false);
+        if (ok) {
+          have.add(next);
+          onProgress?.(have.size);
+        } else failed.add(next);
       }
-      return n;
+      return have.size;
     } finally {
       saving = null;
     }
@@ -65,7 +114,7 @@ export async function stockUp(force = false) {
   const conn = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection;
   if (!navigator.onLine || conn?.saveData || !('caches' in window)) return;
   // Packs are only kept once the service worker looks after this page.
-  if (!navigator.serviceWorker?.controller) return;
+  if (!(await controlled())) return;
   // The Bible text first (small, and needed for the reading plans), until it's all there.
   await saveBible().catch(() => {});
   const today = dayKey();

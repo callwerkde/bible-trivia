@@ -28,6 +28,7 @@ import {
   type Member,
   type Task,
 } from '../online/community';
+import { bibleFirst } from '../online/stock';
 import { Avatar } from './Friends';
 import { ReportButton } from '../components/Report';
 import { taskCommentTarget } from '../online/reports';
@@ -64,6 +65,11 @@ export function GroupExtras({ group, isAdmin, members, refresh = 0, onCount }: {
 
   const active = members.filter((m) => m.status === 'active');
   const count = taskList?.list.length ?? 0;
+  // The books the tasks point to are saved for offline first.
+  const taskBooks = [...new Set((taskList?.list ?? []).map((x) => x.ref?.b).filter((b): b is string => Boolean(b)))].join(',');
+  useEffect(() => {
+    if (taskBooks) bibleFirst(taskBooks.split(','));
+  }, [taskBooks]);
   useEffect(() => {
     onCount?.(count);
   }, [count, onCount]);

@@ -10,6 +10,7 @@ import { STROKE } from '../components/icons';
 import { Sheet } from '../components/Sheet';
 import { useAccount } from '../online/account';
 import { pushProgress } from '../online/account';
+import { bibleFirst } from '../online/stock';
 import { chapterText } from '../engine/bible';
 import { BOOKS, BOOK_BY_CODE } from '../i18n/books';
 import {
@@ -268,6 +269,14 @@ function GroupView({ group, onChanged }: { group: Group; onChanged: () => void }
   useEffect(() => {
     void load();
   }, [load]);
+  // Save the books of the next week's readings for offline first.
+  const nextDay = plan ? (planStatus(plan, done).next ?? null) : null;
+  useEffect(() => {
+    if (!plan || nextDay === null) return;
+    const total = totalDays(plan);
+    const days = Array.from({ length: 7 }, (_, i) => nextDay + i).filter((d) => d <= total);
+    bibleFirst([...new Set(days.flatMap((d) => chaptersFor(plan, d).map((c) => c.b)))]);
+  }, [plan, nextDay]);
   // Live: when anyone ticks a day or a task, the screen updates by itself.
   const planId = plan?.id ?? null;
   useEffect(() => watchGroup(group.id, planId, (what) => (what === 'reading' ? void load() : setTasksTick((n) => n + 1))), [group.id, planId, load]);
