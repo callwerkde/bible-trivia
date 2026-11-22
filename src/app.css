@@ -2023,3 +2023,6 @@ textarea.field.post-body-input:lang(ta) { line-height: 1.85; }
 .cm-cal-day.is-2 { background: var(--g, var(--accent)); }
 .cm-cal-day.is-today { box-shadow: 0 0 0 2px var(--text); }
 .cm-cal-grid { max-width: 300px; } .cm-cal-week { gap: 3px; } .cm-cal-grid { gap: 3px; }
+.cm-banner { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border: 0; border-radius: var(--radius-lg); background: var(--accent); color: var(--on-accent); font: inherit; font-weight: 600; text-align: left; cursor: pointer; }
+.welcome-invite { display: flex; align-items: flex-start; gap: 10px; margin: 12px 0 0; padding: 12px 14px; border-radius: var(--radius-md); color: var(--accent-ink); font-weight: 600; line-height: 1.45; }
+.welcome-invite svg { flex: none; margin-top: 2px; }

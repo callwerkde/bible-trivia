@@ -11,6 +11,7 @@ import { Practice, type PracticeAction } from './screens/Practice';
 import { MemoryVerses } from './screens/MemoryVerses';
 import { Timeline } from './screens/Timeline';
 import { Community } from './screens/Community';
+import { clearPendingJoin, readPendingJoin, savePendingJoin } from './online/community';
 import { Genealogy } from './screens/Genealogy';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { AdminTimeline } from './screens/AdminTimeline';
@@ -117,11 +118,11 @@ export default function App() {
   return <Gate />;
 }
 
-// Opened from a group's invite link (?join=CODE): keep the code until signed in.
+// Opened from a group's invite link (?join=CODE): keep the code (for 7 days) until signed in.
 try {
   const join = new URL(location.href).searchParams.get('join');
   if (join) {
-    sessionStorage.setItem('bt-join', join.toUpperCase());
+    savePendingJoin(join);
     const u = new URL(location.href);
     u.searchParams.delete('join');
     history.replaceState(null, '', u.pathname + u.search + '#friends');
@@ -203,7 +204,7 @@ function MainApp() {
   const t = useT();
   const finishRound = useApp((s) => s.finishRound);
   // The tab is kept in the address (#practice), so a reload opens the same tab.
-  const [route, setRoute] = useState<Route>(() => ({ kind: 'tab', tab: tabFromHash() }));
+  const [route, setRoute] = useState<Route>(() => ({ kind: 'tab', tab: readPendingJoin() ? 'friends' : tabFromHash() }));
 
   // Back (the phone's gesture or the browser button) goes to the previous page in the app:
   // every page opened gets a history entry, and going back shows the page that was there.
@@ -280,15 +281,9 @@ function MainApp() {
   // The new screen sets its scroll place itself when it appears (see ScrollPlace), after the
   // old one has faded out, so nothing visible ever jumps.
 
-  const [lastTab, setLastTab] = useState<Tab>(() => tabFromHash());
+  const [lastTab, setLastTab] = useState<Tab>(() => (readPendingJoin() ? 'friends' : tabFromHash()));
   // A group invite link waits here until it's been shown.
-  const [joinCode, setJoinCode] = useState<string | null>(() => {
-    try {
-      return sessionStorage.getItem('bt-join');
-    } catch {
-      return null;
-    }
-  });
+  const [joinCode, setJoinCode] = useState<string | null>(() => readPendingJoin());
 
   const {
     needRefresh: [needRefresh],
@@ -511,11 +506,7 @@ function MainApp() {
                 joinCode={joinCode}
                 onJoinHandled={() => {
                   setJoinCode(null);
-                  try {
-                    sessionStorage.removeItem('bt-join');
-                  } catch {
-                    /* ignore */
-                  }
+                  clearPendingJoin();
                 }}
               />
             )}

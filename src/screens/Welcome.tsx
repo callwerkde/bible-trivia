@@ -1,3 +1,6 @@
+import { readPendingJoin } from '../online/community';
+import { Users } from 'lucide-react';
+import { STROKE } from '../components/icons';
 import { motion } from 'motion/react';
 import { AuthForm } from '../components/AuthForm';
 import { ThemeToggle } from '../components/ThemeToggle';
@@ -32,6 +35,11 @@ export function Welcome() {
       >
         <h2 className="title">{t.welcomeTitle}</h2>
         <p className="caption">{t.welcomeLead}</p>
+        {readPendingJoin() && (
+          <p className="welcome-invite glass">
+            <Users size={18} strokeWidth={STROKE} /> {t.cmInvitedSignIn}
+          </p>
+        )}
         <AuthForm />
       </motion.section>
 

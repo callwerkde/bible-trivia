@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { motion } from 'motion/react';
 import { BookOpen, Check, HandHeart, ChevronLeft, ChevronRight, Copy, Crown, Link2, LogOut, Pause, Play, Plus, RefreshCw, Settings2, Share2, Shield, Trash2, UserPlus, Users } from 'lucide-react';
 import QRCode from 'qrcode';
@@ -84,22 +84,48 @@ export function Community({
 
   const reload = useCallback(async () => {
     const g = await myCommunities();
-    if (!g) return setFailed(true);
+    if (!g) {
+      setFailed(true);
+      return null;
+    }
     setFailed(false);
     setGroups(g);
-    if (g.length && !g.some((x) => x.id === current)) setApp({ communityId: g[0].id });
-  }, [current, setApp]);
+    if (g.length && !g.some((x) => x.id === useApp.getState().communityId)) setApp({ communityId: g[0].id });
+    return g;
+  }, [setApp]);
+  const [banner, setBanner] = useState<{ text: string; ok: boolean } | null>(null);
+  const joining = useRef<string | null>(null);
   useEffect(() => {
     void reload();
   }, [signedIn]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // An invite link opens the join sheet.
+  // An invite link joins straight away (after signing in, if needed) and opens that group.
   useEffect(() => {
-    if (joinCode && signedIn) {
-      setSection('groups');
-      setSheet('join');
-    }
-  }, [joinCode, signedIn]);
+    if (!joinCode || !signedIn || joining.current === joinCode) return;
+    joining.current = joinCode;
+    setSection('groups');
+    void (async () => {
+      try {
+        const r = await joinCommunity(joinCode);
+        if (r.status === 'joined' || r.status === 'already') {
+          if (r.id) setApp({ communityId: r.id });
+          const g = await reload();
+          const name = g?.find((x) => x.id === r.id)?.name ?? '';
+          setBanner({ text: r.status === 'joined' ? t.cmJoinedNamed(name) : t.cmAlready, ok: true });
+          if (r.status === 'joined') cue('complete');
+          onJoinHandled?.();
+        } else if (r.status === 'pending') {
+          setBanner({ text: t.cmPending, ok: true });
+          onJoinHandled?.();
+        } else {
+          // Unknown or reset code: let them check it.
+          setSheet('join');
+        }
+      } catch {
+        setSheet('join');
+      }
+    })();
+  }, [joinCode, signedIn]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const group = groups?.find((g) => g.id === current) ?? groups?.[0] ?? null;
 
@@ -122,6 +148,12 @@ export function Community({
           </button>
         ))}
       </div>
+
+      {banner && (
+        <motion.button className={`cm-banner ${banner.ok ? 'is-ok' : ''}`} initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} transition={spring.calm} onClick={() => setBanner(null)}>
+          <Check size={18} strokeWidth={STROKE} /> {banner.text}
+        </motion.button>
+      )}
 
       {section === 'friends' ? (
         <Friends onStartChallenge={onStartChallenge} onPlayChallenge={onPlayChallenge} embedded />

@@ -324,3 +324,37 @@ export async function updateTask(id: string, t: Pick<Task, 'title' | 'note' | 'r
   const { error } = await need().from('community_tasks').update(t).eq('id', id);
   if (error) throw error;
 }
+
+// ---------- an invite link waiting to be used ----------
+// Kept on the phone (not just this tab) for 7 days, so it survives signing in, even when
+// the sign-in link from the email opens in a new tab.
+const PENDING = 'bt-join';
+export function savePendingJoin(code: string) {
+  try {
+    localStorage.setItem(PENDING, JSON.stringify({ code: code.toUpperCase(), at: Date.now() }));
+  } catch {
+    /* storage blocked */
+  }
+}
+export function readPendingJoin(): string | null {
+  try {
+    const raw = localStorage.getItem(PENDING);
+    if (!raw) return null;
+    const { code, at } = JSON.parse(raw) as { code: string; at: number };
+    if (Date.now() - at > 7 * 86_400_000) {
+      localStorage.removeItem(PENDING);
+      return null;
+    }
+    return /^[A-Z0-9]{8}$/.test(code) ? code : null;
+  } catch {
+    return null;
+  }
+}
+export function clearPendingJoin() {
+  try {
+    localStorage.removeItem(PENDING);
+    sessionStorage.removeItem(PENDING);
+  } catch {
+    /* ignore */
+  }
+}
