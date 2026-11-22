@@ -285,10 +285,41 @@ function MainApp() {
   // A group invite link waits here until it's been shown.
   const [joinCode, setJoinCode] = useState<string | null>(() => readPendingJoin());
 
+  // New versions: a phone keeps an installed app open for days, and the browser only looks
+  // for a new version when the page itself loads. So look every 30 minutes and whenever
+  // the app comes back to the front.
   const {
     needRefresh: [needRefresh],
     updateServiceWorker,
-  } = useRegisterSW();
+  } = useRegisterSW({
+    onRegisteredSW(_url, reg) {
+      if (!reg) return;
+      const check = () => {
+        if (navigator.onLine) void reg.update().catch(() => {});
+      };
+      setInterval(check, 30 * 60_000);
+      document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible') check();
+      });
+    },
+  });
+  // Put the new version in without asking when nobody would notice: while the app is in the
+  // background, or just after opening it. Mid-game, the "Update ready" note waits instead.
+  const openedAt = useRef(Date.now());
+  const routeKind = route.kind;
+  useEffect(() => {
+    if (!needRefresh) return;
+    const apply = () => void updateServiceWorker(true);
+    if (document.visibilityState === 'hidden' || (Date.now() - openedAt.current < 15_000 && routeKind === 'tab')) {
+      apply();
+      return;
+    }
+    const away = () => {
+      if (document.visibilityState === 'hidden') apply();
+    };
+    document.addEventListener('visibilitychange', away);
+    return () => document.removeEventListener('visibilitychange', away);
+  }, [needRefresh, routeKind, updateServiceWorker]);
 
   // Background content sync (no-op until Supabase is configured).
   useEffect(() => {
