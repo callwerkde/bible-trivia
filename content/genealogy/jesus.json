@@ -1139,5 +1139,48 @@
    "c": 1,
    "v": 17
   }
+ ],
+ "omitted": [
+  {
+   "after": "Joram",
+   "en": "Ahaziah",
+   "ta": "அகசியா",
+   "ref": {
+    "b": "1CH",
+    "c": 3,
+    "v": 11
+   }
+  },
+  {
+   "after": "Joram",
+   "en": "Joash",
+   "ta": "யோவாஸ்",
+   "ref": {
+    "b": "1CH",
+    "c": 3,
+    "v": 11
+   }
+  },
+  {
+   "after": "Joram",
+   "en": "Amaziah",
+   "ta": "அமத்சியா",
+   "ref": {
+    "b": "1CH",
+    "c": 3,
+    "v": 12
+   }
+  },
+  {
+   "after": "Josias",
+   "en": "Jehoiakim",
+   "ta": "யோயாக்கீம்",
+   "ref": {
+    "b": "1CH",
+    "c": 3,
+    "v": 15,
+    "v2": 16
+   }
+  }
  ]
 }

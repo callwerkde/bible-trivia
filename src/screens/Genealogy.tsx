@@ -22,7 +22,7 @@ interface GNode {
   /** The same person on the Bible Timeline. */
   tl?: string | null;
 }
-type Line = 'before' | 'shared' | 'matthew' | 'luke' | 'end';
+type Line = 'before' | 'shared' | 'matthew' | 'luke' | 'end' | 'skipped';
 const D = data as unknown as {
   promise: TRef[];
   before: GNode[];
@@ -32,7 +32,41 @@ const D = data as unknown as {
   mary: GNode;
   jesus: GNode;
   generations: TRef[];
+  omitted: (GNode & { after: string })[];
 };
+
+type Cell = { n: GNode; skipped?: boolean } | null;
+/**
+ * The two lines after David, one row per generation (Luke's count). They line up where the
+ * Bible lines them up: Solomon/Nathan (sons of David), Salathiel and Zorobabel (in both), and
+ * Joseph beside Mary. Between those, Matthew's names (and the kings he skips, from
+ * 1 Chronicles 3) are spread over the rows; an empty cell means his line runs on.
+ */
+function generationRows(): { left: Cell; right: GNode; gen: number }[] {
+  const right = [...D.luke, D.mary];
+  const left: Cell[] = right.map(() => null);
+  const m = D.matthew;
+  const at = (en: string) => m.findIndex((x) => x.en === en);
+  const sal = right.findIndex((x) => x.en === 'Salathiel');
+  // Solomon … Jechonias, with the skipped kings put back in their places.
+  const first: Cell[] = [];
+  for (const n of m.slice(0, at('Salathiel'))) {
+    first.push({ n });
+    for (const o of D.omitted.filter((x) => x.after === n.en)) first.push({ n: o, skipped: true });
+  }
+  // First and last of a stretch stay next to their neighbours (Jechonias begat Salathiel, Jacob
+  // begat Joseph); the rows left over fall in between.
+  const spread = (cells: Cell[], from: number, rows: number) =>
+    cells.forEach((c, i) => (left[from + (cells.length > 1 ? Math.round((i * (rows - 1)) / (cells.length - 1)) : 0)] = c));
+  spread(first, 0, sal);
+  left[sal] = { n: m[at('Salathiel')] };
+  left[sal + 1] = { n: m[at('Zorobabel')] };
+  const rest = m.slice(at('Zorobabel') + 1, -1).map((n) => ({ n }));
+  spread(rest, sal + 2, right.length - 1 - (sal + 2));
+  left[right.length - 1] = { n: m[m.length - 1] }; // Joseph, beside Mary
+  return right.map((r, i) => ({ left: left[i], right: r, gen: i + 1 }));
+}
+const ROWS = generationRows();
 type View = 'both' | 'matthew' | 'luke';
 
 /** Jesus' family line in Matthew 1 and Luke 3: two lines that meet at David. */
@@ -50,12 +84,13 @@ export function Genealogy({ onExit, onOpenTimeline }: { onExit: () => void; onOp
   const show = (n: GNode, line: Line, list: GNode[], i: number) => setOpen({ n, line, prev: list[i - 1], next: list[i + 1] });
 
   const Node = ({ n, line, list, i, big }: { n: GNode; line: Line; list: GNode[]; i: number; big?: boolean }) => {
+    const husband = line === 'matthew' && i === D.matthew.length - 1 && view === 'both';
     const inBoth = line !== 'shared' && line !== 'before' && (n.en === 'Zorobabel' || n.en === 'Salathiel');
     return (
       <button className={`gen-node is-${line} ${big ? 'is-big' : ''} ${n.en === 'David' ? 'is-david' : ''}`} onClick={() => show(n, line, list, i)}>
         {n.en === 'David' && <Crown size={15} strokeWidth={STROKE} className="gen-crown" />}
         <span className="gen-name">
-          <strong lang={lang}>{name(n)}</strong>
+          <strong lang={lang}>{husband ? t.genJosephHusband : name(n)}</strong>
           {lang === 'en' && n.alt && <span className="gen-alt">({n.alt})</span>}
           {both && <span className="gen-sec" lang={lang === 'en' ? 'ta' : 'en'}>{lang === 'en' ? n.ta : n.en}</span>}
         </span>
@@ -167,27 +202,47 @@ export function Genealogy({ onExit, onOpenTimeline }: { onExit: () => void; onOp
             <div className="gen-split" aria-hidden>
               <i />
             </div>
-            <div className="gen-two">
-              <div>
-                <p className="gen-label">{t.genSolomonLine}</p>
-                <Column list={D.matthew.slice(0, -1)} line="matthew" />
-                <button className="gen-node is-matthew is-end" onClick={() => show(D.matthew[D.matthew.length - 1], 'matthew', D.matthew, D.matthew.length - 1)}>
-                  <span className="gen-name">
-                    <strong>{t.genJosephHusband}</strong>
-                  </span>
-                </button>
+            <div className="gen-rows">
+              <div className="gen-row gen-row-head">
+                <span className="gen-num">{t.genGen}</span>
+                <span className="gen-label">{t.genSolomonLine}</span>
+                <span className="gen-label">{t.genNathanLine}</span>
               </div>
-              <div>
-                <p className="gen-label">{t.genNathanLine}</p>
-                <Column list={D.luke} line="luke" />
-                <button className="gen-node is-luke is-end" onClick={() => setOpen({ n: D.mary, line: 'luke' })}>
-                  <span className="gen-name">
-                    <strong lang={lang}>{name(D.mary)}</strong>
-                  </span>
-                  <span className="gen-mother">{refLabel({ b: 'LUK', c: 3, v: 23 }, lang)}</span>
-                </button>
-              </div>
+              {ROWS.map(({ left, right, gen }, i) => {
+                const isLast = i === ROWS.length - 1;
+                const li = left && !left.skipped ? D.matthew.indexOf(left.n) : -1;
+                return (
+                  <div key={gen} className={`gen-row ${isLast ? 'is-last' : ''} ${left && !left.skipped && left.n.en === right.en ? 'is-match' : ''}`}>
+                    <span className="gen-num">{gen}</span>
+                    {left ? (
+                      left.skipped ? (
+                        <button className="gen-node is-matthew is-skipped" onClick={() => setOpen({ n: left.n, line: 'skipped' })}>
+                          <span className="gen-name">
+                            <strong lang={lang}>{lang === 'ta' ? left.n.ta : left.n.en}</strong>
+                          </span>
+                          <span className="gen-mother">{t.genNotInMatthew}</span>
+                        </button>
+                      ) : (
+                        <Node n={left.n} line="matthew" list={D.matthew} i={li} />
+                      )
+                    ) : (
+                      <span className="gen-runs" aria-hidden />
+                    )}
+                    {isLast ? (
+                      <button className="gen-node is-luke" onClick={() => setOpen({ n: D.mary, line: 'luke' })}>
+                        <span className="gen-name">
+                          <strong lang={lang}>{name(D.mary)}</strong>
+                        </span>
+                        <span className="gen-mother">{refLabel({ b: 'LUK', c: 3, v: 23 }, lang)}</span>
+                      </button>
+                    ) : (
+                      <Node n={right} line="luke" list={D.luke} i={i} />
+                    )}
+                  </div>
+                );
+              })}
             </div>
+            <p className="caption gen-note">{t.genRowsNote}</p>
             <div className="gen-merge" aria-hidden>
               <i />
             </div>
@@ -248,6 +303,7 @@ function NodeSheet({ open, lang, onOpenTimeline }: { open: { n: GNode; line: Lin
             </dl>
           )}
           {n.mother && <p className="caption">{t.genMother(lang === 'ta' ? n.mother.ta : n.mother.en)}</p>}
+          {line === 'skipped' && <p className="caption">{t.genSkipped}</p>}
         </>
       )}
       <VerseText r={n.ref} />
