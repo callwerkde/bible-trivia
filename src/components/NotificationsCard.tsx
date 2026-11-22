@@ -130,7 +130,7 @@ export function NotificationSettings() {
             className="btn glass notif-test"
             onClick={async () => {
               const reg = await navigator.serviceWorker.ready;
-              await reg.showNotification(t.notifTestTitle, { body: t.notifTestBody, icon: '/pwa-192.png', tag: 'test' });
+              await reg.showNotification(t.notifTestTitle, { body: t.notifTestBody, icon: '/pwa-192.png', badge: '/badge-96.png', tag: 'test' });
             }}
           >
             <Bell size={18} strokeWidth={STROKE} /> {t.notifTest}

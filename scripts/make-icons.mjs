@@ -30,3 +30,16 @@ for (const t of targets) {
   console.log('wrote', t.file);
 }
 await browser.close();
+
+// Notification badge: a white shape on transparent (Android shows only its silhouette;
+// a full-colour square icon turns into a white box).
+{
+  const badge = readFileSync(new URL('../public/badge.svg', import.meta.url), 'utf8');
+  const b = await chromium.launch();
+  const pg = await b.newPage();
+  await pg.setViewportSize({ width: 96, height: 96 });
+  await pg.setContent(`<html><body style="margin:0;background:transparent">${badge.replace('<svg ', '<svg width="96" height="96" ')}</body></html>`);
+  await pg.screenshot({ path: new URL('../public/badge-96.png', import.meta.url).pathname, omitBackground: true });
+  await b.close();
+  console.log('wrote badge-96.png');
+}

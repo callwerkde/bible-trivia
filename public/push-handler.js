@@ -12,7 +12,7 @@ self.addEventListener('push', (event) => {
       body: msg.body,
       tag: msg.tag,
       icon: '/pwa-192.png',
-      badge: '/pwa-192.png',
+      badge: '/badge-96.png',
       data: { url: msg.url },
     }),
   );
