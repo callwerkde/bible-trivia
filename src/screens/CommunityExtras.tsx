@@ -1,27 +1,19 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
-import { motion } from 'motion/react';
-import { BookOpen, Check, CheckSquare, ExternalLink, Pencil, Flag, Headphones, ListChecks, Plus, Send, Trash2, Tv, X } from 'lucide-react';
+import { useCallback, useEffect, useState } from 'react';
+import { BookOpen, Check, CheckSquare, ExternalLink, Pencil, Headphones, ListChecks, Plus, Send, Trash2, Tv, X } from 'lucide-react';
 import { useApp, useT } from '../store';
-import { spring } from '../motion/springs';
 import { cue } from '../feedback';
 import { Pressable } from '../components/Pressable';
 import { STROKE } from '../components/icons';
 import { Sheet } from '../components/Sheet';
 import { VersePicker, type VersePick } from '../components/VersePicker';
 import { verseWords } from '../engine/bible';
-import { chaptersFor, isoDay, totalDays } from '../engine/readingPlan';
+import { isoDay } from '../engine/readingPlan';
 import { refLabel } from '../engine/timeline';
 import { useAccount } from '../online/account';
 import {
-  createGoal,
   createTask,
   updateTask,
-  deleteGoal,
   deleteTask,
-  feed as loadFeed,
-  goals as loadGoals,
-  groupLog,
-  react,
   setTaskPart,
   isTaskDone,
   taskComments,
@@ -31,11 +23,7 @@ import {
   type TaskDone,
   type TaskComment,
   type Community,
-  type Emoji,
-  type FeedItem,
-  type Goal,
   type Member,
-  type Plan,
   type Task,
 } from '../online/community';
 import { Avatar } from './Friends';
@@ -43,54 +31,30 @@ import { ReportButton } from '../components/Report';
 import { taskCommentTarget } from '../online/reports';
 import type { Friend } from '../online/account';
 
-const EMOJI: Record<Emoji, string> = { pray: '🙏', heart: '❤️', clap: '👏' };
 const KIND_ICON = { read: BookOpen, listen: Headphones, watch: Tv, do: CheckSquare } as const;
 const fmtDate = (iso: string, lang: 'en' | 'ta') => new Date(iso + (iso.length === 10 ? 'T00:00' : '')).toLocaleDateString(lang === 'ta' ? 'ta-IN' : undefined, { day: 'numeric', month: 'short' });
 const daysUntil = (iso: string) => Math.round((new Date(iso + 'T00:00').getTime() - new Date(isoDay(new Date()) + 'T00:00').getTime()) / 86_400_000);
 
-/** Tasks, goals and the activity feed for one group. */
-export function GroupExtras({ group, isAdmin, plans, members }: { group: Community; isAdmin: boolean; plans: Plan[]; members: Member[] }) {
+/** The group's tasks (in the app or outside it). */
+export function GroupExtras({ group, isAdmin, members }: { group: Community; isAdmin: boolean; members: Member[] }) {
   const t = useT();
   const uiLang = useApp((s) => s.uiLang);
   const myId = useAccount((s) => s.session?.user.id);
   const [taskList, setTaskList] = useState<{ list: Task[]; done: TaskDone } | null>(null);
-  const [goalList, setGoalList] = useState<Goal[]>([]);
-  const [log, setLog] = useState<{ plan_id: string; user_id: string; day: number; done_at: string }[]>([]);
-  const [items, setItems] = useState<FeedItem[] | null>(null);
-  const [sheet, setSheet] = useState<null | 'task' | 'goal' | { task: Task } | { edit: Task }>(null);
-  const [showAll, setShowAll] = useState(false);
+  const [sheet, setSheet] = useState<null | 'task' | { task: Task } | { edit: Task }>(null);
 
   const load = useCallback(async () => {
     try {
-      const [tk, gl, fd] = await Promise.all([loadTasks(group.id), loadGoals(group.id), loadFeed(group.id)]);
-      setTaskList(tk);
-      setGoalList(gl);
-      setItems(fd);
-      setLog(gl.length ? await groupLog(plans.map((p) => p.id)) : []);
+      setTaskList(await loadTasks(group.id));
     } catch {
-      setItems([]);
+      setTaskList({ list: [], done: {} });
     }
-  }, [group.id, plans]);
+  }, [group.id]);
   useEffect(() => {
     void load();
   }, [load]);
 
   const active = members.filter((m) => m.status === 'active');
-  const planById = useMemo(() => new Map(plans.map((p) => [p.id, p])), [plans]);
-  const current = plans.find((p) => p.status !== 'done');
-
-  const goalProgress = (g: Goal): { value: number; max: number; label: string } => {
-    if (g.kind === 'chapters') {
-      const since = new Date(g.created_at).getTime();
-      const n = log.filter((l) => new Date(l.done_at).getTime() >= since).reduce((sum, l) => sum + (planById.get(l.plan_id) ? chaptersFor(planById.get(l.plan_id)!, l.day).length : 0), 0);
-      const max = g.target ?? 1;
-      return { value: n, max, label: t.cmGoalChaptersProgress(n, max) };
-    }
-    const total = current ? totalDays(current) : 1;
-    const finished = current ? active.filter((m) => log.filter((l) => l.plan_id === current.id && l.user_id === m.user_id).length >= total).length : 0;
-    return { value: finished, max: Math.max(1, active.length), label: t.cmGoalFinishProgress(finished, active.length) };
-  };
-
   /** Tick a part (or the whole task, part 0). Ticking the last part finishes the task. */
   async function togglePart(task: Task, part: number, on: boolean) {
     if (!myId || !taskList) return;
@@ -102,27 +66,7 @@ export function GroupExtras({ group, isAdmin, plans, members }: { group: Communi
     setTaskList({ ...taskList, done: { ...taskList.done, [task.id]: { ...(taskList.done[task.id] ?? {}), [myId]: next } } });
     if (on && (part === 0 || allParts)) cue('correct');
     await setTaskPart(task.id, part, on, whole).catch(() => load());
-    void loadFeed(group.id).then(setItems).catch(() => {});
   }
-
-  async function toggleReaction(it: FeedItem, e: Emoji) {
-    const mine = it.reactions.some((r) => r.emoji === e && r.mine);
-    setItems((list) =>
-      list?.map((x) =>
-        x === it ? { ...x, reactions: mine ? x.reactions.filter((r) => !(r.emoji === e && r.mine)) : [...x.reactions, { emoji: e, mine: true, name: '' }] } : x,
-      ) ?? null,
-    );
-    if (!mine) cue('tap');
-    await react(group.id, it.user_id, it.item, e, !mine).catch(() => load());
-  }
-
-  const ago = (iso: string) => {
-    const s = (Date.now() - new Date(iso).getTime()) / 1000;
-    const rtf = new Intl.RelativeTimeFormat(uiLang === 'ta' ? 'ta' : 'en', { numeric: 'auto' });
-    if (s < 3600) return rtf.format(-Math.max(1, Math.round(s / 60)), 'minute');
-    if (s < 86400) return rtf.format(-Math.round(s / 3600), 'hour');
-    return rtf.format(-Math.round(s / 86400), 'day');
-  };
 
   return (
     <>
@@ -172,90 +116,6 @@ export function GroupExtras({ group, isAdmin, plans, members }: { group: Communi
         </section>
       )}
 
-      {(isAdmin || goalList.length > 0) && (
-        <section className="cm-card glass">
-          <div className="cm-card-head">
-            <h3 className="eyebrow">
-              <Flag size={14} strokeWidth={STROKE} /> {t.cmGoals}
-            </h3>
-            {isAdmin && (
-              <button className="link cm-head-btn" onClick={() => setSheet('goal')}>
-                <Plus size={14} strokeWidth={STROKE} /> {t.cmAddGoal}
-              </button>
-            )}
-          </div>
-          {goalList.map((g) => {
-            const pr = goalProgress(g);
-            const pct = Math.min(1, pr.value / pr.max);
-            const left = daysUntil(g.due_on);
-            return (
-              <div key={g.id} className="cm-goal">
-                <Ring pct={pct} />
-                <div className="grow">
-                  <strong>{g.title}</strong>
-                  <span className="caption">{pr.label}</span>
-                  <span className={`caption cm-goal-time ${pct >= 1 ? 'is-reached' : ''}`}>
-                    {pct >= 1 ? t.cmReached : left < 0 ? t.cmEnded : `${t.cmDaysLeft(left)} · ${fmtDate(g.due_on, uiLang)}`}
-                  </span>
-                </div>
-                {isAdmin && (
-                  <button
-                    className="icon-btn"
-                    aria-label={t.cmDeleteGoalConfirm}
-                    onClick={async () => {
-                      if (!confirm(t.cmDeleteGoalConfirm)) return;
-                      await deleteGoal(g.id).catch(() => {});
-                      void load();
-                    }}
-                  >
-                    <Trash2 size={15} strokeWidth={STROKE} />
-                  </button>
-                )}
-              </div>
-            );
-          })}
-        </section>
-      )}
-
-      <section className="cm-card glass">
-        <h3 className="eyebrow">{t.cmActivity}</h3>
-        {items && !items.length && <p className="caption">{t.cmNoActivity}</p>}
-        {items?.slice(0, showAll ? 40 : 6).map((it, i) => (
-          <div key={`${it.kind}-${it.item}-${it.user_id}-${i}`} className="cm-feed">
-            <Avatar horse={it.avatar as Friend['avatar']} size={32} />
-            <div className="grow">
-              <p className="cm-feed-text">
-                <strong>{it.display_name}</strong> {it.kind === 'read' ? t.cmFeedRead(it.day ?? 0, it.plan_title ?? '') : it.kind === 'task' ? t.cmFeedTask(it.task_title ?? '') : t.cmFeedJoined}
-              </p>
-              <div className="cm-feed-meta">
-                <span className="caption">{ago(it.at)}</span>
-                {it.kind !== 'joined' && (
-                  <span className="cm-reacts">
-                    {(Object.keys(EMOJI) as Emoji[]).map((e) => {
-                      const n = it.reactions.filter((r) => r.emoji === e).length;
-                      const mine = it.reactions.some((r) => r.emoji === e && r.mine);
-                      const who = it.reactions.filter((r) => r.emoji === e && r.name).map((r) => r.name).join(', ');
-                      if (it.user_id === myId && !n) return null;
-                      return (
-                        <button key={e} className={`cm-react ${mine ? 'is-on' : ''}`} onClick={() => it.user_id !== myId && void toggleReaction(it, e)} disabled={it.user_id === myId} title={who || t.cmReact[e]} aria-label={t.cmReact[e]}>
-                          {EMOJI[e]}
-                          {n > 0 && <span>{n}</span>}
-                        </button>
-                      );
-                    })}
-                  </span>
-                )}
-              </div>
-            </div>
-          </div>
-        ))}
-        {items && items.length > 6 && !showAll && (
-          <button className="link cm-more" onClick={() => setShowAll(true)}>
-            {t.cmShowMore}
-          </button>
-        )}
-      </section>
-
       <Sheet open={sheet !== null} onClose={() => setSheet(null)} label={group.name}>
         {sheet && typeof sheet === 'object' && 'edit' in sheet && (
           <TaskBuilder
@@ -271,16 +131,6 @@ export function GroupExtras({ group, isAdmin, plans, members }: { group: Communi
           <TaskBuilder
             onSave={async (task) => {
               await createTask(group.id, task);
-              setSheet(null);
-              void load();
-            }}
-          />
-        )}
-        {sheet === 'goal' && (
-          <GoalBuilder
-            hasPlan={Boolean(current)}
-            onSave={async (g) => {
-              await createGoal(group.id, g);
               setSheet(null);
               void load();
             }}
@@ -304,20 +154,6 @@ export function GroupExtras({ group, isAdmin, plans, members }: { group: Communi
         )}
       </Sheet>
     </>
-  );
-}
-
-function Ring({ pct }: { pct: number }) {
-  const r = 20;
-  const c = 2 * Math.PI * r;
-  return (
-    <svg className="cm-ring" viewBox="0 0 48 48" aria-hidden>
-      <circle cx="24" cy="24" r={r} className="cm-ring-bg" />
-      <motion.circle cx="24" cy="24" r={r} className="cm-ring-fg" strokeDasharray={c} initial={false} animate={{ strokeDashoffset: c * (1 - pct) }} transition={spring.calm} transform="rotate(-90 24 24)" />
-      <text x="24" y="28" textAnchor="middle">
-        {Math.round(pct * 100)}%
-      </text>
-    </svg>
   );
 }
 
@@ -558,66 +394,6 @@ function TaskBuilder({ initial, onSave }: { initial?: Task; onSave: (t: Pick<Tas
         }}
       >
         {initial ? <Check size={17} strokeWidth={STROKE} /> : <Plus size={17} strokeWidth={STROKE} />} {initial ? t.cmSaveTask : t.cmAddTask}
-      </Pressable>
-    </div>
-  );
-}
-
-function GoalBuilder({ hasPlan, onSave }: { hasPlan: boolean; onSave: (g: Pick<Goal, 'title' | 'kind' | 'target' | 'due_on'>) => Promise<void> }) {
-  const t = useT();
-  const [kind, setKind] = useState<Goal['kind']>('chapters');
-  const [target, setTarget] = useState(100);
-  const later = new Date();
-  later.setDate(later.getDate() + 30);
-  const [due, setDue] = useState(isoDay(later));
-  const [title, setTitle] = useState('');
-  const [busy, setBusy] = useState(false);
-  const [msg, setMsg] = useState<string | null>(null);
-  const name = title.trim() || (kind === 'chapters' ? `${target} ${t.cmGoalChapters.toLowerCase()}` : t.cmGoalFinish);
-  return (
-    <div className="tl-panel">
-      <h2 className="title">{t.cmNewGoal}</h2>
-      <div className="tl-formfield">
-        <span className="caption">{t.cmGoalKind}</span>
-        <div className="tl-pills">
-          {(['chapters', 'finish'] as const)
-            .filter((k) => k === 'chapters' || hasPlan)
-            .map((k) => (
-              <button key={k} className={`tl-chip ${kind === k ? 'is-on' : ''}`} onClick={() => setKind(k)}>
-                {k === 'chapters' ? t.cmGoalChapters : t.cmGoalFinish}
-              </button>
-            ))}
-        </div>
-      </div>
-      {kind === 'chapters' && (
-        <label className="tl-formfield">
-          <span className="caption">{t.cmGoalTarget}</span>
-          <input className="field cm-days-input" type="number" inputMode="numeric" min={1} max={100000} value={target} onChange={(e) => setTarget(Math.max(1, Number(e.target.value) || 1))} />
-        </label>
-      )}
-      <label className="tl-formfield">
-        <span className="caption">{t.cmGoalBy}</span>
-        <input className="field" type="date" min={isoDay(new Date())} value={due} onChange={(e) => e.target.value && setDue(e.target.value)} />
-      </label>
-      <label className="tl-formfield">
-        <span className="caption">{t.cmGoalTitle}</span>
-        <input className="field" maxLength={120} value={title} onChange={(e) => setTitle(e.target.value)} placeholder={name} />
-      </label>
-      {msg && <p className="caption form-msg is-error">{msg}</p>}
-      <Pressable
-        className="btn btn-primary"
-        disabled={busy}
-        onClick={async () => {
-          setBusy(true);
-          try {
-            await onSave({ title: name, kind, target: kind === 'chapters' ? target : null, due_on: due });
-          } catch {
-            setMsg(t.cmFailed);
-            setBusy(false);
-          }
-        }}
-      >
-        <Flag size={17} strokeWidth={STROKE} /> {t.cmAddGoal}
       </Pressable>
     </div>
   );

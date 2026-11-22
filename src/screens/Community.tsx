@@ -21,6 +21,7 @@ import {
   chaptersFor,
   chaptersLabel,
   dateOfDay,
+  daysDue,
   finishDate,
   isoDay,
   planStatus,
@@ -273,6 +274,25 @@ function GroupView({ group, onChanged }: { group: Group; onChanged: () => void }
     }
   }
   const active = list?.filter((m) => m.status === 'active') ?? [];
+  // How each member is doing in the current plan: chapters done, where they are, how far behind.
+  const planTotal = plan ? totalDays(plan) : 1;
+  const due = plan ? daysDue(plan) : 0;
+  const progressRows = active
+    .map((m) => {
+      const mine = plan ? log.filter((l) => l.plan_id === plan.id && l.user_id === m.user_id) : [];
+      const days = new Set(mine.map((l) => l.day));
+      const chapters = plan ? [...days].reduce((n, d) => n + chaptersFor(plan, d).length, 0) : 0;
+      let next: number | null = null;
+      for (let d = 1; d <= planTotal; d++)
+        if (!days.has(d)) {
+          next = d;
+          break;
+        }
+      let behind = 0;
+      for (let d = 1; d <= due; d++) if (!days.has(d)) behind++;
+      return { m, done: days.size, chapters, behind, next };
+    })
+    .sort((a, b) => (plan ? b.behind - a.behind || a.done - b.done : 0) || a.m.display_name.localeCompare(b.m.display_name));
   const pending = list?.filter((m) => m.status === 'pending') ?? [];
 
   async function tick(day: number, on: boolean) {
@@ -289,6 +309,7 @@ function GroupView({ group, onChanged }: { group: Group; onChanged: () => void }
         void pushProgress().catch(() => {});
       }
       setList(await loadMembers(group.id));
+      setLog(await groupLog(allPlans.map((p) => p.id)));
     } catch {
       setDone(done);
       setMsg(t.cmFailed);
@@ -331,7 +352,7 @@ function GroupView({ group, onChanged }: { group: Group; onChanged: () => void }
 
       {list && allPlans.length > 0 && <GroupStats plans={allPlans} plan={plan ?? null} log={log} members={active} />}
 
-      {list && <GroupExtras group={group} isAdmin={isAdmin} plans={allPlans} members={list} />}
+      {list && <GroupExtras group={group} isAdmin={isAdmin} members={list} />}
 
       {isAdmin && pending.length > 0 && (
         <section className="cm-card glass">
@@ -355,8 +376,8 @@ function GroupView({ group, onChanged }: { group: Group; onChanged: () => void }
       )}
 
       <section className="cm-card glass">
-        <h3 className="eyebrow">{t.cmMembers}</h3>
-        {active.map((m) => (
+        <h3 className="eyebrow">{plan ? t.cmProgressTitle : t.cmMembers}</h3>
+        {progressRows.map(({ m, done: d, chapters, behind, next }) => (
           <button key={m.user_id} className="cm-member" onClick={() => setSheet({ member: m })}>
             <Avatar horse={m.avatar as Friend['avatar']} size={36} />
             <span className="grow cm-member-main">
@@ -368,7 +389,17 @@ function GroupView({ group, onChanged }: { group: Group; onChanged: () => void }
                   </span>
                 )}
               </strong>
-              {plan && <span className="caption">{t.cmDaysRead(m.days_read)}</span>}
+              {plan && (
+                <>
+                  <span className="caption">
+                    {t.cmChaptersN(chapters)} · {next ? t.cmOnDay(next) : t.cmFinishedShort}
+                    {behind > 0 && <b className="cm-behind"> · {t.cmBehind(behind)}</b>}
+                  </span>
+                  <span className="cm-mini-bar" aria-hidden>
+                    <i style={{ width: `${Math.round((d / planTotal) * 100)}%` }} />
+                  </span>
+                </>
+              )}
             </span>
             {plan && m.read_today && (
               <span className="cm-today" title={t.cmReadToday}>
@@ -466,7 +497,7 @@ function TodayCard({ plan, done, isAdmin, onRead, onTick, onChanged }: { plan: P
           <p className="caption">{t.cmDayOf(day, st.total)}</p>
           <h2 className="title cm-chapters">{chaptersLabel(chapters, uiLang)}</h2>
           <p className={`caption cm-status ${st.behind > 1 ? 'is-behind' : ''}`}>
-            {!st.started ? t.cmStartsOn(fmt(dateOfDay(plan, 1))) : st.behind > 0 ? t.cmBehind(st.behind) : st.todayIsRest ? t.cmRestDay : t.cmCaughtUp}
+            {!st.started ? t.cmStartsOn(fmt(dateOfDay(plan, 1))) : st.behind > 0 ? `${t.cmBehind(st.behind)} · ${t.cmInOrder(day)}` : st.todayIsRest ? t.cmRestDay : t.cmCaughtUp}
           </p>
           <div className="cm-today-actions">
             <Pressable className="btn btn-primary" onClick={() => onRead(day)}>
@@ -522,15 +553,18 @@ function ReadSheet({ chapters, lang, done, onDone }: { chapters: Chapter[]; lang
   const uiLang = useApp((s) => s.uiLang);
   const [i, setI] = useState(0);
   const [text, setText] = useState<{ en: string[]; ta: string[] } | null>(null);
+  const top = useRef<HTMLDivElement>(null);
   const ch = chapters[i];
   useEffect(() => {
     setText(null);
     void chapterText(ch.b, ch.c).then((x) => x && setText(x));
+    // A new chapter starts at its first verse.
+    top.current?.closest('.sheet-body')?.scrollTo({ top: 0 });
   }, [ch.b, ch.c]);
   const langs: ('en' | 'ta')[] = qLang === 'both' ? [uiLang, uiLang === 'en' ? 'ta' : 'en'] : [qLang];
   const last = i === chapters.length - 1;
   return (
-    <div className="tl-panel tl-reader">
+    <div className="tl-panel tl-reader" ref={top}>
       <p className="caption">{chaptersLabel(chapters, lang)}</p>
       <h2 className="title">
         {BOOK_BY_CODE[ch.b]?.[lang] ?? ch.b} {ch.c}
@@ -832,7 +866,7 @@ function GroupStats({ plans, plan, log, members }: { plans: Plan[]; plan: Plan |
   );
 }
 
-/** The last 10 weeks, one square a day, filled on days they read. */
+/** This week (Sunday to Saturday): a mark on each day they read. */
 function ReadingCalendar({ log }: { log: LogRow[] }) {
   const t = useT();
   const uiLang = useApp((s) => s.uiLang);
@@ -842,26 +876,24 @@ function ReadingCalendar({ log }: { log: LogRow[] }) {
     counts.set(k, (counts.get(k) ?? 0) + 1);
   }
   const today = new Date();
-  const start = new Date(today);
-  start.setDate(start.getDate() - 69 - start.getDay()); // 10 full weeks, starting on a Sunday
-  const days: Date[] = [];
-  for (const d = new Date(start); d <= today; d.setDate(d.getDate() + 1)) days.push(new Date(d));
-  const weeks: Date[][] = [];
-  days.forEach((d, i) => (i % 7 ? weeks[weeks.length - 1].push(d) : weeks.push([d])));
-  const read = days.filter((d) => counts.has(isoDay(d))).length;
+  const sunday = new Date(today.getFullYear(), today.getMonth(), today.getDate() - today.getDay());
+  const week = Array.from({ length: 7 }, (_, i) => new Date(sunday.getFullYear(), sunday.getMonth(), sunday.getDate() + i));
+  const read = week.filter((d) => counts.has(isoDay(d))).length;
   return (
-    <div className="cm-cal">
-      <div className="cm-cal-grid" role="img" aria-label={t.cmCalendarSummary(read)}>
-        {weeks.map((w, i) => (
-          <div key={i} className="cm-cal-week">
-            {w.map((d) => {
-              const n = counts.get(isoDay(d)) ?? 0;
-              return <i key={isoDay(d)} className={`cm-cal-day ${n ? (n > 1 ? 'is-2' : 'is-1') : ''} ${isoDay(d) === isoDay(today) ? 'is-today' : ''}`} title={`${d.toLocaleDateString(uiLang === 'ta' ? 'ta-IN' : undefined, { day: 'numeric', month: 'short' })}${n ? ` · ${n}` : ''}`} />;
-            })}
-          </div>
-        ))}
+    <div className="cm-week" role="img" aria-label={t.cmWeekSummary(read)}>
+      <div className="cm-week-days">
+        {week.map((d, i) => {
+          const n = counts.get(isoDay(d)) ?? 0;
+          const future = d > today && isoDay(d) !== isoDay(today);
+          return (
+            <div key={i} className={`cm-wday ${n ? 'is-read' : ''} ${isoDay(d) === isoDay(today) ? 'is-today' : ''} ${future ? 'is-future' : ''}`}>
+              <span className="cm-wday-name">{t.cmWeekdays[i]}</span>
+              <span className="cm-wday-dot">{n ? <Check size={14} strokeWidth={3} /> : d.toLocaleDateString(uiLang === 'ta' ? 'ta-IN' : undefined, { day: 'numeric' })}</span>
+            </div>
+          );
+        })}
       </div>
-      <p className="caption">{t.cmCalendarSummary(read)}</p>
+      <p className="caption">{t.cmWeekSummary(read)}</p>
     </div>
   );
 }
