@@ -1953,3 +1953,5 @@ textarea.field.post-body-input:lang(ta) { line-height: 1.85; }
 .cm-reset { align-self: flex-start; display: inline-flex; align-items: center; gap: 5px; font-size: 0.86rem; }
 .cm-danger { color: var(--red-ink); }
 .cm-days-input { max-width: 160px; }
+.cm-nudge { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--accent); color: var(--accent-ink); background: var(--accent-wash); cursor: pointer; flex: none; }
+.cm-nudge.is-done { background: var(--red-ink); border-color: var(--red-ink); color: #fff; }

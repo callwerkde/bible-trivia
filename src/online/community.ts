@@ -178,3 +178,11 @@ export async function markDay(plan: string, day: number, done: boolean) {
     : await db.from('reading_log').delete().eq('plan_id', plan).eq('user_id', me()!).eq('day', day);
   if (error) throw error;
 }
+
+/** Admin: a friendly nudge to someone who hasn't read ('sent', or 'already' today). */
+export async function nudgeMember(community: string, user: string): Promise<'sent' | 'already' | 'not_member'> {
+  const { data, error } = await need().rpc('nudge_member', { p_community: community, p_user: user });
+  if (error) throw error;
+  sendPendingPushes();
+  return data as 'sent' | 'already' | 'not_member';
+}

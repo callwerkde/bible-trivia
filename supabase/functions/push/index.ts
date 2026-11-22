@@ -131,6 +131,30 @@ export function message(row: QueueRow, lang: Lang, verses: Verse[], books: Recor
       return { title: ta ? `${name} இப்போது உங்கள் நண்பர்` : `${name} is now your friend`, body: ta ? 'இப்போது ஒரு சவால் அனுப்புங்கள்!' : 'Send them a challenge!', url: '/?open=friends', tag: `friend-${name}` };
     case 'challenge_received':
       return { title: ta ? `${name} உங்களுக்குச் சவால் விட்டார்` : `${name} challenged you`, body: ta ? `${mode} · அதே கேள்விகள், எப்போது வேண்டுமானாலும் விளையாடலாம்.` : `${mode} · same questions, play any time.`, url: `/?open=challenge&id=${p.challenge_id}`, tag: `challenge-${p.challenge_id}` };
+    case 'reading_reminder': {
+      const behind = Number(p.behind ?? 1);
+      const title = ta ? `வாசிக்கும் நேரம்: ${p.title}` : `Time to read: ${p.title}`;
+      const body = ta
+        ? `${p.community_name} · ${p.day}-ஆம் நாள்${behind > 1 ? ` · ${behind} நாள் பின்தங்கியிருக்கிறீர்கள்` : ''}${p.streak ? ` · 🔥 ${p.streak}` : ''}`
+        : `${p.community_name} · Day ${p.day}${behind > 1 ? ` · ${behind} days behind` : ''}${p.streak ? ` · keep your ${p.streak}-day streak 🔥` : ''}`;
+      return { title, body, url: '/#friends', tag: 'reading' };
+    }
+    case 'community_nudge':
+      return {
+        title: ta ? `${p.name} உங்களை உற்சாகப்படுத்துகிறார்` : `${p.name} is cheering you on`,
+        body: ta ? `${p.community_name}: இன்றைய வாசிப்பைத் தொடருங்கள் 📖` : `${p.community_name}: pick up today's reading 📖`,
+        url: '/#friends',
+        tag: `nudge-${p.community}`,
+      };
+    case 'community_weekly':
+      return {
+        title: ta ? `${p.community_name}: இந்த வாரம்` : `${p.community_name}: this week`,
+        body: ta
+          ? `${p.members} பேரில் ${p.readers} பேர் வாசித்தார்கள்; ${p.steady} பேர் 5+ நாள்.`
+          : `${p.readers} of ${p.members} read this week; ${p.steady} read 5+ days.`,
+        url: '/#friends',
+        tag: `weekly-${p.community}`,
+      };
     case 'community_joined': {
       const title = p.pending
         ? (ta ? `${p.name} உங்கள் குழுவில் சேர விரும்புகிறார்` : `${p.name} wants to join your group`)
@@ -238,9 +262,12 @@ if (import.meta.main) Deno.serve(async (req) => {
   const body = await req.json().catch(() => ({}));
   let queued = 0;
   if (fromHook && body?.task === 'scheduled') {
+    // Community first: a reading reminder takes the streak reminder's place at the same time.
+    const community = await db.rpc('queue_community_notifications');
+    if (community.error) console.error('community schedule failed', community.error.message);
     const { data, error } = await db.rpc('queue_scheduled_notifications');
     if (error) return new Response(`schedule failed: ${error.message}`, { status: 500 });
-    queued = data ?? 0;
+    queued = (data ?? 0) + (community.data ?? 0);
   }
   const result = await drain();
   return Response.json({ queued, ...result }, { headers: CORS });

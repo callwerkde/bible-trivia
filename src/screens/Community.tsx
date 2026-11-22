@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import { motion } from 'motion/react';
-import { BookOpen, Check, ChevronLeft, ChevronRight, Copy, Crown, Link2, LogOut, Pause, Play, Plus, RefreshCw, Settings2, Share2, Shield, Trash2, UserPlus, Users } from 'lucide-react';
+import { BookOpen, Check, HandHeart, ChevronLeft, ChevronRight, Copy, Crown, Link2, LogOut, Pause, Play, Plus, RefreshCw, Settings2, Share2, Shield, Trash2, UserPlus, Users } from 'lucide-react';
 import QRCode from 'qrcode';
 import { useApp, useT } from '../store';
 import { spring } from '../motion/springs';
@@ -38,6 +38,7 @@ import {
   manageMember,
   markDay,
   members as loadMembers,
+  nudgeMember,
   myCommunities,
   myDays,
   plans as loadPlans,
@@ -221,6 +222,18 @@ function GroupView({ group, onChanged }: { group: Group; onChanged: () => void }
     void load();
   }, [load]);
 
+  const [nudged, setNudged] = useState<Record<string, boolean>>({});
+  async function nudge(m: Member) {
+    if (nudged[m.user_id]) return;
+    try {
+      const r = await nudgeMember(group.id, m.user_id);
+      setNudged((n) => ({ ...n, [m.user_id]: true }));
+      setMsg(r === 'already' ? t.cmEncouragedAlready : t.cmEncouraged);
+      cue('tap');
+    } catch {
+      setMsg(t.cmFailed);
+    }
+  }
   const active = list?.filter((m) => m.status === 'active') ?? [];
   const pending = list?.filter((m) => m.status === 'pending') ?? [];
 
@@ -320,6 +333,21 @@ function GroupView({ group, onChanged }: { group: Group; onChanged: () => void }
                 <Check size={14} strokeWidth={2.6} />
               </span>
             )}
+            {plan && isAdmin && !m.read_today && m.user_id !== myId && (
+              <span
+                role="button"
+                tabIndex={0}
+                className={`cm-nudge ${nudged[m.user_id] ? 'is-done' : ''}`}
+                title={t.cmEncourage}
+                aria-label={`${t.cmEncourage}: ${m.display_name}`}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  void nudge(m);
+                }}
+              >
+                <HandHeart size={15} strokeWidth={nudged[m.user_id] ? 2.4 : STROKE} />
+              </span>
+            )}
             {m.streak > 0 && <span className="cm-streak">🔥 {m.streak}</span>}
           </button>
         ))}
@@ -330,7 +358,7 @@ function GroupView({ group, onChanged }: { group: Group; onChanged: () => void }
           <Plus size={15} strokeWidth={STROKE} /> {t.cmNewPlan}
         </button>
       )}
-      {msg && <p className="caption form-msg is-error">{msg}</p>}
+      {msg && <p className={`caption form-msg ${msg === t.cmFailed ? 'is-error' : 'is-ok'}`}>{msg}</p>}
 
       <Sheet open={sheet !== null} onClose={() => setSheet(null)} label={group.name}>
         {sheet === 'invite' && <InviteSheet group={group} isAdmin={isAdmin} onChanged={onChanged} />}
@@ -669,6 +697,7 @@ function InviteSheet({ group, isAdmin, onChanged }: { group: Group; isAdmin: boo
 
 function MemberSheet({ group, m, onDone }: { group: Group; m: Member; onDone: () => void }) {
   const t = useT();
+  const [note, setNote] = useState<string | null>(null);
   const act = async (a: 'make_admin' | 'make_member' | 'remove') => {
     if (a === 'remove' && !confirm(t.cmRemoveConfirm(m.display_name))) return;
     await manageMember(group.id, m.user_id, a).catch(() => {});
@@ -683,6 +712,16 @@ function MemberSheet({ group, m, onDone }: { group: Group; m: Member; onDone: ()
           <p className="caption">{t.cmRole[m.role]}</p>
         </div>
       </div>
+      <Pressable
+        className="btn btn-primary"
+        onClick={async () => {
+          const r = await nudgeMember(group.id, m.user_id).catch(() => null);
+          setNote(r === 'already' ? t.cmEncouragedAlready : r ? t.cmEncouraged : t.cmFailed);
+        }}
+      >
+        <HandHeart size={17} strokeWidth={STROKE} /> {t.cmEncourage}
+      </Pressable>
+      {note && <p className="caption form-msg is-ok">{note}</p>}
       {m.role === 'member' ? (
         <Pressable className="btn glass" onClick={() => act('make_admin')}>
           <Shield size={16} strokeWidth={STROKE} /> {t.cmMakeAdmin}
