@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import { BookOpen, Check, CheckSquare, ExternalLink, Pencil, Headphones, ListChecks, Plus, Send, Trash2, Tv, X } from 'lucide-react';
+import { BookOpen, Check, CheckSquare, ExternalLink, Pencil, Headphones, Plus, Send, Trash2, Tv, X } from 'lucide-react';
 import { useApp, useT } from '../store';
 import { cue } from '../feedback';
 import { Pressable } from '../components/Pressable';
@@ -38,7 +38,7 @@ const fmtDate = (iso: string, lang: 'en' | 'ta') => new Date(iso + (iso.length =
 const daysUntil = (iso: string) => Math.round((new Date(iso + 'T00:00').getTime() - new Date(isoDay(new Date()) + 'T00:00').getTime()) / 86_400_000);
 
 /** The group's tasks (in the app or outside it). */
-export function GroupExtras({ group, isAdmin, members, refresh = 0 }: { group: Community; isAdmin: boolean; members: Member[]; refresh?: number }) {
+export function GroupExtras({ group, isAdmin, members, refresh = 0, onCount }: { group: Community; isAdmin: boolean; members: Member[]; refresh?: number; onCount?: (n: number) => void }) {
   const t = useT();
   const uiLang = useApp((s) => s.uiLang);
   const myId = useAccount((s) => s.session?.user.id);
@@ -63,6 +63,10 @@ export function GroupExtras({ group, isAdmin, members, refresh = 0 }: { group: C
   }, [load, refresh]);
 
   const active = members.filter((m) => m.status === 'active');
+  const count = taskList?.list.length ?? 0;
+  useEffect(() => {
+    onCount?.(count);
+  }, [count, onCount]);
   /** Tick a part (or the whole task, part 0). Ticking the last part finishes the task. */
   async function togglePart(task: Task, part: number, on: boolean) {
     if (!myId || !taskList) return;
@@ -78,20 +82,11 @@ export function GroupExtras({ group, isAdmin, members, refresh = 0 }: { group: C
 
   return (
     <>
-      {(isAdmin || (taskList?.list.length ?? 0) > 0) && (
-        <section className="cm-tasks">
-          <div className="cm-card-head">
-            <h2 className="cm-section-title">
-              <ListChecks size={18} strokeWidth={STROKE} /> {t.cmCommunityTasks}
-            </h2>
-            {isAdmin && (
-              <button className="link cm-head-btn" onClick={() => setSheet('task')}>
-                <Plus size={14} strokeWidth={STROKE} /> {t.cmAddTask}
-              </button>
-            )}
-          </div>
+      {(isAdmin || count > 0) && (
+        <section className="cm-tasks" aria-label={t.cmCommunityTasks}>
+          {taskList && count === 0 && <p className="caption cm-tasks-empty">{isAdmin ? t.cmNoTasksAdmin : t.cmNoTasks}</p>}
           <div className="cm-task-grid">
-            {taskList?.list.slice(0, showAll ? undefined : perRow).map((task) => {
+            {taskList?.list.slice(0, showAll ? undefined : perRow * 2).map((task) => {
               const doneUsers = Object.keys(taskList.done[task.id] ?? {}).filter((u) => isTaskDone(taskList.done, task.id, u));
               const mine = Boolean(myId && isTaskDone(taskList.done, task.id, myId));
               const myParts = (myId && taskList.done[task.id]?.[myId]?.filter((p) => p > 0).length) || 0;
@@ -126,11 +121,18 @@ export function GroupExtras({ group, isAdmin, members, refresh = 0 }: { group: C
               );
             })}
           </div>
-          {(taskList?.list.length ?? 0) > perRow && (
-            <button className="link cm-more" onClick={() => setShowAll(!showAll)}>
-              {showAll ? t.cmShowLess : t.cmViewAll(taskList!.list.length)}
-            </button>
-          )}
+          <div className="cm-tasks-foot">
+            {isAdmin && (
+              <button className="link cm-head-btn" onClick={() => setSheet('task')}>
+                <Plus size={15} strokeWidth={STROKE} /> {t.cmAddTask}
+              </button>
+            )}
+            {count > perRow * 2 && (
+              <button className="link cm-more" onClick={() => setShowAll(!showAll)}>
+                {showAll ? t.cmShowLess : t.cmViewAll(count)}
+              </button>
+            )}
+          </div>
         </section>
       )}
 

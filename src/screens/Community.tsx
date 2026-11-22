@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { motion } from 'motion/react';
-import { BookOpen, Check, HandHeart, Lock, ChevronLeft, ChevronRight, Copy, Crown, Link2, LogOut, Pause, Play, Plus, RefreshCw, Settings2, Share2, Shield, Trash2, UserPlus, Users } from 'lucide-react';
+import { BookOpen, ChartNoAxesColumn, Check, Flame, ListChecks, Square, HandHeart, Lock, ChevronLeft, ChevronRight, Copy, Crown, Link2, LogOut, Pause, Play, Plus, RefreshCw, Settings2, Share2, Shield, Trash2, UserPlus, Users } from 'lucide-react';
 import QRCode from 'qrcode';
 import { useApp, useT } from '../store';
 import { spring } from '../motion/springs';
@@ -302,6 +302,12 @@ function GroupView({ group, onChanged }: { group: Group; onChanged: () => void }
     .map((m) => ({ m, done: Number(m.days_read) || 0, chapters: Number(m.chapters_read) || 0, behind: m.behind ?? 0, next: m.next_day }))
     .sort((a, b) => (plan ? b.behind - a.behind || a.done - b.done : 0) || a.m.display_name.localeCompare(b.m.display_name));
   const pending = list?.filter((m) => m.status === 'pending') ?? [];
+  // Tasks first when there are any; otherwise members. (Members can't add tasks, so
+  // they only see the Tasks tab when there's something in it.)
+  const [taskCount, setTaskCount] = useState(0);
+  const [picked, setTab] = useState<'tasks' | 'members' | null>(null);
+  const showTasks = isAdmin || taskCount > 0;
+  const tab = showTasks ? (picked ?? (taskCount > 0 ? 'tasks' : 'members')) : 'members';
 
   async function tick(day: number, on: boolean) {
     if (!plan) return;
@@ -325,28 +331,32 @@ function GroupView({ group, onChanged }: { group: Group; onChanged: () => void }
 
   return (
     <div className="cm-group" style={{ ['--g' as string]: `var(--cm-${group.color})` }}>
-      <div className="cm-card glass cm-hero">
-        <div className="grow">
+      <div className="cm-head">
+        <span className="cm-head-badge" aria-hidden>
+          {[...group.name.trim()][0]?.toUpperCase() ?? '•'}
+        </span>
+        <div className="grow cm-head-text">
           <h2 className="title">{group.name}</h2>
-          {group.description && <p className="caption">{group.description}</p>}
           <p className="caption">
             {t.cmMembersN(active.length)} · {t.cmRole[group.role]}
           </p>
         </div>
-        <div className="cm-hero-actions">
-          <Pressable className="btn btn-primary small" onClick={() => setSheet('invite')}>
-            <UserPlus size={16} strokeWidth={STROKE} /> {t.cmInvite}
-          </Pressable>
-          <button className="icon-btn" onClick={() => setSheet('settings')} aria-label={t.cmEdit} title={t.cmEdit}>
-            <Settings2 size={18} strokeWidth={STROKE} />
-          </button>
-        </div>
+        <button className="cm-icon-btn" onClick={() => setSheet('invite')} aria-label={t.cmInvite} title={t.cmInvite}>
+          <UserPlus size={19} strokeWidth={STROKE} />
+        </button>
+        <button
+          className="cm-icon-btn"
+          onClick={() => setSheet('settings')}
+          aria-label={isAdmin && pending.length ? `${t.cmSettings} · ${t.cmWaitingBadge(pending.length)}` : t.cmSettings}
+          title={t.cmSettings}
+        >
+          <Settings2 size={19} strokeWidth={STROKE} />
+          {isAdmin && pending.length > 0 && <span className="cm-icon-badge">{pending.length}</span>}
+        </button>
       </div>
 
-      {list && <GroupExtras group={group} isAdmin={isAdmin} members={list} refresh={tasksTick} />}
-
       {plan === undefined ? null : plan ? (
-        <TodayCard plan={plan} done={done} isAdmin={isAdmin} onRead={(day) => setSheet({ read: day })} onTick={tick} onChanged={load} />
+        <TodayCard plan={plan} done={done} members={active} onRead={(day) => setSheet({ read: day })} onTick={tick} />
       ) : (
         <div className="cm-card glass cm-noplan">
           <BookOpen size={22} strokeWidth={STROKE} />
@@ -359,31 +369,28 @@ function GroupView({ group, onChanged }: { group: Group; onChanged: () => void }
         </div>
       )}
 
-      {list && allPlans.length > 0 && <GroupStats plan={plan ?? null} members={active} />}
+      {list && plan && <WeekCard plan={plan} members={active} />}
 
-      {isAdmin && pending.length > 0 && (
-        <section className="cm-card glass">
-          <h3 className="eyebrow">{t.cmWaiting}</h3>
-          {pending.map((m) => (
-            <div key={m.user_id} className="cm-member">
-              <Avatar horse={m.avatar as Friend['avatar']} size={34} />
-              <strong className="grow">{m.display_name}</strong>
-              <Pressable
-                className="btn btn-primary small"
-                onClick={async () => {
-                  await manageMember(group.id, m.user_id, 'approve').catch(() => setMsg(t.cmFailed));
-                  void load();
-                }}
-              >
-                <Check size={15} strokeWidth={STROKE} /> {t.cmApprove}
-              </Pressable>
-            </div>
-          ))}
-        </section>
+      {/* Tasks and members, one at a time. */}
+      <div className="cm-tabs" role="tablist">
+        {showTasks && (
+          <button role="tab" aria-selected={tab === 'tasks'} className={tab === 'tasks' ? 'is-on' : ''} onClick={() => setTab('tasks')}>
+            <ListChecks size={17} strokeWidth={STROKE} /> {t.cmTasks}
+            <em>{taskCount}</em>
+          </button>
+        )}
+        <button role="tab" aria-selected={tab === 'members'} className={tab === 'members' ? 'is-on' : ''} onClick={() => setTab('members')}>
+          <Users size={17} strokeWidth={STROKE} /> {t.cmMembers}
+          <em>{active.length}</em>
+        </button>
+      </div>
+      {list && (
+        <div hidden={tab !== 'tasks'}>
+          <GroupExtras group={group} isAdmin={isAdmin} members={list} refresh={tasksTick} onCount={setTaskCount} />
+        </div>
       )}
 
-      <section className="cm-card glass is-solid">
-        <h3 className="eyebrow">{plan ? t.cmProgressTitle : t.cmMembers}</h3>
+      <section className="cm-card glass is-solid cm-members" hidden={tab !== 'members'} aria-label={plan ? t.cmProgressTitle : t.cmMembers}>
         {progressRows.map(({ m, done: d, chapters, behind, next }) => (
           <button key={m.user_id} className="cm-member" onClick={() => setSheet({ member: m })}>
             <Avatar horse={m.avatar as Friend['avatar']} size={36} />
@@ -428,16 +435,15 @@ function GroupView({ group, onChanged }: { group: Group; onChanged: () => void }
                 <HandHeart size={15} strokeWidth={nudged[m.user_id] ? 2.4 : STROKE} />
               </span>
             )}
-            {m.streak > 0 && <span className="cm-streak">🔥 {m.streak}</span>}
+            {m.streak > 0 && (
+              <span className="cm-streak">
+                <Flame size={14} strokeWidth={STROKE} /> {m.streak}
+              </span>
+            )}
           </button>
         ))}
       </section>
 
-      {isAdmin && plan && (
-        <button className="link cm-newplan" onClick={() => setSheet('plan')}>
-          <Plus size={15} strokeWidth={STROKE} /> {t.cmNewPlan}
-        </button>
-      )}
       {msg && <p className={`caption form-msg ${msg === t.cmFailed ? 'is-error' : 'is-ok'}`}>{msg}</p>}
 
       <Sheet open={sheet !== null} onClose={() => setSheet(null)} label={group.name}>
@@ -452,7 +458,27 @@ function GroupView({ group, onChanged }: { group: Group; onChanged: () => void }
             }}
           />
         )}
-        {sheet === 'settings' && <GroupSettings group={group} isAdmin={isAdmin} onChanged={() => { setSheet(null); onChanged(); }} />}
+        {sheet === 'settings' && (
+          <GroupSettings
+            group={group}
+            isAdmin={isAdmin}
+            pending={pending}
+            plan={plan ?? null}
+            onApprove={async (m) => {
+              await manageMember(group.id, m.user_id, 'approve').catch(() => setMsg(t.cmFailed));
+              void load();
+            }}
+            onPlan={async (status) => {
+              if (plan) await setPlanStatus(plan.id, status).catch(() => setMsg(t.cmFailed));
+              void load();
+            }}
+            onNewPlan={() => setSheet('plan')}
+            onChanged={() => {
+              setSheet(null);
+              onChanged();
+            }}
+          />
+        )}
         {sheet && typeof sheet === 'object' && 'member' in sheet && (
           <MemberSheet
             group={group}
@@ -482,7 +508,7 @@ function GroupView({ group, onChanged }: { group: Group; onChanged: () => void }
   );
 }
 
-function TodayCard({ plan, done, isAdmin, onRead, onTick, onChanged }: { plan: Plan; done: Set<number>; isAdmin: boolean; onRead: (day: number) => void; onTick: (day: number, on: boolean) => void; onChanged: () => void }) {
+function TodayCard({ plan, done, members, onRead, onTick }: { plan: Plan; done: Set<number>; members: Member[]; onRead: (day: number) => void; onTick: (day: number, on: boolean) => void }) {
   const t = useT();
   const uiLang = useApp((s) => s.uiLang);
   const st = planStatus(plan, done);
@@ -493,14 +519,16 @@ function TodayCard({ plan, done, isAdmin, onRead, onTick, onChanged }: { plan: P
   return (
     <section className="cm-card glass cm-today-card">
       <div className="cm-today-head">
-        <span className="eyebrow">{plan.title}</span>
+        <span className="eyebrow">
+          {plan.title}
+          {!st.finished && ` · ${t.cmDayOf(day, st.total)}`}
+        </span>
         {plan.status === 'paused' && <span className="cm-paused">⏸</span>}
       </div>
       {st.finished ? (
         <h2 className="title">{t.cmFinished}</h2>
       ) : (
         <>
-          <p className="caption">{t.cmDayOf(day, st.total)}</p>
           <h2 className="title cm-chapters">{chaptersLabel(chapters, uiLang)}</h2>
           <p className={`caption cm-status ${st.behind > 1 ? 'is-behind' : ''}`}>
             {!st.started ? t.cmStartsOn(fmt(dateOfDay(plan, 1))) : st.behind > 0 ? `${t.cmBehind(st.behind)} · ${t.cmInOrder(day)}` : st.ahead > 0 ? t.cmAhead(st.ahead) : st.todayIsRest ? t.cmRestDay : t.cmCaughtUp}
@@ -532,28 +560,7 @@ function TodayCard({ plan, done, isAdmin, onRead, onTick, onChanged }: { plan: P
           {t.cmUndo}
         </button>
       )}
-      {isAdmin && (
-        <div className="cm-plan-admin">
-          <button
-            className="link"
-            onClick={async () => {
-              await setPlanStatus(plan.id, plan.status === 'paused' ? 'active' : 'paused');
-              onChanged();
-            }}
-          >
-            {plan.status === 'paused' ? <Play size={14} strokeWidth={STROKE} /> : <Pause size={14} strokeWidth={STROKE} />} {plan.status === 'paused' ? t.cmResumePlan : t.cmPausePlan}
-          </button>
-          <button
-            className="link"
-            onClick={async () => {
-              await setPlanStatus(plan.id, 'done');
-              onChanged();
-            }}
-          >
-            {t.cmEndPlan}
-          </button>
-        </div>
-      )}
+      {members.length > 1 && <ReadToday members={members} />}
     </section>
   );
 }
@@ -866,22 +873,59 @@ function Stat({ value, label }: { value: string | number; label: string }) {
   );
 }
 
-/** The group at a glance: chapters read, readers this week, longest streak, plan progress. */
-function GroupStats({ plan, members }: { plan: Plan | null; members: Member[] }) {
+/** Who has read today: everyone's picture, lit up once they've read. Readers come first. */
+function ReadToday({ members }: { members: Member[] }) {
   const t = useT();
-  const chapters = members.reduce((n, m) => n + (Number(m.chapters_read) || 0), 0);
-  const readers = members.filter((m) => m.read_week).length;
-  const best = Math.max(0, ...members.map((m) => m.streak));
-  const total = plan ? totalDays(plan) : 0;
-  const pct = plan && members.length ? Math.round((members.reduce((n, m) => n + Math.min(total, Number(m.days_read) || 0), 0) / (total * members.length)) * 100) : null;
+  const n = members.filter((m) => m.read_today).length;
+  const shown = [...members].sort((a, b) => Number(b.read_today) - Number(a.read_today)).slice(0, 7);
   return (
-    <section className="cm-card glass">
-      <h3 className="eyebrow">{t.cmStats}</h3>
-      <div className="cm-stats">
-        <Stat value={chapters} label={t.cmStatChapters} />
-        <Stat value={`${readers}/${members.length}`} label={t.cmStatReaders} />
-        <Stat value={`🔥 ${best}`} label={t.cmStatBestStreak} />
-        {pct != null && <Stat value={`${pct}%`} label={t.cmStatGroupPlan} />}
+    <div className="cm-readtoday">
+      <div className="cm-faces" aria-hidden>
+        {shown.map((m) => (
+          <span key={m.user_id} className={`cm-face ${m.read_today ? 'is-read' : ''}`}>
+            <Avatar horse={m.avatar as Friend['avatar']} size={30} />
+            {m.read_today && (
+              <i>
+                <Check size={9} strokeWidth={3.4} />
+              </i>
+            )}
+          </span>
+        ))}
+        {members.length > shown.length && <span className="cm-face is-more">+{members.length - shown.length}</span>}
+      </div>
+      <p className="caption">{t.cmReadTodayN(n, members.length)}</p>
+    </div>
+  );
+}
+
+/** The group this week: one shared bar (who has read in the last 7 days), and the
+ *  chapters, plan progress and best streak in a line beneath it. */
+function WeekCard({ plan, members }: { plan: Plan; members: Member[] }) {
+  const t = useT();
+  const readers = members.filter((m) => m.read_week).length;
+  const chapters = members.reduce((n, m) => n + (Number(m.chapters_read) || 0), 0);
+  const total = totalDays(plan);
+  const pct = members.length ? Math.round((members.reduce((n, m) => n + Math.min(total, Number(m.days_read) || 0), 0) / (total * members.length)) * 100) : 0;
+  const best = Math.max(0, ...members.map((m) => m.streak));
+  return (
+    <section className="cm-card glass cm-week-card">
+      <div className="cm-week-top">
+        <strong>{t.cmWeekTogether}</strong>
+        <span className="caption">{t.cmReadWeekN(readers, members.length)}</span>
+      </div>
+      <div className="cm-progress" aria-hidden>
+        <motion.i initial={false} animate={{ width: `${members.length ? Math.round((readers / members.length) * 100) : 0}%` }} transition={spring.calm} />
+      </div>
+      <div className="cm-week-facts caption">
+        <span>
+          <BookOpen size={15} strokeWidth={STROKE} /> <b>{chapters}</b> {t.cmStatChapters}
+        </span>
+        <span>
+          <ChartNoAxesColumn size={15} strokeWidth={STROKE} /> <b>{pct}%</b> {t.cmStatGroupPlan}
+        </span>
+        <span>
+          <Flame size={15} strokeWidth={STROKE} /> <b>{best}</b> {t.cmStatBestStreak}
+        </span>
       </div>
     </section>
   );
@@ -919,7 +963,27 @@ function ReadingCalendar({ log }: { log: { done_at: string }[] }) {
   );
 }
 
-function GroupSettings({ group, isAdmin, onChanged }: { group: Group; isAdmin: boolean; onChanged: () => void }) {
+/** The ⚙ sheet. Admins: people waiting to join, the reading plan, and the group's details.
+ *  Everyone: what the group is about, and leaving it. */
+function GroupSettings({
+  group,
+  isAdmin,
+  pending,
+  plan,
+  onApprove,
+  onPlan,
+  onNewPlan,
+  onChanged,
+}: {
+  group: Group;
+  isAdmin: boolean;
+  pending: Member[];
+  plan: Plan | null;
+  onApprove: (m: Member) => Promise<void>;
+  onPlan: (status: Plan['status']) => Promise<void>;
+  onNewPlan: () => void;
+  onChanged: () => void;
+}) {
   const t = useT();
   const [name, setName] = useState(group.name);
   const [about, setAbout] = useState(group.description);
@@ -927,9 +991,51 @@ function GroupSettings({ group, isAdmin, onChanged }: { group: Group; isAdmin: b
   const owner = group.role === 'owner';
   return (
     <div className="tl-panel">
-      <h2 className="title">{isAdmin ? t.cmEdit : group.name}</h2>
+      <h2 className="title">{isAdmin ? t.cmSettings : group.name}</h2>
+      {!isAdmin && group.description && <p className="caption">{group.description}</p>}
+      {isAdmin && pending.length > 0 && (
+        <section className="cm-set-section">
+          <h3 className="eyebrow">
+            {t.cmWaiting} · {pending.length}
+          </h3>
+          {pending.map((m) => (
+            <div key={m.user_id} className="cm-member">
+              <Avatar horse={m.avatar as Friend['avatar']} size={34} />
+              <strong className="grow">{m.display_name}</strong>
+              <Pressable className="btn btn-primary small" onClick={() => onApprove(m)}>
+                <Check size={15} strokeWidth={STROKE} /> {t.cmApprove}
+              </Pressable>
+            </div>
+          ))}
+        </section>
+      )}
+      {isAdmin && (
+        <section className="cm-set-section">
+          <h3 className="eyebrow">{t.cmPlanSection}</h3>
+          {plan && (
+            <>
+              <button className="cm-set-row" onClick={() => onPlan(plan.status === 'paused' ? 'active' : 'paused')}>
+                {plan.status === 'paused' ? <Play size={18} strokeWidth={STROKE} /> : <Pause size={18} strokeWidth={STROKE} />}
+                <span className="grow">{plan.status === 'paused' ? t.cmResumePlan : t.cmPausePlan}</span>
+                <ChevronRight size={16} strokeWidth={STROKE} />
+              </button>
+              <button className="cm-set-row" onClick={() => onPlan('done')}>
+                <Square size={18} strokeWidth={STROKE} />
+                <span className="grow">{t.cmEndPlan}</span>
+                <ChevronRight size={16} strokeWidth={STROKE} />
+              </button>
+            </>
+          )}
+          <button className="cm-set-row is-accent" onClick={onNewPlan}>
+            <Plus size={18} strokeWidth={STROKE} />
+            <span className="grow">{t.cmNewPlan}</span>
+            <ChevronRight size={16} strokeWidth={STROKE} />
+          </button>
+        </section>
+      )}
       {isAdmin && (
         <>
+          <h3 className="eyebrow">{t.cmGroupSection}</h3>
           <label className="tl-formfield">
             <span className="caption">{t.cmName}</span>
             <input className="field" maxLength={60} value={name} onChange={(e) => setName(e.target.value)} />

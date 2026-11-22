@@ -1905,6 +1905,49 @@ textarea.field.post-body-input:lang(ta) { line-height: 1.85; }
 .cm-hero .title { margin: 0; }
 .cm-hero .caption { margin: 2px 0 0; }
 .cm-hero-actions { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
+/* The group page: a short header, today, the week, then Tasks | Members tabs. */
+.cm-group [hidden] { display: none !important; }
+.cm-head { display: flex; align-items: center; gap: 10px; padding: 2px 2px 0; }
+.cm-head-badge { flex: none; width: 44px; height: 44px; border-radius: 14px; display: grid; place-items: center; background: var(--g); color: #fff; font-weight: 800; font-size: 1.15rem; }
+.cm-head-text { min-width: 0; }
+.cm-head-text .title { margin: 0; font-size: 1.15rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.cm-head-text .caption { margin: 1px 0 0; }
+/* Line icons in blue on a soft blue fill. */
+.cm-icon-btn { position: relative; flex: none; width: 42px; height: 42px; border-radius: 14px; display: grid; place-items: center; border: 1px solid transparent; background: var(--accent-wash); color: var(--accent-ink); cursor: pointer; transition: transform 0.15s ease, background 0.15s ease; }
+.cm-icon-btn:active { transform: scale(0.94); }
+.cm-icon-badge { position: absolute; top: -5px; right: -5px; min-width: 18px; height: 18px; padding: 0 4px; border-radius: 999px; background: var(--red); color: #fff; font-size: 0.68rem; font-weight: 700; display: grid; place-items: center; border: 2px solid var(--bg); }
+.cm-readtoday { display: flex; align-items: center; gap: 12px; border-top: 1px solid var(--line); padding-top: 10px; margin-top: 4px; }
+.cm-readtoday .caption { margin: 0; }
+.cm-faces { display: flex; flex: none; }
+.cm-face { position: relative; margin-right: -7px; border-radius: 50%; padding: 2px; background: var(--card-solid); }
+.cm-face > :first-child { opacity: 0.45; filter: grayscale(0.7); }
+.cm-face.is-read { box-shadow: 0 0 0 2px var(--accent); }
+.cm-face.is-read > :first-child { opacity: 1; filter: none; }
+.cm-face i { position: absolute; right: -3px; bottom: -3px; width: 15px; height: 15px; border-radius: 50%; background: var(--accent); color: var(--on-accent); display: grid; place-items: center; border: 1.5px solid var(--card-solid); }
+.cm-face.is-more { width: 34px; height: 34px; display: grid; place-items: center; font-size: 0.72rem; font-weight: 700; color: var(--text-2); background: var(--bg-2); }
+.cm-week-card { gap: 8px; }
+.cm-week-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 2px 12px; }
+.cm-week-top strong { white-space: nowrap; }
+.cm-week-top .caption { margin: 0; }
+.cm-week-card .cm-progress i { background: var(--accent); }
+.cm-week-facts { display: flex; flex-wrap: wrap; gap: 6px 16px; margin: 0; }
+.cm-week-facts span { display: inline-flex; align-items: center; gap: 5px; }
+.cm-week-facts svg { color: var(--accent-ink); }
+.cm-week-facts b { color: var(--text); }
+.cm-tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--line-strong); margin-top: 4px; }
+.cm-tabs button { display: inline-flex; align-items: center; gap: 6px; padding: 10px 12px; border: 0; background: none; font: inherit; font-weight: 700; font-size: 0.95rem; color: var(--text-3); border-bottom: 2.5px solid transparent; margin-bottom: -1px; cursor: pointer; }
+.cm-tabs button.is-on { color: var(--accent-ink); border-color: var(--accent); }
+.cm-tabs em { font-style: normal; font-size: 0.72rem; background: var(--accent-wash); color: var(--accent-ink); border-radius: 999px; padding: 1px 7px; }
+.cm-members { padding-top: 6px; padding-bottom: 6px; }
+.cm-streak { display: inline-flex; align-items: center; gap: 3px; }
+.cm-streak svg { color: var(--accent-ink); }
+.cm-tasks-empty { margin: 4px 2px; }
+.cm-tasks-foot { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.cm-tasks-foot:empty { display: none; }
+.cm-set-section { display: flex; flex-direction: column; gap: 2px; }
+.cm-set-row { display: flex; align-items: center; gap: 12px; padding: 12px 2px; border: 0; border-top: 1px solid var(--line); background: none; font: inherit; font-size: 0.95rem; color: var(--text); text-align: left; cursor: pointer; }
+.cm-set-row svg { color: var(--accent-ink); }
+.cm-set-row.is-accent { color: var(--accent-ink); font-weight: 700; }
 .cm-noplan { align-items: center; text-align: center; color: var(--text-2); }
 .cm-today-card { gap: 6px; }
 .cm-today-head { display: flex; justify-content: space-between; align-items: center; }
