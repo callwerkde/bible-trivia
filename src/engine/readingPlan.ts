@@ -8,7 +8,12 @@ import { BOOKS, BOOK_BY_CODE } from '../i18n/books';
 
 export interface PlanSpec {
   books: string[];
-  chapters_per_day: number;
+  /** A fixed number a day (null when the plan is set by its length instead). */
+  chapters_per_day: number | null;
+  /** Finish in this many reading days: the chapters are spread evenly. */
+  days_total?: number | null;
+  /** Bible order, or Old and New Testament side by side. */
+  reading_order?: 'canonical' | 'mixed';
   /** yyyy-mm-dd */
   start_date: string;
   /** 0 = Sunday … 6 = Saturday */
@@ -27,19 +32,70 @@ export const PRESETS: { id: string; books: string[] }[] = [
   { id: 'torah', books: ['GEN', 'EXO', 'LEV', 'NUM', 'DEU'] },
 ];
 
-/** Every chapter of the plan, in order. */
-export function chapterList(books: string[]): Chapter[] {
-  return books.flatMap((b) => Array.from({ length: CHAPTERS[b] ?? 0 }, (_, i) => ({ b, c: i + 1 })));
+const OT = new Set(CODES.slice(0, 39));
+const flat = (books: string[]) => books.flatMap((b) => Array.from({ length: CHAPTERS[b] ?? 0 }, (_, i) => ({ b, c: i + 1 })));
+
+/** Every chapter of the plan, in reading order. 'mixed' weaves the Old and New Testament
+ *  together so both move forward at the same pace and finish together. */
+export function chapterList(books: string[], order: PlanSpec['reading_order'] = 'canonical'): Chapter[] {
+  if (order !== 'mixed') return flat(books);
+  const ot = flat(books.filter((b) => OT.has(b)));
+  const nt = flat(books.filter((b) => !OT.has(b)));
+  if (!ot.length || !nt.length) return [...ot, ...nt];
+  const out: Chapter[] = [];
+  let i = 0;
+  let j = 0;
+  while (i < ot.length || j < nt.length) {
+    if (j >= nt.length || (i < ot.length && (i + 1) / ot.length <= (j + 1) / nt.length)) out.push(ot[i++]);
+    else out.push(nt[j++]);
+  }
+  return out;
 }
 
-export const totalDays = (p: PlanSpec) => Math.ceil(chapterList(p.books).length / Math.max(1, p.chapters_per_day));
+const chaptersOf = (p: PlanSpec) => chapterList(p.books, p.reading_order);
 
-/** The chapters for day n (1-based). */
+export function totalDays(p: PlanSpec): number {
+  const n = chaptersOf(p).length;
+  if (p.days_total) return Math.max(1, Math.min(p.days_total, n));
+  return Math.ceil(n / Math.max(1, p.chapters_per_day ?? 1));
+}
+
+/** The chapters for day n (1-based). A plan set by length spreads them evenly. */
 export function chaptersFor(p: PlanSpec, day: number): Chapter[] {
-  const all = chapterList(p.books);
-  const n = Math.max(1, p.chapters_per_day);
+  const all = chaptersOf(p);
+  if (p.days_total) {
+    const d = totalDays(p);
+    return all.slice(Math.floor(((day - 1) * all.length) / d), Math.floor((day * all.length) / d));
+  }
+  const n = Math.max(1, p.chapters_per_day ?? 1);
   return all.slice((day - 1) * n, day * n);
 }
+
+/** The fewest and most chapters on any day ("3–4 chapters a day"). */
+export function dailyRange(p: PlanSpec): [number, number] {
+  const n = chaptersOf(p).length;
+  const d = totalDays(p);
+  if (!p.days_total) return [Math.min(n, p.chapters_per_day ?? 1), Math.min(n, p.chapters_per_day ?? 1)];
+  return [Math.floor(n / d), Math.ceil(n / d)];
+}
+
+/** Reading days from the start date up to and including an end date. */
+export function readingDaysBetween(p: Pick<PlanSpec, 'start_date' | 'rest_days'>, end: Date): number {
+  const d = parse(p.start_date);
+  let n = 0;
+  for (let i = 0; i < 4000 && d <= end; i++) {
+    if (!p.rest_days.includes(d.getDay())) n++;
+    d.setDate(d.getDate() + 1);
+  }
+  return n;
+}
+
+/** Common choices for which days to read. */
+export const WEEK_PATTERNS: Record<'every' | 'weekdays' | 'weekends', number[]> = {
+  every: [],
+  weekdays: [0, 6],
+  weekends: [1, 2, 3, 4, 5],
+};
 
 const DAY = 86_400_000;
 const parse = (s: string) => {

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import { BookOpen, Check, ChevronLeft, ChevronRight, Copy, Crown, Link2, LogOut, Pause, Play, Plus, RefreshCw, Settings2, Share2, Shield, Trash2, UserPlus, Users } from 'lucide-react';
 import QRCode from 'qrcode';
@@ -14,6 +14,10 @@ import { chapterText } from '../engine/bible';
 import { BOOKS, BOOK_BY_CODE } from '../i18n/books';
 import {
   PRESETS,
+  WEEK_PATTERNS,
+  chapterList,
+  dailyRange,
+  readingDaysBetween,
   chaptersFor,
   chaptersLabel,
   dateOfDay,
@@ -755,27 +759,54 @@ function GroupSettings({ group, isAdmin, onChanged }: { group: Group; isAdmin: b
 }
 
 /** Admin: a new reading plan, with a live preview of the schedule. */
+type Pace = 'chapters' | 'in' | 'by';
+type DayPattern = 'every' | 'weekdays' | 'weekends' | 'custom';
+const DURATIONS: Record<string, (d: Date) => Date> = {
+  y1: (d) => new Date(d.getFullYear() + 1, d.getMonth(), d.getDate() - 1),
+  m6: (d) => new Date(d.getFullYear(), d.getMonth() + 6, d.getDate() - 1),
+  m3: (d) => new Date(d.getFullYear(), d.getMonth() + 3, d.getDate() - 1),
+  d90: (d) => new Date(d.getFullYear(), d.getMonth(), d.getDate() + 89),
+  d30: (d) => new Date(d.getFullYear(), d.getMonth(), d.getDate() + 29),
+};
+
 function PlanBuilder({ hasPlan, onSave }: { hasPlan: boolean; onSave: (p: PlanSpec & { title: string }) => Promise<void> }) {
   const t = useT();
   const uiLang = useApp((s) => s.uiLang);
-  const [preset, setPreset] = useState('nt');
+  const [preset, setPreset] = useState('bible');
   const [custom, setCustom] = useState<string[]>([]);
+  const [order, setOrder] = useState<'canonical' | 'mixed'>('canonical');
+  const [pace, setPace] = useState<Pace>('in');
   const [per, setPer] = useState(3);
+  const [duration, setDuration] = useState('y1');
+  const [daysCount, setDaysCount] = useState(365);
   const [start, setStart] = useState(isoDay(new Date()));
-  const [rest, setRest] = useState<number[]>([]);
+  const [end, setEnd] = useState(isoDay(DURATIONS.y1(new Date())));
+  const [pattern, setPattern] = useState<DayPattern>('every');
+  const [readOn, setReadOn] = useState<number[]>([0, 1, 2, 3, 4, 5, 6]);
   const [title, setTitle] = useState('');
   const [busy, setBusy] = useState(false);
   const [msg, setMsg] = useState<string | null>(null);
+
   const books = preset === 'custom' ? BOOKS.map((b) => b.code).filter((c) => custom.includes(c)) : PRESETS.find((p) => p.id === preset)!.books;
-  const spec: PlanSpec = { books, chapters_per_day: per, start_date: start, rest_days: rest };
+  const hasBoth = books.some((b) => BOOKS.findIndex((x) => x.code === b) < 39) && books.some((b) => BOOKS.findIndex((x) => x.code === b) >= 39);
+  const rest = pattern === 'custom' ? [0, 1, 2, 3, 4, 5, 6].filter((d) => !readOn.includes(d)) : WEEK_PATTERNS[pattern];
+  const startDate = new Date(start + 'T00:00');
+  // "Finish in" counts calendar time from the start; "finish by" uses the chosen date.
+  const endDate = pace === 'by' ? new Date(end + 'T00:00') : duration === 'custom' ? null : DURATIONS[duration](startDate);
+  const targetDays =
+    pace === 'chapters' ? null : pace === 'in' && duration === 'custom' ? Math.max(1, daysCount) : Math.max(1, readingDaysBetween({ start_date: start, rest_days: rest }, endDate!));
+  const spec: PlanSpec = { books, chapters_per_day: pace === 'chapters' ? per : null, days_total: targetDays, reading_order: hasBoth ? order : 'canonical', start_date: start, rest_days: rest };
+  const chapterCount = books.length ? chapterList(books).length : 0;
   const days = books.length ? totalDays(spec) : 0;
+  const capped = targetDays != null && targetDays > chapterCount;
   const fmt = (d: Date) => d.toLocaleDateString(uiLang === 'ta' ? 'ta-IN' : undefined, { day: 'numeric', month: 'short', year: 'numeric' });
   const name = title.trim() || t.cmPreset[preset];
-  const preview = useMemo(() => (books.length ? { end: fmt(finishDate(spec)), day1: chaptersLabel(chaptersFor(spec, 1), uiLang) } : null), [books.join(), per, start, rest.join(), uiLang]); // eslint-disable-line react-hooks/exhaustive-deps
+  const [lo, hi] = books.length ? dailyRange(spec) : [0, 0];
 
   return (
     <div className="tl-panel cm-builder">
       <h2 className="title">{t.cmNewPlan}</h2>
+
       <div className="tl-formfield">
         <span className="caption">{t.cmWhatToRead}</span>
         <div className="tl-pills">
@@ -795,40 +826,99 @@ function PlanBuilder({ hasPlan, onSave }: { hasPlan: boolean; onSave: (p: PlanSp
           </div>
         )}
       </div>
-      <label className="tl-formfield">
-        <span className="caption">{t.cmPlanTitle}</span>
-        <input className="field" maxLength={80} value={title} onChange={(e) => setTitle(e.target.value)} placeholder={t.cmPreset[preset]} />
-      </label>
-      <div className="tl-formfield">
-        <span className="caption">{t.cmPerDay}</span>
-        <div className="cm-stepper">
-          <button className="icon-btn glass" onClick={() => setPer(Math.max(1, per - 1))} aria-label="-">
-            −
-          </button>
-          <strong>{per}</strong>
-          <button className="icon-btn glass" onClick={() => setPer(Math.min(20, per + 1))} aria-label="+">
-            +
-          </button>
+
+      {hasBoth && (
+        <div className="tl-formfield">
+          <span className="caption">{t.cmOrder}</span>
+          <div className="tl-pills">
+            {(['canonical', 'mixed'] as const).map((o) => (
+              <button key={o} className={`tl-chip ${order === o ? 'is-on' : ''}`} onClick={() => setOrder(o)}>
+                {o === 'canonical' ? t.cmOrderCanonical : t.cmOrderMixed}
+              </button>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
+
       <label className="tl-formfield">
         <span className="caption">{t.cmStart}</span>
         <input className="field" type="date" value={start} onChange={(e) => e.target.value && setStart(e.target.value)} />
       </label>
+
       <div className="tl-formfield">
-        <span className="caption">{t.cmRestDays}</span>
-        <div className="cm-weekdays">
-          {t.cmWeekdays.map((d, i) => (
-            <button key={i} className={`cm-weekday ${rest.includes(i) ? 'is-on' : ''}`} onClick={() => setRest((r) => (r.includes(i) ? r.filter((x) => x !== i) : r.length < 6 ? [...r, i] : r))} aria-pressed={rest.includes(i)}>
-              {d}
+        <span className="caption">{t.cmPace}</span>
+        <div className="segmented small" role="tablist">
+          {(['in', 'by', 'chapters'] as const).map((v) => (
+            <button key={v} role="tab" aria-selected={pace === v} className={pace === v ? 'is-on' : ''} onClick={() => setPace(v)}>
+              {pace === v && <motion.span layoutId="seg-pace" className="segmented-thumb" transition={spring.calm} />}
+              <span>{v === 'in' ? t.cmPaceIn : v === 'by' ? t.cmPaceBy : t.cmPaceChapters}</span>
             </button>
           ))}
         </div>
+        {pace === 'chapters' && (
+          <div className="cm-stepper">
+            <button className="icon-btn glass" onClick={() => setPer(Math.max(1, per - 1))} aria-label="-">
+              −
+            </button>
+            <strong>{per}</strong>
+            <button className="icon-btn glass" onClick={() => setPer(Math.min(20, per + 1))} aria-label="+">
+              +
+            </button>
+          </div>
+        )}
+        {pace === 'in' && (
+          <>
+            <div className="tl-pills">
+              {Object.keys(t.cmDurations).map((k) => (
+                <button key={k} className={`tl-chip ${duration === k ? 'is-on' : ''}`} onClick={() => setDuration(k)}>
+                  {t.cmDurations[k]}
+                </button>
+              ))}
+            </div>
+            {duration === 'custom' && (
+              <input className="field cm-days-input" type="number" inputMode="numeric" min={1} max={3650} value={daysCount} onChange={(e) => setDaysCount(Math.min(3650, Math.max(1, Number(e.target.value) || 1)))} aria-label={t.cmDaysCount} />
+            )}
+          </>
+        )}
+        {pace === 'by' && <input className="field" type="date" min={start} value={end} onChange={(e) => e.target.value && setEnd(e.target.value)} aria-label={t.cmEndDate} />}
       </div>
-      {preview && (
+
+      <div className="tl-formfield">
+        <span className="caption">{t.cmReadOn}</span>
+        <div className="tl-pills">
+          {(['every', 'weekdays', 'weekends', 'custom'] as const).map((v) => (
+            <button key={v} className={`tl-chip ${pattern === v ? 'is-on' : ''}`} onClick={() => setPattern(v)}>
+              {t.cmDayPatterns[v]}
+            </button>
+          ))}
+        </div>
+        {pattern === 'custom' && (
+          <div className="cm-weekdays">
+            {t.cmWeekdays.map((d, i) => (
+              <button
+                key={i}
+                className={`cm-weekday ${readOn.includes(i) ? 'is-on' : ''}`}
+                onClick={() => setReadOn((r) => (r.includes(i) ? (r.length > 1 ? r.filter((x) => x !== i) : r) : [...r, i]))}
+                aria-pressed={readOn.includes(i)}
+              >
+                {d}
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
+
+      <label className="tl-formfield">
+        <span className="caption">{t.cmPlanTitle}</span>
+        <input className="field" maxLength={80} value={title} onChange={(e) => setTitle(e.target.value)} placeholder={t.cmPreset[preset]} />
+      </label>
+
+      {books.length > 0 && (
         <div className="cm-preview-box glass">
-          <strong>{t.cmPreview(days, preview.end)}</strong>
-          <span className="caption">{t.cmDay1(preview.day1)}</span>
+          <strong>{t.cmPreview(days, fmt(finishDate(spec)))}</strong>
+          <span>{t.cmPerDayRange(lo, hi)}</span>
+          <span className="caption">{t.cmDay1(chaptersLabel(chaptersFor(spec, 1), uiLang))}</span>
+          {capped && <span className="caption">{t.cmCapped(days)}</span>}
         </div>
       )}
       {hasPlan && <p className="caption">{t.cmPlanReplaces}</p>}
@@ -839,7 +929,7 @@ function PlanBuilder({ hasPlan, onSave }: { hasPlan: boolean; onSave: (p: PlanSp
         onClick={async () => {
           setBusy(true);
           try {
-            await onSave({ ...spec, title: name });
+            await onSave({ ...spec, days_total: capped ? chapterCount : spec.days_total, title: name });
           } catch {
             setMsg(t.cmFailed);
             setBusy(false);

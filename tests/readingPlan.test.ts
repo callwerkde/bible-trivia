@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { chaptersFor, chaptersLabel, chapterList, dateOfDay, daysDue, finishDate, isoDay, planStatus, totalDays, PRESETS } from '../src/engine/readingPlan';
+import { chaptersFor, chaptersLabel, chapterList, dailyRange, dateOfDay, daysDue, finishDate, isoDay, planStatus, readingDaysBetween, totalDays, PRESETS } from '../src/engine/readingPlan';
 
 const nt = PRESETS.find((p) => p.id === 'nt')!.books;
 // Monday 5 January 2026
@@ -32,5 +32,35 @@ describe('reading plans', () => {
     expect(st.next).toBe(3);
     const done = planStatus(plan, new Set(Array.from({ length: totalDays(plan) }, (_, i) => i + 1)), new Date(2026, 5, 1));
     expect(done.finished).toBe(true);
+  });
+});
+
+describe('reading plans by length', () => {
+  const bible = PRESETS[0].books;
+  it('spreads the whole Bible over a year exactly', () => {
+    const p = { books: bible, chapters_per_day: null, days_total: 365, start_date: '2026-01-01', rest_days: [] as number[] };
+    expect(totalDays(p)).toBe(365);
+    const all = Array.from({ length: 365 }, (_, i) => chaptersFor(p, i + 1));
+    expect(all.flat()).toHaveLength(1189);
+    expect(Math.min(...all.map((d) => d.length))).toBe(3);
+    expect(Math.max(...all.map((d) => d.length))).toBe(4);
+    expect(isoDay(finishDate(p))).toBe('2026-12-31');
+  });
+  it('weekdays only in a year', () => {
+    const rest = [0, 6];
+    const days = readingDaysBetween({ start_date: '2026-01-01', rest_days: rest }, new Date(2026, 11, 31));
+    expect(days).toBe(261);
+    const p = { books: bible, chapters_per_day: null, days_total: days, start_date: '2026-01-01', rest_days: rest };
+    expect(dailyRange(p)).toEqual([4, 5]);
+    expect(dateOfDay(p, 1).getDay()).not.toBe(0);
+  });
+  it('weaves the Old and New Testament together', () => {
+    const list = chapterList(bible, 'mixed');
+    expect(list).toHaveLength(1189);
+    // halfway through, both testaments are about half done
+    const half = list.slice(0, 595);
+    const nt = half.filter((c) => ['MAT', 'MRK', 'LUK', 'JHN', 'ACT', 'ROM', 'REV'].includes(c.b) || c.b.endsWith('CO')).length;
+    expect(nt).toBeGreaterThan(60);
+    expect(list[list.length - 1]).toEqual({ b: 'REV', c: 22 });
   });
 });

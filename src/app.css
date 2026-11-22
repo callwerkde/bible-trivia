@@ -1952,3 +1952,4 @@ textarea.field.post-body-input:lang(ta) { line-height: 1.85; }
 .cm-code { text-align: center; font-size: 1.5rem; font-weight: 800; letter-spacing: 0.22em; font-variant-numeric: tabular-nums; }
 .cm-reset { align-self: flex-start; display: inline-flex; align-items: center; gap: 5px; font-size: 0.86rem; }
 .cm-danger { color: var(--red-ink); }
+.cm-days-input { max-width: 160px; }
