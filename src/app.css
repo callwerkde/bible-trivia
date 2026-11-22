@@ -2037,3 +2037,4 @@ textarea.field.post-body-input:lang(ta) { line-height: 1.85; }
 .cm-wday.is-read .cm-wday-dot { background: var(--g, var(--accent)); color: #fff; }
 .cm-wday.is-today .cm-wday-dot { box-shadow: 0 0 0 2px var(--bg-3), 0 0 0 4px var(--text); }
 .cm-wday.is-future .cm-wday-dot { opacity: 0.45; }
+.cm-locked { display: flex; align-items: flex-start; gap: 8px; margin: 6px 0 4px; padding: 10px 12px; border-radius: var(--radius-md); background: var(--accent-wash); color: var(--accent-ink); font-weight: 600; line-height: 1.4; } .cm-locked svg { flex: none; margin-top: 2px; }

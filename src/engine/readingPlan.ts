@@ -136,6 +136,9 @@ export function daysDue(p: PlanSpec, on: Date = new Date()): number {
 
 export const finishDate = (p: PlanSpec) => dateOfDay(p, totalDays(p));
 
+/** How many days past today's reading someone may read ahead (keeps the group together). */
+export const READ_AHEAD = 2;
+
 export interface PlanStatus {
   total: number;
   due: number;
@@ -147,6 +150,12 @@ export interface PlanStatus {
   todayIsRest: boolean;
   started: boolean;
   finished: boolean;
+  /** Days read past today's due day. */
+  ahead: number;
+  /** The next day may be read now (not more than READ_AHEAD days ahead). */
+  canRead: boolean;
+  /** When the next day opens, if it's locked. */
+  opensOn: Date | null;
 }
 
 export function planStatus(p: PlanSpec, doneDays: Set<number>, on: Date = new Date()): PlanStatus {
@@ -160,6 +169,9 @@ export function planStatus(p: PlanSpec, doneDays: Set<number>, on: Date = new Da
       next = d;
       break;
     }
+  const canRead = next !== null && next <= due + READ_AHEAD;
+  let ahead = 0;
+  for (let d = due + 1; d <= total && doneDays.has(d); d++) ahead++;
   return {
     total,
     due,
@@ -169,6 +181,9 @@ export function planStatus(p: PlanSpec, doneDays: Set<number>, on: Date = new Da
     todayIsRest: isRest(p, on),
     started: on >= parse(p.start_date),
     finished: next === null,
+    ahead: behind ? 0 : ahead,
+    canRead,
+    opensOn: next !== null && !canRead ? dateOfDay(p, next - READ_AHEAD) : null,
   };
 }
 

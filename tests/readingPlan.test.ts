@@ -64,3 +64,18 @@ describe('reading plans by length', () => {
     expect(list[list.length - 1]).toEqual({ b: 'REV', c: 22 });
   });
 });
+
+describe('reading ahead', () => {
+  const plan = { books: ['MAT'], chapters_per_day: 1, start_date: '2026-01-05', rest_days: [] as number[] };
+  it('allows two days ahead, then waits', () => {
+    const on = new Date(2026, 0, 7); // day 3 is due
+    expect(planStatus(plan, new Set([1, 2, 3]), on)).toMatchObject({ next: 4, canRead: true, ahead: 0 });
+    expect(planStatus(plan, new Set([1, 2, 3, 4]), on)).toMatchObject({ next: 5, canRead: true, ahead: 1 });
+    const two = planStatus(plan, new Set([1, 2, 3, 4, 5]), on);
+    expect(two).toMatchObject({ next: 6, canRead: false, ahead: 2 });
+    expect(isoDay(two.opensOn!)).toBe('2026-01-08'); // day 6 opens when day 4 is due
+  });
+  it('lets someone behind read their first unread day', () => {
+    expect(planStatus(plan, new Set([1]), new Date(2026, 0, 9))).toMatchObject({ next: 2, canRead: true, behind: 4 });
+  });
+});

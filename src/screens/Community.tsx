@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { motion } from 'motion/react';
-import { BookOpen, Check, HandHeart, ChevronLeft, ChevronRight, Copy, Crown, Link2, LogOut, Pause, Play, Plus, RefreshCw, Settings2, Share2, Shield, Trash2, UserPlus, Users } from 'lucide-react';
+import { BookOpen, Check, HandHeart, Lock, ChevronLeft, ChevronRight, Copy, Crown, Link2, LogOut, Pause, Play, Plus, RefreshCw, Settings2, Share2, Shield, Trash2, UserPlus, Users } from 'lucide-react';
 import QRCode from 'qrcode';
 import { useApp, useT } from '../store';
 import { spring } from '../motion/springs';
@@ -497,8 +497,13 @@ function TodayCard({ plan, done, isAdmin, onRead, onTick, onChanged }: { plan: P
           <p className="caption">{t.cmDayOf(day, st.total)}</p>
           <h2 className="title cm-chapters">{chaptersLabel(chapters, uiLang)}</h2>
           <p className={`caption cm-status ${st.behind > 1 ? 'is-behind' : ''}`}>
-            {!st.started ? t.cmStartsOn(fmt(dateOfDay(plan, 1))) : st.behind > 0 ? `${t.cmBehind(st.behind)} · ${t.cmInOrder(day)}` : st.todayIsRest ? t.cmRestDay : t.cmCaughtUp}
+            {!st.started ? t.cmStartsOn(fmt(dateOfDay(plan, 1))) : st.behind > 0 ? `${t.cmBehind(st.behind)} · ${t.cmInOrder(day)}` : st.ahead > 0 ? t.cmAhead(st.ahead) : st.todayIsRest ? t.cmRestDay : t.cmCaughtUp}
           </p>
+          {!st.canRead ? (
+            <p className="cm-locked">
+              <Lock size={16} strokeWidth={STROKE} /> {t.cmOpensOn(day, fmt(st.opensOn!))}
+            </p>
+          ) : (
           <div className="cm-today-actions">
             <Pressable className="btn btn-primary" onClick={() => onRead(day)}>
               <BookOpen size={18} strokeWidth={STROKE} /> {t.cmRead}
@@ -507,6 +512,7 @@ function TodayCard({ plan, done, isAdmin, onRead, onTick, onChanged }: { plan: P
               <Check size={18} strokeWidth={STROKE} /> {t.cmIRead}
             </Pressable>
           </div>
+          )}
         </>
       )}
       <div className="cm-progress" aria-label={t.cmProgress(st.done, st.total)}>
