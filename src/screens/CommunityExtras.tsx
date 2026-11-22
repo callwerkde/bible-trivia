@@ -42,6 +42,9 @@ export function GroupExtras({ group, isAdmin, members }: { group: Community; isA
   const myId = useAccount((s) => s.session?.user.id);
   const [taskList, setTaskList] = useState<{ list: Task[]; done: TaskDone } | null>(null);
   const [sheet, setSheet] = useState<null | 'task' | { task: Task } | { edit: Task }>(null);
+  // One row of task cards (2 on a phone, 3 on wider screens); the rest behind "View all".
+  const [showAll, setShowAll] = useState(false);
+  const perRow = typeof window !== 'undefined' && window.innerWidth >= 700 ? 3 : 2;
 
   const load = useCallback(async () => {
     try {
@@ -71,48 +74,58 @@ export function GroupExtras({ group, isAdmin, members }: { group: Community; isA
   return (
     <>
       {(isAdmin || (taskList?.list.length ?? 0) > 0) && (
-        <section className="cm-card glass">
+        <section className="cm-tasks">
           <div className="cm-card-head">
-            <h3 className="eyebrow">
-              <ListChecks size={14} strokeWidth={STROKE} /> {t.cmTasks}
-            </h3>
+            <h2 className="cm-section-title">
+              <ListChecks size={18} strokeWidth={STROKE} /> {t.cmCommunityTasks}
+            </h2>
             {isAdmin && (
               <button className="link cm-head-btn" onClick={() => setSheet('task')}>
                 <Plus size={14} strokeWidth={STROKE} /> {t.cmAddTask}
               </button>
             )}
           </div>
-          {taskList?.list.map((task) => {
-            const doneUsers = Object.keys(taskList.done[task.id] ?? {}).filter((u) => isTaskDone(taskList.done, task.id, u));
-            const mine = Boolean(myId && isTaskDone(taskList.done, task.id, myId));
-            const myParts = (myId && taskList.done[task.id]?.[myId]?.filter((p) => p > 0).length) || 0;
-            const left = task.due_on ? daysUntil(task.due_on) : null;
-            const Icon = KIND_ICON[task.kind] ?? BookOpen;
-            return (
-              <div key={task.id} className={`cm-task ${mine ? 'is-done' : ''}`}>
-                {task.parts.length ? (
-                  <button className="cm-check is-parts" onClick={() => setSheet({ task })} aria-label={task.title}>
-                    {mine ? <Check size={15} strokeWidth={2.8} /> : <span>{t.cmPartsMine(myParts, task.parts.length)}</span>}
+          <div className="cm-task-grid">
+            {taskList?.list.slice(0, showAll ? undefined : perRow).map((task) => {
+              const doneUsers = Object.keys(taskList.done[task.id] ?? {}).filter((u) => isTaskDone(taskList.done, task.id, u));
+              const mine = Boolean(myId && isTaskDone(taskList.done, task.id, myId));
+              const myParts = (myId && taskList.done[task.id]?.[myId]?.filter((p) => p > 0).length) || 0;
+              const left = task.due_on ? daysUntil(task.due_on) : null;
+              const Icon = KIND_ICON[task.kind] ?? BookOpen;
+              const soon = left != null && left <= 1 && left >= 0 && !mine;
+              return (
+                <div key={task.id} className={`cm-tile glass is-solid ${mine ? 'is-done' : ''}`}>
+                  <button className="cm-tile-main" onClick={() => setSheet({ task })}>
+                    <span className="cm-tile-kind">
+                      <Icon size={15} strokeWidth={STROKE} /> {t.cmTaskKinds[task.kind]}
+                    </span>
+                    <strong className="cm-tile-title">{task.title}</strong>
+                    <span className={`caption ${soon ? 'cm-soon' : ''}`}>
+                      {task.due_on ? (left != null && left < 0 ? t.cmEnded : t.cmDueOn(fmtDate(task.due_on, uiLang))) : task.ref ? refLabel(task.ref, uiLang) : ''}
+                    </span>
+                    <span className="cm-mini-bar" aria-hidden>
+                      <i style={{ width: `${active.length ? Math.round((doneUsers.length / active.length) * 100) : 0}%` }} />
+                    </span>
+                    <span className="caption">{t.cmDoneBy(doneUsers.length, active.length)}</span>
                   </button>
-                ) : (
-                  <button className="cm-check" aria-pressed={mine} aria-label={task.title} onClick={() => void togglePart(task, 0, !mine)}>
-                    {mine && <Check size={15} strokeWidth={2.8} />}
-                  </button>
-                )}
-                <button className="grow cm-task-main" onClick={() => setSheet({ task })}>
-                  <strong>
-                    <Icon size={14} strokeWidth={STROKE} className="cm-kind" /> {task.title}
-                  </strong>
-                  <span className={`caption ${left != null && left <= 1 && left >= 0 && !mine ? 'cm-soon' : ''}`}>
-                    {task.ref && `${refLabel(task.ref, uiLang)} · `}
-                    {task.due_on && (left != null && left < 0 ? t.cmEnded : t.cmDueOn(fmtDate(task.due_on, uiLang)))}
-                    {task.due_on && ' · '}
-                    {t.cmDoneBy(doneUsers.length, active.length)}
-                  </span>
-                </button>
-              </div>
-            );
-          })}
+                  {task.parts.length ? (
+                    <button className="cm-check is-parts cm-tile-check" onClick={() => setSheet({ task })} aria-label={task.title}>
+                      {mine ? <Check size={15} strokeWidth={2.8} /> : <span>{t.cmPartsMine(myParts, task.parts.length)}</span>}
+                    </button>
+                  ) : (
+                    <button className="cm-check cm-tile-check" aria-pressed={mine} aria-label={task.title} onClick={() => void togglePart(task, 0, !mine)}>
+                      {mine && <Check size={15} strokeWidth={2.8} />}
+                    </button>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+          {(taskList?.list.length ?? 0) > perRow && (
+            <button className="link cm-more" onClick={() => setShowAll(!showAll)}>
+              {showAll ? t.cmShowLess : t.cmViewAll(taskList!.list.length)}
+            </button>
+          )}
         </section>
       )}
 

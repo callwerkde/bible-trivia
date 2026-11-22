@@ -301,9 +301,20 @@ export async function deleteGoal(id: string) {
 /** Everyone's reading log for some plans (for goal progress). */
 export async function groupLog(planIds: string[]): Promise<{ plan_id: string; user_id: string; day: number; done_at: string }[]> {
   if (!planIds.length) return [];
-  const { data, error } = await need().from('reading_log').select('plan_id, user_id, day, done_at').in('plan_id', planIds);
-  if (error) throw error;
-  return data as { plan_id: string; user_id: string; day: number; done_at: string }[];
+  // The server returns at most 1,000 rows at a time: a group reading for a year has more.
+  const rows: { plan_id: string; user_id: string; day: number; done_at: string }[] = [];
+  for (let from = 0; from < 100_000; from += 1000) {
+    const { data, error } = await need()
+      .from('reading_log')
+      .select('plan_id, user_id, day, done_at')
+      .in('plan_id', planIds)
+      .order('done_at')
+      .range(from, from + 999);
+    if (error) throw error;
+    rows.push(...(data as typeof rows));
+    if (data.length < 1000) break;
+  }
+  return rows;
 }
 
 export async function feed(community: string): Promise<FeedItem[]> {

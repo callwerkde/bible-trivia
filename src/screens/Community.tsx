@@ -240,6 +240,7 @@ function GroupView({ group, onChanged }: { group: Group; onChanged: () => void }
   const [plan, setPlan] = useState<Plan | null | undefined>(undefined);
   const [allPlans, setAllPlans] = useState<Plan[]>([]);
   const [log, setLog] = useState<LogRow[]>([]);
+  const [logReady, setLogReady] = useState(false);
   const [done, setDone] = useState<Set<number>>(new Set());
   const [sheet, setSheet] = useState<null | 'invite' | 'plan' | 'settings' | { member: Member } | { read: number }>(null);
   const [msg, setMsg] = useState<string | null>(null);
@@ -250,7 +251,12 @@ function GroupView({ group, onChanged }: { group: Group; onChanged: () => void }
       setList(m);
       const active = ps.find((p) => p.status !== 'done') ?? null;
       setAllPlans(ps);
-      void groupLog(ps.map((p) => p.id)).then(setLog).catch(() => {});
+      void groupLog(ps.map((p) => p.id))
+        .then((l) => {
+          setLog(l);
+          setLogReady(true);
+        })
+        .catch(() => setLogReady(true));
       setPlan(active);
       setDone(active ? await myDays(active.id) : new Set());
     } catch {
@@ -336,6 +342,8 @@ function GroupView({ group, onChanged }: { group: Group; onChanged: () => void }
         </div>
       </div>
 
+      {list && <GroupExtras group={group} isAdmin={isAdmin} members={list} />}
+
       {plan === undefined ? null : plan ? (
         <TodayCard plan={plan} done={done} isAdmin={isAdmin} onRead={(day) => setSheet({ read: day })} onTick={tick} onChanged={load} />
       ) : (
@@ -351,8 +359,6 @@ function GroupView({ group, onChanged }: { group: Group; onChanged: () => void }
       )}
 
       {list && allPlans.length > 0 && <GroupStats plans={allPlans} plan={plan ?? null} log={log} members={active} />}
-
-      {list && <GroupExtras group={group} isAdmin={isAdmin} members={list} />}
 
       {isAdmin && pending.length > 0 && (
         <section className="cm-card glass">
@@ -375,7 +381,7 @@ function GroupView({ group, onChanged }: { group: Group; onChanged: () => void }
         </section>
       )}
 
-      <section className="cm-card glass">
+      <section className="cm-card glass is-solid">
         <h3 className="eyebrow">{plan ? t.cmProgressTitle : t.cmMembers}</h3>
         {progressRows.map(({ m, done: d, chapters, behind, next }) => (
           <button key={m.user_id} className="cm-member" onClick={() => setSheet({ member: m })}>
@@ -389,7 +395,8 @@ function GroupView({ group, onChanged }: { group: Group; onChanged: () => void }
                   </span>
                 )}
               </strong>
-              {plan && (
+              {plan && !logReady && <span className="cm-skeleton" aria-hidden />}
+              {plan && logReady && (
                 <>
                   <span className="caption">
                     {t.cmChaptersN(chapters)} · {next ? t.cmOnDay(next) : t.cmFinishedShort}
