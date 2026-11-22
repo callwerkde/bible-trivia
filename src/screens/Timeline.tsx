@@ -1066,9 +1066,9 @@ function FamilyTree({ p, tl, lang, onPerson, onVerse }: { p: TPerson; tl: TL; la
             <i className="tl-dot" />
             <strong lang={lang}>{pick(p.name, lang)}</strong>
           </span>
-          {spouses.map((r) => (
+          {spouses.map((r, i) => (
             <Fragment key={r.en}>
-              <span className="fam-join" aria-hidden />
+              {i === 0 && <span className="fam-join" aria-hidden />}
               <Chip r={r} />
             </Fragment>
           ))}

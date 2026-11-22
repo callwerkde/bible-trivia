@@ -772,7 +772,50 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "spouses": [
+     {
+      "en": "Eve",
+      "ta": "ஏவாள்",
+      "ref": {
+       "b": "GEN",
+       "c": 4,
+       "v": 1
+      }
+     }
+    ],
+    "children": [
+     {
+      "en": "Cain",
+      "ta": "காயீன்",
+      "ref": {
+       "b": "GEN",
+       "c": 4,
+       "v": 1
+      }
+     },
+     {
+      "en": "Abel",
+      "ta": "ஆபேல்",
+      "ref": {
+       "b": "GEN",
+       "c": 4,
+       "v": 2
+      }
+     },
+     {
+      "en": "Seth",
+      "ta": "சேத்",
+      "id": "seth",
+      "ref": {
+       "b": "GEN",
+       "c": 4,
+       "v": 25
+      }
+     }
+    ]
+   }
   },
   {
    "id": "seth",
@@ -828,7 +871,40 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Adam",
+     "ta": "ஆதாம்",
+     "id": "adam",
+     "ref": {
+      "b": "GEN",
+      "c": 5,
+      "v": 3
+     }
+    },
+    "mother": {
+     "en": "Eve",
+     "ta": "ஏவாள்",
+     "ref": {
+      "b": "GEN",
+      "c": 4,
+      "v": 25
+     }
+    },
+    "children": [
+     {
+      "en": "Enosh",
+      "ta": "ஏனோஸ்",
+      "id": "enosh",
+      "ref": {
+       "b": "GEN",
+       "c": 5,
+       "v": 6
+      }
+     }
+    ]
+   }
   },
   {
    "id": "enosh",
@@ -879,7 +955,31 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Seth",
+     "ta": "சேத்",
+     "id": "seth",
+     "ref": {
+      "b": "GEN",
+      "c": 5,
+      "v": 6
+     }
+    },
+    "children": [
+     {
+      "en": "Kenan",
+      "ta": "கேனான்",
+      "id": "kenan",
+      "ref": {
+       "b": "GEN",
+       "c": 5,
+       "v": 9
+      }
+     }
+    ]
+   }
   },
   {
    "id": "kenan",
@@ -930,7 +1030,31 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Enosh",
+     "ta": "ஏனோஸ்",
+     "id": "enosh",
+     "ref": {
+      "b": "GEN",
+      "c": 5,
+      "v": 9
+     }
+    },
+    "children": [
+     {
+      "en": "Mahalalel",
+      "ta": "மகலாலெயேல்",
+      "id": "mahalalel",
+      "ref": {
+       "b": "GEN",
+       "c": 5,
+       "v": 12
+      }
+     }
+    ]
+   }
   },
   {
    "id": "mahalalel",
@@ -981,7 +1105,31 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Kenan",
+     "ta": "கேனான்",
+     "id": "kenan",
+     "ref": {
+      "b": "GEN",
+      "c": 5,
+      "v": 12
+     }
+    },
+    "children": [
+     {
+      "en": "Jared",
+      "ta": "யாரேத்",
+      "id": "jared",
+      "ref": {
+       "b": "GEN",
+       "c": 5,
+       "v": 15
+      }
+     }
+    ]
+   }
   },
   {
    "id": "jared",
@@ -1031,7 +1179,31 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Mahalalel",
+     "ta": "மகலாலெயேல்",
+     "id": "mahalalel",
+     "ref": {
+      "b": "GEN",
+      "c": 5,
+      "v": 15
+     }
+    },
+    "children": [
+     {
+      "en": "Enoch",
+      "ta": "ஏனோக்கு",
+      "id": "enoch",
+      "ref": {
+       "b": "GEN",
+       "c": 5,
+       "v": 18
+      }
+     }
+    ]
+   }
   },
   {
    "id": "enoch",
@@ -1109,7 +1281,31 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Jared",
+     "ta": "யாரேத்",
+     "id": "jared",
+     "ref": {
+      "b": "GEN",
+      "c": 5,
+      "v": 18
+     }
+    },
+    "children": [
+     {
+      "en": "Methuselah",
+      "ta": "மெத்தூசலா",
+      "id": "methuselah",
+      "ref": {
+       "b": "GEN",
+       "c": 5,
+       "v": 21
+      }
+     }
+    ]
+   }
   },
   {
    "id": "methuselah",
@@ -1171,7 +1367,31 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Enoch",
+     "ta": "ஏனோக்கு",
+     "id": "enoch",
+     "ref": {
+      "b": "GEN",
+      "c": 5,
+      "v": 21
+     }
+    },
+    "children": [
+     {
+      "en": "Lamech",
+      "ta": "லாமேக்கு",
+      "id": "lamech",
+      "ref": {
+       "b": "GEN",
+       "c": 5,
+       "v": 25
+      }
+     }
+    ]
+   }
   },
   {
    "id": "lamech",
@@ -1223,7 +1443,31 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Methuselah",
+     "ta": "மெத்தூசலா",
+     "id": "methuselah",
+     "ref": {
+      "b": "GEN",
+      "c": 5,
+      "v": 25
+     }
+    },
+    "children": [
+     {
+      "en": "Noah",
+      "ta": "நோவா",
+      "id": "noah",
+      "ref": {
+       "b": "GEN",
+       "c": 5,
+       "v": 29
+      }
+     }
+    ]
+   }
   },
   {
    "id": "noah",
@@ -1285,7 +1529,50 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Lamech",
+     "ta": "லாமேக்கு",
+     "id": "lamech",
+     "ref": {
+      "b": "GEN",
+      "c": 5,
+      "v": 28,
+      "v2": 29
+     }
+    },
+    "children": [
+     {
+      "en": "Japheth",
+      "ta": "யாப்பேத்",
+      "ref": {
+       "b": "GEN",
+       "c": 10,
+       "v": 21
+      }
+     },
+     {
+      "en": "Shem",
+      "ta": "சேம்",
+      "id": "shem",
+      "ref": {
+       "b": "GEN",
+       "c": 5,
+       "v": 32
+      }
+     },
+     {
+      "en": "Ham",
+      "ta": "காம்",
+      "ref": {
+       "b": "GEN",
+       "c": 5,
+       "v": 32
+      }
+     }
+    ]
+   }
   },
   {
    "id": "shem",
@@ -1344,7 +1631,53 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Noah",
+     "ta": "நோவா",
+     "id": "noah",
+     "ref": {
+      "b": "GEN",
+      "c": 5,
+      "v": 32
+     }
+    },
+    "children": [
+     {
+      "en": "Arphaxad",
+      "ta": "அர்பக்சாத்",
+      "id": "arphaxad",
+      "ref": {
+       "b": "GEN",
+       "c": 11,
+       "v": 10
+      }
+     }
+    ],
+    "siblings": [
+     {
+      "en": "Japheth",
+      "ta": "யாப்பேத்",
+      "ref": {
+       "b": "GEN",
+       "c": 10,
+       "v": 21
+      },
+      "note": "elder brother",
+      "noteTa": "மூத்த சகோதரன்"
+     },
+     {
+      "en": "Ham",
+      "ta": "காம்",
+      "ref": {
+       "b": "GEN",
+       "c": 5,
+       "v": 32
+      }
+     }
+    ]
+   }
   },
   {
    "id": "arphaxad",
@@ -1395,7 +1728,31 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Shem",
+     "ta": "சேம்",
+     "id": "shem",
+     "ref": {
+      "b": "GEN",
+      "c": 11,
+      "v": 10
+     }
+    },
+    "children": [
+     {
+      "en": "Shelah",
+      "ta": "சேலா",
+      "id": "shelah",
+      "ref": {
+       "b": "GEN",
+       "c": 11,
+       "v": 12
+      }
+     }
+    ]
+   }
   },
   {
    "id": "shelah",
@@ -1446,7 +1803,31 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Arphaxad",
+     "ta": "அர்பக்சாத்",
+     "id": "arphaxad",
+     "ref": {
+      "b": "GEN",
+      "c": 11,
+      "v": 12
+     }
+    },
+    "children": [
+     {
+      "en": "Eber",
+      "ta": "ஏபேர்",
+      "id": "eber",
+      "ref": {
+       "b": "GEN",
+       "c": 11,
+       "v": 14
+      }
+     }
+    ]
+   }
   },
   {
    "id": "eber",
@@ -1497,7 +1878,40 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Shelah",
+     "ta": "சேலா",
+     "id": "shelah",
+     "ref": {
+      "b": "GEN",
+      "c": 11,
+      "v": 14
+     }
+    },
+    "children": [
+     {
+      "en": "Peleg",
+      "ta": "பேலேகு",
+      "id": "peleg",
+      "ref": {
+       "b": "GEN",
+       "c": 11,
+       "v": 16
+      }
+     },
+     {
+      "en": "Joktan",
+      "ta": "யொக்தான்",
+      "ref": {
+       "b": "GEN",
+       "c": 10,
+       "v": 25
+      }
+     }
+    ]
+   }
   },
   {
    "id": "peleg",
@@ -1566,7 +1980,42 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Eber",
+     "ta": "ஏபேர்",
+     "id": "eber",
+     "ref": {
+      "b": "GEN",
+      "c": 11,
+      "v": 16
+     }
+    },
+    "children": [
+     {
+      "en": "Reu",
+      "ta": "ரெகூ",
+      "id": "reu",
+      "ref": {
+       "b": "GEN",
+       "c": 11,
+       "v": 18
+      }
+     }
+    ],
+    "siblings": [
+     {
+      "en": "Joktan",
+      "ta": "யொக்தான்",
+      "ref": {
+       "b": "GEN",
+       "c": 10,
+       "v": 25
+      }
+     }
+    ]
+   }
   },
   {
    "id": "reu",
@@ -1617,7 +2066,31 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Peleg",
+     "ta": "பேலேகு",
+     "id": "peleg",
+     "ref": {
+      "b": "GEN",
+      "c": 11,
+      "v": 18
+     }
+    },
+    "children": [
+     {
+      "en": "Serug",
+      "ta": "செரூகு",
+      "id": "serug",
+      "ref": {
+       "b": "GEN",
+       "c": 11,
+       "v": 20
+      }
+     }
+    ]
+   }
   },
   {
    "id": "serug",
@@ -1668,7 +2141,31 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Reu",
+     "ta": "ரெகூ",
+     "id": "reu",
+     "ref": {
+      "b": "GEN",
+      "c": 11,
+      "v": 20
+     }
+    },
+    "children": [
+     {
+      "en": "Nahor",
+      "ta": "நாகோர்",
+      "id": "nahor",
+      "ref": {
+       "b": "GEN",
+       "c": 11,
+       "v": 22
+      }
+     }
+    ]
+   }
   },
   {
    "id": "nahor",
@@ -1719,7 +2216,31 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Serug",
+     "ta": "செரூகு",
+     "id": "serug",
+     "ref": {
+      "b": "GEN",
+      "c": 11,
+      "v": 22
+     }
+    },
+    "children": [
+     {
+      "en": "Terah",
+      "ta": "தேரா",
+      "id": "terah",
+      "ref": {
+       "b": "GEN",
+       "c": 11,
+       "v": 24
+      }
+     }
+    ]
+   }
   },
   {
    "id": "terah",
@@ -1775,7 +2296,53 @@
      "en": "Dies in Haran",
      "ta": "ஆரானில் மரித்தல்"
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Nahor",
+     "ta": "நாகோர்",
+     "id": "nahor",
+     "ref": {
+      "b": "GEN",
+      "c": 11,
+      "v": 24
+     }
+    },
+    "children": [
+     {
+      "en": "Abraham",
+      "ta": "ஆபிரகாம்",
+      "id": "abraham",
+      "ref": {
+       "b": "GEN",
+       "c": 11,
+       "v": 26
+      }
+     },
+     {
+      "en": "Nahor",
+      "ta": "நாகோர்",
+      "ref": {
+       "b": "GEN",
+       "c": 11,
+       "v": 26
+      },
+      "note": "Abraham's brother",
+      "noteTa": "ஆபிரகாமின் சகோதரன்"
+     },
+     {
+      "en": "Haran",
+      "ta": "ஆரான்",
+      "ref": {
+       "b": "GEN",
+       "c": 11,
+       "v": 26
+      },
+      "note": "Abraham's brother",
+      "noteTa": "ஆபிரகாமின் சகோதரன்"
+     }
+    ]
+   }
   },
   {
    "id": "abraham",
@@ -1870,7 +2437,179 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Terah",
+     "ta": "தேரா",
+     "id": "terah",
+     "ref": {
+      "b": "GEN",
+      "c": 11,
+      "v": 27
+     }
+    },
+    "spouses": [
+     {
+      "en": "Sarah",
+      "ta": "சாராள்",
+      "id": "sarah",
+      "ref": {
+       "b": "GEN",
+       "c": 11,
+       "v": 29
+      }
+     },
+     {
+      "en": "Hagar",
+      "ta": "ஆகார்",
+      "ref": {
+       "b": "GEN",
+       "c": 16,
+       "v": 3
+      },
+      "note": "secondary wife",
+      "noteTa": "மறுமனையாட்டி"
+     },
+     {
+      "en": "Keturah",
+      "ta": "கேத்தூராள்",
+      "ref": {
+       "b": "GEN",
+       "c": 25,
+       "v": 1
+      }
+     }
+    ],
+    "children": [
+     {
+      "en": "Ishmael",
+      "ta": "இஸ்மவேல்",
+      "id": "ishmael",
+      "ref": {
+       "b": "GEN",
+       "c": 16,
+       "v": 15
+      },
+      "note": "by Hagar",
+      "noteTa": "ஆகார் மூலம்"
+     },
+     {
+      "en": "Isaac",
+      "ta": "ஈசாக்கு",
+      "id": "isaac",
+      "ref": {
+       "b": "GEN",
+       "c": 21,
+       "v": 3
+      },
+      "note": "by Sarah",
+      "noteTa": "சாராள் மூலம்"
+     },
+     {
+      "en": "Zimran",
+      "ta": "சிம்ரான்",
+      "ref": {
+       "b": "GEN",
+       "c": 25,
+       "v": 2
+      },
+      "note": "by Keturah",
+      "noteTa": "கேத்தூராள் மூலம்"
+     },
+     {
+      "en": "Jokshan",
+      "ta": "யக்ஷான்",
+      "ref": {
+       "b": "GEN",
+       "c": 25,
+       "v": 2
+      },
+      "note": "by Keturah",
+      "noteTa": "கேத்தூராள் மூலம்"
+     },
+     {
+      "en": "Medan",
+      "ta": "மேதான்",
+      "ref": {
+       "b": "GEN",
+       "c": 25,
+       "v": 2
+      },
+      "note": "by Keturah",
+      "noteTa": "கேத்தூராள் மூலம்"
+     },
+     {
+      "en": "Midian",
+      "ta": "மீதியான்",
+      "ref": {
+       "b": "GEN",
+       "c": 25,
+       "v": 2
+      },
+      "note": "by Keturah",
+      "noteTa": "கேத்தூராள் மூலம்"
+     },
+     {
+      "en": "Ishbak",
+      "ta": "இஸ்பாக்",
+      "ref": {
+       "b": "GEN",
+       "c": 25,
+       "v": 2
+      },
+      "note": "by Keturah",
+      "noteTa": "கேத்தூராள் மூலம்"
+     },
+     {
+      "en": "Shuah",
+      "ta": "சூவா",
+      "ref": {
+       "b": "GEN",
+       "c": 25,
+       "v": 2
+      },
+      "note": "by Keturah",
+      "noteTa": "கேத்தூராள் மூலம்"
+     }
+    ],
+    "siblings": [
+     {
+      "en": "Nahor",
+      "ta": "நாகோர்",
+      "ref": {
+       "b": "GEN",
+       "c": 11,
+       "v": 26
+      },
+      "note": "brother",
+      "noteTa": "சகோதரன்"
+     },
+     {
+      "en": "Haran",
+      "ta": "ஆரான்",
+      "ref": {
+       "b": "GEN",
+       "c": 11,
+       "v": 26
+      },
+      "note": "brother",
+      "noteTa": "சகோதரன்"
+     },
+     {
+      "en": "Sarah",
+      "ta": "சாராள்",
+      "id": "sarah",
+      "ref": {
+       "b": "GEN",
+       "c": 20,
+       "v": 12
+      },
+      "note": "half-sister",
+      "noteTa": "தகப்பன்வழிச் சகோதரி"
+     }
+    ]
+   }
   },
   {
    "id": "sarah",
@@ -1944,7 +2683,57 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Terah",
+     "ta": "தேரா",
+     "id": "terah",
+     "ref": {
+      "b": "GEN",
+      "c": 20,
+      "v": 12
+     }
+    },
+    "spouses": [
+     {
+      "en": "Abraham",
+      "ta": "ஆபிரகாம்",
+      "id": "abraham",
+      "ref": {
+       "b": "GEN",
+       "c": 11,
+       "v": 29
+      }
+     }
+    ],
+    "children": [
+     {
+      "en": "Isaac",
+      "ta": "ஈசாக்கு",
+      "id": "isaac",
+      "ref": {
+       "b": "GEN",
+       "c": 21,
+       "v": 3
+      }
+     }
+    ],
+    "siblings": [
+     {
+      "en": "Abraham",
+      "ta": "ஆபிரகாம்",
+      "id": "abraham",
+      "ref": {
+       "b": "GEN",
+       "c": 20,
+       "v": 12
+      },
+      "note": "half-brother",
+      "noteTa": "தகப்பன்வழிச் சகோதரன்"
+     }
+    ]
+   }
   },
   {
    "id": "ishmael",
@@ -2013,7 +2802,220 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Abraham",
+     "ta": "ஆபிரகாம்",
+     "id": "abraham",
+     "ref": {
+      "b": "GEN",
+      "c": 16,
+      "v": 15
+     }
+    },
+    "mother": {
+     "en": "Hagar",
+     "ta": "ஆகார்",
+     "ref": {
+      "b": "GEN",
+      "c": 16,
+      "v": 15
+     }
+    },
+    "children": [
+     {
+      "en": "Nebajoth",
+      "ta": "நெபாயோத்",
+      "ref": {
+       "b": "GEN",
+       "c": 25,
+       "v": 13
+      },
+      "note": "firstborn",
+      "noteTa": "மூத்த மகன்"
+     },
+     {
+      "en": "Kedar",
+      "ta": "கேதார்",
+      "ref": {
+       "b": "GEN",
+       "c": 25,
+       "v": 13
+      }
+     },
+     {
+      "en": "Adbeel",
+      "ta": "அத்பியேல்",
+      "ref": {
+       "b": "GEN",
+       "c": 25,
+       "v": 13
+      }
+     },
+     {
+      "en": "Mibsam",
+      "ta": "மிப்சாம்",
+      "ref": {
+       "b": "GEN",
+       "c": 25,
+       "v": 13
+      }
+     },
+     {
+      "en": "Mishma",
+      "ta": "மிஷ்மா",
+      "ref": {
+       "b": "GEN",
+       "c": 25,
+       "v": 14
+      }
+     },
+     {
+      "en": "Dumah",
+      "ta": "தூமா",
+      "ref": {
+       "b": "GEN",
+       "c": 25,
+       "v": 14
+      }
+     },
+     {
+      "en": "Massa",
+      "ta": "மாசா",
+      "ref": {
+       "b": "GEN",
+       "c": 25,
+       "v": 14
+      }
+     },
+     {
+      "en": "Hadar",
+      "ta": "ஆதார்",
+      "ref": {
+       "b": "GEN",
+       "c": 25,
+       "v": 15
+      }
+     },
+     {
+      "en": "Tema",
+      "ta": "தேமா",
+      "ref": {
+       "b": "GEN",
+       "c": 25,
+       "v": 15
+      }
+     },
+     {
+      "en": "Jetur",
+      "ta": "யெத்தூர்",
+      "ref": {
+       "b": "GEN",
+       "c": 25,
+       "v": 15
+      }
+     },
+     {
+      "en": "Naphish",
+      "ta": "நாபீஸ்",
+      "ref": {
+       "b": "GEN",
+       "c": 25,
+       "v": 15
+      }
+     },
+     {
+      "en": "Kedemah",
+      "ta": "கேத்மா",
+      "ref": {
+       "b": "GEN",
+       "c": 25,
+       "v": 15
+      }
+     }
+    ],
+    "siblings": [
+     {
+      "en": "Isaac",
+      "ta": "ஈசாக்கு",
+      "id": "isaac",
+      "ref": {
+       "b": "GEN",
+       "c": 25,
+       "v": 9
+      },
+      "note": "half-brother",
+      "noteTa": "தகப்பன்வழிச் சகோதரன்"
+     },
+     {
+      "en": "Zimran",
+      "ta": "சிம்ரான்",
+      "ref": {
+       "b": "GEN",
+       "c": 25,
+       "v": 2
+      },
+      "note": "half-brother",
+      "noteTa": "தகப்பன்வழிச் சகோதரன்"
+     },
+     {
+      "en": "Jokshan",
+      "ta": "யக்ஷான்",
+      "ref": {
+       "b": "GEN",
+       "c": 25,
+       "v": 2
+      },
+      "note": "half-brother",
+      "noteTa": "தகப்பன்வழிச் சகோதரன்"
+     },
+     {
+      "en": "Medan",
+      "ta": "மேதான்",
+      "ref": {
+       "b": "GEN",
+       "c": 25,
+       "v": 2
+      },
+      "note": "half-brother",
+      "noteTa": "தகப்பன்வழிச் சகோதரன்"
+     },
+     {
+      "en": "Midian",
+      "ta": "மீதியான்",
+      "ref": {
+       "b": "GEN",
+       "c": 25,
+       "v": 2
+      },
+      "note": "half-brother",
+      "noteTa": "தகப்பன்வழிச் சகோதரன்"
+     },
+     {
+      "en": "Ishbak",
+      "ta": "இஸ்பாக்",
+      "ref": {
+       "b": "GEN",
+       "c": 25,
+       "v": 2
+      },
+      "note": "half-brother",
+      "noteTa": "தகப்பன்வழிச் சகோதரன்"
+     },
+     {
+      "en": "Shuah",
+      "ta": "சூவா",
+      "ref": {
+       "b": "GEN",
+       "c": 25,
+       "v": 2
+      },
+      "note": "half-brother",
+      "noteTa": "தகப்பன்வழிச் சகோதரன்"
+     }
+    ]
+   }
   },
   {
    "id": "isaac",
@@ -2079,7 +3081,141 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Abraham",
+     "ta": "ஆபிரகாம்",
+     "id": "abraham",
+     "ref": {
+      "b": "GEN",
+      "c": 21,
+      "v": 3
+     }
+    },
+    "mother": {
+     "en": "Sarah",
+     "ta": "சாராள்",
+     "id": "sarah",
+     "ref": {
+      "b": "GEN",
+      "c": 21,
+      "v": 3
+     }
+    },
+    "spouses": [
+     {
+      "en": "Rebekah",
+      "ta": "ரெபெக்காள்",
+      "ref": {
+       "b": "GEN",
+       "c": 24,
+       "v": 67
+      }
+     }
+    ],
+    "children": [
+     {
+      "en": "Esau",
+      "ta": "ஏசா",
+      "ref": {
+       "b": "GEN",
+       "c": 25,
+       "v": 25
+      }
+     },
+     {
+      "en": "Jacob",
+      "ta": "யாக்கோபு",
+      "id": "jacob",
+      "ref": {
+       "b": "GEN",
+       "c": 25,
+       "v": 26
+      }
+     }
+    ],
+    "siblings": [
+     {
+      "en": "Ishmael",
+      "ta": "இஸ்மவேல்",
+      "id": "ishmael",
+      "ref": {
+       "b": "GEN",
+       "c": 25,
+       "v": 9
+      },
+      "note": "half-brother",
+      "noteTa": "தகப்பன்வழிச் சகோதரன்"
+     },
+     {
+      "en": "Zimran",
+      "ta": "சிம்ரான்",
+      "ref": {
+       "b": "GEN",
+       "c": 25,
+       "v": 2
+      },
+      "note": "half-brother",
+      "noteTa": "தகப்பன்வழிச் சகோதரன்"
+     },
+     {
+      "en": "Jokshan",
+      "ta": "யக்ஷான்",
+      "ref": {
+       "b": "GEN",
+       "c": 25,
+       "v": 2
+      },
+      "note": "half-brother",
+      "noteTa": "தகப்பன்வழிச் சகோதரன்"
+     },
+     {
+      "en": "Medan",
+      "ta": "மேதான்",
+      "ref": {
+       "b": "GEN",
+       "c": 25,
+       "v": 2
+      },
+      "note": "half-brother",
+      "noteTa": "தகப்பன்வழிச் சகோதரன்"
+     },
+     {
+      "en": "Midian",
+      "ta": "மீதியான்",
+      "ref": {
+       "b": "GEN",
+       "c": 25,
+       "v": 2
+      },
+      "note": "half-brother",
+      "noteTa": "தகப்பன்வழிச் சகோதரன்"
+     },
+     {
+      "en": "Ishbak",
+      "ta": "இஸ்பாக்",
+      "ref": {
+       "b": "GEN",
+       "c": 25,
+       "v": 2
+      },
+      "note": "half-brother",
+      "noteTa": "தகப்பன்வழிச் சகோதரன்"
+     },
+     {
+      "en": "Shuah",
+      "ta": "சூவா",
+      "ref": {
+       "b": "GEN",
+       "c": 25,
+       "v": 2
+      },
+      "note": "half-brother",
+      "noteTa": "தகப்பன்வழிச் சகோதரன்"
+     }
+    ]
+   }
   },
   {
    "id": "jacob",
@@ -2158,7 +3294,227 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Isaac",
+     "ta": "ஈசாக்கு",
+     "id": "isaac",
+     "ref": {
+      "b": "GEN",
+      "c": 25,
+      "v": 26
+     }
+    },
+    "mother": {
+     "en": "Rebekah",
+     "ta": "ரெபெக்காள்",
+     "ref": {
+      "b": "GEN",
+      "c": 25,
+      "v": 21
+     }
+    },
+    "spouses": [
+     {
+      "en": "Leah",
+      "ta": "லேயாள்",
+      "ref": {
+       "b": "GEN",
+       "c": 29,
+       "v": 23
+      }
+     },
+     {
+      "en": "Rachel",
+      "ta": "ராகேல்",
+      "ref": {
+       "b": "GEN",
+       "c": 29,
+       "v": 28
+      }
+     },
+     {
+      "en": "Bilhah",
+      "ta": "பில்காள்",
+      "ref": {
+       "b": "GEN",
+       "c": 30,
+       "v": 4
+      },
+      "note": "Rachel's maid",
+      "noteTa": "ராகேலின் பணிவிடைக்காரி"
+     },
+     {
+      "en": "Zilpah",
+      "ta": "சில்பாள்",
+      "ref": {
+       "b": "GEN",
+       "c": 30,
+       "v": 9
+      },
+      "note": "Leah's maid",
+      "noteTa": "லேயாளின் பணிவிடைக்காரி"
+     }
+    ],
+    "children": [
+     {
+      "en": "Reuben",
+      "ta": "ரூபன்",
+      "ref": {
+       "b": "GEN",
+       "c": 29,
+       "v": 32
+      },
+      "note": "by Leah",
+      "noteTa": "லேயாள் மூலம்"
+     },
+     {
+      "en": "Simeon",
+      "ta": "சிமியோன்",
+      "ref": {
+       "b": "GEN",
+       "c": 29,
+       "v": 33
+      },
+      "note": "by Leah",
+      "noteTa": "லேயாள் மூலம்"
+     },
+     {
+      "en": "Levi",
+      "ta": "லேவி",
+      "ref": {
+       "b": "GEN",
+       "c": 29,
+       "v": 34
+      },
+      "note": "by Leah",
+      "noteTa": "லேயாள் மூலம்"
+     },
+     {
+      "en": "Judah",
+      "ta": "யூதா",
+      "ref": {
+       "b": "GEN",
+       "c": 29,
+       "v": 35
+      },
+      "note": "by Leah",
+      "noteTa": "லேயாள் மூலம்"
+     },
+     {
+      "en": "Dan",
+      "ta": "தாண்",
+      "ref": {
+       "b": "GEN",
+       "c": 30,
+       "v": 6
+      },
+      "note": "by Bilhah",
+      "noteTa": "பில்காள் மூலம்"
+     },
+     {
+      "en": "Naphtali",
+      "ta": "நப்தலி",
+      "ref": {
+       "b": "GEN",
+       "c": 30,
+       "v": 8
+      },
+      "note": "by Bilhah",
+      "noteTa": "பில்காள் மூலம்"
+     },
+     {
+      "en": "Gad",
+      "ta": "காத்",
+      "ref": {
+       "b": "GEN",
+       "c": 30,
+       "v": 11
+      },
+      "note": "by Zilpah",
+      "noteTa": "சில்பாள் மூலம்"
+     },
+     {
+      "en": "Asher",
+      "ta": "ஆசேர்",
+      "ref": {
+       "b": "GEN",
+       "c": 30,
+       "v": 13
+      },
+      "note": "by Zilpah",
+      "noteTa": "சில்பாள் மூலம்"
+     },
+     {
+      "en": "Issachar",
+      "ta": "இசக்கார்",
+      "ref": {
+       "b": "GEN",
+       "c": 30,
+       "v": 18
+      },
+      "note": "by Leah",
+      "noteTa": "லேயாள் மூலம்"
+     },
+     {
+      "en": "Zebulun",
+      "ta": "செபுலோன்",
+      "ref": {
+       "b": "GEN",
+       "c": 30,
+       "v": 20
+      },
+      "note": "by Leah",
+      "noteTa": "லேயாள் மூலம்"
+     },
+     {
+      "en": "Dinah",
+      "ta": "தீனாள்",
+      "ref": {
+       "b": "GEN",
+       "c": 30,
+       "v": 21
+      },
+      "note": "by Leah",
+      "noteTa": "லேயாள் மூலம்"
+     },
+     {
+      "en": "Joseph",
+      "ta": "யோசேப்பு",
+      "id": "joseph",
+      "ref": {
+       "b": "GEN",
+       "c": 30,
+       "v": 24
+      },
+      "note": "by Rachel",
+      "noteTa": "ராகேல் மூலம்"
+     },
+     {
+      "en": "Benjamin",
+      "ta": "பென்யமீன்",
+      "ref": {
+       "b": "GEN",
+       "c": 35,
+       "v": 18
+      },
+      "note": "by Rachel",
+      "noteTa": "ராகேல் மூலம்"
+     }
+    ],
+    "siblings": [
+     {
+      "en": "Esau",
+      "ta": "ஏசா",
+      "ref": {
+       "b": "GEN",
+       "c": 25,
+       "v": 26
+      }
+     }
+    ]
+   }
   },
   {
    "id": "joseph",
@@ -2243,7 +3599,186 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Jacob",
+     "ta": "யாக்கோபு",
+     "id": "jacob",
+     "ref": {
+      "b": "GEN",
+      "c": 37,
+      "v": 3
+     }
+    },
+    "mother": {
+     "en": "Rachel",
+     "ta": "ராகேல்",
+     "ref": {
+      "b": "GEN",
+      "c": 30,
+      "v": 22,
+      "v2": 24
+     }
+    },
+    "spouses": [
+     {
+      "en": "Asenath",
+      "ta": "ஆஸ்நாத்",
+      "ref": {
+       "b": "GEN",
+       "c": 41,
+       "v": 45
+      }
+     }
+    ],
+    "children": [
+     {
+      "en": "Manasseh",
+      "ta": "மனாசே",
+      "ref": {
+       "b": "GEN",
+       "c": 41,
+       "v": 51
+      }
+     },
+     {
+      "en": "Ephraim",
+      "ta": "எப்பிராயீம்",
+      "ref": {
+       "b": "GEN",
+       "c": 41,
+       "v": 52
+      }
+     }
+    ],
+    "siblings": [
+     {
+      "en": "Reuben",
+      "ta": "ரூபன்",
+      "ref": {
+       "b": "GEN",
+       "c": 35,
+       "v": 23
+      },
+      "note": "half-brother",
+      "noteTa": "தகப்பன்வழிச் சகோதரன்"
+     },
+     {
+      "en": "Simeon",
+      "ta": "சிமியோன்",
+      "ref": {
+       "b": "GEN",
+       "c": 35,
+       "v": 23
+      },
+      "note": "half-brother",
+      "noteTa": "தகப்பன்வழிச் சகோதரன்"
+     },
+     {
+      "en": "Levi",
+      "ta": "லேவி",
+      "ref": {
+       "b": "GEN",
+       "c": 35,
+       "v": 23
+      },
+      "note": "half-brother",
+      "noteTa": "தகப்பன்வழிச் சகோதரன்"
+     },
+     {
+      "en": "Judah",
+      "ta": "யூதா",
+      "ref": {
+       "b": "GEN",
+       "c": 35,
+       "v": 23
+      },
+      "note": "half-brother",
+      "noteTa": "தகப்பன்வழிச் சகோதரன்"
+     },
+     {
+      "en": "Dan",
+      "ta": "தாண்",
+      "ref": {
+       "b": "GEN",
+       "c": 35,
+       "v": 25
+      },
+      "note": "half-brother",
+      "noteTa": "தகப்பன்வழிச் சகோதரன்"
+     },
+     {
+      "en": "Naphtali",
+      "ta": "நப்தலி",
+      "ref": {
+       "b": "GEN",
+       "c": 35,
+       "v": 25
+      },
+      "note": "half-brother",
+      "noteTa": "தகப்பன்வழிச் சகோதரன்"
+     },
+     {
+      "en": "Gad",
+      "ta": "காத்",
+      "ref": {
+       "b": "GEN",
+       "c": 35,
+       "v": 26
+      },
+      "note": "half-brother",
+      "noteTa": "தகப்பன்வழிச் சகோதரன்"
+     },
+     {
+      "en": "Benjamin",
+      "ta": "பென்யமீன்",
+      "ref": {
+       "b": "GEN",
+       "c": 35,
+       "v": 24
+      },
+      "note": "full brother",
+      "noteTa": "ஒரே தாயின் மகன்"
+     },
+     {
+      "en": "Issachar",
+      "ta": "இசக்கார்",
+      "ref": {
+       "b": "GEN",
+       "c": 35,
+       "v": 23
+      }
+     },
+     {
+      "en": "Zebulun",
+      "ta": "செபுலோன்",
+      "ref": {
+       "b": "GEN",
+       "c": 35,
+       "v": 23
+      }
+     },
+     {
+      "en": "Asher",
+      "ta": "ஆசேர்",
+      "ref": {
+       "b": "GEN",
+       "c": 35,
+       "v": 26
+      }
+     },
+     {
+      "en": "Dinah",
+      "ta": "தீனாள்",
+      "ref": {
+       "b": "GEN",
+       "c": 30,
+       "v": 21
+      }
+     }
+    ]
+   }
   },
   {
    "id": "moses",
@@ -2327,7 +3862,80 @@
      "en": "Dies on Mount Nebo at 120",
      "ta": "120 வயதில் நேபோ மலையில் மரித்தல்"
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Amram",
+     "ta": "அம்ராம்",
+     "ref": {
+      "b": "EXO",
+      "c": 6,
+      "v": 20
+     }
+    },
+    "mother": {
+     "en": "Jochebed",
+     "ta": "யோகெபேத்",
+     "ref": {
+      "b": "EXO",
+      "c": 6,
+      "v": 20
+     }
+    },
+    "spouses": [
+     {
+      "en": "Zipporah",
+      "ta": "சிப்போராள்",
+      "ref": {
+       "b": "EXO",
+       "c": 2,
+       "v": 21
+      }
+     }
+    ],
+    "children": [
+     {
+      "en": "Gershom",
+      "ta": "கெர்சோம்",
+      "ref": {
+       "b": "EXO",
+       "c": 2,
+       "v": 22
+      }
+     },
+     {
+      "en": "Eliezer",
+      "ta": "எலியேசர்",
+      "ref": {
+       "b": "EXO",
+       "c": 18,
+       "v": 4
+      }
+     }
+    ],
+    "siblings": [
+     {
+      "en": "Aaron",
+      "ta": "ஆரோன்",
+      "id": "aaron",
+      "ref": {
+       "b": "EXO",
+       "c": 6,
+       "v": 20
+      }
+     },
+     {
+      "en": "Miriam",
+      "ta": "மிரியாம்",
+      "id": "miriam",
+      "ref": {
+       "b": "NUM",
+       "c": 26,
+       "v": 59
+      }
+     }
+    ]
+   }
   },
   {
    "id": "aaron",
@@ -2402,7 +4010,98 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Amram",
+     "ta": "அம்ராம்",
+     "ref": {
+      "b": "EXO",
+      "c": 6,
+      "v": 20
+     }
+    },
+    "mother": {
+     "en": "Jochebed",
+     "ta": "யோகெபேத்",
+     "ref": {
+      "b": "EXO",
+      "c": 6,
+      "v": 20
+     }
+    },
+    "spouses": [
+     {
+      "en": "Elisheba",
+      "ta": "எலிசபாள்",
+      "ref": {
+       "b": "EXO",
+       "c": 6,
+       "v": 23
+      }
+     }
+    ],
+    "children": [
+     {
+      "en": "Nadab",
+      "ta": "நாதாப்",
+      "ref": {
+       "b": "EXO",
+       "c": 6,
+       "v": 23
+      }
+     },
+     {
+      "en": "Abihu",
+      "ta": "அபியூ",
+      "ref": {
+       "b": "EXO",
+       "c": 6,
+       "v": 23
+      }
+     },
+     {
+      "en": "Eleazar",
+      "ta": "எலேயாசார்",
+      "ref": {
+       "b": "EXO",
+       "c": 6,
+       "v": 23
+      }
+     },
+     {
+      "en": "Ithamar",
+      "ta": "இத்தாமார்",
+      "ref": {
+       "b": "EXO",
+       "c": 6,
+       "v": 23
+      }
+     }
+    ],
+    "siblings": [
+     {
+      "en": "Moses",
+      "ta": "மோசே",
+      "id": "moses",
+      "ref": {
+       "b": "EXO",
+       "c": 6,
+       "v": 20
+      }
+     },
+     {
+      "en": "Miriam",
+      "ta": "மிரியாம்",
+      "id": "miriam",
+      "ref": {
+       "b": "NUM",
+       "c": 26,
+       "v": 59
+      }
+     }
+    ]
+   }
   },
   {
    "id": "miriam",
@@ -2487,7 +4186,49 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Amram",
+     "ta": "அம்ராம்",
+     "ref": {
+      "b": "NUM",
+      "c": 26,
+      "v": 59
+     }
+    },
+    "mother": {
+     "en": "Jochebed",
+     "ta": "யோகெபேத்",
+     "ref": {
+      "b": "NUM",
+      "c": 26,
+      "v": 59
+     }
+    },
+    "siblings": [
+     {
+      "en": "Moses",
+      "ta": "மோசே",
+      "id": "moses",
+      "ref": {
+       "b": "NUM",
+       "c": 26,
+       "v": 59
+      }
+     },
+     {
+      "en": "Aaron",
+      "ta": "ஆரோன்",
+      "id": "aaron",
+      "ref": {
+       "b": "NUM",
+       "c": 26,
+       "v": 59
+      }
+     }
+    ]
+   }
   },
   {
    "id": "joshua",
@@ -2570,7 +4311,18 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Nun",
+     "ta": "நூன்",
+     "ref": {
+      "b": "JOS",
+      "c": 1,
+      "v": 1
+     }
+    }
+   }
   },
   {
    "id": "caleb",
@@ -2644,7 +4396,69 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Jephunneh",
+     "ta": "எப்புன்னே",
+     "ref": {
+      "b": "NUM",
+      "c": 13,
+      "v": 6
+     }
+    },
+    "children": [
+     {
+      "en": "Iru",
+      "ta": "ஈரு",
+      "ref": {
+       "b": "1CH",
+       "c": 4,
+       "v": 15
+      }
+     },
+     {
+      "en": "Elah",
+      "ta": "ஏலா",
+      "ref": {
+       "b": "1CH",
+       "c": 4,
+       "v": 15
+      }
+     },
+     {
+      "en": "Naam",
+      "ta": "நாகாம்",
+      "ref": {
+       "b": "1CH",
+       "c": 4,
+       "v": 15
+      }
+     },
+     {
+      "en": "Achsah",
+      "ta": "அக்சாள்",
+      "ref": {
+       "b": "JDG",
+       "c": 1,
+       "v": 12
+      }
+     }
+    ],
+    "siblings": [
+     {
+      "en": "Kenaz",
+      "ta": "கேனாஸ்",
+      "ref": {
+       "b": "JDG",
+       "c": 1,
+       "v": 13
+      },
+      "note": "younger brother",
+      "noteTa": "தம்பி"
+     }
+    ]
+   }
   },
   {
    "id": "othniel",
@@ -2715,7 +4529,29 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Kenaz",
+     "ta": "கேனாஸ்",
+     "ref": {
+      "b": "JDG",
+      "c": 1,
+      "v": 13
+     }
+    },
+    "spouses": [
+     {
+      "en": "Achsah",
+      "ta": "அக்சாள்",
+      "ref": {
+       "b": "JDG",
+       "c": 1,
+       "v": 13
+      }
+     }
+    ]
+   }
   },
   {
    "id": "ehud",
@@ -2776,7 +4612,18 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Gera",
+     "ta": "கேரா",
+     "ref": {
+      "b": "JDG",
+      "c": 3,
+      "v": 15
+     }
+    }
+   }
   },
   {
    "id": "deborah",
@@ -2850,7 +4697,20 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "spouses": [
+     {
+      "en": "Lapidoth",
+      "ta": "லபிதோத்",
+      "ref": {
+       "b": "JDG",
+       "c": 4,
+       "v": 4
+      }
+     }
+    ]
+   }
   },
   {
    "id": "gideon",
@@ -2925,7 +4785,53 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Joash",
+     "ta": "யோவாஸ்",
+     "ref": {
+      "b": "JDG",
+      "c": 8,
+      "v": 32
+     }
+    },
+    "children": [
+     {
+      "en": "Jether",
+      "ta": "யெத்தேர்",
+      "ref": {
+       "b": "JDG",
+       "c": 8,
+       "v": 20
+      },
+      "note": "firstborn",
+      "noteTa": "மூத்தவன்"
+     },
+     {
+      "en": "Abimelech",
+      "ta": "அபிமெலேக்கு",
+      "ref": {
+       "b": "JDG",
+       "c": 8,
+       "v": 31
+      },
+      "note": "by concubine",
+      "noteTa": "மறுமனையாட்டி மூலம்"
+     },
+     {
+      "en": "Jotham",
+      "ta": "யோதாம்",
+      "ref": {
+       "b": "JDG",
+       "c": 9,
+       "v": 5
+      },
+      "note": "youngest son",
+      "noteTa": "இளைய மகன்"
+     }
+    ]
+   }
   },
   {
    "id": "ruth",
@@ -3004,7 +4910,42 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "spouses": [
+     {
+      "en": "Mahlon",
+      "ta": "மக்லோன்",
+      "ref": {
+       "b": "RUT",
+       "c": 4,
+       "v": 10
+      },
+      "note": "late husband",
+      "noteTa": "மரித்த கணவன்"
+     },
+     {
+      "en": "Boaz",
+      "ta": "போவாஸ்",
+      "ref": {
+       "b": "RUT",
+       "c": 4,
+       "v": 13
+      }
+     }
+    ],
+    "children": [
+     {
+      "en": "Obed",
+      "ta": "ஓபேத்",
+      "ref": {
+       "b": "RUT",
+       "c": 4,
+       "v": 17
+      }
+     }
+    ]
+   }
   },
   {
    "id": "eli",
@@ -3083,7 +5024,29 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "children": [
+     {
+      "en": "Hophni",
+      "ta": "ஓப்னி",
+      "ref": {
+       "b": "1SA",
+       "c": 1,
+       "v": 3
+      }
+     },
+     {
+      "en": "Phinehas",
+      "ta": "பினெகாஸ்",
+      "ref": {
+       "b": "1SA",
+       "c": 1,
+       "v": 3
+      }
+     }
+    ]
+   }
   },
   {
    "id": "jephthah",
@@ -3153,7 +5116,18 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Gilead",
+     "ta": "கிலெயாத்",
+     "ref": {
+      "b": "JDG",
+      "c": 11,
+      "v": 1
+     }
+    }
+   }
   },
   {
    "id": "samuel",
@@ -3248,7 +5222,47 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Elkanah",
+     "ta": "எல்க்கானா",
+     "ref": {
+      "b": "1SA",
+      "c": 1,
+      "v": 19
+     }
+    },
+    "mother": {
+     "en": "Hannah",
+     "ta": "அன்னாள்",
+     "ref": {
+      "b": "1SA",
+      "c": 1,
+      "v": 20
+     }
+    },
+    "children": [
+     {
+      "en": "Joel",
+      "ta": "யோவேல்",
+      "ref": {
+       "b": "1SA",
+       "c": 8,
+       "v": 2
+      }
+     },
+     {
+      "en": "Abiah",
+      "ta": "அபியா",
+      "ref": {
+       "b": "1SA",
+       "c": 8,
+       "v": 2
+      }
+     }
+    ]
+   }
   },
   {
    "id": "samson",
@@ -3332,7 +5346,29 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Manoah",
+     "ta": "மனோவா",
+     "ref": {
+      "b": "JDG",
+      "c": 16,
+      "v": 31
+     }
+    },
+    "spouses": [
+     {
+      "en": "Delilah",
+      "ta": "தெலீலாள்",
+      "ref": {
+       "b": "JDG",
+       "c": 16,
+       "v": 4
+      }
+     }
+    ]
+   }
   },
   {
    "id": "saul",
@@ -3433,7 +5469,97 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Kish",
+     "ta": "கீஸ்",
+     "ref": {
+      "b": "1SA",
+      "c": 9,
+      "v": 1
+     }
+    },
+    "spouses": [
+     {
+      "en": "Ahinoam",
+      "ta": "அகினோவாம்",
+      "ref": {
+       "b": "1SA",
+       "c": 14,
+       "v": 50
+      }
+     },
+     {
+      "en": "Rizpah",
+      "ta": "ரிஸ்பாள்",
+      "ref": {
+       "b": "2SA",
+       "c": 3,
+       "v": 7
+      },
+      "note": "concubine",
+      "noteTa": "மறுமனையாட்டி"
+     }
+    ],
+    "children": [
+     {
+      "en": "Jonathan",
+      "ta": "யோனத்தான்",
+      "id": "jonathan",
+      "ref": {
+       "b": "1SA",
+       "c": 14,
+       "v": 49
+      }
+     },
+     {
+      "en": "Ishui",
+      "ta": "இஸ்வி",
+      "ref": {
+       "b": "1SA",
+       "c": 14,
+       "v": 49
+      }
+     },
+     {
+      "en": "Melchishua",
+      "ta": "மல்கிசூவா",
+      "ref": {
+       "b": "1SA",
+       "c": 14,
+       "v": 49
+      }
+     },
+     {
+      "en": "Merab",
+      "ta": "மேரப்",
+      "ref": {
+       "b": "1SA",
+       "c": 14,
+       "v": 49
+      }
+     },
+     {
+      "en": "Michal",
+      "ta": "மீகாள்",
+      "ref": {
+       "b": "1SA",
+       "c": 14,
+       "v": 49
+      }
+     },
+     {
+      "en": "Abinadab",
+      "ta": "அபினதாப்",
+      "ref": {
+       "b": "1SA",
+       "c": 31,
+       "v": 2
+      }
+     }
+    ]
+   }
   },
   {
    "id": "jonathan",
@@ -3515,7 +5641,77 @@
      "en": "Killed with Saul on Gilboa",
      "ta": "கில்போவாவில் சவுலுடன் கொல்லப்படுதல்"
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Saul",
+     "ta": "சவுல்",
+     "id": "saul",
+     "ref": {
+      "b": "1SA",
+      "c": 14,
+      "v": 49
+     }
+    },
+    "children": [
+     {
+      "en": "Mephibosheth",
+      "ta": "மேவிபோசேத்",
+      "ref": {
+       "b": "2SA",
+       "c": 4,
+       "v": 4
+      }
+     }
+    ],
+    "siblings": [
+     {
+      "en": "Ishui",
+      "ta": "இஸ்வி",
+      "ref": {
+       "b": "1SA",
+       "c": 14,
+       "v": 49
+      }
+     },
+     {
+      "en": "Melchishua",
+      "ta": "மல்கிசூவா",
+      "ref": {
+       "b": "1SA",
+       "c": 14,
+       "v": 49
+      }
+     },
+     {
+      "en": "Abinadab",
+      "ta": "அபினதாப்",
+      "ref": {
+       "b": "1SA",
+       "c": 31,
+       "v": 2
+      }
+     },
+     {
+      "en": "Merab",
+      "ta": "மேரப்",
+      "ref": {
+       "b": "1SA",
+       "c": 14,
+       "v": 49
+      }
+     },
+     {
+      "en": "Michal",
+      "ta": "மீகாள்",
+      "ref": {
+       "b": "1SA",
+       "c": 14,
+       "v": 49
+      }
+     }
+    ]
+   }
   },
   {
    "id": "david",
@@ -3625,7 +5821,200 @@
      "en": "Dies at 70; Solomon crowned",
      "ta": "70 வயதில் மரித்தல்; சாலொமோன் முடிசூட்டப்படுதல்"
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Jesse",
+     "ta": "ஈசாய்",
+     "ref": {
+      "b": "1SA",
+      "c": 17,
+      "v": 12
+     }
+    },
+    "spouses": [
+     {
+      "en": "Michal",
+      "ta": "மீகாள்",
+      "ref": {
+       "b": "1SA",
+       "c": 18,
+       "v": 27
+      }
+     },
+     {
+      "en": "Abigail",
+      "ta": "அபிகாயில்",
+      "ref": {
+       "b": "1SA",
+       "c": 25,
+       "v": 42
+      }
+     },
+     {
+      "en": "Ahinoam",
+      "ta": "அகினோவாம்",
+      "ref": {
+       "b": "1SA",
+       "c": 25,
+       "v": 43
+      },
+      "note": "of Jezreel",
+      "noteTa": "யெஸ்ரயேல் ஊராள்"
+     },
+     {
+      "en": "Eglah",
+      "ta": "எக்லாள்",
+      "ref": {
+       "b": "2SA",
+       "c": 3,
+       "v": 5
+      }
+     },
+     {
+      "en": "Bathsheba",
+      "ta": "பத்சேபாள்",
+      "ref": {
+       "b": "2SA",
+       "c": 12,
+       "v": 24
+      }
+     }
+    ],
+    "children": [
+     {
+      "en": "Amnon",
+      "ta": "அம்னோன்",
+      "ref": {
+       "b": "2SA",
+       "c": 3,
+       "v": 2
+      }
+     },
+     {
+      "en": "Chileab",
+      "ta": "கீலேயாப்",
+      "ref": {
+       "b": "2SA",
+       "c": 3,
+       "v": 3
+      }
+     },
+     {
+      "en": "Absalom",
+      "ta": "அப்சலோம்",
+      "ref": {
+       "b": "2SA",
+       "c": 3,
+       "v": 3
+      }
+     },
+     {
+      "en": "Adonijah",
+      "ta": "அதோனியா",
+      "ref": {
+       "b": "2SA",
+       "c": 3,
+       "v": 4
+      }
+     },
+     {
+      "en": "Shephatiah",
+      "ta": "செப்பத்தியா",
+      "ref": {
+       "b": "2SA",
+       "c": 3,
+       "v": 4
+      }
+     },
+     {
+      "en": "Ithream",
+      "ta": "இத்ரேயாம்",
+      "ref": {
+       "b": "2SA",
+       "c": 3,
+       "v": 5
+      }
+     },
+     {
+      "en": "Solomon",
+      "ta": "சாலொமோன்",
+      "id": "solomon",
+      "ref": {
+       "b": "2SA",
+       "c": 12,
+       "v": 24
+      }
+     },
+     {
+      "en": "Tamar",
+      "ta": "தாமார்",
+      "ref": {
+       "b": "2SA",
+       "c": 13,
+       "v": 1
+      },
+      "note": "daughter",
+      "noteTa": "மகள்"
+     }
+    ],
+    "siblings": [
+     {
+      "en": "Eliab",
+      "ta": "எலியாப்",
+      "ref": {
+       "b": "1SA",
+       "c": 17,
+       "v": 13
+      }
+     },
+     {
+      "en": "Abinadab",
+      "ta": "அபினதாப்",
+      "ref": {
+       "b": "1SA",
+       "c": 17,
+       "v": 13
+      }
+     },
+     {
+      "en": "Shammah",
+      "ta": "சம்மா",
+      "ref": {
+       "b": "1SA",
+       "c": 17,
+       "v": 13
+      }
+     },
+     {
+      "en": "Nethaneel",
+      "ta": "நெதனயேல்",
+      "ref": {
+       "b": "1CH",
+       "c": 2,
+       "v": 14
+      }
+     },
+     {
+      "en": "Raddai",
+      "ta": "ரதாயி",
+      "ref": {
+       "b": "1CH",
+       "c": 2,
+       "v": 14
+      }
+     },
+     {
+      "en": "Ozem",
+      "ta": "ஓத்சேம்",
+      "ref": {
+       "b": "1CH",
+       "c": 2,
+       "v": 15
+      }
+     }
+    ]
+   }
   },
   {
    "id": "nathan",
@@ -3778,7 +6167,29 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Ahitub",
+     "ta": "அகிதூப்",
+     "ref": {
+      "b": "2SA",
+      "c": 8,
+      "v": 17
+     }
+    },
+    "children": [
+     {
+      "en": "Ahimaaz",
+      "ta": "அகிமாஸ்",
+      "ref": {
+       "b": "1CH",
+       "c": 6,
+       "v": 8
+      }
+     }
+    ]
+   }
   },
   {
    "id": "solomon",
@@ -3885,7 +6296,107 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "David",
+     "ta": "தாவீது",
+     "id": "david",
+     "ref": {
+      "b": "1KI",
+      "c": 11,
+      "v": 43
+     }
+    },
+    "mother": {
+     "en": "Bathsheba",
+     "ta": "பத்சேபாள்",
+     "ref": {
+      "b": "1KI",
+      "c": 1,
+      "v": 11
+     }
+    },
+    "children": [
+     {
+      "en": "Rehoboam",
+      "ta": "ரெகொபெயாம்",
+      "id": "rehoboam",
+      "ref": {
+       "b": "1KI",
+       "c": 11,
+       "v": 43
+      }
+     }
+    ],
+    "siblings": [
+     {
+      "en": "Amnon",
+      "ta": "அம்னோன்",
+      "ref": {
+       "b": "2SA",
+       "c": 3,
+       "v": 2
+      }
+     },
+     {
+      "en": "Chileab",
+      "ta": "கீலேயாப்",
+      "ref": {
+       "b": "2SA",
+       "c": 3,
+       "v": 3
+      }
+     },
+     {
+      "en": "Absalom",
+      "ta": "அப்சலோம்",
+      "ref": {
+       "b": "2SA",
+       "c": 3,
+       "v": 3
+      }
+     },
+     {
+      "en": "Adonijah",
+      "ta": "அதோனியா",
+      "ref": {
+       "b": "2SA",
+       "c": 3,
+       "v": 4
+      }
+     },
+     {
+      "en": "Shephatiah",
+      "ta": "செப்பத்தியா",
+      "ref": {
+       "b": "2SA",
+       "c": 3,
+       "v": 4
+      }
+     },
+     {
+      "en": "Ithream",
+      "ta": "இத்ரேயாம்",
+      "ref": {
+       "b": "2SA",
+       "c": 3,
+       "v": 5
+      }
+     },
+     {
+      "en": "Tamar",
+      "ta": "தாமார்",
+      "ref": {
+       "b": "2SA",
+       "c": 13,
+       "v": 1
+      },
+      "note": "sister",
+      "noteTa": "சகோதரி"
+     }
+    ]
+   }
   },
   {
    "id": "rehoboam",
@@ -3967,7 +6478,122 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Solomon",
+     "ta": "சாலொமோன்",
+     "id": "solomon",
+     "ref": {
+      "b": "1KI",
+      "c": 14,
+      "v": 21
+     }
+    },
+    "mother": {
+     "en": "Naamah",
+     "ta": "நாமாள்",
+     "ref": {
+      "b": "1KI",
+      "c": 14,
+      "v": 21
+     }
+    },
+    "spouses": [
+     {
+      "en": "Mahalath",
+      "ta": "மகலாத்",
+      "ref": {
+       "b": "2CH",
+       "c": 11,
+       "v": 18
+      }
+     },
+     {
+      "en": "Abihail",
+      "ta": "அபியாயேல்",
+      "ref": {
+       "b": "2CH",
+       "c": 11,
+       "v": 18
+      }
+     },
+     {
+      "en": "Maachah",
+      "ta": "மாகாள்",
+      "ref": {
+       "b": "2CH",
+       "c": 11,
+       "v": 20
+      }
+     }
+    ],
+    "children": [
+     {
+      "en": "Jeush",
+      "ta": "ஏயூஸ்",
+      "ref": {
+       "b": "2CH",
+       "c": 11,
+       "v": 19
+      }
+     },
+     {
+      "en": "Shamariah",
+      "ta": "சமரியா",
+      "ref": {
+       "b": "2CH",
+       "c": 11,
+       "v": 19
+      }
+     },
+     {
+      "en": "Zaham",
+      "ta": "சாகாம்",
+      "ref": {
+       "b": "2CH",
+       "c": 11,
+       "v": 19
+      }
+     },
+     {
+      "en": "Abijah",
+      "ta": "அபியா",
+      "ref": {
+       "b": "2CH",
+       "c": 11,
+       "v": 20
+      }
+     },
+     {
+      "en": "Attai",
+      "ta": "அத்தாயி",
+      "ref": {
+       "b": "2CH",
+       "c": 11,
+       "v": 20
+      }
+     },
+     {
+      "en": "Ziza",
+      "ta": "சீசா",
+      "ref": {
+       "b": "2CH",
+       "c": 11,
+       "v": 20
+      }
+     },
+     {
+      "en": "Shelomith",
+      "ta": "செலோமித்",
+      "ref": {
+       "b": "2CH",
+       "c": 11,
+       "v": 20
+      }
+     }
+    ]
+   }
   },
   {
    "id": "jeroboam-i",
@@ -4041,7 +6667,38 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Nebat",
+     "ta": "நேபாத்",
+     "ref": {
+      "b": "1KI",
+      "c": 11,
+      "v": 26
+     }
+    },
+    "mother": {
+     "en": "Zeruah",
+     "ta": "செரூகாள்",
+     "ref": {
+      "b": "1KI",
+      "c": 11,
+      "v": 26
+     }
+    },
+    "children": [
+     {
+      "en": "Abijah",
+      "ta": "அபியா",
+      "ref": {
+       "b": "1KI",
+       "c": 14,
+       "v": 1
+      }
+     }
+    ]
+   }
   },
   {
    "id": "shishak",
@@ -4177,7 +6834,39 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Abijam",
+     "ta": "அபியாம்",
+     "ref": {
+      "b": "1KI",
+      "c": 15,
+      "v": 8
+     }
+    },
+    "mother": {
+     "en": "Maachah",
+     "ta": "மாகாள்",
+     "ref": {
+      "b": "1KI",
+      "c": 15,
+      "v": 10
+     }
+    },
+    "children": [
+     {
+      "en": "Jehoshaphat",
+      "ta": "யோசபாத்",
+      "id": "jehoshaphat",
+      "ref": {
+       "b": "1KI",
+       "c": 22,
+       "v": 41
+      }
+     }
+    ]
+   }
   },
   {
    "id": "jehoshaphat",
@@ -4265,7 +6954,95 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Asa",
+     "ta": "ஆசா",
+     "id": "asa",
+     "ref": {
+      "b": "1KI",
+      "c": 22,
+      "v": 41
+     }
+    },
+    "mother": {
+     "en": "Azubah",
+     "ta": "அசுபாள்",
+     "ref": {
+      "b": "1KI",
+      "c": 22,
+      "v": 42
+     }
+    },
+    "children": [
+     {
+      "en": "Jehoram",
+      "ta": "யோராம்",
+      "ref": {
+       "b": "2CH",
+       "c": 21,
+       "v": 1
+      }
+     },
+     {
+      "en": "Azariah",
+      "ta": "அசரியா",
+      "ref": {
+       "b": "2CH",
+       "c": 21,
+       "v": 2
+      }
+     },
+     {
+      "en": "Jehiel",
+      "ta": "ஏகியேல்",
+      "ref": {
+       "b": "2CH",
+       "c": 21,
+       "v": 2
+      }
+     },
+     {
+      "en": "Zechariah",
+      "ta": "சகரியா",
+      "ref": {
+       "b": "2CH",
+       "c": 21,
+       "v": 2
+      }
+     },
+     {
+      "en": "Azariah",
+      "ta": "அசரியா",
+      "ref": {
+       "b": "2CH",
+       "c": 21,
+       "v": 2
+      },
+      "note": "second Azariah",
+      "noteTa": "இரண்டாம் அசரியா"
+     },
+     {
+      "en": "Michael",
+      "ta": "மிகாவேல்",
+      "ref": {
+       "b": "2CH",
+       "c": 21,
+       "v": 2
+      }
+     },
+     {
+      "en": "Shephatiah",
+      "ta": "செப்பத்தியா",
+      "ref": {
+       "b": "2CH",
+       "c": 21,
+       "v": 2
+      }
+     }
+    ]
+   }
   },
   {
    "id": "omri",
@@ -4340,7 +7117,21 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "children": [
+     {
+      "en": "Ahab",
+      "ta": "ஆகாப்",
+      "id": "ahab",
+      "ref": {
+       "b": "1KI",
+       "c": 16,
+       "v": 28
+      }
+     }
+    ]
+   }
   },
   {
    "id": "ahab",
@@ -4435,7 +7226,53 @@
      "en": "Killed at Ramoth-gilead",
      "ta": "ராமோத்-கீலேயாதில் கொல்லப்படுதல்"
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Omri",
+     "ta": "ஒம்ரி",
+     "id": "omri",
+     "ref": {
+      "b": "1KI",
+      "c": 16,
+      "v": 28
+     }
+    },
+    "spouses": [
+     {
+      "en": "Jezebel",
+      "ta": "யேசபேல்",
+      "id": "jezebel",
+      "ref": {
+       "b": "1KI",
+       "c": 16,
+       "v": 31
+      }
+     }
+    ],
+    "children": [
+     {
+      "en": "Ahaziah",
+      "ta": "அகசியா",
+      "ref": {
+       "b": "1KI",
+       "c": 22,
+       "v": 40
+      }
+     },
+     {
+      "en": "Jehoram",
+      "ta": "யோராம்",
+      "ref": {
+       "b": "2KI",
+       "c": 3,
+       "v": 1
+      },
+      "note": "king of Israel",
+      "noteTa": "இஸ்ரவேல் ராஜா"
+     }
+    ]
+   }
   },
   {
    "id": "jezebel",
@@ -4514,7 +7351,30 @@
      "en": "Killed at Jehu's order",
      "ta": "யெகூவின் கட்டளையால் கொல்லப்படுதல்"
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Ethbaal",
+     "ta": "ஏத்பாகால்",
+     "ref": {
+      "b": "1KI",
+      "c": 16,
+      "v": 31
+     }
+    },
+    "spouses": [
+     {
+      "en": "Ahab",
+      "ta": "ஆகாப்",
+      "id": "ahab",
+      "ref": {
+       "b": "1KI",
+       "c": 16,
+       "v": 31
+      }
+     }
+    ]
+   }
   },
   {
    "id": "elijah",
@@ -4703,7 +7563,18 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Shaphat",
+     "ta": "சாப்பாத்",
+     "ref": {
+      "b": "1KI",
+      "c": 19,
+      "v": 16
+     }
+    }
+   }
   },
   {
    "id": "jehu",
@@ -4787,7 +7658,31 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Jehoshaphat",
+     "ta": "யோசபாத்",
+     "ref": {
+      "b": "2KI",
+      "c": 9,
+      "v": 2
+     },
+     "note": "not Judah's king",
+     "noteTa": "யூதா ராஜா அல்ல"
+    },
+    "children": [
+     {
+      "en": "Jehoahaz",
+      "ta": "யோவாகாஸ்",
+      "ref": {
+       "b": "2KI",
+       "c": 10,
+       "v": 35
+      }
+     }
+    ]
+   }
   },
   {
    "id": "athaliah",
@@ -4856,7 +7751,43 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Omri",
+     "ta": "ஒம்ரி",
+     "id": "omri",
+     "ref": {
+      "b": "2KI",
+      "c": 8,
+      "v": 26
+     }
+    },
+    "spouses": [
+     {
+      "en": "Jehoram",
+      "ta": "யோராம்",
+      "ref": {
+       "b": "2KI",
+       "c": 8,
+       "v": 18
+      },
+      "note": "king of Judah",
+      "noteTa": "யூதா ராஜா"
+     }
+    ],
+    "children": [
+     {
+      "en": "Ahaziah",
+      "ta": "அகசியா",
+      "ref": {
+       "b": "2KI",
+       "c": 8,
+       "v": 26
+      }
+     }
+    ]
+   }
   },
   {
    "id": "joash",
@@ -4933,7 +7864,38 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Ahaziah",
+     "ta": "அகசியா",
+     "ref": {
+      "b": "2KI",
+      "c": 11,
+      "v": 2
+     }
+    },
+    "mother": {
+     "en": "Zibiah",
+     "ta": "சிபியாள்",
+     "ref": {
+      "b": "2KI",
+      "c": 12,
+      "v": 1
+     }
+    },
+    "children": [
+     {
+      "en": "Amaziah",
+      "ta": "அமத்சியா",
+      "ref": {
+       "b": "2KI",
+       "c": 14,
+       "v": 1
+      }
+     }
+    ]
+   }
   },
   {
    "id": "uzziah",
@@ -5011,7 +7973,38 @@
      "en": "Struck with leprosy",
      "ta": "குஷ்டரோகத்தால் தாக்கப்படுதல்"
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Amaziah",
+     "ta": "அமத்சியா",
+     "ref": {
+      "b": "2KI",
+      "c": 14,
+      "v": 21
+     }
+    },
+    "mother": {
+     "en": "Jecholiah",
+     "ta": "எக்கோலியாள்",
+     "ref": {
+      "b": "2KI",
+      "c": 15,
+      "v": 2
+     }
+    },
+    "children": [
+     {
+      "en": "Jotham",
+      "ta": "யோதாம்",
+      "ref": {
+       "b": "2KI",
+       "c": 15,
+       "v": 7
+      }
+     }
+    ]
+   }
   },
   {
    "id": "jeroboam-ii",
@@ -5093,7 +8086,29 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Joash",
+     "ta": "யோவாஸ்",
+     "ref": {
+      "b": "2KI",
+      "c": 14,
+      "v": 23
+     }
+    },
+    "children": [
+     {
+      "en": "Zachariah",
+      "ta": "சகரியா",
+      "ref": {
+       "b": "2KI",
+       "c": 15,
+       "v": 8
+      }
+     }
+    ]
+   }
   },
   {
    "id": "jonah",
@@ -5171,7 +8186,18 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Amittai",
+     "ta": "அமித்தாய்",
+     "ref": {
+      "b": "2KI",
+      "c": 14,
+      "v": 25
+     }
+    }
+   }
   },
   {
    "id": "amos",
@@ -5307,7 +8333,64 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Beeri",
+     "ta": "பெயேர்",
+     "ref": {
+      "b": "HOS",
+      "c": 1,
+      "v": 1
+     }
+    },
+    "spouses": [
+     {
+      "en": "Gomer",
+      "ta": "கோமேர்",
+      "ref": {
+       "b": "HOS",
+       "c": 1,
+       "v": 3
+      }
+     }
+    ],
+    "children": [
+     {
+      "en": "Jezreel",
+      "ta": "யெஸ்ரயேல்",
+      "ref": {
+       "b": "HOS",
+       "c": 1,
+       "v": 4
+      },
+      "note": "son",
+      "noteTa": "மகன்"
+     },
+     {
+      "en": "Lo-ruhamah",
+      "ta": "லோருகாமா",
+      "ref": {
+       "b": "HOS",
+       "c": 1,
+       "v": 6
+      },
+      "note": "daughter",
+      "noteTa": "மகள்"
+     },
+     {
+      "en": "Lo-ammi",
+      "ta": "லோகம்மீ",
+      "ref": {
+       "b": "HOS",
+       "c": 1,
+       "v": 9
+      },
+      "note": "son",
+      "noteTa": "மகன்"
+     }
+    ]
+   }
   },
   {
    "id": "tiglath-pileser-iii",
@@ -5451,7 +8534,38 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Amoz",
+     "ta": "ஆமோத்",
+     "ref": {
+      "b": "ISA",
+      "c": 1,
+      "v": 1
+     }
+    },
+    "children": [
+     {
+      "en": "Shear-jashub",
+      "ta": "சேயார்யாசூப்",
+      "ref": {
+       "b": "ISA",
+       "c": 7,
+       "v": 3
+      }
+     },
+     {
+      "en": "Maher-shalal-hash-baz",
+      "ta": "மகேர்-சாலால்-அஷ்-பாஸ்",
+      "ref": {
+       "b": "ISA",
+       "c": 8,
+       "v": 3
+      }
+     }
+    ]
+   }
   },
   {
    "id": "micah",
@@ -5604,7 +8718,30 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Jotham",
+     "ta": "யோதாம்",
+     "ref": {
+      "b": "2KI",
+      "c": 16,
+      "v": 1
+     }
+    },
+    "children": [
+     {
+      "en": "Hezekiah",
+      "ta": "எசேக்கியா",
+      "id": "hezekiah",
+      "ref": {
+       "b": "2KI",
+       "c": 18,
+       "v": 1
+      }
+     }
+    ]
+   }
   },
   {
    "id": "hoshea",
@@ -5676,7 +8813,18 @@
      "en": "Samaria falls; Israel exiled",
      "ta": "சமாரியா வீழ்ச்சி; இஸ்ரவேல் சிறைபிடிக்கப்படுதல்"
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Elah",
+     "ta": "ஏலா",
+     "ref": {
+      "b": "2KI",
+      "c": 17,
+      "v": 1
+     }
+    }
+   }
   },
   {
    "id": "shalmaneser-v",
@@ -5829,7 +8977,40 @@
      "en": "Sennacherib besieges Jerusalem; Hezekiah's illness and 15 more years",
      "ta": "சனகெரிப் எருசலேமை முற்றுகையிடுதல்; எசேக்கியாவின் வியாதியும் மேலும் 15 ஆண்டுகளும்"
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Ahaz",
+     "ta": "ஆகாஸ்",
+     "id": "ahaz",
+     "ref": {
+      "b": "2KI",
+      "c": 18,
+      "v": 1
+     }
+    },
+    "mother": {
+     "en": "Abi",
+     "ta": "ஆபி",
+     "ref": {
+      "b": "2KI",
+      "c": 18,
+      "v": 2
+     }
+    },
+    "children": [
+     {
+      "en": "Manasseh",
+      "ta": "மனாசே",
+      "id": "manasseh",
+      "ref": {
+       "b": "2KI",
+       "c": 20,
+       "v": 21
+      }
+     }
+    ]
+   }
   },
   {
    "id": "sennacherib",
@@ -5908,7 +9089,38 @@
      "en": "Killed by his sons",
      "ta": "தன் மகன்களால் கொல்லப்படுதல்"
     }
-   ]
+   ],
+   "family": {
+    "children": [
+     {
+      "en": "Adrammelech",
+      "ta": "அத்ரமலேக்",
+      "ref": {
+       "b": "2KI",
+       "c": 19,
+       "v": 37
+      }
+     },
+     {
+      "en": "Sharezer",
+      "ta": "சரேத்சேர்",
+      "ref": {
+       "b": "2KI",
+       "c": 19,
+       "v": 37
+      }
+     },
+     {
+      "en": "Esarhaddon",
+      "ta": "எசாத்தோன்",
+      "ref": {
+       "b": "2KI",
+       "c": 19,
+       "v": 37
+      }
+     }
+    ]
+   }
   },
   {
    "id": "manasseh",
@@ -5995,7 +9207,39 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Hezekiah",
+     "ta": "எசேக்கியா",
+     "id": "hezekiah",
+     "ref": {
+      "b": "2KI",
+      "c": 20,
+      "v": 21
+     }
+    },
+    "mother": {
+     "en": "Hephzibah",
+     "ta": "எப்சிபாள்",
+     "ref": {
+      "b": "2KI",
+      "c": 21,
+      "v": 1
+     }
+    },
+    "children": [
+     {
+      "en": "Amon",
+      "ta": "ஆமோன்",
+      "ref": {
+       "b": "2KI",
+       "c": 21,
+       "v": 18
+      }
+     }
+    ]
+   }
   },
   {
    "id": "josiah",
@@ -6080,7 +9324,67 @@
      "en": "Killed at Megiddo by Pharaoh Necho",
      "ta": "மெகிதோவில் பார்வோன் நேகோவால் கொல்லப்படுதல்"
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Amon",
+     "ta": "ஆமோன்",
+     "ref": {
+      "b": "2KI",
+      "c": 21,
+      "v": 24
+     }
+    },
+    "mother": {
+     "en": "Jedidah",
+     "ta": "எதிதாள்",
+     "ref": {
+      "b": "2KI",
+      "c": 22,
+      "v": 1
+     }
+    },
+    "children": [
+     {
+      "en": "Johanan",
+      "ta": "யோகனான்",
+      "ref": {
+       "b": "1CH",
+       "c": 3,
+       "v": 15
+      }
+     },
+     {
+      "en": "Jehoiakim",
+      "ta": "யோயாக்கீம்",
+      "id": "jehoiakim",
+      "ref": {
+       "b": "1CH",
+       "c": 3,
+       "v": 15
+      }
+     },
+     {
+      "en": "Zedekiah",
+      "ta": "சிதேக்கியா",
+      "id": "zedekiah",
+      "ref": {
+       "b": "1CH",
+       "c": 3,
+       "v": 15
+      }
+     },
+     {
+      "en": "Jehoahaz",
+      "ta": "யோவாகாஸ்",
+      "ref": {
+       "b": "2KI",
+       "c": 23,
+       "v": 30
+      }
+     }
+    ]
+   }
   },
   {
    "id": "jeremiah",
@@ -6183,7 +9487,18 @@
      "en": "Taken to Egypt",
      "ta": "எகிப்துக்குக் கொண்டுபோகப்படுதல்"
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Hilkiah",
+     "ta": "இல்க்கியா",
+     "ref": {
+      "b": "JER",
+      "c": 1,
+      "v": 1
+     }
+    }
+   }
   },
   {
    "id": "jehoiakim",
@@ -6267,7 +9582,70 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Josiah",
+     "ta": "யோசியா",
+     "id": "josiah",
+     "ref": {
+      "b": "2KI",
+      "c": 23,
+      "v": 34
+     }
+    },
+    "mother": {
+     "en": "Zebudah",
+     "ta": "செபுதாள்",
+     "ref": {
+      "b": "2KI",
+      "c": 23,
+      "v": 36
+     }
+    },
+    "children": [
+     {
+      "en": "Jehoiachin",
+      "ta": "யோயாக்கீன்",
+      "id": "jehoiachin",
+      "ref": {
+       "b": "2KI",
+       "c": 24,
+       "v": 6
+      }
+     }
+    ],
+    "siblings": [
+     {
+      "en": "Johanan",
+      "ta": "யோகனான்",
+      "ref": {
+       "b": "1CH",
+       "c": 3,
+       "v": 15
+      }
+     },
+     {
+      "en": "Zedekiah",
+      "ta": "சிதேக்கியா",
+      "id": "zedekiah",
+      "ref": {
+       "b": "1CH",
+       "c": 3,
+       "v": 15
+      }
+     },
+     {
+      "en": "Jehoahaz",
+      "ta": "யோவாகாஸ்",
+      "ref": {
+       "b": "2KI",
+       "c": 23,
+       "v": 30
+      }
+     }
+    ]
+   }
   },
   {
    "id": "nebuchadnezzar-ii",
@@ -6365,7 +9743,21 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "children": [
+     {
+      "en": "Belshazzar",
+      "ta": "பெல்ஷாத்சார்",
+      "id": "belshazzar",
+      "ref": {
+       "b": "DAN",
+       "c": 5,
+       "v": 2
+      }
+     }
+    ]
+   }
   },
   {
    "id": "habakkuk",
@@ -6630,7 +10022,93 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Jehoiakim",
+     "ta": "யோயாக்கீம்",
+     "id": "jehoiakim",
+     "ref": {
+      "b": "2KI",
+      "c": 24,
+      "v": 6
+     }
+    },
+    "mother": {
+     "en": "Nehushta",
+     "ta": "நெகுஸ்தாள்",
+     "ref": {
+      "b": "2KI",
+      "c": 24,
+      "v": 8
+     }
+    },
+    "children": [
+     {
+      "en": "Salathiel",
+      "ta": "சலாத்தியேல்",
+      "ref": {
+       "b": "1CH",
+       "c": 3,
+       "v": 17
+      }
+     },
+     {
+      "en": "Malchiram",
+      "ta": "மல்கீராம்",
+      "ref": {
+       "b": "1CH",
+       "c": 3,
+       "v": 18
+      }
+     },
+     {
+      "en": "Pedaiah",
+      "ta": "பெதாயா",
+      "ref": {
+       "b": "1CH",
+       "c": 3,
+       "v": 18
+      }
+     },
+     {
+      "en": "Shenazar",
+      "ta": "சேனாசார்",
+      "ref": {
+       "b": "1CH",
+       "c": 3,
+       "v": 18
+      }
+     },
+     {
+      "en": "Jecamiah",
+      "ta": "யெகமியா",
+      "ref": {
+       "b": "1CH",
+       "c": 3,
+       "v": 18
+      }
+     },
+     {
+      "en": "Hoshama",
+      "ta": "ஒசாமா",
+      "ref": {
+       "b": "1CH",
+       "c": 3,
+       "v": 18
+      }
+     },
+     {
+      "en": "Nedabiah",
+      "ta": "நெதபியா",
+      "ref": {
+       "b": "1CH",
+       "c": 3,
+       "v": 18
+      }
+     }
+    ]
+   }
   },
   {
    "id": "zedekiah",
@@ -6713,7 +10191,58 @@
      "en": "Blinded and taken to Babylon",
      "ta": "கண்குருடாக்கப்பட்டு பாபிலோனுக்குக் கொண்டுபோகப்படுதல்"
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Josiah",
+     "ta": "யோசியா",
+     "id": "josiah",
+     "ref": {
+      "b": "1CH",
+      "c": 3,
+      "v": 15
+     }
+    },
+    "mother": {
+     "en": "Hamutal",
+     "ta": "அமுத்தாள்",
+     "ref": {
+      "b": "2KI",
+      "c": 24,
+      "v": 18
+     }
+    },
+    "siblings": [
+     {
+      "en": "Johanan",
+      "ta": "யோகனான்",
+      "ref": {
+       "b": "1CH",
+       "c": 3,
+       "v": 15
+      }
+     },
+     {
+      "en": "Jehoiakim",
+      "ta": "யோயாக்கீம்",
+      "id": "jehoiakim",
+      "ref": {
+       "b": "1CH",
+       "c": 3,
+       "v": 15
+      }
+     },
+     {
+      "en": "Shallum",
+      "ta": "சல்லுூம்",
+      "ref": {
+       "b": "1CH",
+       "c": 3,
+       "v": 15
+      }
+     }
+    ]
+   }
   },
   {
    "id": "ezekiel",
@@ -6794,7 +10323,18 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Buzi",
+     "ta": "பூசி",
+     "ref": {
+      "b": "EZK",
+      "c": 1,
+      "v": 3
+     }
+    }
+   }
   },
   {
    "id": "belshazzar",
@@ -6867,7 +10407,19 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Nebuchadnezzar",
+     "ta": "நேபுகாத்நேச்சார்",
+     "id": "nebuchadnezzar-ii",
+     "ref": {
+      "b": "DAN",
+      "c": 5,
+      "v": 2
+     }
+    }
+   }
   },
   {
    "id": "cyrus-the-great",
@@ -7021,7 +10573,49 @@
      "en": "Temple completed",
      "ta": "ஆலயம் முடிக்கப்படுதல்"
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Shealtiel",
+     "ta": "செயல்த்தியேல்",
+     "ref": {
+      "b": "HAG",
+      "c": 1,
+      "v": 1
+     }
+    },
+    "children": [
+     {
+      "en": "Meshullam",
+      "ta": "மெசுல்லாம்",
+      "ref": {
+       "b": "1CH",
+       "c": 3,
+       "v": 19
+      }
+     },
+     {
+      "en": "Hananiah",
+      "ta": "அனனியா",
+      "ref": {
+       "b": "1CH",
+       "c": 3,
+       "v": 19
+      }
+     },
+     {
+      "en": "Shelomith",
+      "ta": "செலோமீத்",
+      "ref": {
+       "b": "1CH",
+       "c": 3,
+       "v": 19
+      },
+      "note": "sister",
+      "noteTa": "சகோதரி"
+     }
+    ]
+   }
   },
   {
    "id": "darius-i",
@@ -7219,7 +10813,18 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Berechiah",
+     "ta": "பெரகியா",
+     "ref": {
+      "b": "ZEC",
+      "c": 1,
+      "v": 1
+     }
+    }
+   }
   },
   {
    "id": "xerxes-i",
@@ -7296,7 +10901,30 @@
      "en": "Makes Esther queen",
      "ta": "எஸ்தரை ராணியாக்குதல்"
     }
-   ]
+   ],
+   "family": {
+    "spouses": [
+     {
+      "en": "Vashti",
+      "ta": "வஸ்தி",
+      "ref": {
+       "b": "EST",
+       "c": 1,
+       "v": 9
+      }
+     },
+     {
+      "en": "Esther",
+      "ta": "எஸ்தர்",
+      "id": "esther",
+      "ref": {
+       "b": "EST",
+       "c": 2,
+       "v": 17
+      }
+     }
+    ]
+   }
   },
   {
    "id": "esther",
@@ -7372,7 +11000,30 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Abihail",
+     "ta": "அபியாயேல்",
+     "ref": {
+      "b": "EST",
+      "c": 2,
+      "v": 15
+     }
+    },
+    "spouses": [
+     {
+      "en": "Ahasuerus",
+      "ta": "அகாஸ்வேரு",
+      "id": "xerxes-i",
+      "ref": {
+       "b": "EST",
+       "c": 2,
+       "v": 17
+      }
+     }
+    ]
+   }
   },
   {
    "id": "artaxerxes-i",
@@ -7539,7 +11190,18 @@
      "en": "Reads the Law to the people",
      "ta": "மக்களுக்கு நியாயப்பிரமாணத்தை வாசித்தல்"
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Seraiah",
+     "ta": "செராயா",
+     "ref": {
+      "b": "EZR",
+      "c": 7,
+      "v": 1
+     }
+    }
+   }
   },
   {
    "id": "nehemiah",
@@ -7618,7 +11280,31 @@
      "en": "Second term as governor",
      "ta": "இரண்டாம் முறையாக ஆளுநராதல்"
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Hachaliah",
+     "ta": "அகலியா",
+     "ref": {
+      "b": "NEH",
+      "c": 1,
+      "v": 1
+     }
+    },
+    "siblings": [
+     {
+      "en": "Hanani",
+      "ta": "ஆனானி",
+      "ref": {
+       "b": "NEH",
+       "c": 7,
+       "v": 2
+      },
+      "note": "brother",
+      "noteTa": "சகோதரன்"
+     }
+    ]
+   }
   },
   {
    "id": "malachi",
@@ -7917,7 +11603,20 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "children": [
+     {
+      "en": "Archelaus",
+      "ta": "அர்கெலாயு",
+      "ref": {
+       "b": "MAT",
+       "c": 2,
+       "v": 22
+      }
+     }
+    ]
+   }
   },
   {
    "id": "caesar-augustus",
@@ -8056,7 +11755,32 @@
      "en": "At the cross; with the disciples",
      "ta": "சிலுவையினருகே; சீஷர்களுடன்"
     }
-   ]
+   ],
+   "family": {
+    "spouses": [
+     {
+      "en": "Joseph",
+      "ta": "யோசேப்பு",
+      "ref": {
+       "b": "MAT",
+       "c": 1,
+       "v": 16
+      }
+     }
+    ],
+    "children": [
+     {
+      "en": "Jesus",
+      "ta": "இயேசு",
+      "id": "jesus",
+      "ref": {
+       "b": "MAT",
+       "c": 1,
+       "v": 16
+      }
+     }
+    ]
+   }
   },
   {
    "id": "herod-antipas",
@@ -8128,7 +11852,33 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "spouses": [
+     {
+      "en": "Herodias",
+      "ta": "ஏரோதியாள்",
+      "ref": {
+       "b": "MRK",
+       "c": 6,
+       "v": 17
+      }
+     }
+    ],
+    "siblings": [
+     {
+      "en": "Philip",
+      "ta": "பிலிப்பு",
+      "ref": {
+       "b": "MRK",
+       "c": 6,
+       "v": 17
+      },
+      "note": "brother",
+      "noteTa": "சகோதரன்"
+     }
+    ]
+   }
   },
   {
    "id": "john-the-baptist",
@@ -8220,7 +11970,27 @@
      "en": "Executed by Herod Antipas",
      "ta": "ஏரோது அந்திப்பாவால் கொல்லப்படுதல்"
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Zacharias",
+     "ta": "சகரியா",
+     "ref": {
+      "b": "LUK",
+      "c": 1,
+      "v": 13
+     }
+    },
+    "mother": {
+     "en": "Elisabeth",
+     "ta": "எலிசபெத்",
+     "ref": {
+      "b": "LUK",
+      "c": 1,
+      "v": 13
+     }
+    }
+   }
   },
   {
    "id": "jesus",
@@ -8385,7 +12155,77 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Joseph",
+     "ta": "யோசேப்பு",
+     "ref": {
+      "b": "LUK",
+      "c": 3,
+      "v": 23
+     },
+     "note": "legal father",
+     "noteTa": "சட்டப்படி தகப்பன்"
+    },
+    "mother": {
+     "en": "Mary",
+     "ta": "மரியாள்",
+     "id": "mary",
+     "ref": {
+      "b": "MAT",
+      "c": 1,
+      "v": 16
+     }
+    },
+    "siblings": [
+     {
+      "en": "James",
+      "ta": "யாக்கோபு",
+      "id": "james-brother-of-jesus",
+      "ref": {
+       "b": "MAT",
+       "c": 13,
+       "v": 55
+      },
+      "note": "brother",
+      "noteTa": "சகோதரன்"
+     },
+     {
+      "en": "Joses",
+      "ta": "யோசே",
+      "ref": {
+       "b": "MAT",
+       "c": 13,
+       "v": 55
+      },
+      "note": "brother",
+      "noteTa": "சகோதரன்"
+     },
+     {
+      "en": "Simon",
+      "ta": "சீமோன்",
+      "ref": {
+       "b": "MAT",
+       "c": 13,
+       "v": 55
+      },
+      "note": "brother",
+      "noteTa": "சகோதரன்"
+     },
+     {
+      "en": "Judas",
+      "ta": "யூதா",
+      "ref": {
+       "b": "MAT",
+       "c": 13,
+       "v": 55
+      },
+      "note": "brother",
+      "noteTa": "சகோதரன்"
+     }
+    ]
+   }
   },
   {
    "id": "tiberius",
@@ -8711,7 +12551,31 @@
      "en": "Martyred in Rome (tradition)",
      "ta": "ரோமில் இரத்த சாட்சியாக மரித்தல் (பாரம்பரியம்)"
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Jonas",
+     "ta": "யோனா",
+     "ref": {
+      "b": "JHN",
+      "c": 21,
+      "v": 15
+     }
+    },
+    "siblings": [
+     {
+      "en": "Andrew",
+      "ta": "அந்திரேயா",
+      "ref": {
+       "b": "MAT",
+       "c": 4,
+       "v": 18
+      },
+      "note": "brother",
+      "noteTa": "சகோதரன்"
+     }
+    ]
+   }
   },
   {
    "id": "james-son-of-zebedee",
@@ -8803,7 +12667,32 @@
      "en": "Killed by Herod Agrippa I",
      "ta": "ஏரோது அகிரிப்பா I-ஆல் கொல்லப்படுதல்"
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Zebedee",
+     "ta": "செபதேயு",
+     "ref": {
+      "b": "MAT",
+      "c": 4,
+      "v": 21
+     }
+    },
+    "siblings": [
+     {
+      "en": "John",
+      "ta": "யோவான்",
+      "id": "john",
+      "ref": {
+       "b": "MAT",
+       "c": 4,
+       "v": 21
+      },
+      "note": "brother",
+      "noteTa": "சகோதரன்"
+     }
+    ]
+   }
   },
   {
    "id": "john",
@@ -8891,7 +12780,32 @@
      "en": "Receives the Revelation on Patmos",
      "ta": "பத்மு தீவில் வெளிப்படுத்தின விசேஷத்தைப் பெறுதல்"
     }
-   ]
+   ],
+   "family": {
+    "father": {
+     "en": "Zebedee",
+     "ta": "செபதேயு",
+     "ref": {
+      "b": "MAT",
+      "c": 4,
+      "v": 21
+     }
+    },
+    "siblings": [
+     {
+      "en": "James",
+      "ta": "யாக்கோபு",
+      "id": "james-son-of-zebedee",
+      "ref": {
+       "b": "MAT",
+       "c": 4,
+       "v": 21
+      },
+      "note": "brother",
+      "noteTa": "சகோதரன்"
+     }
+    ]
+   }
   },
   {
    "id": "stephen",
@@ -9196,7 +13110,56 @@
      "en": "Martyred in Jerusalem",
      "ta": "எருசலேமில் இரத்த சாட்சியாக மரித்தல்"
     }
-   ]
+   ],
+   "family": {
+    "siblings": [
+     {
+      "en": "Jesus",
+      "ta": "இயேசு",
+      "id": "jesus",
+      "ref": {
+       "b": "GAL",
+       "c": 1,
+       "v": 19
+      },
+      "note": "brother",
+      "noteTa": "சகோதரன்"
+     },
+     {
+      "en": "Joses",
+      "ta": "யோசே",
+      "ref": {
+       "b": "MAT",
+       "c": 13,
+       "v": 55
+      },
+      "note": "brother",
+      "noteTa": "சகோதரன்"
+     },
+     {
+      "en": "Simon",
+      "ta": "சீமோன்",
+      "ref": {
+       "b": "MAT",
+       "c": 13,
+       "v": 55
+      },
+      "note": "brother",
+      "noteTa": "சகோதரன்"
+     },
+     {
+      "en": "Judas",
+      "ta": "யூதாஸ்",
+      "ref": {
+       "b": "MAT",
+       "c": 13,
+       "v": 55
+      },
+      "note": "brother",
+      "noteTa": "சகோதரன்"
+     }
+    ]
+   }
   },
   {
    "id": "timothy",
@@ -9277,7 +13240,18 @@
       }
      ]
     }
-   ]
+   ],
+   "family": {
+    "mother": {
+     "en": "Eunice",
+     "ta": "ஐனிக்கேயாள்",
+     "ref": {
+      "b": "2TI",
+      "c": 1,
+      "v": 5
+     }
+    }
+   }
   },
   {
    "id": "nero",
