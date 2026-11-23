@@ -257,7 +257,91 @@ const Memory = () => (
   </>
 );
 
+/** Kids Quiz: a smiling sun with a big question mark. */
+const KidsQuiz = () => (
+  <>
+    <Shadow />
+    {[0, 45, 90, 135, 180, 225, 270, 315].map((r) => (
+      <path key={r} d="M80 14 V4" transform={`rotate(${r} 80 58)`} {...line} stroke={C.flame} strokeWidth={5} />
+    ))}
+    <circle cx={80} cy={58} r={36} fill={C.flameSoft} {...line} />
+    <Face x={80} y={60} gap={22} smile={12} />
+    <path d="M122 70 C122 60 140 60 140 72 C140 80 130 80 130 88" fill="none" {...line} stroke={C.greenDeep} strokeWidth={5} />
+    <circle cx={130} cy={100} r={3.5} fill={C.greenDeep} />
+  </>
+);
+
+/** Yes or No: a happy tick and a cross, side by side. */
+const KidsYesNo = () => (
+  <>
+    <Shadow />
+    <circle cx={50} cy={60} r={30} fill={C.greenSoft} {...line} />
+    <path d="M36 60 L47 71 L66 49" fill="none" stroke={C.greenDeep} strokeWidth={7} strokeLinecap="round" strokeLinejoin="round" />
+    <circle cx={112} cy={60} r={30} fill="#f8c9c2" {...line} />
+    <path d="M100 48 L124 72 M124 48 L100 72" stroke={C.red} strokeWidth={7} strokeLinecap="round" />
+    <Face x={80} y={100} gap={14} smile={6} />
+  </>
+);
+
+/** Who Am I?: a friendly face peeking from behind a curtain, with a question mark. */
+const KidsWho = () => (
+  <>
+    <Shadow />
+    <circle cx={74} cy={62} r={30} fill="#e8b98f" {...line} />
+    <Face x={74} y={62} gap={18} smile={9} />
+    <path d="M24 10 H70 V108 C58 96 46 108 34 96 C28 90 24 96 24 96 Z" fill={C.red} {...line} />
+    <path d="M36 14 V90 M50 14 V96" stroke={INK} strokeWidth={2} opacity={0.25} />
+    <path d="M110 24 C110 12 134 12 134 26 C134 36 122 36 122 46" fill="none" {...line} stroke={C.greenDeep} strokeWidth={6} />
+    <circle cx={122} cy={58} r={4} fill={C.greenDeep} />
+  </>
+);
+
+/** Picture Match: two cards, one turned over, one showing a little ark. */
+const KidsMatch = () => (
+  <>
+    <Shadow />
+    <rect x={22} y={22} width={54} height={74} rx={10} fill={C.greenDeep} {...line} transform="rotate(-8 49 59)" />
+    <path d="M38 50 L60 50 M38 62 L60 62" stroke={C.white} strokeWidth={4} strokeLinecap="round" opacity={0.6} transform="rotate(-8 49 59)" />
+    <rect x={84} y={20} width={54} height={74} rx={10} fill={C.white} {...line} transform="rotate(7 111 57)" />
+    <path d="M94 64 L128 64 L120 78 L102 78 Z" fill={C.wood} {...line} transform="rotate(7 111 57)" />
+    <path d="M104 64 V52 H118 V64" fill={C.woodSoft} {...line} transform="rotate(7 111 57)" />
+    <Face x={111} y={40} gap={12} smile={5} />
+  </>
+);
+
+/** Story Order: three numbered blocks, stepping up. */
+const KidsOrder = () => (
+  <>
+    <Shadow />
+    <rect x={20} y={70} width={36} height={32} rx={6} fill={C.flameSoft} {...line} />
+    <rect x={62} y={52} width={36} height={50} rx={6} fill={C.greenSoft} {...line} />
+    <rect x={104} y={34} width={36} height={68} rx={6} fill="#f8c9c2" {...line} />
+    <path d="M36 80 L40 77 V94" fill="none" {...line} strokeWidth={3.5} />
+    <path d="M73 66 C75 60 87 60 87 67 C87 72 74 78 73 84 H88" fill="none" {...line} strokeWidth={3.5} />
+    <path d="M115 48 H129 L121 58 C127 58 131 61 131 67 C131 73 125 76 116 74" fill="none" {...line} strokeWidth={3.5} />
+    <Face x={122} y={88} gap={10} smile={5} />
+  </>
+);
+
+export function KidsMatchArt({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 160 120" className={className} aria-hidden>
+      <KidsMatch />
+    </svg>
+  );
+}
+export function KidsOrderArt({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 160 120" className={className} aria-hidden>
+      <KidsOrder />
+    </svg>
+  );
+}
+
 const ART: Record<ModeId, () => ReactElement> = {
+  kids: KidsQuiz,
+  kidsTf: KidsYesNo,
+  kidsWho: KidsWho,
   knowledge: Knowledge,
   quiz: Quiz,
   classic: Classic,

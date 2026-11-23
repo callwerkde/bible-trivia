@@ -9,6 +9,7 @@ import { cachedBooks } from '../online/stock';
 import { drillQuestion } from './drill';
 import { baseIdOf, trueFalseFrom, whichBookFromSaying, whichBookFromVerse } from './derived';
 import { VERSES } from './verses';
+import { KIDS_QUESTIONS, kidsPool, type KidsGame } from './kids';
 
 export const PACKS = [ot, nt, knowledge] as unknown as QuestionPack[];
 
@@ -17,8 +18,9 @@ export const KNOWLEDGE = (knowledge as unknown as QuestionPack).questions;
 
 export const ALL_QUESTIONS: Question[] = PACKS.flatMap((p) => p.questions);
 
+// (Kids questions are kept apart from the other games, but found by id.)
 export const QUESTION_BY_ID: Record<string, Question> = Object.fromEntries(
-  ALL_QUESTIONS.map((q) => [q.id, q]),
+  [...ALL_QUESTIONS, ...KIDS_QUESTIONS].map((q) => [q.id, q]),
 );
 
 /**
@@ -47,7 +49,8 @@ export type RoundSource =
   | { kind: 'ids'; ids: string[] } //           a friend challenge: exactly these questions
   | { kind: 'truefalse' } //                   True or False: made from book questions
   | { kind: 'whichbook' } //                   Which Book?: sayings and well-known verses
-  | { kind: 'knowledge' }; //                  Bible Knowledge: its own pack
+  | { kind: 'knowledge' } //                   Bible Knowledge: its own pack
+  | { kind: 'kids'; game: KidsGame }; //        Kids: very simple, its own questions
 
 export async function roundPool(source: RoundSource): Promise<Question[]> {
   switch (source.kind) {
@@ -85,7 +88,7 @@ export async function roundPool(source: RoundSource): Promise<Question[]> {
           return id.startsWith('tf~') ? trueFalseFrom(from) : whichBookFromSaying(from);
         })
         .filter((q): q is Question => Boolean(q));
-      return [...base, ...extra, ...drill, ...made];
+      return [...base, ...extra, ...drill, ...made, ...KIDS_QUESTIONS];
     }
     case 'truefalse': {
       // The 12 written true/false questions, plus book questions turned into statements.
@@ -93,6 +96,8 @@ export async function roundPool(source: RoundSource): Promise<Question[]> {
       const [base, extra] = await Promise.all([questionPool(), loadMcqBooks(books)]);
       return [...base, ...extra.map(trueFalseFrom).filter((q): q is Question => Boolean(q))];
     }
+    case 'kids':
+      return kidsPool(source.game);
     case 'knowledge': {
       const pool = await questionPool();
       return pool.filter((q) => q.id.startsWith('kn-'));

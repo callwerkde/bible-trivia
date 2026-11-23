@@ -11,6 +11,8 @@ import { Practice, type PracticeAction } from './screens/Practice';
 import { MemoryVerses } from './screens/MemoryVerses';
 import { Timeline } from './screens/Timeline';
 import { Library } from './screens/Library';
+import { KidsMatch } from './screens/KidsMatch';
+import { KidsOrder } from './screens/KidsOrder';
 import { Community } from './screens/Community';
 import { clearPendingJoin, readPendingJoin, savePendingJoin } from './online/community';
 import { Genealogy } from './screens/Genealogy';
@@ -43,7 +45,8 @@ import { acceptInvite, createChallenge, initAccount, inviteFromText, myTurn, use
 import { flushOutbox, send } from './online/outbox';
 import { syncPractice, syncSoon } from './online/practiceSync';
 import { stockUp } from './online/stock';
-import { MODES } from './engine/modes';
+import { MODES, isKidsMode } from './engine/modes';
+import type { KidsGame } from './engine/kids';
 import { pickQuestions } from './engine/picker';
 import { roundPool } from './engine/content';
 import { useApp, useT } from './store';
@@ -65,6 +68,8 @@ type Route =
   | { kind: 'adminFaqs' }
   | { kind: 'adminTimeline' }
   | { kind: 'library' }
+  | { kind: 'kidsMatch' }
+  | { kind: 'kidsOrder' }
   | { kind: 'game'; mode: ModeId; run: number; challenge?: { id: string; questionIds: string[] }; scope?: { book: string; chapter: number | null }; ids?: string[]; resume?: GameSnapshot } | { kind: 'result'; result: RoundResult; xp: number };
 
 /** Applies theme and text size to <html>. */
@@ -470,7 +475,7 @@ function MainApp() {
       mode === 'drill'
         ? drillRound(10)
         : pickQuestions(
-            await roundPool(mode === 'who' ? { kind: 'who' } : mode === 'truefalse' ? { kind: 'truefalse' } : mode === 'book' ? { kind: 'whichbook' } : mode === 'knowledge' ? { kind: 'knowledge' } : { kind: 'mix' }),
+            await roundPool(mode === 'who' ? { kind: 'who' } : mode === 'truefalse' ? { kind: 'truefalse' } : mode === 'book' ? { kind: 'whichbook' } : mode === 'knowledge' ? { kind: 'knowledge' } : isKidsMode(mode) ? { kind: 'kids', game: mode as KidsGame } : { kind: 'mix' }),
             MODES[mode],
           ).map((q) => q.id);
     try {
@@ -532,7 +537,7 @@ function MainApp() {
           >
             <ScrollPlace screenKey={screenKey} positions={scrollPos} current={currentScreen} />
             <ErrorBoundary resetKey={key} title={t.crashTitle} body={t.crashBody} home={t.tabPlay} onHome={() => goTab('play')}>
-            {route.kind === 'tab' && route.tab === 'play' && <Home onPlay={play} onMemory={() => setRoute({ kind: 'memory' })} onTimeline={() => setRoute({ kind: 'timeline' })} onGenealogy={() => setRoute({ kind: 'genealogy' })} onLibrary={() => setRoute({ kind: 'library' })} onResume={resumeGame} onShowSaved={() => setRoute({ kind: 'saved' })} onOpenPost={(post) => setRoute({ kind: 'post', post, from: 'home' })} onShowPosts={showThoughts} />}
+            {route.kind === 'tab' && route.tab === 'play' && <Home onPlay={play} onMemory={() => setRoute({ kind: 'memory' })} onTimeline={() => setRoute({ kind: 'timeline' })} onGenealogy={() => setRoute({ kind: 'genealogy' })} onLibrary={() => setRoute({ kind: 'library' })} onKidsMatch={() => setRoute({ kind: 'kidsMatch' })} onKidsOrder={() => setRoute({ kind: 'kidsOrder' })} onResume={resumeGame} onShowSaved={() => setRoute({ kind: 'saved' })} onOpenPost={(post) => setRoute({ kind: 'post', post, from: 'home' })} onShowPosts={showThoughts} />}
             {route.kind === 'tab' && route.tab === 'friends' && (
               <Community
                 onStartChallenge={startChallenge}
@@ -550,6 +555,8 @@ function MainApp() {
             {route.kind === 'memory' && <MemoryVerses onExit={() => goTab(lastTab)} />}
             {route.kind === 'timeline' && <Timeline focus={route.focus} onExit={() => goTab(lastTab)} onGenealogy={() => setRoute({ kind: 'genealogy' })} />}
             {route.kind === 'library' && <Library onExit={() => goTab(lastTab)} />}
+            {route.kind === 'kidsMatch' && <KidsMatch onExit={() => goTab(lastTab)} />}
+            {route.kind === 'kidsOrder' && <KidsOrder onExit={() => goTab(lastTab)} />}
             {route.kind === 'genealogy' && <Genealogy onExit={() => goTab(lastTab)} onOpenTimeline={(id) => setRoute({ kind: 'timeline', focus: id })} />}
             {route.kind === 'notebook' && <Notebook onExit={() => goTab('progress')} />}
             {route.kind === 'tab' && route.tab === 'settings' && <Settings onAdmin={() => setRoute({ kind: 'admin' })} />}

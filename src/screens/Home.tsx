@@ -12,7 +12,7 @@ import { VerseOfTheDay } from '../components/VerseCard';
 import { LangToggle } from '../components/LangToggle';
 import { IconTile, MODE_ICON, STROKE } from '../components/icons';
 import { Sheet } from '../components/Sheet';
-import { GenealogyArt, LibraryArt, MemoryArt, ModeArt, TimelineArt } from '../art/ModeArt';
+import { GenealogyArt, KidsMatchArt, KidsOrderArt, LibraryArt, MemoryArt, ModeArt, TimelineArt } from '../art/ModeArt';
 import { usePosts } from '../online/posts';
 import { InstallBanner } from '../components/Install';
 import { clearSnapshot, loadSnapshots, type GameSnapshot } from '../engine/resume';
@@ -21,14 +21,16 @@ import { ThoughtCard } from '../components/ThoughtCard';
 import type { Post } from '../engine/posts';
 
 /** The games in three plain groups, so a new player knows where to start. */
-const GROUPS: { id: 'quick' | 'learn' | 'challenge'; modes: ModeId[] }[] = [
+const GROUPS: { id: 'quick' | 'kids' | 'learn' | 'challenge'; modes: ModeId[] }[] = [
   { id: 'quick', modes: ['knowledge', 'classic', 'truefalse', 'who', 'book', 'blank'] },
+  // Very easy games for young children (no timer, three choices, pictures).
+  { id: 'kids', modes: ['kids', 'kidsTf', 'kidsWho'] },
   { id: 'learn', modes: ['quiz', 'drill', 'recall', 'study'] },
   { id: 'challenge', modes: ['speed', 'survival'] },
 ];
 const NO_POSTS: string[] = [];
 
-export function Home({ onPlay, onMemory, onTimeline, onGenealogy, onLibrary, onResume, onShowSaved, onOpenPost, onShowPosts }: { onPlay: (m: ModeId) => void; onMemory: () => void; onTimeline: () => void; onGenealogy: () => void; onLibrary?: () => void; onResume: (s: GameSnapshot) => void; onShowSaved: () => void; onOpenPost: (p: Post) => void; onShowPosts: () => void }) {
+export function Home({ onPlay, onMemory, onTimeline, onGenealogy, onLibrary, onKidsMatch, onKidsOrder, onResume, onShowSaved, onOpenPost, onShowPosts }: { onPlay: (m: ModeId) => void; onMemory: () => void; onTimeline: () => void; onGenealogy: () => void; onLibrary?: () => void; onKidsMatch?: () => void; onKidsOrder?: () => void; onResume: (s: GameSnapshot) => void; onShowSaved: () => void; onOpenPost: (p: Post) => void; onShowPosts: () => void }) {
   const t = useT();
   const uiLang = useApp((s) => s.uiLang);
   const xp = useApp((s) => s.xp);
@@ -49,6 +51,7 @@ export function Home({ onPlay, onMemory, onTimeline, onGenealogy, onLibrary, onR
   const hasThought = Boolean(latestPost && !readPosts.includes(latestPost.id));
   const groupText = {
     quick: [t.groupQuick, t.groupQuickSub],
+    kids: [t.groupKids, t.groupKidsSub],
     learn: [t.groupLearn, t.groupLearnSub],
     challenge: [t.groupChallenge, t.groupChallengeSub],
   } as const;
@@ -189,6 +192,25 @@ export function Home({ onPlay, onMemory, onTimeline, onGenealogy, onLibrary, onR
                 </Pressable>
               </motion.div>
             ))}
+            {/* Kids: two games with their own screens. */}
+            {g.id === 'kids' &&
+              ([
+                ['match', t.kmTitle, t.kmDesc, KidsMatchArt, onKidsMatch],
+                ['order', t.koTitle, t.koDesc, KidsOrderArt, onKidsOrder],
+              ] as const).map(([key, name, desc, Art, go]) =>
+                go ? (
+                  <motion.div key={key} layout transition={spring.calm}>
+                    <Pressable layout transition={spring.calm} className="mode-row glass horse-pale" onClick={go}>
+                      <motion.span layout transition={spring.calm} className="tile-art"><Art className="mode-row-art" /></motion.span>
+                      <motion.span layout="position" transition={spring.calm} className="menu-text">
+                        <strong>{name}</strong>
+                        <span className="caption">{desc}</span>
+                      </motion.span>
+                      <ChevronRight size={18} strokeWidth={STROKE} className="menu-chevron" />
+                    </Pressable>
+                  </motion.div>
+                ) : null,
+              )}
           </div>
         </section>
       ))}

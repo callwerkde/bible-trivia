@@ -4,7 +4,8 @@ import { useCallback, useEffect, useRef, useState, type PointerEvent as RPointer
 import { Check, Heart, X, BookOpenText, ChevronRight, EyeOff, Languages } from 'lucide-react';
 import { Sheet } from '../components/Sheet';
 import { roundPool } from '../engine/content';
-import { MODES, type ModeId } from '../engine/modes';
+import { MODES, isKidsMode, type ModeId } from '../engine/modes';
+import type { KidsGame } from '../engine/kids';
 import { pickDaily, pickQuestions } from '../engine/picker';
 import { isCorrect, pointsFor } from '../engine/scoring';
 import type { Lang, Question } from '../engine/types';
@@ -115,7 +116,9 @@ export function Game({
                   ? { kind: 'whichbook' }
                   : modeId === 'knowledge'
                     ? { kind: 'knowledge' }
-                    : { kind: 'mix' },
+                    : isKidsMode(modeId)
+                      ? { kind: 'kids', game: modeId as KidsGame }
+                      : { kind: 'mix' },
       );
       const byId = new Map(pool.map((x) => [x.id, x]));
       const qs = ids
@@ -265,7 +268,7 @@ export function Game({
   const typeLabel = q ? { mcq: '', tf: t.trueOrFalse, who: t.whoSaid, book: t.whichBook, blank: t.fillBlank }[q.type] : '';
 
   return (
-    <div className="game">
+    <div className={`game ${isKidsMode(modeId) ? 'is-kids' : ''}`}>
       <header className="game-top">
         <Pressable className="chip glass" onClick={onExit} aria-label={t.quit}>
           <X size={18} strokeWidth={STROKE} />
@@ -340,7 +343,7 @@ export function Game({
             {q.art && <ArtSticker name={q.art} label={q.artLabel} />}
 
             {q.type === 'tf' ? (
-              <TrueFalseCard q={q} primary={primary} secondary={sec} answered={answered} onAnswer={answer} />
+              <TrueFalseCard q={q} primary={primary} secondary={sec} answered={answered} onAnswer={answer} kids={isKidsMode(modeId)} />
             ) : (
               <>
                 <QuestionText q={q} primary={primary} secondary={sec} />
@@ -372,7 +375,7 @@ export function Game({
 
             <AnimatePresence>
               {answered && mode.roundSeconds === undefined && (
-                <Feedback q={q} answered={answered} primary={primary} secondary={sec} last={!!total && index + 1 >= total} onNext={goNext} lives={mode.lives !== undefined ? lives : undefined} />
+                <Feedback q={q} answered={answered} primary={primary} secondary={sec} last={!!total && index + 1 >= total} onNext={goNext} lives={mode.lives !== undefined ? lives : undefined} kids={isKidsMode(modeId)} />
               )}
             </AnimatePresence>
           </motion.section>
@@ -464,8 +467,10 @@ function AnswerButton({ label, sub, lang, subLang, state, onPick }: { label: str
 }
 
 /** Swipeable statement card: right = true, left = false. Buttons do the same for accessibility. */
-function TrueFalseCard({ q, primary, secondary, answered, onAnswer }: { q: Question; primary: Lang; secondary: Lang | null; answered: Answered; onAnswer: (v: boolean) => void }) {
-  const t = STRINGS[useApp((s) => s.uiLang)];
+function TrueFalseCard({ q, primary, secondary, answered, onAnswer, kids }: { q: Question; primary: Lang; secondary: Lang | null; answered: Answered; onAnswer: (v: boolean) => void; kids?: boolean }) {
+  const base = STRINGS[useApp((s) => s.uiLang)];
+  // Kids answer Yes or No instead of True or False.
+  const t = kids ? { ...base, true: base.kidsYes, false: base.kidsNo, swipeHint: base.kidsSwipe } : base;
   const x = useMotionValue(0);
   const rotate = useTransform(x, [-240, 240], [-12, 12]);
   const trueGlow = useTransform(x, [20, 140], [0, 1]);
@@ -529,8 +534,9 @@ function TrueFalseCard({ q, primary, secondary, answered, onAnswer }: { q: Quest
   );
 }
 
-function Feedback({ q, answered, primary, secondary, last, onNext, lives }: { q: Question; answered: NonNullable<Answered>; primary: Lang; secondary: Lang | null; last: boolean; onNext: () => void; lives?: number }) {
-  const t = useT();
+function Feedback({ q, answered, primary, secondary, last, onNext, lives, kids }: { q: Question; answered: NonNullable<Answered>; primary: Lang; secondary: Lang | null; last: boolean; onNext: () => void; lives?: number; kids?: boolean }) {
+  const base = useT();
+  const t = kids ? { ...base, true: base.kidsYes, false: base.kidsNo, swipeHint: base.kidsSwipe } : base;
   const ref = formatRef(primary, q.book, q.chapter, q.verse, q.verseEnd);
   // Book questions use the verse reference as their explanation: don't show it twice.
   const explain = q[primary].explain === ref ? undefined : q[primary].explain;

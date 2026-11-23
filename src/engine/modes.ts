@@ -16,7 +16,11 @@ export type ModeId =
   | 'quiz'
   | 'practice'
   | 'drill'
-  | 'knowledge';
+  | 'knowledge'
+  // Kids (src/engine/kids.ts): no timer, three choices, the verse after each answer.
+  | 'kids'
+  | 'kidsTf'
+  | 'kidsWho';
 
 export interface ModeDef {
   id: ModeId;
@@ -62,7 +66,12 @@ export const MODES: Record<ModeId, ModeDef> = {
   knowledge: { id: 'knowledge', horse: 'pale', types: ['mcq', 'book'], length: 10, perQuestion: 25 },
   drill: { id: 'drill', horse: 'black', types: ['mcq'], length: 10, perQuestion: 15 },
   recall: { id: 'recall', horse: 'pale', types: [], length: 15, perQuestion: 0, study: true },
+  kids: { id: 'kids', horse: 'white', types: ['mcq'], length: 8, perQuestion: 0, study: true },
+  kidsTf: { id: 'kidsTf', horse: 'black', types: ['tf'], length: 8, perQuestion: 0, study: true },
+  kidsWho: { id: 'kidsWho', horse: 'pale', types: ['mcq'], length: 6, perQuestion: 0, study: true },
 };
+export const KIDS_MODES: ModeId[] = ['kids', 'kidsTf', 'kidsWho'];
+export const isKidsMode = (m: ModeId) => KIDS_MODES.includes(m);
 
 export const MODE_ORDER: ModeId[] = ['knowledge', 'classic', 'quiz', 'drill', 'recall', 'truefalse', 'who', 'book', 'blank', 'speed', 'survival', 'study'];
 

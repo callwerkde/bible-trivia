@@ -14,7 +14,7 @@ import {
   TextCursorInput,
   Zap,
   type LucideIcon,
-  type LucideProps, ScrollText } from 'lucide-react';
+  type LucideProps, ScrollText, Smile, ThumbsUp, UserRound } from 'lucide-react';
 import type { Horse, ModeId } from '../engine/modes';
 
 /** Line icons: one stroke weight across the app. */
@@ -56,6 +56,9 @@ export const MODE_ICON: Record<ModeId, LucideIcon> = {
   practice: Dumbbell,
   drill: Library,
   knowledge: ScrollText,
+  kids: Smile,
+  kidsTf: ThumbsUp,
+  kidsWho: UserRound,
 };
 
 /** Line icon on a tile tinted with its horse colour. */

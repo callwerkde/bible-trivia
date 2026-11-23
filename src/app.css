@@ -2187,3 +2187,34 @@ textarea.field.post-body-input:lang(ta) { line-height: 1.85; }
 
 .lib-media { display: inline-flex; align-items: center; gap: 3px; }
 .lib-sheet .btn .lib-ext { opacity: 0.7; margin-left: 2px; }
+
+/* ---------- Kids ---------- */
+.game.is-kids .q-main { font-size: 1.35rem; line-height: 1.45; }
+.game.is-kids .options > * { min-height: 60px; font-size: 1.1rem; }
+.kids-screen { display: flex; flex-direction: column; gap: 12px; }
+.kids-lead { margin: 0 2px; }
+.kids-count { margin: -6px 2px 0; font-weight: 600; color: var(--accent-ink); }
+.km-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; perspective: 900px; }
+@media (min-width: 640px) { .km-grid { grid-template-columns: repeat(4, 1fr); } }
+.km-card { position: relative; aspect-ratio: 3 / 4; border: 0; padding: 0; background: none; cursor: pointer; font: inherit; color: var(--text); }
+.km-inner { position: absolute; inset: 0; display: block; transform-style: preserve-3d; }
+.km-face { position: absolute; inset: 0; border-radius: 16px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; padding: 8px; backface-visibility: hidden; -webkit-backface-visibility: hidden; text-align: center; }
+.km-back { background: var(--accent); color: var(--on-accent); font-size: 2rem; font-weight: 800; box-shadow: var(--shadow-md); }
+.km-front { transform: rotateY(180deg); background: var(--card-solid); border: 2px solid var(--line); box-shadow: var(--shadow-md); }
+.km-front.is-person { background: var(--accent-wash); }
+.km-front strong { font-size: 0.92rem; line-height: 1.25; }
+.km-card.is-matched .km-front { border-color: var(--accent); }
+.km-art { width: 100%; flex: 1; min-height: 0; display: block; }
+.km-sec { display: block; font-size: 0.72rem; color: var(--text-2); font-weight: 500; }
+.kids-done { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 16px; border-radius: var(--radius-lg); text-align: center; }
+.kids-done strong { font-size: 1.15rem; }
+.kids-done .caption { margin: 0; display: inline-flex; align-items: center; gap: 5px; }
+.ko-story { margin: 4px 2px 0; font-size: 1.2rem; }
+.ko-steps { display: flex; flex-direction: column; gap: 10px; }
+.ko-step { display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 18px; border: 1px solid var(--glass-edge); font: inherit; color: var(--text); text-align: left; cursor: pointer; min-height: 72px; }
+.ko-step.is-placed { background: var(--accent-wash); border-color: var(--accent); }
+.ko-num { flex: none; width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; border: 2px dashed var(--line-strong); font-weight: 800; font-size: 1.1rem; color: var(--on-accent); }
+.ko-step.is-placed .ko-num { background: var(--accent); border: 0; }
+.ko-art { flex: none; width: 64px; height: 48px; }
+.ko-text strong { font-size: 1rem; line-height: 1.4; }
+.kids-reset { align-self: center; display: inline-flex; align-items: center; gap: 5px; }
