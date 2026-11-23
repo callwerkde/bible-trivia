@@ -1,0 +1,882 @@
+[
+ {
+  "id": "creation",
+  "en": "God makes the world",
+  "ta": "தேவன் உலகத்தை உண்டாக்குகிறார்",
+  "pages": [
+   {
+    "scene": "creation-light",
+    "ref": [
+     "GEN",
+     1,
+     3
+    ],
+    "en": "In the beginning God made the heavens and the earth. God said, \"Let there be light.\"",
+    "ta": "ஆதியிலே தேவன் வானத்தையும் பூமியையும் சிருஷ்டித்தார். வெளிச்சம் உண்டாகக்கடவது என்றார்.",
+    "draw": "Dark night sky (Night) with a big bright light shining in the middle (Light helper), rays, a dark round earth below. No people."
+   },
+   {
+    "scene": "creation-land",
+    "ref": [
+     "GEN",
+     1,
+     12
+    ],
+    "en": "God made the sky, the sea and the dry land, and grass, plants and trees grew.",
+    "ta": "தேவன் ஆகாயத்தையும் சமுத்திரத்தையும் பூமியையும் உண்டாக்கினார்; புல்லும் செடிகளும் மரங்களும் முளைத்தன.",
+    "draw": "Blue sky, sea with waves on one side, green land with trees (Oak, Palm) and little plants. No people."
+   },
+   {
+    "scene": "creation-animals",
+    "ref": [
+     "GEN",
+     1,
+     25
+    ],
+    "en": "God made the sun, the moon and the stars, the fish and the birds, and all the animals.",
+    "ta": "தேவன் சூரியனையும் சந்திரனையும் நட்சத்திரங்களையும், மீன்களையும் பறவைகளையும், சகல மிருகங்களையும் உண்டாக்கினார்.",
+    "draw": "Sun and a crescent moon in the sky, birds flying, a fish jumping from water, sheep and a donkey and a horse on grass (Animal helper)."
+   },
+   {
+    "scene": "creation-people",
+    "ref": [
+     "GEN",
+     1,
+     31
+    ],
+    "en": "God made Adam and Eve. He saw everything he had made, and it was very good.",
+    "ta": "தேவன் ஆதாமையும் ஏவாளையும் உண்டாக்கினார். தாம் உண்டாக்கின எல்லாவற்றையும் பார்த்தார்; அது மிகவும் நன்றாயிருந்தது.",
+    "draw": "A happy man (Adam, robe C.pale) and woman (Eve, woman, robe C.redSoft) standing together in a green garden with trees and flowers, a small animal nearby."
+   }
+  ],
+  "quiz": [
+   {
+    "ref": [
+     "GEN",
+     1,
+     3
+    ],
+    "en": [
+     "What did God make first?",
+     "Light",
+     "Animals",
+     "People"
+    ],
+    "ta": [
+     "தேவன் முதலில் எதை உண்டாக்கினார்?",
+     "வெளிச்சம்",
+     "மிருகங்கள்",
+     "மனுஷர்"
+    ]
+   },
+   {
+    "ref": [
+     "GEN",
+     1,
+     16
+    ],
+    "en": [
+     "What lights did God put in the sky?",
+     "The sun, moon and stars",
+     "Lamps",
+     "Fires"
+    ],
+    "ta": [
+     "தேவன் வானத்தில் எந்த ஒளிகளை வைத்தார்?",
+     "சூரியன், சந்திரன், நட்சத்திரங்கள்",
+     "விளக்குகள்",
+     "நெருப்புகள்"
+    ]
+   },
+   {
+    "ref": [
+     "GEN",
+     1,
+     31
+    ],
+    "en": [
+     "What did God say about everything he made?",
+     "It was very good",
+     "It was not good",
+     "It was too small"
+    ],
+    "ta": [
+     "தாம் உண்டாக்கின எல்லாவற்றையும் பற்றித் தேவன் என்ன கண்டார்?",
+     "அது மிகவும் நன்றாயிருந்தது",
+     "அது நல்லதல்ல",
+     "அது மிகச் சிறியது"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "noah",
+  "en": "Noah and the ark",
+  "ta": "நோவாவும் பேழையும்",
+  "pages": [
+   {
+    "scene": "noah-build",
+    "ref": [
+     "GEN",
+     6,
+     14
+    ],
+    "en": "People were very bad, but Noah walked with God. God told Noah to build a big ark.",
+    "ta": "மனுஷர் மிகவும் பொல்லாதவர்களாயிருந்தார்கள்; நோவாவோ தேவனோடே சஞ்சரித்தான். பெரிய பேழையைக் கட்டும்படி தேவன் நோவாவுக்குச் சொன்னார்.",
+    "draw": "Noah (white beard) with a hammer building a big wooden ark frame on dry ground; planks; sunny."
+   },
+   {
+    "scene": "noah-animals",
+    "ref": [
+     "GEN",
+     7,
+     9
+    ],
+    "en": "Noah, his family and the animals went into the ark, two by two.",
+    "ta": "நோவாவும் அவன் குடும்பமும் மிருகங்களும் ஜோடி ஜோடியாகப் பேழைக்குள் போனார்கள்.",
+    "draw": "The finished ark with a ramp; pairs of animals (two sheep, two donkeys, two birds) walking up the ramp; Noah at the door."
+   },
+   {
+    "scene": "noah-rain",
+    "ref": [
+     "GEN",
+     7,
+     12
+    ],
+    "en": "It rained for forty days and forty nights. The ark floated on the water.",
+    "ta": "நாற்பது நாள் இரவும் பகலும் மழை பெய்தது. பேழை தண்ணீரின்மேல் மிதந்தது.",
+    "draw": "Grey clouds, lots of rain lines, the ark floating on big waves (Waves). No land."
+   },
+   {
+    "scene": "noah-rainbow",
+    "ref": [
+     "GEN",
+     9,
+     13
+    ],
+    "en": "A dove brought back a leaf, and God put a rainbow in the sky as his promise.",
+    "ta": "புறா ஒலிவ இலையைக் கொண்டுவந்தது. தேவன் தம் உடன்படிக்கையின் அடையாளமாக மேகத்தில் வில்லை வைத்தார்.",
+    "draw": "A big rainbow over the ark resting on a green hill; a white dove with a green leaf (Bird leaf); Noah with arms raised happy."
+   }
+  ],
+  "quiz": [
+   {
+    "ref": [
+     "GEN",
+     7,
+     9
+    ],
+    "en": [
+     "How did the animals go into the ark?",
+     "Two by two",
+     "Ten by ten",
+     "All alone"
+    ],
+    "ta": [
+     "மிருகங்கள் எப்படிப் பேழைக்குள் போயின?",
+     "ஜோடி ஜோடியாக",
+     "பத்துப் பத்தாக",
+     "தனித்தனியாக"
+    ]
+   },
+   {
+    "ref": [
+     "GEN",
+     7,
+     12
+    ],
+    "en": [
+     "How long did it rain?",
+     "40 days and 40 nights",
+     "4 days",
+     "1 day"
+    ],
+    "ta": [
+     "எவ்வளவு காலம் மழை பெய்தது?",
+     "40 நாள் இரவும் பகலும்",
+     "4 நாள்",
+     "1 நாள்"
+    ]
+   },
+   {
+    "ref": [
+     "GEN",
+     9,
+     13
+    ],
+    "en": [
+     "What did God put in the sky as his promise?",
+     "A rainbow",
+     "A moon",
+     "A star"
+    ],
+    "ta": [
+     "தம் உடன்படிக்கையின் அடையாளமாகத் தேவன் மேகத்தில் எதை வைத்தார்?",
+     "வானவில்",
+     "சந்திரன்",
+     "நட்சத்திரம்"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "redsea",
+  "en": "Crossing the Red Sea",
+  "ta": "சிவந்த சமுத்திரத்தைக் கடத்தல்",
+  "pages": [
+   {
+    "scene": "redsea-chase",
+    "ref": [
+     "EXO",
+     14,
+     9
+    ],
+    "en": "God's people left Egypt, but Pharaoh and his army chased after them.",
+    "ta": "தேவனுடைய ஜனங்கள் எகிப்தைவிட்டுப் புறப்பட்டார்கள்; பார்வோனும் அவன் சேனையும் அவர்களைப் பின்தொடர்ந்தார்கள்.",
+    "draw": "Left: a group of people walking (2-3 Persons, one woman) toward the sea; right: Pharaoh (nemes headdress) in a chariot (Wheel helper + box) with a horse in the distance. Not scary."
+   },
+   {
+    "scene": "redsea-part",
+    "ref": [
+     "EXO",
+     14,
+     21
+    ],
+    "en": "Moses held out his hand over the sea, and God opened a path through the water.",
+    "ta": "மோசே தன் கையைச் சமுத்திரத்தின்மேல் நீட்டினான்; தேவன் ஜலத்தின் நடுவே வழியை உண்டாக்கினார்.",
+    "draw": "Moses (white beard, red robe, staff) on a rock with his hand stretched out; the sea split into two tall blue walls of water with a dry path between."
+   },
+   {
+    "scene": "redsea-walk",
+    "ref": [
+     "EXO",
+     14,
+     22
+    ],
+    "en": "The people walked through the middle of the sea on dry ground.",
+    "ta": "ஜனங்கள் சமுத்திரத்தின் நடுவே காய்ந்த தரையில் நடந்துபோனார்கள்.",
+    "draw": "A sandy path between two tall walls of water; several small happy people walking in a line (pose walk), a child too."
+   },
+   {
+    "scene": "redsea-sing",
+    "ref": [
+     "EXO",
+     15,
+     20
+    ],
+    "en": "On the other side, Miriam and the women sang and danced to thank God.",
+    "ta": "அக்கரையில் மிரியாமும் ஸ்திரீகளும் தேவனைத் துதித்துப் பாடி நடனமாடினார்கள்.",
+    "draw": "On dry land beside the calm sea: Miriam (woman) holding a round tambourine up, other women dancing with arms raised, music notes."
+   }
+  ],
+  "quiz": [
+   {
+    "ref": [
+     "EXO",
+     14,
+     9
+    ],
+    "en": [
+     "Who chased God's people?",
+     "Pharaoh",
+     "Goliath",
+     "Jonah"
+    ],
+    "ta": [
+     "தேவனுடைய ஜனங்களைப் பின்தொடர்ந்தது யார்?",
+     "பார்வோன்",
+     "கோலியாத்",
+     "யோனா"
+    ]
+   },
+   {
+    "ref": [
+     "EXO",
+     14,
+     21
+    ],
+    "en": [
+     "What did Moses hold out over the sea?",
+     "His hand",
+     "A lamp",
+     "A sword"
+    ],
+    "ta": [
+     "மோசே சமுத்திரத்தின்மேல் எதை நீட்டினான்?",
+     "தன் கையை",
+     "விளக்கை",
+     "பட்டயத்தை"
+    ]
+   },
+   {
+    "ref": [
+     "EXO",
+     15,
+     20
+    ],
+    "en": [
+     "Who led the women in singing and dancing?",
+     "Miriam",
+     "Ruth",
+     "Esther"
+    ],
+    "ta": [
+     "ஸ்திரீகளைப் பாடி நடனமாட நடத்தியவள் யார்?",
+     "மிரியாம்",
+     "ரூத்",
+     "எஸ்தர்"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "david",
+  "en": "David and Goliath",
+  "ta": "தாவீதும் கோலியாத்தும்",
+  "pages": [
+   {
+    "scene": "dg-goliath",
+    "ref": [
+     "1SA",
+     17,
+     10
+    ],
+    "en": "Goliath, a giant, shouted at God's people every day, and they were afraid.",
+    "ta": "கோலியாத் என்னும் இராட்சதன் தினமும் தேவனுடைய ஜனங்களைப் பார்த்துச் சத்தமிட்டான்; அவர்கள் பயந்தார்கள்.",
+    "draw": "A very big Goliath (Person s=1.6, steel robe, helmet headcloth, spear Stick tip, mood angry) on a hill shouting; small soldiers hiding behind a rock on the other side. Not scary for kids."
+   },
+   {
+    "scene": "dg-stones",
+    "ref": [
+     "1SA",
+     17,
+     40
+    ],
+    "en": "Young David said, \"The LORD will help me.\" He took his sling and five smooth stones.",
+    "ta": "இளைஞனாகிய தாவீது: கர்த்தர் எனக்கு உதவி செய்வார் என்றான். தன் கவணையும் ஐந்து கூழாங்கற்களையும் எடுத்துக்கொண்டான்.",
+    "draw": "Young David (no beard, red robe) kneeling by a little stream picking up smooth stones; five round stones; a shepherd's bag."
+   },
+   {
+    "scene": "dg-sling",
+    "ref": [
+     "1SA",
+     17,
+     49
+    ],
+    "en": "David swung his sling, and the stone hit Goliath.",
+    "ta": "தாவீது கவணைச் சுழற்றினான்; கல் கோலியாத்தின்மேல் பட்டது.",
+    "draw": "David swinging a sling above his head (motion lines circle), a small stone flying with speed lines toward big Goliath far right."
+   },
+   {
+    "scene": "dg-win",
+    "ref": [
+     "1SA",
+     17,
+     50
+    ],
+    "en": "Goliath fell down, and everyone knew that God had helped David.",
+    "ta": "கோலியாத் விழுந்தான்; கர்த்தர் தாவீதுக்கு உதவினார் என்று எல்லாரும் அறிந்தார்கள்.",
+    "draw": "Goliath lying flat on the ground (rotated Person, mood sleep, cartoon, no blood); happy David with arms raised; cheering soldiers."
+   }
+  ],
+  "quiz": [
+   {
+    "ref": [
+     "1SA",
+     17,
+     4
+    ],
+    "en": [
+     "Who was the giant?",
+     "Goliath",
+     "Saul",
+     "Samson"
+    ],
+    "ta": [
+     "இராட்சதன் யார்?",
+     "கோலியாத்",
+     "சவுல்",
+     "சிம்சோன்"
+    ]
+   },
+   {
+    "ref": [
+     "1SA",
+     17,
+     40
+    ],
+    "en": [
+     "How many smooth stones did David take?",
+     "Five",
+     "Two",
+     "Ten"
+    ],
+    "ta": [
+     "தாவீது எத்தனை கூழாங்கற்களை எடுத்தான்?",
+     "ஐந்து",
+     "இரண்டு",
+     "பத்து"
+    ]
+   },
+   {
+    "ref": [
+     "1SA",
+     17,
+     47
+    ],
+    "en": [
+     "Who helped David win?",
+     "The LORD",
+     "King Saul",
+     "Goliath"
+    ],
+    "ta": [
+     "தாவீது வெற்றிபெற உதவியவர் யார்?",
+     "கர்த்தர்",
+     "சவுல் ராஜா",
+     "கோலியாத்"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "daniel",
+  "en": "Daniel and the lions",
+  "ta": "தானியேலும் சிங்கங்களும்",
+  "pages": [
+   {
+    "scene": "dn-pray",
+    "ref": [
+     "DAN",
+     6,
+     10
+    ],
+    "en": "Daniel prayed to God three times every day by his open window.",
+    "ta": "தானியேல் தினமும் மூன்றுவேளை திறந்த பலகணியருகே தேவனை நோக்கி ஜெபம்பண்ணினான்.",
+    "draw": "Daniel kneeling (pose kneel), praying, inside a room by an open window showing a distant city (Town)."
+   },
+   {
+    "scene": "dn-den",
+    "ref": [
+     "DAN",
+     6,
+     16
+    ],
+    "en": "Bad men made a law, and Daniel was put into a den of lions.",
+    "ta": "பொல்லாத மனுஷர் ஒரு கட்டளையை உண்டாக்கினார்கள்; தானியேல் சிங்கக் கெபியில் போடப்பட்டான்.",
+    "draw": "Inside a dark rocky den (cave shape): Daniel standing calm in the middle, two big friendly-looking lions on each side (draw simple lion: round mane, face). Not scary."
+   },
+   {
+    "scene": "dn-angel",
+    "ref": [
+     "DAN",
+     6,
+     22
+    ],
+    "en": "God sent his angel and shut the lions' mouths.",
+    "ta": "தேவன் தம்முடைய தூதனை அனுப்பி, சிங்கங்களின் வாயைக் கட்டிப்போட்டார்.",
+    "draw": "An angel (Person wings, white robe, glow) standing beside Daniel; lions lying down sleepily with closed mouths."
+   },
+   {
+    "scene": "dn-safe",
+    "ref": [
+     "DAN",
+     6,
+     23
+    ],
+    "en": "In the morning the king was very glad: Daniel was safe!",
+    "ta": "காலையில் ராஜா மிகவும் சந்தோஷப்பட்டான்: தானியேல் காயமின்றி இருந்தான்!",
+    "draw": "Morning sun; the king (crown) happy with arms open at the den opening; Daniel climbing out smiling."
+   }
+  ],
+  "quiz": [
+   {
+    "ref": [
+     "DAN",
+     6,
+     10
+    ],
+    "en": [
+     "How many times a day did Daniel pray?",
+     "Three",
+     "One",
+     "Ten"
+    ],
+    "ta": [
+     "தானியேல் தினமும் எத்தனைவேளை ஜெபம்பண்ணினான்?",
+     "மூன்று",
+     "ஒன்று",
+     "பத்து"
+    ]
+   },
+   {
+    "ref": [
+     "DAN",
+     6,
+     16
+    ],
+    "en": [
+     "Where was Daniel put?",
+     "In a den of lions",
+     "In a boat",
+     "In a well"
+    ],
+    "ta": [
+     "தானியேல் எங்கே போடப்பட்டான்?",
+     "சிங்கக் கெபியில்",
+     "படகில்",
+     "கிணற்றில்"
+    ]
+   },
+   {
+    "ref": [
+     "DAN",
+     6,
+     22
+    ],
+    "en": [
+     "Who shut the lions' mouths?",
+     "God's angel",
+     "The king",
+     "Daniel's friends"
+    ],
+    "ta": [
+     "சிங்கங்களின் வாயைக் கட்டியவர் யார்?",
+     "தேவனுடைய தூதன்",
+     "ராஜா",
+     "தானியேலின் நண்பர்கள்"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "jonah",
+  "en": "Jonah and the big fish",
+  "ta": "யோனாவும் பெரிய மீனும்",
+  "pages": [
+   {
+    "scene": "jn-ship",
+    "ref": [
+     "JON",
+     1,
+     3
+    ],
+    "en": "God told Jonah to go to Nineveh, but Jonah ran away on a ship.",
+    "ta": "நினிவேக்குப் போகும்படி தேவன் யோனாவுக்குச் சொன்னார்; யோனாவோ ஒரு கப்பலில் ஏறி ஓடிப்போனான்.",
+    "draw": "A sailing ship on calm sea; Jonah (dark beard) climbing aboard looking back worriedly; a city on the far shore."
+   },
+   {
+    "scene": "jn-storm",
+    "ref": [
+     "JON",
+     1,
+     15
+    ],
+    "en": "A great storm came, and the sailors threw Jonah into the sea.",
+    "ta": "பெரிய புயல் உண்டாயிற்று; கப்பற்காரர் யோனாவைக் கடலில் போட்டார்கள்.",
+    "draw": "Dark clouds, lightning zig-zag, big waves tipping the ship; Jonah splashing into the water (gentle, cartoon)."
+   },
+   {
+    "scene": "jn-fish",
+    "ref": [
+     "JON",
+     1,
+     17
+    ],
+    "en": "God sent a great fish to swallow Jonah. Inside the fish, Jonah prayed.",
+    "ta": "யோனாவை விழுங்க தேவன் ஒரு பெரிய மீனை அனுப்பினார். மீனின் வயிற்றிலே யோனா ஜெபம்பண்ணினான்.",
+    "draw": "Under water: a huge friendly blue fish; a round 'window' in the fish's tummy showing Jonah kneeling and praying; bubbles."
+   },
+   {
+    "scene": "jn-nineveh",
+    "ref": [
+     "JON",
+     3,
+     3
+    ],
+    "en": "The fish put Jonah on dry land, and he went to Nineveh to tell God's message.",
+    "ta": "மீன் யோனாவைக் கரையிலே கக்கிவிட்டது; அவன் நினிவேக்குப் போய்த் தேவனுடைய செய்தியைச் சொன்னான்.",
+    "draw": "Jonah standing with one arm pointing up, speaking to a small crowd of people before a big city gate and walls (Town)."
+   }
+  ],
+  "quiz": [
+   {
+    "ref": [
+     "JON",
+     1,
+     2
+    ],
+    "en": [
+     "Where did God tell Jonah to go?",
+     "Nineveh",
+     "Egypt",
+     "Rome"
+    ],
+    "ta": [
+     "தேவன் யோனாவை எங்கே போகச் சொன்னார்?",
+     "நினிவே",
+     "எகிப்து",
+     "ரோமாபுரி"
+    ]
+   },
+   {
+    "ref": [
+     "JON",
+     1,
+     15
+    ],
+    "en": [
+     "Who threw Jonah into the sea?",
+     "The sailors",
+     "His friends",
+     "The king"
+    ],
+    "ta": [
+     "யோனாவைக் கடலில் போட்டது யார்?",
+     "கப்பற்காரர்",
+     "அவன் நண்பர்கள்",
+     "ராஜா"
+    ]
+   },
+   {
+    "ref": [
+     "JON",
+     2,
+     1
+    ],
+    "en": [
+     "What did Jonah do inside the fish?",
+     "He prayed",
+     "He slept",
+     "He ate"
+    ],
+    "ta": [
+     "மீனின் வயிற்றில் யோனா என்ன செய்தான்?",
+     "ஜெபம்பண்ணினான்",
+     "தூங்கினான்",
+     "சாப்பிட்டான்"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "christmas",
+  "en": "Jesus is born",
+  "ta": "இயேசு பிறக்கிறார்",
+  "pages": [
+   {
+    "scene": "xm-angel",
+    "ref": [
+     "LUK",
+     1,
+     31
+    ],
+    "en": "The angel Gabriel told Mary she would have a baby, the Son of God.",
+    "ta": "காபிரியேல் தூதன் மரியாளிடம்: நீ தேவனுடைய குமாரனைப் பெறுவாய் என்றான்.",
+    "draw": "Mary (woman, blue headcloth) surprised (mood wow) in a simple room; the angel Gabriel (wings, white robe) speaking, light rays."
+   },
+   {
+    "scene": "xm-journey",
+    "ref": [
+     "LUK",
+     2,
+     4
+    ],
+    "en": "Mary and Joseph went to Bethlehem. There was no room in the inn.",
+    "ta": "மரியாளும் யோசேப்பும் பெத்லகேமுக்குப் போனார்கள். சத்திரத்தில் அவர்களுக்கு இடமில்லாதிருந்தது.",
+    "draw": "Evening: Joseph (beard, staff) leading a donkey with Mary riding; a little town (Town) ahead with one lit window."
+   },
+   {
+    "scene": "xm-manger",
+    "ref": [
+     "LUK",
+     2,
+     7
+    ],
+    "en": "Baby Jesus was born and laid in a manger. Angels told the shepherds.",
+    "ta": "குழந்தை இயேசு பிறந்து முன்னணையில் கிடத்தப்பட்டார். தூதர்கள் மேய்ப்பர்களுக்கு அறிவித்தார்கள்.",
+    "draw": "A stable: wooden manger with straw and a small baby (round face, white cloth) in it; Mary kneeling, Joseph standing, a sheep and a donkey; a star above."
+   },
+   {
+    "scene": "xm-wisemen",
+    "ref": [
+     "MAT",
+     2,
+     11
+    ],
+    "en": "Wise men followed a star and brought gifts to Jesus.",
+    "ta": "சாஸ்திரிகள் நட்சத்திரத்தைப் பின்தொடர்ந்து வந்து இயேசுவுக்குக் காணிக்கைகளைக் கொடுத்தார்கள்.",
+    "draw": "Night: a big bright star (StarPt) over a house; three wise men with crowns carrying gift boxes walking toward it; a camel."
+   }
+  ],
+  "quiz": [
+   {
+    "ref": [
+     "LUK",
+     1,
+     26
+    ],
+    "en": [
+     "Which angel came to Mary?",
+     "Gabriel",
+     "Michael",
+     "Elijah"
+    ],
+    "ta": [
+     "மரியாளிடம் வந்த தூதன் யார்?",
+     "காபிரியேல்",
+     "மிகாவேல்",
+     "எலியா"
+    ]
+   },
+   {
+    "ref": [
+     "LUK",
+     2,
+     7
+    ],
+    "en": [
+     "Where was baby Jesus laid?",
+     "In a manger",
+     "In a boat",
+     "In a palace"
+    ],
+    "ta": [
+     "குழந்தை இயேசு எங்கே கிடத்தப்பட்டார்?",
+     "முன்னணையில்",
+     "படகில்",
+     "அரண்மனையில்"
+    ]
+   },
+   {
+    "ref": [
+     "MAT",
+     2,
+     2
+    ],
+    "en": [
+     "What did the wise men follow?",
+     "A star",
+     "A cloud",
+     "A bird"
+    ],
+    "ta": [
+     "சாஸ்திரிகள் எதைப் பின்தொடர்ந்தார்கள்?",
+     "நட்சத்திரம்",
+     "மேகம்",
+     "பறவை"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "easter",
+  "en": "Jesus is alive",
+  "ta": "இயேசு உயிரோடிருக்கிறார்",
+  "pages": [
+   {
+    "scene": "es-donkey",
+    "ref": [
+     "JHN",
+     12,
+     13
+    ],
+    "en": "Jesus rode into Jerusalem on a donkey, and the people waved palm branches.",
+    "ta": "இயேசு கழுதையின்மேல் ஏறி எருசலேமுக்கு வந்தார்; ஜனங்கள் குருத்தோலைகளைப் பிடித்துக்கொண்டு அவருக்கு எதிர்கொண்டுபோனார்கள்.",
+    "draw": "Jesus (white robe, red sash, dark beard) riding a donkey; happy people on both sides waving green palm branches; city walls behind."
+   },
+   {
+    "scene": "es-cross",
+    "ref": [
+     "LUK",
+     23,
+     33
+    ],
+    "en": "Jesus died on the cross for us.",
+    "ta": "இயேசு நமக்காகச் சிலுவையில் மரித்தார்.",
+    "draw": "Gentle and NOT sad-scary: three empty wooden crosses on a small green hill against a soft evening sky (warm sun setting). No people, no blood."
+   },
+   {
+    "scene": "es-tomb",
+    "ref": [
+     "MAT",
+     27,
+     60
+    ],
+    "en": "His friends laid his body in a tomb, and a big stone was rolled in front.",
+    "ta": "அவருடைய சரீரம் கல்லறையில் வைக்கப்பட்டது; ஒரு பெரிய கல் வாசலில் புரட்டிவைக்கப்பட்டது.",
+    "draw": "A rocky garden tomb in a hillside with a big round stone covering the door; trees; quiet."
+   },
+   {
+    "scene": "es-alive",
+    "ref": [
+     "MAT",
+     28,
+     6
+    ],
+    "en": "On the third day, the stone was rolled away. Jesus is alive!",
+    "ta": "மூன்றாம் நாளில் கல் புரட்டித் தள்ளப்பட்டிருந்தது. இயேசு உயிரோடெழுந்தார்!",
+    "draw": "Bright morning sun; the round stone rolled aside; an empty tomb doorway with light; Jesus (white robe) standing outside smiling with arms open; a woman friend happy."
+   }
+  ],
+  "quiz": [
+   {
+    "ref": [
+     "JHN",
+     12,
+     14
+    ],
+    "en": [
+     "What animal did Jesus ride into Jerusalem?",
+     "A donkey",
+     "A horse",
+     "A camel"
+    ],
+    "ta": [
+     "எருசலேமுக்குள் இயேசு எந்த மிருகத்தின்மேல் வந்தார்?",
+     "கழுதை",
+     "குதிரை",
+     "ஒட்டகம்"
+    ]
+   },
+   {
+    "ref": [
+     "MAT",
+     27,
+     60
+    ],
+    "en": [
+     "What was rolled in front of the tomb?",
+     "A big stone",
+     "A tree",
+     "A boat"
+    ],
+    "ta": [
+     "கல்லறை வாசலில் எது புரட்டிவைக்கப்பட்டது?",
+     "பெரிய கல்",
+     "மரம்",
+     "படகு"
+    ]
+   },
+   {
+    "ref": [
+     "LUK",
+     24,
+     7
+    ],
+    "en": [
+     "On which day did Jesus rise again?",
+     "The third day",
+     "The seventh day",
+     "The tenth day"
+    ],
+    "ta": [
+     "இயேசு எத்தனையாம் நாளில் உயிர்த்தெழுந்தார்?",
+     "மூன்றாம் நாள்",
+     "ஏழாம் நாள்",
+     "பத்தாம் நாள்"
+    ]
+   }
+  ]
+ }
+]

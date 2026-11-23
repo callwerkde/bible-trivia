@@ -7,6 +7,7 @@
  * Every answer points to its verse, shown after answering.
  */
 import data from '../../content/kids/kids.json';
+import storyData from '../../content/kids/stories.json';
 import type { ArtKey, Question } from './types';
 
 type Ref = [string, number, number];
@@ -93,7 +94,26 @@ export const KIDS_YESNO: Question[] = D.yesno.map((x) => ({
   ta: { q: x.ta, ...(x.why ? { explain: x.why.ta } : {}) },
   tags: ['kids', 'kids-yesno'],
 }));
-export const KIDS_QUESTIONS: Question[] = [...KIDS_QUIZ, ...KIDS_YESNO, ...KIDS_WHO];
+/** Picture stories: four pages each (src/screens/KidsStories.tsx), then three questions. */
+export interface StoryPage {
+  scene: string;
+  ref: Ref;
+  en: string;
+  ta: string;
+}
+export interface PictureStory {
+  id: string;
+  en: string;
+  ta: string;
+  pages: StoryPage[];
+  quiz: { ref: Ref; en: Line; ta: Line }[];
+}
+export const PICTURE_STORIES = storyData as unknown as PictureStory[];
+/** The questions after each picture story (ids kd-st-<story>-<n>). */
+export const STORY_QUESTIONS: Question[] = PICTURE_STORIES.flatMap((s) => s.quiz.map((q, i) => multipleChoice(`st-${s.id}`, { id: String(i + 1), ref: q.ref, en: q.en, ta: q.ta }, 'kids-story')));
+export const storyQuestionIds = (story: string) => STORY_QUESTIONS.filter((q) => q.id.startsWith(`kd-st-${story}-`)).map((q) => q.id);
+
+export const KIDS_QUESTIONS: Question[] = [...KIDS_QUIZ, ...KIDS_YESNO, ...KIDS_WHO, ...STORY_QUESTIONS];
 
 export const KIDS_MATCH: MatchPair[] = D.match;
 export const KIDS_STORIES: Story[] = D.order;

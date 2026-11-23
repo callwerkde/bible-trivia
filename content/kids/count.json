@@ -1,0 +1,266 @@
+[
+ {
+  "id": "loaves5",
+  "kind": "loaf",
+  "n": 5,
+  "ref": [
+   "JHN",
+   6,
+   9
+  ],
+  "en": "How many loaves did the boy have?",
+  "ta": "அந்தச் சிறுவனிடம் எத்தனை அப்பங்கள் இருந்தன?"
+ },
+ {
+  "id": "fish2",
+  "kind": "fish",
+  "n": 2,
+  "ref": [
+   "JHN",
+   6,
+   9
+  ],
+  "en": "How many fish did the boy have?",
+  "ta": "அந்தச் சிறுவனிடம் எத்தனை மீன்கள் இருந்தன?"
+ },
+ {
+  "id": "baskets12",
+  "kind": "basket",
+  "n": 12,
+  "ref": [
+   "JHN",
+   6,
+   13
+  ],
+  "en": "How many baskets of food were left over?",
+  "ta": "மீதியான துணிக்கைகளால் எத்தனை கூடைகள் நிறைந்தன?"
+ },
+ {
+  "id": "stones5",
+  "kind": "stone",
+  "n": 5,
+  "ref": [
+   "1SA",
+   17,
+   40
+  ],
+  "en": "How many smooth stones did David pick up?",
+  "ta": "தாவீது எத்தனை கூழாங்கற்களைத் தெரிந்தெடுத்தான்?"
+ },
+ {
+  "id": "tablets2",
+  "kind": "tablet",
+  "n": 2,
+  "ref": [
+   "EXO",
+   31,
+   18
+  ],
+  "en": "How many tablets of stone did God give Moses?",
+  "ta": "தேவன் மோசேக்கு எத்தனை கற்பலகைகளைக் கொடுத்தார்?"
+ },
+ {
+  "id": "jars6",
+  "kind": "jar",
+  "n": 6,
+  "ref": [
+   "JHN",
+   2,
+   6
+  ],
+  "en": "How many stone water jars were at the wedding?",
+  "ta": "கலியாணத்தில் எத்தனை கற்சாடிகள் இருந்தன?"
+ },
+ {
+  "id": "stars11",
+  "kind": "star",
+  "n": 11,
+  "ref": [
+   "GEN",
+   37,
+   9
+  ],
+  "en": "In Joseph's dream, how many stars bowed down to him?",
+  "ta": "யோசேப்பின் சொப்பனத்தில் எத்தனை நட்சத்திரங்கள் அவனை வணங்கின?"
+ },
+ {
+  "id": "lamps10",
+  "kind": "lamp",
+  "n": 10,
+  "ref": [
+   "MAT",
+   25,
+   1
+  ],
+  "en": "In Jesus' story, how many young women took their lamps to meet the bridegroom?",
+  "ta": "இயேசு சொன்ன உவமையில் தீவட்டிகளைப் பிடித்துக்கொண்டு மணவாளனுக்கு எதிர்கொண்டுபோன கன்னிகைகள் எத்தனை பேர்?"
+ },
+ {
+  "id": "coins10",
+  "kind": "coin",
+  "n": 10,
+  "ref": [
+   "LUK",
+   15,
+   8
+  ],
+  "en": "In Jesus' story, how many silver coins did the woman have?",
+  "ta": "இயேசு சொன்ன உவமையில் அந்த ஸ்திரீயிடம் எத்தனை வெள்ளிக்காசுகள் இருந்தன?"
+ },
+ {
+  "id": "doves2",
+  "kind": "dove",
+  "n": 2,
+  "ref": [
+   "LUK",
+   2,
+   24
+  ],
+  "en": "Mary and Joseph brought a pair of birds to the temple. How many birds is a pair?",
+  "ta": "மரியாளும் யோசேப்பும் ஒரு ஜோடு புறாக்களைக் கொண்டுவந்தார்கள். ஒரு ஜோடு என்றால் எத்தனை?"
+ },
+ {
+  "id": "camels10",
+  "kind": "camel",
+  "n": 10,
+  "ref": [
+   "GEN",
+   24,
+   10
+  ],
+  "en": "How many camels did Abraham's servant take with him?",
+  "ta": "ஆபிரகாமின் ஊழியக்காரன் எத்தனை ஒட்டகங்களைக் கொண்டுபோனான்?"
+ },
+ {
+  "id": "loaves7",
+  "kind": "loaf",
+  "n": 7,
+  "ref": [
+   "MAT",
+   15,
+   34
+  ],
+  "en": "When Jesus fed 4,000 people, how many loaves were there?",
+  "ta": "இயேசு நாலாயிரம் பேருக்கு உணவளித்தபோது எத்தனை அப்பங்கள் இருந்தன?"
+ },
+ {
+  "id": "baskets7",
+  "kind": "basket",
+  "n": 7,
+  "ref": [
+   "MAT",
+   15,
+   37
+  ],
+  "en": "After the 4,000 had eaten, how many baskets were left over?",
+  "ta": "நாலாயிரம் பேர் சாப்பிட்டபின் எத்தனை கூடைகள் மீதியாயின?"
+ },
+ {
+  "id": "stones12",
+  "kind": "stone",
+  "n": 12,
+  "ref": [
+   "JOS",
+   4,
+   3
+  ],
+  "en": "How many stones did Joshua's men take out of the river Jordan?",
+  "ta": "யோசுவாவின் ஆட்கள் யோர்தானின் நடுவிலிருந்து எத்தனை கற்களை எடுத்தார்கள்?"
+ },
+ {
+  "id": "coins2",
+  "kind": "coin",
+  "n": 2,
+  "ref": [
+   "MRK",
+   12,
+   42
+  ],
+  "en": "How many small coins did the poor widow give?",
+  "ta": "ஏழையான விதவை எத்தனை காசைப் போட்டாள்?"
+ },
+ {
+  "id": "lamps7",
+  "kind": "lamp",
+  "n": 7,
+  "ref": [
+   "EXO",
+   25,
+   37
+  ],
+  "en": "How many lamps were on the golden lampstand?",
+  "ta": "பொன் குத்துவிளக்கில் எத்தனை அகல்கள் இருந்தன?"
+ },
+ {
+  "id": "baskets3",
+  "kind": "basket",
+  "n": 3,
+  "ref": [
+   "GEN",
+   40,
+   16
+  ],
+  "en": "In the baker's dream, how many baskets were on his head?",
+  "ta": "சுயம்பாகியின் சொப்பனத்தில் அவன் தலையின்மேல் எத்தனை கூடைகள் இருந்தன?"
+ },
+ {
+  "id": "dove1",
+  "kind": "dove",
+  "n": 1,
+  "ref": [
+   "GEN",
+   8,
+   8
+  ],
+  "en": "How many doves did Noah send out the first time?",
+  "ta": "நோவா முதல்முறை எத்தனை புறாவை வெளியே விட்டான்?"
+ },
+ {
+  "id": "sheep2",
+  "kind": "sheep",
+  "n": 2,
+  "ref": [
+   "GEN",
+   6,
+   19
+  ],
+  "en": "God told Noah to take each kind of animal as a pair. How many is that?",
+  "ta": "ஒவ்வொரு வகையிலும் ஒரு ஜோடு மிருகங்களைப் பேழைக்குள் சேர்க்கும்படி தேவன் சொன்னார். அது எத்தனை?"
+ },
+ {
+  "id": "sheep1",
+  "kind": "sheep",
+  "n": 1,
+  "ref": [
+   "LUK",
+   15,
+   4
+  ],
+  "en": "In Jesus' story, how many sheep were lost?",
+  "ta": "இயேசு சொன்ன உவமையில் எத்தனை ஆடு காணாமற்போயிற்று?"
+ },
+ {
+  "id": "star1",
+  "kind": "star",
+  "n": 1,
+  "ref": [
+   "MAT",
+   2,
+   2
+  ],
+  "en": "How many stars did the wise men follow?",
+  "ta": "சாஸ்திரிகள் எத்தனை நட்சத்திரத்தைப் பின்தொடர்ந்தார்கள்?"
+ },
+ {
+  "id": "fish2b",
+  "kind": "fish",
+  "n": 2,
+  "ref": [
+   "MAT",
+   14,
+   17
+  ],
+  "en": "The disciples had five loaves and how many fish?",
+  "ta": "சீஷர்களிடம் ஐந்து அப்பங்களும் எத்தனை மீன்களும் இருந்தன?"
+ }
+]

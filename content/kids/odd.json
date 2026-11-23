@@ -1,0 +1,702 @@
+{
+ "items": {
+  "ark": {
+   "art": "ark",
+   "en": "The ark",
+   "ta": "பேழை",
+   "story": "noah"
+  },
+  "dove": {
+   "art": "dove",
+   "en": "The dove",
+   "ta": "புறா",
+   "story": "noah"
+  },
+  "rainbow": {
+   "art": "bow",
+   "en": "The rainbow",
+   "ta": "வானவில்",
+   "story": "noah"
+  },
+  "sling": {
+   "art": "sling",
+   "en": "The sling",
+   "ta": "கவண்",
+   "story": "david"
+  },
+  "harp": {
+   "art": "harp",
+   "en": "The harp",
+   "ta": "சுரமண்டலம்",
+   "story": "david"
+  },
+  "sheep": {
+   "art": "sheep",
+   "en": "The sheep",
+   "ta": "ஆடுகள்",
+   "story": "david"
+  },
+  "bigfish": {
+   "art": "fish",
+   "en": "The big fish",
+   "ta": "பெரிய மீன்",
+   "story": "jonah"
+  },
+  "ship": {
+   "art": "boat",
+   "en": "The ship",
+   "ta": "கப்பல்",
+   "story": "jonah"
+  },
+  "jonah": {
+   "art": "p:jonah",
+   "en": "Jonah",
+   "ta": "யோனா",
+   "story": "jonah"
+  },
+  "lion": {
+   "art": "lion",
+   "en": "The lions",
+   "ta": "சிங்கங்கள்",
+   "story": "daniel"
+  },
+  "daniel": {
+   "art": "p:daniel",
+   "en": "Daniel",
+   "ta": "தானியேல்",
+   "story": "daniel"
+  },
+  "king": {
+   "art": "crown",
+   "en": "The king's crown",
+   "ta": "ராஜாவின் கிரீடம்",
+   "story": "daniel"
+  },
+  "bush": {
+   "art": "bush",
+   "en": "The burning bush",
+   "ta": "எரியும் முட்செடி",
+   "story": "moses"
+  },
+  "moses": {
+   "art": "p:moses",
+   "en": "Moses",
+   "ta": "மோசே",
+   "story": "moses"
+  },
+  "river": {
+   "art": "river",
+   "en": "The river",
+   "ta": "நதி",
+   "story": "moses"
+  },
+  "star": {
+   "art": "star",
+   "en": "The star",
+   "ta": "நட்சத்திரம்",
+   "story": "christmas"
+  },
+  "wisemen": {
+   "art": "p:wisemen",
+   "en": "The wise men",
+   "ta": "சாஸ்திரிகள்",
+   "story": "christmas"
+  },
+  "camel": {
+   "art": "camel",
+   "en": "The camels",
+   "ta": "ஒட்டகங்கள்",
+   "story": "christmas"
+  },
+  "coat": {
+   "art": "coat",
+   "en": "The coat of many colours",
+   "ta": "பலவருணமான அங்கி",
+   "story": "joseph"
+  },
+  "joseph": {
+   "art": "p:joseph",
+   "en": "Joseph",
+   "ta": "யோசேப்பு",
+   "story": "joseph"
+  },
+  "sheaves": {
+   "art": "sheaves",
+   "en": "The sheaves",
+   "ta": "அரிக்கட்டுகள்",
+   "story": "joseph"
+  },
+  "ladder": {
+   "art": "ladder",
+   "en": "The ladder",
+   "ta": "ஏணி",
+   "story": "jacob"
+  },
+  "jacob": {
+   "art": "p:jacob",
+   "en": "Jacob",
+   "ta": "யாக்கோபு",
+   "story": "jacob"
+  },
+  "stones": {
+   "art": "stones",
+   "en": "The stone pillow",
+   "ta": "கல் தலையணை",
+   "story": "jacob"
+  },
+  "raven": {
+   "art": "raven",
+   "en": "The ravens",
+   "ta": "காகங்கள்",
+   "story": "elijah"
+  },
+  "altar": {
+   "art": "altar",
+   "en": "The altar",
+   "ta": "பலிபீடம்",
+   "story": "elijah"
+  },
+  "elijah": {
+   "art": "p:elijah",
+   "en": "Elijah",
+   "ta": "எலியா",
+   "story": "elijah"
+  },
+  "loaves": {
+   "art": "loaves",
+   "en": "The loaves",
+   "ta": "அப்பங்கள்",
+   "story": "feeding"
+  },
+  "fish2": {
+   "art": "fish",
+   "en": "The fish",
+   "ta": "மீன்கள்",
+   "story": "feeding"
+  },
+  "jesus": {
+   "art": "p:jesus",
+   "en": "Jesus",
+   "ta": "இயேசு",
+   "story": "feeding"
+  },
+  "tree": {
+   "art": "tree",
+   "en": "The tree",
+   "ta": "மரம்",
+   "story": "zacchaeus"
+  },
+  "coins": {
+   "art": "coins",
+   "en": "The money",
+   "ta": "காசுகள்",
+   "story": "zacchaeus"
+  },
+  "zacchaeus": {
+   "art": "p:zacchaeus",
+   "en": "Zacchaeus",
+   "ta": "சகேயு",
+   "story": "zacchaeus"
+  },
+  "stars": {
+   "art": "stars",
+   "en": "The many stars",
+   "ta": "திரளான நட்சத்திரங்கள்",
+   "story": "abraham"
+  },
+  "tent": {
+   "art": "tent",
+   "en": "The tent",
+   "ta": "கூடாரம்",
+   "story": "abraham"
+  },
+  "abraham": {
+   "art": "p:abraham",
+   "en": "Abraham",
+   "ta": "ஆபிரகாம்",
+   "story": "abraham"
+  },
+  "well": {
+   "art": "well",
+   "en": "The well",
+   "ta": "கிணறு",
+   "story": "rebekah"
+  },
+  "rebekah": {
+   "art": "p:rebekah",
+   "en": "Rebekah",
+   "ta": "ரெபெக்காள்",
+   "story": "rebekah"
+  },
+  "camels2": {
+   "art": "camel",
+   "en": "The camels",
+   "ta": "ஒட்டகங்கள்",
+   "story": "rebekah"
+  },
+  "boat": {
+   "art": "boat",
+   "en": "The fishing boat",
+   "ta": "மீன்பிடி படகு",
+   "story": "peter"
+  },
+  "net-fish": {
+   "art": "fish",
+   "en": "The fish",
+   "ta": "மீன்கள்",
+   "story": "peter"
+  },
+  "peter": {
+   "art": "p:peter",
+   "en": "Peter",
+   "ta": "பேதுரு",
+   "story": "peter"
+  },
+  "donkey": {
+   "art": "donkey",
+   "en": "The donkey",
+   "ta": "கழுதை",
+   "story": "balaam"
+  },
+  "balaam": {
+   "art": "p:balaam",
+   "en": "Balaam",
+   "ta": "பிலேயாம்",
+   "story": "balaam"
+  },
+  "sword": {
+   "art": "sword",
+   "en": "The angel's sword",
+   "ta": "தூதனின் பட்டயம்",
+   "story": "balaam"
+  },
+  "sun": {
+   "art": "sun",
+   "en": "The sun",
+   "ta": "சூரியன்",
+   "story": "creation"
+  },
+  "trees": {
+   "art": "tree",
+   "en": "The trees",
+   "ta": "மரங்கள்",
+   "story": "creation"
+  },
+  "night-stars": {
+   "art": "stars",
+   "en": "The stars",
+   "ta": "நட்சத்திரங்கள்",
+   "story": "creation"
+  },
+  "palm-donkey": {
+   "art": "donkey",
+   "en": "The donkey",
+   "ta": "கழுதை",
+   "story": "easter"
+  },
+  "tomb": {
+   "art": "cave",
+   "en": "The tomb",
+   "ta": "கல்லறை",
+   "story": "easter"
+  },
+  "jesus2": {
+   "art": "p:jesus",
+   "en": "Jesus",
+   "ta": "இயேசு",
+   "story": "easter"
+  },
+  "sacks": {
+   "art": "sacks",
+   "en": "The sacks of grain",
+   "ta": "தானியச் சாக்குகள்",
+   "story": "joseph-egypt"
+  },
+  "cup": {
+   "art": "cup",
+   "en": "The silver cup",
+   "ta": "வெள்ளிப் பாத்திரம்",
+   "story": "joseph-egypt"
+  },
+  "joseph2": {
+   "art": "p:joseph",
+   "en": "Joseph",
+   "ta": "யோசேப்பு",
+   "story": "joseph-egypt"
+  },
+  "crown2": {
+   "art": "crown",
+   "en": "The crown",
+   "ta": "கிரீடம்",
+   "story": "solomon"
+  },
+  "solomon": {
+   "art": "p:solomon",
+   "en": "King Solomon",
+   "ta": "சாலொமோன் ராஜா",
+   "story": "solomon"
+  },
+  "ruth": {
+   "art": "p:ruth",
+   "en": "Ruth",
+   "ta": "ரூத்",
+   "story": "ruth"
+  },
+  "grain": {
+   "art": "sheaves",
+   "en": "The grain",
+   "ta": "கதிர்கள்",
+   "story": "ruth"
+  },
+  "samuel": {
+   "art": "p:samuel",
+   "en": "Samuel",
+   "ta": "சாமுவேல்",
+   "story": "samuel"
+  },
+  "lamp": {
+   "art": "lamp",
+   "en": "The lamp",
+   "ta": "விளக்கு",
+   "story": "samuel"
+  }
+ },
+ "stories": {
+  "noah": {
+   "en": "Noah and the ark",
+   "ta": "நோவாவும் பேழையும்"
+  },
+  "david": {
+   "en": "David the shepherd boy",
+   "ta": "மேய்ப்பனாகிய தாவீது"
+  },
+  "jonah": {
+   "en": "Jonah",
+   "ta": "யோனா"
+  },
+  "daniel": {
+   "en": "Daniel and the lions",
+   "ta": "தானியேலும் சிங்கங்களும்"
+  },
+  "moses": {
+   "en": "Moses",
+   "ta": "மோசே"
+  },
+  "christmas": {
+   "en": "The first Christmas",
+   "ta": "முதல் கிறிஸ்துமஸ்"
+  },
+  "joseph": {
+   "en": "Joseph's dreams",
+   "ta": "யோசேப்பின் சொப்பனங்கள்"
+  },
+  "jacob": {
+   "en": "Jacob's dream",
+   "ta": "யாக்கோபின் சொப்பனம்"
+  },
+  "elijah": {
+   "en": "Elijah",
+   "ta": "எலியா"
+  },
+  "feeding": {
+   "en": "Jesus feeds 5,000",
+   "ta": "இயேசு ஐயாயிரம் பேருக்கு உணவளிக்கிறார்"
+  },
+  "zacchaeus": {
+   "en": "Zacchaeus",
+   "ta": "சகேயு"
+  },
+  "abraham": {
+   "en": "Abraham",
+   "ta": "ஆபிரகாம்"
+  },
+  "rebekah": {
+   "en": "Rebekah at the well",
+   "ta": "கிணற்றருகே ரெபெக்காள்"
+  },
+  "peter": {
+   "en": "Peter the fisherman",
+   "ta": "மீன் பிடிப்பவனாகிய பேதுரு"
+  },
+  "balaam": {
+   "en": "Balaam's donkey",
+   "ta": "பிலேயாமின் கழுதை"
+  },
+  "creation": {
+   "en": "God makes the world",
+   "ta": "தேவன் உலகத்தை உண்டாக்குகிறார்"
+  },
+  "easter": {
+   "en": "Easter",
+   "ta": "உயிர்த்தெழுதல்"
+  },
+  "joseph-egypt": {
+   "en": "Joseph's brothers in Egypt",
+   "ta": "எகிப்தில் யோசேப்பின் சகோதரர்"
+  },
+  "solomon": {
+   "en": "King Solomon",
+   "ta": "சாலொமோன் ராஜா"
+  },
+  "ruth": {
+   "en": "Ruth",
+   "ta": "ரூத்"
+  },
+  "samuel": {
+   "en": "Samuel",
+   "ta": "சாமுவேல்"
+  }
+ },
+ "sets": [
+  {
+   "id": "noah-0",
+   "story": "noah",
+   "keep": [
+    "ark",
+    "dove",
+    "rainbow"
+   ],
+   "odd": "sling"
+  },
+  {
+   "id": "david-1",
+   "story": "david",
+   "keep": [
+    "sling",
+    "harp",
+    "sheep"
+   ],
+   "odd": "ark"
+  },
+  {
+   "id": "jonah-2",
+   "story": "jonah",
+   "keep": [
+    "bigfish",
+    "ship",
+    "jonah"
+   ],
+   "odd": "lion"
+  },
+  {
+   "id": "daniel-3",
+   "story": "daniel",
+   "keep": [
+    "lion",
+    "daniel",
+    "king"
+   ],
+   "odd": "bigfish"
+  },
+  {
+   "id": "moses-4",
+   "story": "moses",
+   "keep": [
+    "bush",
+    "moses",
+    "river"
+   ],
+   "odd": "star"
+  },
+  {
+   "id": "christmas-5",
+   "story": "christmas",
+   "keep": [
+    "star",
+    "wisemen",
+    "camel"
+   ],
+   "odd": "ladder"
+  },
+  {
+   "id": "joseph-6",
+   "story": "joseph",
+   "keep": [
+    "coat",
+    "joseph",
+    "sheaves"
+   ],
+   "odd": "raven"
+  },
+  {
+   "id": "jacob-7",
+   "story": "jacob",
+   "keep": [
+    "ladder",
+    "jacob",
+    "stones"
+   ],
+   "odd": "harp"
+  },
+  {
+   "id": "elijah-8",
+   "story": "elijah",
+   "keep": [
+    "raven",
+    "altar",
+    "elijah"
+   ],
+   "odd": "coat"
+  },
+  {
+   "id": "feeding-9",
+   "story": "feeding",
+   "keep": [
+    "loaves",
+    "fish2",
+    "jesus"
+   ],
+   "odd": "crown2"
+  },
+  {
+   "id": "zacchaeus-10",
+   "story": "zacchaeus",
+   "keep": [
+    "tree",
+    "coins",
+    "zacchaeus"
+   ],
+   "odd": "ladder"
+  },
+  {
+   "id": "abraham-11",
+   "story": "abraham",
+   "keep": [
+    "stars",
+    "tent",
+    "abraham"
+   ],
+   "odd": "ship"
+  },
+  {
+   "id": "rebekah-12",
+   "story": "rebekah",
+   "keep": [
+    "well",
+    "rebekah",
+    "camels2"
+   ],
+   "odd": "lion"
+  },
+  {
+   "id": "peter-13",
+   "story": "peter",
+   "keep": [
+    "boat",
+    "net-fish",
+    "peter"
+   ],
+   "odd": "donkey"
+  },
+  {
+   "id": "balaam-14",
+   "story": "balaam",
+   "keep": [
+    "donkey",
+    "balaam",
+    "sword"
+   ],
+   "odd": "tree"
+  },
+  {
+   "id": "creation-15",
+   "story": "creation",
+   "keep": [
+    "sun",
+    "trees",
+    "night-stars"
+   ],
+   "odd": "sword"
+  },
+  {
+   "id": "easter-16",
+   "story": "easter",
+   "keep": [
+    "palm-donkey",
+    "tomb",
+    "jesus2"
+   ],
+   "odd": "bigfish"
+  },
+  {
+   "id": "joseph-egypt-17",
+   "story": "joseph-egypt",
+   "keep": [
+    "sacks",
+    "cup",
+    "joseph2"
+   ],
+   "odd": "sling"
+  },
+  {
+   "id": "noah-18",
+   "story": "noah",
+   "keep": [
+    "ark",
+    "rainbow",
+    "dove"
+   ],
+   "odd": "loaves"
+  },
+  {
+   "id": "david-19",
+   "story": "david",
+   "keep": [
+    "harp",
+    "sling",
+    "sheep"
+   ],
+   "odd": "bush"
+  },
+  {
+   "id": "jonah-20",
+   "story": "jonah",
+   "keep": [
+    "ship",
+    "bigfish",
+    "jonah"
+   ],
+   "odd": "tent"
+  },
+  {
+   "id": "daniel-21",
+   "story": "daniel",
+   "keep": [
+    "daniel",
+    "lion",
+    "king"
+   ],
+   "odd": "well"
+  },
+  {
+   "id": "christmas-22",
+   "story": "christmas",
+   "keep": [
+    "wisemen",
+    "star",
+    "camel"
+   ],
+   "odd": "raven"
+  },
+  {
+   "id": "elijah-23",
+   "story": "elijah",
+   "keep": [
+    "elijah",
+    "raven",
+    "altar"
+   ],
+   "odd": "cup"
+  },
+  {
+   "id": "zacchaeus-24",
+   "story": "zacchaeus",
+   "keep": [
+    "zacchaeus",
+    "tree",
+    "coins"
+   ],
+   "odd": "rainbow"
+  }
+ ]
+}

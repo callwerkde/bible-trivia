@@ -12,6 +12,7 @@ import { VerseOfTheDay } from '../components/VerseCard';
 import { LangToggle } from '../components/LangToggle';
 import { IconTile, MODE_ICON, STROKE } from '../components/icons';
 import { Sheet } from '../components/Sheet';
+import { KidsColourArt, KidsCountArt, KidsOddArt, KidsStoriesArt, KidsVersesArt } from '../art/KidsTiles';
 import { GenealogyArt, KidsMatchArt, KidsOrderArt, LibraryArt, MemoryArt, ModeArt, TimelineArt } from '../art/ModeArt';
 import { usePosts } from '../online/posts';
 import { InstallBanner } from '../components/Install';
@@ -30,7 +31,7 @@ const GROUPS: { id: 'quick' | 'kids' | 'learn' | 'challenge'; modes: ModeId[] }[
 ];
 const NO_POSTS: string[] = [];
 
-export function Home({ onPlay, onMemory, onTimeline, onGenealogy, onLibrary, onKidsMatch, onKidsOrder, onResume, onShowSaved, onOpenPost, onShowPosts }: { onPlay: (m: ModeId) => void; onMemory: () => void; onTimeline: () => void; onGenealogy: () => void; onLibrary?: () => void; onKidsMatch?: () => void; onKidsOrder?: () => void; onResume: (s: GameSnapshot) => void; onShowSaved: () => void; onOpenPost: (p: Post) => void; onShowPosts: () => void }) {
+export function Home({ onPlay, onMemory, onTimeline, onGenealogy, onLibrary, onKidsMatch, onKidsOrder, onKids, onResume, onShowSaved, onOpenPost, onShowPosts }: { onPlay: (m: ModeId) => void; onMemory: () => void; onTimeline: () => void; onGenealogy: () => void; onLibrary?: () => void; onKidsMatch?: () => void; onKidsOrder?: () => void; onKids?: (screen: 'kidsStories' | 'kidsVerses' | 'kidsOdd' | 'kidsCount' | 'kidsColour') => void; onResume: (s: GameSnapshot) => void; onShowSaved: () => void; onOpenPost: (p: Post) => void; onShowPosts: () => void }) {
   const t = useT();
   const uiLang = useApp((s) => s.uiLang);
   const xp = useApp((s) => s.xp);
@@ -195,8 +196,13 @@ export function Home({ onPlay, onMemory, onTimeline, onGenealogy, onLibrary, onK
             {/* Kids: two games with their own screens. */}
             {g.id === 'kids' &&
               ([
+                ['stories', t.stTitle, t.stDesc, KidsStoriesArt, onKids && (() => onKids('kidsStories'))],
+                ['verses', t.kvTitle, t.kvDesc, KidsVersesArt, onKids && (() => onKids('kidsVerses'))],
                 ['match', t.kmTitle, t.kmDesc, KidsMatchArt, onKidsMatch],
                 ['order', t.koTitle, t.koDesc, KidsOrderArt, onKidsOrder],
+                ['odd', t.ooTitle, t.ooDesc, KidsOddArt, onKids && (() => onKids('kidsOdd'))],
+                ['count', t.ciTitle, t.ciDesc, KidsCountArt, onKids && (() => onKids('kidsCount'))],
+                ['colour', t.clTitle, t.clDesc, KidsColourArt, onKids && (() => onKids('kidsColour'))],
               ] as const).map(([key, name, desc, Art, go]) =>
                 go ? (
                   <motion.div key={key} layout transition={spring.calm}>

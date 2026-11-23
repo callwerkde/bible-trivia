@@ -1,0 +1,342 @@
+[
+ {
+  "id": "love",
+  "ref": [
+   "1JN",
+   4,
+   8
+  ],
+  "en": "God is love.",
+  "ta": "தேவன் அன்பாகவே இருக்கிறார்."
+ },
+ {
+  "id": "shepherd",
+  "ref": [
+   "PSA",
+   23,
+   1
+  ],
+  "en": "The LORD is my shepherd; I shall not want.",
+  "ta": "கர்த்தர் என் மேய்ப்பராயிருக்கிறார், நான் தாழ்ச்சியடையேன்.",
+  "art": "sheep"
+ },
+ {
+  "id": "beginning",
+  "ref": [
+   "GEN",
+   1,
+   1
+  ],
+  "en": "In the beginning God created the heaven and the earth.",
+  "ta": "ஆதியிலே தேவன் வானத்தையும் பூமியையும் சிருஷ்டித்தார்.",
+  "art": "sun"
+ },
+ {
+  "id": "wept",
+  "ref": [
+   "JHN",
+   11,
+   35
+  ],
+  "en": "Jesus wept.",
+  "ta": "இயேசு கண்ணீர் விட்டார்."
+ },
+ {
+  "id": "today",
+  "ref": [
+   "PSA",
+   118,
+   24
+  ],
+  "en": "This is the day which the LORD hath made; we will rejoice and be glad in it.",
+  "ta": "இது கர்த்தர் உண்டுபண்ணின நாள், இதிலே களிகூர்ந்து மகிழக்கடவோம்.",
+  "art": "sun"
+ },
+ {
+  "id": "obey",
+  "ref": [
+   "EPH",
+   6,
+   1
+  ],
+  "en": "Children, obey your parents in the Lord: for this is right.",
+  "ta": "பிள்ளைகளே, உங்கள் பெற்றாருக்குக் கர்த்தருக்குள் கீழ்ப்படியுங்கள், இது நியாயம்."
+ },
+ {
+  "id": "pray",
+  "ref": [
+   "1TH",
+   5,
+   17
+  ],
+  "en": "Pray without ceasing.",
+  "ta": "இடைவிடாமல் ஜெபம்பண்ணுங்கள்."
+ },
+ {
+  "id": "rejoice",
+  "ref": [
+   "1TH",
+   5,
+   16
+  ],
+  "en": "Rejoice evermore.",
+  "ta": "எப்பொழுதும் சந்தோஷமாயிருங்கள்."
+ },
+ {
+  "id": "allthings",
+  "ref": [
+   "PHP",
+   4,
+   13
+  ],
+  "en": "I can do all things through Christ which strengtheneth me.",
+  "ta": "என்னைப் பெலப்படுத்துகிற கிறிஸ்துவினாலே எல்லாவற்றையுஞ்செய்ய எனக்குப் பெலனுண்டு."
+ },
+ {
+  "id": "way",
+  "ref": [
+   "JHN",
+   14,
+   6
+  ],
+  "en": "I am the way, the truth, and the life",
+  "ta": "நானே வழியும் சத்தியமும் ஜீவனுமாயிருக்கிறேன்",
+  "art": "path"
+ },
+ {
+  "id": "light",
+  "ref": [
+   "JHN",
+   8,
+   12
+  ],
+  "en": "I am the light of the world",
+  "ta": "நான் உலகத்திற்கு ஒளியாயிருக்கிறேன்",
+  "art": "lamp"
+ },
+ {
+  "id": "goodshepherd",
+  "ref": [
+   "JHN",
+   10,
+   11
+  ],
+  "en": "I am the good shepherd",
+  "ta": "நானே நல்ல மேய்ப்பன்",
+  "art": "sheep"
+ },
+ {
+  "id": "afraid",
+  "ref": [
+   "PSA",
+   56,
+   3
+  ],
+  "en": "What time I am afraid, I will trust in thee.",
+  "ta": "நான் பயப்படுகிற நாளில் உம்மை நம்புவேன்."
+ },
+ {
+  "id": "children",
+  "ref": [
+   "MAT",
+   19,
+   14
+  ],
+  "en": "Suffer little children, and forbid them not, to come unto me",
+  "ta": "சிறு பிள்ளைகள் என்னிடத்தில் வருகிறதற்கு இடங்கொடுங்கள்; அவர்களைத் தடைபண்ணாதிருங்கள்"
+ },
+ {
+  "id": "firstloved",
+  "ref": [
+   "1JN",
+   4,
+   19
+  ],
+  "en": "We love him, because he first loved us.",
+  "ta": "அவர் முந்தி நம்மிடத்தில் அன்புகூர்ந்தபடியால் நாமும் அவரிடத்தில் அன்புகூருகிறோம்."
+ },
+ {
+  "id": "lamp",
+  "ref": [
+   "PSA",
+   119,
+   105
+  ],
+  "en": "Thy word is a lamp unto my feet, and a light unto my path.",
+  "ta": "உம்முடைய வசனம் என் கால்களுக்குத் தீபமும், என் பாதைக்கு வெளிச்சமுமாயிருக்கிறது.",
+  "art": "lamp"
+ },
+ {
+  "id": "cares",
+  "ref": [
+   "1PE",
+   5,
+   7
+  ],
+  "en": "Casting all your care upon him; for he careth for you.",
+  "ta": "அவர் உங்களை விசாரிக்கிறவரானபடியால், உங்கள் கவலைகளையெல்லாம் அவர்மேல் வைத்துவிடுங்கள்."
+ },
+ {
+  "id": "thanks",
+  "ref": [
+   "PSA",
+   136,
+   1
+  ],
+  "en": "O give thanks unto the LORD; for he is good: for his mercy endureth for ever.",
+  "ta": "கர்த்தரைத் துதியுங்கள், அவர் நல்லவர், அவர் கிருபை என்றுமுள்ளது."
+ },
+ {
+  "id": "nothing",
+  "ref": [
+   "LUK",
+   1,
+   37
+  ],
+  "en": "For with God nothing shall be impossible.",
+  "ta": "தேவனாலே கூடாத காரியம் ஒன்றுமில்லை"
+ },
+ {
+  "id": "peacemakers",
+  "ref": [
+   "MAT",
+   5,
+   9
+  ],
+  "en": "Blessed are the peacemakers: for they shall be called the children of God.",
+  "ta": "சமாதானம் பண்ணுகிறவர்கள் பாக்கியவான்கள்; அவர்கள் தேவனுடைய புத்திரர் என்னப்படுவார்கள்.",
+  "art": "dove"
+ },
+ {
+  "id": "charity",
+  "ref": [
+   "1CO",
+   16,
+   14
+  ],
+  "en": "Let all your things be done with charity.",
+  "ta": "உங்கள் காரியங்களெல்லாம் அன்போடே செய்யப்படக்கடவது."
+ },
+ {
+  "id": "same",
+  "ref": [
+   "HEB",
+   13,
+   8
+  ],
+  "en": "Jesus Christ the same yesterday, and to day, and for ever.",
+  "ta": "இயேசுகிறிஸ்து நேற்றும் இன்றும் என்றும் மாறாதவராயிருக்கிறார்."
+ },
+ {
+  "id": "refuge",
+  "ref": [
+   "PSA",
+   46,
+   1
+  ],
+  "en": "God is our refuge and strength, a very present help in trouble.",
+  "ta": "தேவன் நமக்கு அடைக்கலமும் பெலனும், ஆபத்துக்காலத்தில் அநுகூலமுமான துணையுமானவர்."
+ },
+ {
+  "id": "friend",
+  "ref": [
+   "PRO",
+   17,
+   17
+  ],
+  "en": "A friend loveth at all times",
+  "ta": "சிநேகிதன் எல்லாக் காலத்திலும் சிநேகிப்பான்"
+ },
+ {
+  "id": "obeyall",
+  "ref": [
+   "COL",
+   3,
+   20
+  ],
+  "en": "Children, obey your parents in all things: for this is well pleasing unto the Lord.",
+  "ta": "பிள்ளைகளே, உங்களைப் பெற்றாருக்கு எல்லாக் காரியத்திலேயும் கீழ்ப்படியுங்கள்; இது கர்த்தருக்குப் பிரியமானது."
+ },
+ {
+  "id": "joyful",
+  "ref": [
+   "PSA",
+   100,
+   1
+  ],
+  "en": "Make a joyful noise unto the LORD, all ye lands.",
+  "ta": "பூமியின் குடிகளே, எல்லாரும் கர்த்தரைக் கெம்பீரமாய்ப் பாடுங்கள்.",
+  "art": "harp"
+ },
+ {
+  "id": "kind",
+  "ref": [
+   "EPH",
+   4,
+   32
+  ],
+  "en": "And be ye kind one to another, tenderhearted, forgiving one another, even as God for Christ's sake hath forgiven you.",
+  "ta": "ஒருவருக்கொருவர் தயவாயும் மனஉருக்கமாயும் இருந்து, கிறிஸ்துவுக்குள் தேவன் உங்களுக்கு மன்னித்ததுபோல, நீங்களும் ஒருவருக்காருவர் மன்னியுங்கள்."
+ },
+ {
+  "id": "so-loved",
+  "ref": [
+   "JHN",
+   3,
+   16
+  ],
+  "en": "For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.",
+  "ta": "தேவன், தம்முடைய ஒரேபேறான குமாரனை விசுவாசிக்கிறவன் எவனோ அவன் கெட்டுப்போகாமல் நித்தியஜீவனை அடையும்படிக்கு, அவரைத் தந்தருளி, இவ்வளவாய் உலகத்தில் அன்புகூர்ந்தார்.",
+  "art": "star"
+ },
+ {
+  "id": "always",
+  "ref": [
+   "MAT",
+   28,
+   20
+  ],
+  "en": "lo, I am with you alway",
+  "ta": "சகல நாட்களிலும் நான் உங்களுடனேகூட இருக்கிறேன்"
+ },
+ {
+  "id": "taste",
+  "ref": [
+   "PSA",
+   34,
+   8
+  ],
+  "en": "O taste and see that the LORD is good",
+  "ta": "கர்த்தர் நல்லவர் என்பதை ருசித்துப்பாருங்கள்"
+ },
+ {
+  "id": "strong",
+  "ref": [
+   "JOS",
+   1,
+   9
+  ],
+  "en": "Be strong and of a good courage",
+  "ta": "பலங்கொண்டு திடமனதாயிரு"
+ },
+ {
+  "id": "fearnot",
+  "ref": [
+   "ISA",
+   41,
+   10
+  ],
+  "en": "Fear thou not; for I am with thee",
+  "ta": "நீ பயப்படாதே, நான் உன்னுடனே இருக்கிறேன்"
+ },
+ {
+  "id": "oneanother",
+  "ref": [
+   "JHN",
+   13,
+   34
+  ],
+  "en": "love one another; as I have loved you",
+  "ta": "நான் உங்களில் அன்பாயிருந்ததுபோல நீங்களும் ஒருவரிலொருவர் அன்பாயிருங்கள்"
+ }
+]
