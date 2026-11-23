@@ -2218,3 +2218,11 @@ textarea.field.post-body-input:lang(ta) { line-height: 1.85; }
 .ko-art { flex: none; width: 64px; height: 48px; }
 .ko-text strong { font-size: 1rem; line-height: 1.4; }
 .kids-reset { align-self: center; display: inline-flex; align-items: center; gap: 5px; }
+
+/* Story Order: drag by the handle, or tap. */
+.ko-rest { display: flex; flex-direction: column; gap: 10px; }
+.ko-item { position: relative; list-style: none; }
+.ko-tap { cursor: pointer; }
+.ko-tap .ko-step { padding-right: 48px; }
+.ko-grip { position: absolute; right: 6px; top: 50%; transform: translateY(-50%); width: 38px; height: 48px; display: grid; place-items: center; color: var(--text-3); cursor: grab; touch-action: none; border-radius: 12px; }
+.ko-grip:active { cursor: grabbing; background: var(--accent-wash); color: var(--accent-ink); }
