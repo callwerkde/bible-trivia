@@ -1,174 +1,4151 @@
 {
-  "quiz": [
-    { "id": "ark", "ref": ["GEN", 6, 14], "art": "ark", "en": ["Who built a big boat called the ark?", "Noah", "Moses", "David"], "ta": ["பேழை என்ற பெரிய கப்பலைக் கட்டியவர் யார்?", "நோவா", "மோசே", "தாவீது"] },
-    { "id": "light", "ref": ["GEN", 1, 3], "art": "sun", "en": ["What did God make first?", "Light", "Fish", "Trees"], "ta": ["தேவன் முதலில் எதை உண்டாக்கினார்?", "வெளிச்சம்", "மீன்கள்", "மரங்கள்"] },
-    { "id": "adam", "ref": ["GEN", 2, 7], "en": ["Who was the first man?", "Adam", "Noah", "Abraham"], "ta": ["முதல் மனிதன் யார்?", "ஆதாம்", "நோவா", "ஆபிரகாம்"] },
-    { "id": "eve", "ref": ["GEN", 3, 20], "en": ["Who was the first woman?", "Eve", "Mary", "Ruth"], "ta": ["முதல் பெண் யார்?", "ஏவாள்", "மரியாள்", "ரூத்"] },
-    { "id": "eden", "ref": ["GEN", 2, 8], "art": "tree", "en": ["What was the name of the garden where Adam and Eve lived?", "Eden", "Galilee", "Egypt"], "ta": ["ஆதாமும் ஏவாளும் வாழ்ந்த தோட்டத்தின் பெயர் என்ன?", "ஏதேன்", "கலிலேயா", "எகிப்து"] },
-    { "id": "dove", "ref": ["GEN", 8, 11], "art": "dove", "en": ["Which bird came back to Noah with a leaf?", "A dove", "A crow", "An eagle"], "ta": ["இலையோடு நோவாவிடம் திரும்பி வந்த பறவை எது?", "புறா", "காகம்", "கழுகு"] },
-    { "id": "rainbow", "ref": ["GEN", 9, 13], "art": "bow", "en": ["What did God put in the sky after the flood?", "A rainbow", "The moon", "A cloud"], "ta": ["வெள்ளத்துக்குப் பிறகு தேவன் வானத்தில் எதை வைத்தார்?", "வானவில்", "சந்திரன்", "மேகம்"] },
-    { "id": "babel", "ref": ["GEN", 11, 4], "art": "tower", "en": ["People built a very tall tower. What was it called?", "Babel", "Jericho", "Eden"], "ta": ["மக்கள் மிக உயரமான ஒரு கோபுரத்தைக் கட்டினார்கள். அதன் பெயர் என்ன?", "பாபேல்", "எரிகோ", "ஏதேன்"] },
-    { "id": "isaac", "ref": ["GEN", 21, 3], "en": ["What was the name of Abraham's son?", "Isaac", "Moses", "David"], "ta": ["ஆபிரகாமின் மகனுடைய பெயர் என்ன?", "ஈசாக்கு", "மோசே", "தாவீது"] },
-    { "id": "ladder", "ref": ["GEN", 28, 12], "art": "ladder", "en": ["Who dreamed of a ladder going up to heaven?", "Jacob", "Isaac", "Noah"], "ta": ["வானம்வரை எட்டும் ஏணியைக் கனவில் கண்டவர் யார்?", "யாக்கோபு", "ஈசாக்கு", "நோவா"] },
-    { "id": "coat", "ref": ["GEN", 37, 3], "art": "coat", "en": ["Who got a coat of many colours from his father?", "Joseph", "Jacob", "Moses"], "ta": ["தகப்பனிடமிருந்து பலவர்ண அங்கியைப் பெற்றவர் யார்?", "யோசேப்பு", "யாக்கோபு", "மோசே"] },
-    { "id": "bush", "ref": ["EXO", 3, 2], "art": "bush", "en": ["God spoke to Moses from a burning …?", "Bush", "Boat", "House"], "ta": ["எரிகிற எதிலிருந்து தேவன் மோசேயோடு பேசினார்?", "முட்செடி", "படகு", "வீடு"] },
-    { "id": "exodus", "ref": ["EXO", 3, 10], "en": ["Who led God's people out of Egypt?", "Moses", "David", "Jonah"], "ta": ["தேவனுடைய மக்களை எகிப்திலிருந்து வெளியே நடத்தியவர் யார்?", "மோசே", "தாவீது", "யோனா"] },
-    { "id": "redsea", "ref": ["EXO", 14, 21], "art": "river", "en": ["Which sea did God open so his people could walk through?", "The Red Sea", "The Black Sea", "The Salt Sea"], "ta": ["தம் மக்கள் நடந்துபோகத் தேவன் எந்தக் கடலைப் பிரித்தார்?", "சிவந்த சமுத்திரம்", "கருங்கடல்", "உப்புக்கடல்"] },
-    { "id": "manna", "ref": ["EXO", 16, 15], "en": ["What bread did God send from heaven in the desert?", "Manna", "Rice", "Apples"], "ta": ["வனாந்தரத்தில் தேவன் வானத்திலிருந்து அனுப்பிய அப்பம் எது?", "மன்னா", "அரிசி", "ஆப்பிள்"] },
-    { "id": "ten", "ref": ["DEU", 10, 4], "art": "stones", "en": ["How many commandments did God give Moses?", "10", "3", "7"], "ta": ["தேவன் மோசேக்கு எத்தனை கற்பனைகளைக் கொடுத்தார்?", "10", "3", "7"] },
-    { "id": "jericho", "ref": ["JOS", 6, 20], "en": ["Whose walls fell down when the people shouted?", "Jericho", "Jerusalem", "Babel"], "ta": ["மக்கள் ஆர்ப்பரித்தபோது எந்தப் பட்டணத்தின் மதில்கள் விழுந்தன?", "எரிகோ", "எருசலேம்", "பாபேல்"] },
-    { "id": "samson", "ref": ["JDG", 16, 17], "en": ["Who was very strong and had long hair?", "Samson", "Samuel", "Saul"], "ta": ["மிகப் பலசாலியாகவும் நீண்ட தலைமுடியுடனும் இருந்தவர் யார்?", "சிம்சோன்", "சாமுவேல்", "சவுல்"] },
-    { "id": "ruth", "ref": ["RUT", 1, 16], "en": ["Who said to Naomi, \"Where you go, I will go\"?", "Ruth", "Esther", "Eve"], "ta": ["\"நீர் போகும் இடத்துக்கு நானும் வருவேன்\" என்று நகோமியிடம் சொன்னவர் யார்?", "ரூத்", "எஸ்தர்", "ஏவாள்"] },
-    { "id": "samuel", "ref": ["1SA", 3, 10], "art": "lamp", "en": ["Which boy heard God call his name at night?", "Samuel", "David", "Daniel"], "ta": ["இரவில் தேவன் தன் பெயரைக் கூப்பிடுவதைக் கேட்ட சிறுவன் யார்?", "சாமுவேல்", "தாவீது", "தானியேல்"] },
-    { "id": "davidsheep", "ref": ["1SA", 16, 11], "art": "sheep", "en": ["What did young David look after?", "Sheep", "Camels", "Fish"], "ta": ["சிறுவனாக இருந்தபோது தாவீது எதை மேய்த்தான்?", "ஆடுகள்", "ஒட்டகங்கள்", "மீன்கள்"] },
-    { "id": "goliath", "ref": ["1SA", 17, 4], "en": ["Who was the giant?", "Goliath", "Samson", "Saul"], "ta": ["இராட்சதன் யார்?", "கோலியாத்", "சிம்சோன்", "சவுல்"] },
-    { "id": "sling", "ref": ["1SA", 17, 49], "art": "sling", "en": ["What did David use to beat Goliath?", "A sling and a stone", "A sword", "A bow"], "ta": ["கோலியாத்தை வெல்லத் தாவீது எதைப் பயன்படுத்தினான்?", "கவணும் கல்லும்", "பட்டயம்", "வில்"] },
-    { "id": "shepherd", "ref": ["PSA", 23, 1], "art": "sheep", "en": ["Who wrote, \"The Lord is my shepherd\"?", "David", "Moses", "Paul"], "ta": ["\"கர்த்தர் என் மேய்ப்பராயிருக்கிறார்\" என்று எழுதியவர் யார்?", "தாவீது", "மோசே", "பவுல்"] },
-    { "id": "solomon", "ref": ["1KI", 3, 12], "art": "crown", "en": ["Which king asked God for wisdom?", "Solomon", "Goliath", "Pharaoh"], "ta": ["தேவனிடம் ஞானத்தைக் கேட்ட ராஜா யார்?", "சாலொமோன்", "கோலியாத்", "பார்வோன்"] },
-    { "id": "ravens", "ref": ["1KI", 17, 6], "art": "raven", "en": ["Which birds brought food to Elijah?", "Ravens", "Doves", "Eagles"], "ta": ["எலியாவுக்கு உணவு கொண்டுவந்த பறவைகள் எவை?", "காகங்கள்", "புறாக்கள்", "கழுகுகள்"] },
-    { "id": "esther", "ref": ["EST", 4, 16], "art": "crown", "en": ["Which brave queen saved her people?", "Esther", "Ruth", "Sarah"], "ta": ["தன் மக்களைக் காப்பாற்றிய தைரியமான ராணி யார்?", "எஸ்தர்", "ரூத்", "சாராள்"] },
-    { "id": "lions", "ref": ["DAN", 6, 16], "art": "lion", "en": ["Daniel was put in a den of …?", "Lions", "Bears", "Sheep"], "ta": ["தானியேல் எந்தக் கெபியில் போடப்பட்டான்?", "சிங்கங்களின் கெபி", "கரடிகளின் கெபி", "ஆடுகளின் கொட்டில்"] },
-    { "id": "fish", "ref": ["JON", 1, 17], "art": "fish", "en": ["What swallowed Jonah?", "A big fish", "A lion", "A bear"], "ta": ["யோனாவை விழுங்கியது எது?", "ஒரு பெரிய மீன்", "ஒரு சிங்கம்", "ஒரு கரடி"] },
-    { "id": "threedays", "ref": ["JON", 1, 17], "art": "fish", "en": ["How many days was Jonah inside the fish?", "3", "7", "40"], "ta": ["யோனா மீனின் வயிற்றில் எத்தனை நாள் இருந்தான்?", "3", "7", "40"] },
-    { "id": "mary", "ref": ["LUK", 1, 31], "en": ["Who was Jesus' mother?", "Mary", "Martha", "Sarah"], "ta": ["இயேசுவின் தாய் யார்?", "மரியாள்", "மார்த்தாள்", "சாராள்"] },
-    { "id": "bethlehem", "ref": ["MAT", 2, 1], "art": "star", "en": ["In which town was Jesus born?", "Bethlehem", "Nazareth", "Rome"], "ta": ["இயேசு எந்த ஊரில் பிறந்தார்?", "பெத்லகேம்", "நாசரேத்", "ரோமாபுரி"] },
-    { "id": "manger", "ref": ["LUK", 2, 7], "en": ["Where was baby Jesus laid?", "In a manger", "In a boat", "In a basket"], "ta": ["குழந்தை இயேசு எங்கே கிடத்தப்பட்டார்?", "முன்னணையில்", "படகில்", "கூடையில்"] },
-    { "id": "star", "ref": ["MAT", 2, 2], "art": "star", "en": ["What did the wise men follow to find Jesus?", "A star", "A cloud", "A bird"], "ta": ["இயேசுவைக் கண்டுபிடிக்கச் சாஸ்திரிகள் எதைப் பின்தொடர்ந்தார்கள்?", "ஒரு நட்சத்திரம்", "ஒரு மேகம்", "ஒரு பறவை"] },
-    { "id": "baptism", "ref": ["MAT", 3, 13], "art": "river", "en": ["Who baptised Jesus in the river Jordan?", "John the Baptist", "Peter", "Paul"], "ta": ["யோர்தான் நதியில் இயேசுவுக்கு ஞானஸ்நானம் கொடுத்தவர் யார்?", "யோவான் ஸ்நானகன்", "பேதுரு", "பவுல்"] },
-    { "id": "spiritdove", "ref": ["MAT", 3, 16], "art": "dove", "en": ["When Jesus was baptised, the Holy Spirit came down like a …?", "Dove", "Lion", "Eagle"], "ta": ["இயேசு ஞானஸ்நானம் பெற்றபோது பரிசுத்த ஆவியானவர் எதைப்போல இறங்கினார்?", "புறா", "சிங்கம்", "கழுகு"] },
-    { "id": "fisherman", "ref": ["MAT", 4, 18], "art": "boat", "en": ["What was Peter's work before he followed Jesus?", "Fisherman", "Farmer", "King"], "ta": ["இயேசுவைப் பின்பற்றும் முன் பேதுருவின் வேலை என்ன?", "மீன் பிடிப்பவர்", "விவசாயி", "ராஜா"] },
-    { "id": "twelve", "ref": ["LUK", 6, 13], "en": ["How many disciples did Jesus choose?", "12", "7", "3"], "ta": ["இயேசு எத்தனை சீஷர்களைத் தெரிந்துகொண்டார்?", "12", "7", "3"] },
-    { "id": "wine", "ref": ["JHN", 2, 9], "art": "cup", "en": ["At a wedding, Jesus turned water into …?", "Wine", "Milk", "Honey"], "ta": ["ஒரு கலியாணத்தில் இயேசு தண்ணீரை எதுவாக மாற்றினார்?", "திராட்சரசம்", "பால்", "தேன்"] },
-    { "id": "loaves", "ref": ["JHN", 6, 9], "art": "loaves", "en": ["How many loaves did the boy give to Jesus?", "5", "2", "10"], "ta": ["அந்தச் சிறுவன் இயேசுவிடம் எத்தனை அப்பங்களைக் கொடுத்தான்?", "5", "2", "10"] },
-    { "id": "twofish", "ref": ["JHN", 6, 9], "art": "loaves", "en": ["How many fish did the boy give to Jesus?", "2", "5", "7"], "ta": ["அந்தச் சிறுவன் இயேசுவிடம் எத்தனை மீன்களைக் கொடுத்தான்?", "2", "5", "7"] },
-    { "id": "water", "ref": ["MAT", 14, 25], "art": "boat", "en": ["Jesus walked on the …?", "Water", "Clouds", "Fire"], "ta": ["இயேசு எதன்மேல் நடந்தார்?", "தண்ணீர்", "மேகங்கள்", "நெருப்பு"] },
-    { "id": "lostsheep", "ref": ["LUK", 15, 4], "art": "sheep", "en": ["In Jesus' story, how many sheep did the shepherd have?", "100", "10", "1000"], "ta": ["இயேசு சொன்ன கதையில் மேய்ப்பனுக்கு எத்தனை ஆடுகள் இருந்தன?", "100", "10", "1000"] },
-    { "id": "children", "ref": ["MRK", 10, 14], "en": ["Jesus said, \"Let the little … come to me.\"", "Children", "Kings", "Soldiers"], "ta": ["\"சிறு … என்னிடத்தில் வரட்டும்\" என்று இயேசு சொன்னார்.", "பிள்ளைகள்", "ராஜாக்கள்", "போர்வீரர்கள்"] },
-    { "id": "zacchaeus", "ref": ["LUK", 19, 4], "art": "tree", "en": ["Who climbed a tree to see Jesus?", "Zacchaeus", "Peter", "Paul"], "ta": ["இயேசுவைப் பார்க்க மரத்தில் ஏறியவர் யார்?", "சகேயு", "பேதுரு", "பவுல்"] },
-    { "id": "lazarus", "ref": ["JHN", 11, 43], "en": ["Which friend did Jesus bring back to life?", "Lazarus", "Peter", "Thomas"], "ta": ["இயேசு மரித்தோரிலிருந்து எழுப்பிய நண்பர் யார்?", "லாசரு", "பேதுரு", "தோமா"] },
-    { "id": "donkey", "ref": ["MAT", 21, 7], "art": "donkey", "en": ["Which animal did Jesus ride into Jerusalem?", "A donkey", "A horse", "A camel"], "ta": ["எருசலேமுக்குள் இயேசு எந்த மிருகத்தின்மேல் ஏறி வந்தார்?", "கழுதை", "குதிரை", "ஒட்டகம்"] },
-    { "id": "thirdday", "ref": ["LUK", 24, 7], "en": ["On which day did Jesus rise from the dead?", "The third day", "The tenth day", "The fortieth day"], "ta": ["இயேசு எத்தனையாம் நாளில் உயிர்த்தெழுந்தார்?", "மூன்றாம் நாள்", "பத்தாம் நாள்", "நாற்பதாம் நாள்"] },
-    { "id": "ascension", "ref": ["ACT", 1, 9], "en": ["Where did Jesus go when he was taken up in a cloud?", "Up to heaven", "To Egypt", "Into the sea"], "ta": ["மேகத்தில் எடுத்துக்கொள்ளப்பட்டபோது இயேசு எங்கே போனார்?", "பரலோகத்துக்கு", "எகிப்துக்கு", "கடலுக்குள்"] },
-    { "id": "loveworld", "ref": ["JHN", 3, 16], "en": ["\"For God so loved the …\"", "World", "Sky", "Sea"], "ta": ["\"தேவன் இவ்வளவாய் … அன்புகூர்ந்தார்\"", "உலகத்தில்", "வானத்தில்", "கடலில்"] }
-  ],
-  "yesno": [
-    { "id": "made", "ref": ["GEN", 1, 1], "answer": true, "en": "God made the heavens and the earth.", "ta": "தேவன் வானத்தையும் பூமியையும் உண்டாக்கினார்." },
-    { "id": "sunmoon", "ref": ["GEN", 1, 16], "answer": true, "en": "God made the sun and the moon.", "ta": "தேவன் சூரியனையும் சந்திரனையும் உண்டாக்கினார்." },
-    { "id": "garden", "ref": ["GEN", 2, 8], "answer": true, "en": "Adam and Eve lived in a garden.", "ta": "ஆதாமும் ஏவாளும் ஒரு தோட்டத்தில் வாழ்ந்தார்கள்." },
-    { "id": "twobytwo", "ref": ["GEN", 7, 9], "answer": true, "en": "The animals went into the ark two by two.", "ta": "மிருகங்கள் ஜோடி ஜோடியாகப் பேழைக்குள் போயின." },
-    { "id": "mosesark", "ref": ["GEN", 6, 14], "answer": false, "en": "Moses built the ark.", "ta": "மோசே பேழையைக் கட்டினார்.", "why": { "en": "Noah built the ark.", "ta": "நோவாதான் பேழையைக் கட்டினார்." } },
-    { "id": "doveleaf", "ref": ["GEN", 8, 11], "answer": true, "en": "A dove came back to Noah with an olive leaf.", "ta": "ஒரு புறா ஒலிவ இலையோடு நோவாவிடம் திரும்பி வந்தது." },
-    { "id": "josephcoat", "ref": ["GEN", 37, 3], "answer": true, "en": "Joseph had a coat of many colours.", "ta": "யோசேப்புக்குப் பலவர்ண அங்கி இருந்தது." },
-    { "id": "tencmd", "ref": ["EXO", 20, 1], "answer": true, "en": "God gave Moses the Ten Commandments.", "ta": "தேவன் மோசேக்குப் பத்துக் கற்பனைகளைக் கொடுத்தார்." },
-    { "id": "jerichowall", "ref": ["JOS", 6, 20], "answer": true, "en": "The walls of Jericho fell down.", "ta": "எரிகோவின் மதில்கள் விழுந்தன." },
-    { "id": "samsonshoes", "ref": ["JDG", 16, 17], "answer": false, "en": "Samson's strength was in his shoes.", "ta": "சிம்சோனின் பலம் அவனுடைய செருப்புகளில் இருந்தது.", "why": { "en": "God made Samson strong; he had promised never to cut his hair.", "ta": "தேவன் சிம்சோனைப் பலசாலியாக்கினார்; அவன் தலைமுடியைச் சிரைக்கக்கூடாது." } },
-    { "id": "samuelcall", "ref": ["1SA", 3, 10], "answer": true, "en": "Samuel heard God call him at night.", "ta": "சாமுவேல் இரவில் தேவன் தன்னைக் கூப்பிடுவதைக் கேட்டான்." },
-    { "id": "davidgiant", "ref": ["1SA", 17, 4], "answer": false, "en": "David was a giant.", "ta": "தாவீது ஒரு இராட்சதன்.", "why": { "en": "Goliath was the giant. David was a young shepherd.", "ta": "கோலியாத்துதான் இராட்சதன். தாவீது ஒரு இளம் மேய்ப்பன்." } },
-    { "id": "goliathwon", "ref": ["1SA", 17, 50], "answer": false, "en": "Goliath won the fight with David.", "ta": "தாவீதோடு நடந்த சண்டையில் கோலியாத் வென்றான்.", "why": { "en": "God helped David win.", "ta": "தேவன் தாவீதுக்கு வெற்றி கொடுத்தார்." } },
-    { "id": "elijahravens", "ref": ["1KI", 17, 6], "answer": true, "en": "Ravens brought food to Elijah.", "ta": "காகங்கள் எலியாவுக்கு உணவு கொண்டுவந்தன." },
-    { "id": "daniellions", "ref": ["DAN", 6, 22], "answer": false, "en": "The lions hurt Daniel.", "ta": "சிங்கங்கள் தானியேலைக் காயப்படுத்தின.", "why": { "en": "God sent his angel and shut the lions' mouths.", "ta": "தேவன் தம் தூதனை அனுப்பிச் சிங்கங்களின் வாயைக் கட்டினார்." } },
-    { "id": "jonahfish", "ref": ["JON", 1, 17], "answer": true, "en": "A big fish swallowed Jonah.", "ta": "ஒரு பெரிய மீன் யோனாவை விழுங்கியது." },
-    { "id": "jonahran", "ref": ["JON", 1, 3], "answer": false, "en": "Jonah went to Nineveh as soon as God told him.", "ta": "தேவன் சொன்னவுடனே யோனா நினிவேக்குப் போனான்.", "why": { "en": "At first Jonah ran away on a ship.", "ta": "முதலில் யோனா ஒரு கப்பலில் ஏறி ஓடிப்போனான்." } },
-    { "id": "bornbethlehem", "ref": ["MAT", 2, 1], "answer": true, "en": "Jesus was born in Bethlehem.", "ta": "இயேசு பெத்லகேமில் பிறந்தார்." },
-    { "id": "manger", "ref": ["LUK", 2, 7], "answer": true, "en": "Baby Jesus was laid in a manger.", "ta": "குழந்தை இயேசு முன்னணையில் கிடத்தப்பட்டார்." },
-    { "id": "rainbowmen", "ref": ["MAT", 2, 2], "answer": false, "en": "The wise men followed a rainbow to find Jesus.", "ta": "சாஸ்திரிகள் ஒரு வானவில்லைப் பின்தொடர்ந்து இயேசுவைக் கண்டார்கள்.", "why": { "en": "They followed a star.", "ta": "அவர்கள் ஒரு நட்சத்திரத்தைப் பின்தொடர்ந்தார்கள்." } },
-    { "id": "son", "ref": ["MAT", 3, 17], "answer": true, "en": "Jesus is God's Son.", "ta": "இயேசு தேவனுடைய குமாரன்." },
-    { "id": "peterfish", "ref": ["MAT", 4, 18], "answer": true, "en": "Peter was a fisherman.", "ta": "பேதுரு மீன் பிடிப்பவர்." },
-    { "id": "twelve", "ref": ["LUK", 6, 13], "answer": true, "en": "Jesus chose 12 disciples.", "ta": "இயேசு 12 சீஷர்களைத் தெரிந்துகொண்டார்." },
-    { "id": "milk", "ref": ["JHN", 2, 9], "answer": false, "en": "Jesus turned water into milk.", "ta": "இயேசு தண்ணீரைப் பாலாக மாற்றினார்.", "why": { "en": "He turned water into wine.", "ta": "அவர் தண்ணீரைத் திராட்சரசமாக மாற்றினார்." } },
-    { "id": "fed", "ref": ["JHN", 6, 11], "answer": true, "en": "Jesus fed many people with 5 loaves and 2 fish.", "ta": "இயேசு 5 அப்பங்களாலும் 2 மீன்களாலும் அநேகருக்கு உணவளித்தார்." },
-    { "id": "walkwater", "ref": ["MAT", 14, 25], "answer": true, "en": "Jesus walked on the water.", "ta": "இயேசு தண்ணீரின்மேல் நடந்தார்." },
-    { "id": "kids", "ref": ["MRK", 10, 16], "answer": true, "en": "Jesus loves children.", "ta": "இயேசு பிள்ளைகளை நேசிக்கிறார்." },
-    { "id": "zactree", "ref": ["LUK", 19, 4], "answer": true, "en": "Zacchaeus climbed a tree to see Jesus.", "ta": "இயேசுவைப் பார்க்கச் சகேயு ஒரு மரத்தில் ஏறினான்." },
-    { "id": "stayeddead", "ref": ["LUK", 24, 6], "answer": false, "en": "Jesus stayed in the tomb forever.", "ta": "இயேசு என்றென்றும் கல்லறையிலேயே இருந்தார்.", "why": { "en": "Jesus rose again on the third day!", "ta": "இயேசு மூன்றாம் நாளில் உயிர்த்தெழுந்தார்!" } },
-    { "id": "loves", "ref": ["JHN", 3, 16], "answer": true, "en": "God loves the whole world.", "ta": "தேவன் முழு உலகத்திலும் அன்புகூருகிறார்." }
-  ],
-  "who": [
-    { "id": "noah", "ref": ["GEN", 6, 14], "art": "ark", "en": ["I built a big boat. The animals came in two by two. Who am I?", "Noah", "Moses", "Peter"], "ta": ["நான் ஒரு பெரிய பேழையைக் கட்டினேன். மிருகங்கள் ஜோடி ஜோடியாக உள்ளே வந்தன. நான் யார்?", "நோவா", "மோசே", "பேதுரு"] },
-    { "id": "adam", "ref": ["GEN", 2, 7], "en": ["I was the first man God made. Who am I?", "Adam", "Noah", "Abel"], "ta": ["தேவன் உண்டாக்கிய முதல் மனிதன் நான். நான் யார்?", "ஆதாம்", "நோவா", "ஆபேல்"] },
-    { "id": "eve", "ref": ["GEN", 3, 20], "en": ["I was the first woman. Who am I?", "Eve", "Mary", "Sarah"], "ta": ["நான்தான் முதல் பெண். நான் யார்?", "ஏவாள்", "மரியாள்", "சாராள்"] },
-    { "id": "jacob", "ref": ["GEN", 28, 12], "art": "ladder", "en": ["In a dream, I saw a ladder going up to heaven. Who am I?", "Jacob", "Joseph", "Isaac"], "ta": ["வானம்வரை எட்டும் ஏணியை நான் கனவில் கண்டேன். நான் யார்?", "யாக்கோபு", "யோசேப்பு", "ஈசாக்கு"] },
-    { "id": "joseph", "ref": ["GEN", 37, 3], "art": "coat", "en": ["My father gave me a coat of many colours. Who am I?", "Joseph", "Benjamin", "David"], "ta": ["என் தகப்பன் எனக்குப் பலவர்ண அங்கியைக் கொடுத்தார். நான் யார்?", "யோசேப்பு", "பென்யமீன்", "தாவீது"] },
-    { "id": "moses", "ref": ["EXO", 14, 21], "en": ["I led God's people through the Red Sea. Who am I?", "Moses", "Joshua", "Aaron"], "ta": ["நான் தேவனுடைய மக்களைச் சிவந்த சமுத்திரத்தின் வழியாக நடத்தினேன். நான் யார்?", "மோசே", "யோசுவா", "ஆரோன்"] },
-    { "id": "samson", "ref": ["JDG", 16, 17], "en": ["I was very, very strong. My hair was never cut. Who am I?", "Samson", "Goliath", "Gideon"], "ta": ["நான் மிக மிகப் பலசாலி. என் தலைமுடி ஒருபோதும் சிரைக்கப்படவில்லை. நான் யார்?", "சிம்சோன்", "கோலியாத்", "கிதியோன்"] },
-    { "id": "ruth", "ref": ["RUT", 1, 16], "en": ["I told Naomi, \"Where you go, I will go.\" Who am I?", "Ruth", "Esther", "Eve"], "ta": ["\"நீர் போகும் இடத்துக்கு நானும் வருவேன்\" என்று நகோமியிடம் சொன்னேன். நான் யார்?", "ரூத்", "எஸ்தர்", "ஏவாள்"] },
-    { "id": "samuel", "ref": ["1SA", 3, 10], "art": "lamp", "en": ["When I was a boy, God called my name at night. Who am I?", "Samuel", "David", "Joseph"], "ta": ["நான் சிறுவனாக இருந்தபோது இரவில் தேவன் என் பெயரைக் கூப்பிட்டார். நான் யார்?", "சாமுவேல்", "தாவீது", "யோசேப்பு"] },
-    { "id": "david", "ref": ["1SA", 17, 49], "art": "sling", "en": ["I beat a giant with a sling and a stone. Who am I?", "David", "Saul", "Samson"], "ta": ["நான் ஒரு கவணாலும் கல்லாலும் இராட்சதனை வென்றேன். நான் யார்?", "தாவீது", "சவுல்", "சிம்சோன்"] },
-    { "id": "goliath", "ref": ["1SA", 17, 4], "en": ["I was a big giant, but a young boy beat me. Who am I?", "Goliath", "Samson", "Pharaoh"], "ta": ["நான் பெரிய இராட்சதன்; ஆனால் ஒரு சிறுவன் என்னை வென்றான். நான் யார்?", "கோலியாத்", "சிம்சோன்", "பார்வோன்"] },
-    { "id": "solomon", "ref": ["1KI", 3, 12], "art": "crown", "en": ["I asked God for wisdom, and I became a wise king. Who am I?", "Solomon", "Saul", "Pharaoh"], "ta": ["நான் தேவனிடம் ஞானத்தைக் கேட்டேன்; ஞானமுள்ள ராஜாவானேன். நான் யார்?", "சாலொமோன்", "சவுல்", "பார்வோன்"] },
-    { "id": "elijah", "ref": ["1KI", 17, 6], "art": "raven", "en": ["Ravens brought me bread and meat. Who am I?", "Elijah", "Elisha", "Daniel"], "ta": ["காகங்கள் எனக்கு அப்பமும் இறைச்சியும் கொண்டுவந்தன. நான் யார்?", "எலியா", "எலிசா", "தானியேல்"] },
-    { "id": "esther", "ref": ["EST", 4, 16], "art": "crown", "en": ["I was a queen. I was brave and saved my people. Who am I?", "Esther", "Ruth", "Sarah"], "ta": ["நான் ஒரு ராணி. தைரியமாக என் மக்களைக் காப்பாற்றினேன். நான் யார்?", "எஸ்தர்", "ரூத்", "சாராள்"] },
-    { "id": "daniel", "ref": ["DAN", 6, 22], "art": "lion", "en": ["I prayed to God, and he kept me safe from the lions. Who am I?", "Daniel", "Elijah", "Jonah"], "ta": ["நான் தேவனிடம் ஜெபித்தேன்; அவர் என்னைச் சிங்கங்களிடமிருந்து காப்பாற்றினார். நான் யார்?", "தானியேல்", "எலியா", "யோனா"] },
-    { "id": "jonah", "ref": ["JON", 1, 17], "art": "fish", "en": ["I ran away from God, and a big fish swallowed me. Who am I?", "Jonah", "Daniel", "Paul"], "ta": ["நான் தேவனைவிட்டு ஓடினேன்; ஒரு பெரிய மீன் என்னை விழுங்கியது. நான் யார்?", "யோனா", "தானியேல்", "பவுல்"] },
-    { "id": "mary", "ref": ["LUK", 1, 31], "en": ["An angel told me I would be the mother of Jesus. Who am I?", "Mary", "Elizabeth", "Martha"], "ta": ["நான் இயேசுவின் தாயாவேன் என்று ஒரு தூதன் எனக்குச் சொன்னார். நான் யார்?", "மரியாள்", "எலிசபெத்து", "மார்த்தாள்"] },
-    { "id": "john", "ref": ["MAT", 3, 13], "art": "river", "en": ["I baptised Jesus in the river Jordan. Who am I?", "John the Baptist", "Peter", "Elijah"], "ta": ["நான் யோர்தான் நதியில் இயேசுவுக்கு ஞானஸ்நானம் கொடுத்தேன். நான் யார்?", "யோவான் ஸ்நானகன்", "பேதுரு", "எலியா"] },
-    { "id": "peter", "ref": ["MAT", 14, 29], "art": "boat", "en": ["I was a fisherman. I walked on the water to Jesus. Who am I?", "Peter", "Andrew", "Thomas"], "ta": ["நான் மீன் பிடிப்பவன். தண்ணீரின்மேல் நடந்து இயேசுவிடம் போனேன். நான் யார்?", "பேதுரு", "அந்திரேயா", "தோமா"] },
-    { "id": "zacchaeus", "ref": ["LUK", 19, 4], "art": "tree", "en": ["I was short, so I climbed a tree to see Jesus. Who am I?", "Zacchaeus", "Peter", "John"], "ta": ["நான் குள்ளனாக இருந்ததால் இயேசுவைப் பார்க்க மரத்தில் ஏறினேன். நான் யார்?", "சகேயு", "பேதுரு", "யோவான்"] },
-    { "id": "lazarus", "ref": ["JHN", 11, 43], "en": ["Jesus called me out of my tomb, alive again. Who am I?", "Lazarus", "Jairus", "Paul"], "ta": ["இயேசு என்னைக் கல்லறையிலிருந்து உயிரோடு வெளியே வரச் சொன்னார். நான் யார்?", "லாசரு", "யவீரு", "பவுல்"] },
-    { "id": "jesus", "ref": ["LUK", 24, 6], "en": ["I am God's Son. I died on the cross and rose again. Who am I?", "Jesus", "Moses", "David"], "ta": ["நான் தேவனுடைய குமாரன். சிலுவையில் மரித்து உயிர்த்தெழுந்தேன். நான் யார்?", "இயேசு", "மோசே", "தாவீது"] }
-  ],
-  "match": [
-    { "id": "noah", "art": "ark", "en": "Noah", "ta": "நோவா", "thing": { "en": "The ark", "ta": "பேழை" } },
-    { "id": "jonah", "art": "fish", "en": "Jonah", "ta": "யோனா", "thing": { "en": "The big fish", "ta": "பெரிய மீன்" } },
-    { "id": "daniel", "art": "lion", "en": "Daniel", "ta": "தானியேல்", "thing": { "en": "The lions", "ta": "சிங்கங்கள்" } },
-    { "id": "david", "art": "sling", "en": "David", "ta": "தாவீது", "thing": { "en": "The sling", "ta": "கவண்" } },
-    { "id": "moses", "art": "bush", "en": "Moses", "ta": "மோசே", "thing": { "en": "The burning bush", "ta": "எரியும் முட்செடி" } },
-    { "id": "joseph", "art": "coat", "en": "Joseph", "ta": "யோசேப்பு", "thing": { "en": "The coat of many colours", "ta": "பலவர்ண அங்கி" } },
-    { "id": "jacob", "art": "ladder", "en": "Jacob", "ta": "யாக்கோபு", "thing": { "en": "The ladder", "ta": "ஏணி" } },
-    { "id": "zacchaeus", "art": "tree", "en": "Zacchaeus", "ta": "சகேயு", "thing": { "en": "The tree", "ta": "மரம்" } },
-    { "id": "elijah", "art": "raven", "en": "Elijah", "ta": "எலியா", "thing": { "en": "The ravens", "ta": "காகங்கள்" } },
-    { "id": "peter", "art": "boat", "en": "Peter", "ta": "பேதுரு", "thing": { "en": "The fishing boat", "ta": "மீன்பிடி படகு" } },
-    { "id": "wisemen", "art": "star", "en": "The wise men", "ta": "சாஸ்திரிகள்", "thing": { "en": "The star", "ta": "நட்சத்திரம்" } },
-    { "id": "samuel", "art": "lamp", "en": "Samuel", "ta": "சாமுவேல்", "thing": { "en": "The lamp in God's house", "ta": "தேவனுடைய ஆலயத்தின் விளக்கு" } }
-  ],
-  "order": [
-    { "id": "creation", "ref": ["GEN", 1, 1], "en": "God makes the world", "ta": "தேவன் உலகத்தை உண்டாக்குகிறார்", "steps": [
-      { "en": "God makes light.", "ta": "தேவன் வெளிச்சத்தை உண்டாக்குகிறார்.", "art": "sun" },
-      { "en": "God makes the sky.", "ta": "தேவன் வானத்தை உண்டாக்குகிறார்." },
-      { "en": "God makes the land and the plants.", "ta": "தேவன் நிலத்தையும் செடிகளையும் உண்டாக்குகிறார்.", "art": "tree" },
-      { "en": "God makes people.", "ta": "தேவன் மனிதனை உண்டாக்குகிறார்." }
-    ] },
-    { "id": "noah", "ref": ["GEN", 6, 14], "en": "Noah and the ark", "ta": "நோவாவும் பேழையும்", "steps": [
-      { "en": "God tells Noah to build an ark.", "ta": "பேழையைக் கட்டும்படி தேவன் நோவாவுக்குச் சொல்கிறார்." },
-      { "en": "The animals go into the ark.", "ta": "மிருகங்கள் பேழைக்குள் போகின்றன.", "art": "ark" },
-      { "en": "Rain falls for 40 days.", "ta": "40 நாள் மழை பெய்கிறது." },
-      { "en": "God puts a rainbow in the sky.", "ta": "தேவன் வானத்தில் வானவில்லை வைக்கிறார்.", "art": "bow" }
-    ] },
-    { "id": "david", "ref": ["1SA", 17, 40], "en": "David and Goliath", "ta": "தாவீதும் கோலியாத்தும்", "steps": [
-      { "en": "Goliath shouts at God's people.", "ta": "கோலியாத் தேவனுடைய மக்களைப் பார்த்துச் சத்தமிடுகிறான்." },
-      { "en": "David picks five smooth stones.", "ta": "தாவீது ஐந்து கூழாங்கற்களைப் பொறுக்குகிறான்.", "art": "stones" },
-      { "en": "David throws a stone with his sling.", "ta": "தாவீது கவணால் ஒரு கல்லை எறிகிறான்.", "art": "sling" },
-      { "en": "Goliath falls down.", "ta": "கோலியாத் கீழே விழுகிறான்." }
-    ] },
-    { "id": "jonah", "ref": ["JON", 1, 1], "en": "Jonah and the big fish", "ta": "யோனாவும் பெரிய மீனும்", "steps": [
-      { "en": "God tells Jonah to go to Nineveh.", "ta": "நினிவேக்குப் போகும்படி தேவன் யோனாவுக்குச் சொல்கிறார்." },
-      { "en": "Jonah runs away on a ship.", "ta": "யோனா ஒரு கப்பலில் ஏறி ஓடிப்போகிறான்.", "art": "boat" },
-      { "en": "A big fish swallows Jonah.", "ta": "ஒரு பெரிய மீன் யோனாவை விழுங்குகிறது.", "art": "fish" },
-      { "en": "Jonah goes to Nineveh and tells God's message.", "ta": "யோனா நினிவேக்குப் போய்த் தேவனுடைய செய்தியைச் சொல்கிறான்." }
-    ] },
-    { "id": "daniel", "ref": ["DAN", 6, 10], "en": "Daniel and the lions", "ta": "தானியேலும் சிங்கங்களும்", "steps": [
-      { "en": "Daniel prays to God every day.", "ta": "தானியேல் ஒவ்வொரு நாளும் தேவனிடம் ஜெபிக்கிறான்." },
-      { "en": "Daniel is put in the lions' den.", "ta": "தானியேல் சிங்கக் கெபியில் போடப்படுகிறான்.", "art": "lion" },
-      { "en": "God shuts the lions' mouths.", "ta": "தேவன் சிங்கங்களின் வாயைக் கட்டுகிறார்." },
-      { "en": "Daniel comes out safe.", "ta": "தானியேல் காயமின்றி வெளியே வருகிறான்." }
-    ] },
-    { "id": "christmas", "ref": ["LUK", 2, 7], "en": "Jesus is born", "ta": "இயேசு பிறக்கிறார்", "steps": [
-      { "en": "An angel visits Mary.", "ta": "ஒரு தூதன் மரியாளிடம் வருகிறார்." },
-      { "en": "Mary and Joseph go to Bethlehem.", "ta": "மரியாளும் யோசேப்பும் பெத்லகேமுக்குப் போகிறார்கள்.", "art": "donkey" },
-      { "en": "Jesus is born and laid in a manger.", "ta": "இயேசு பிறந்து முன்னணையில் கிடத்தப்படுகிறார்." },
-      { "en": "Wise men follow a star to Jesus.", "ta": "சாஸ்திரிகள் நட்சத்திரத்தைப் பின்தொடர்ந்து இயேசுவிடம் வருகிறார்கள்.", "art": "star" }
-    ] },
-    { "id": "zacchaeus", "ref": ["LUK", 19, 1], "en": "Zacchaeus meets Jesus", "ta": "சகேயு இயேசுவைச் சந்திக்கிறான்", "steps": [
-      { "en": "Jesus comes to Jericho.", "ta": "இயேசு எரிகோவுக்கு வருகிறார்." },
-      { "en": "Zacchaeus climbs a tree to see him.", "ta": "அவரைப் பார்க்கச் சகேயு மரத்தில் ஏறுகிறான்.", "art": "tree" },
-      { "en": "Jesus says, \"Come down! I will stay at your house.\"", "ta": "\"இறங்கி வா! இன்று உன் வீட்டில் தங்குவேன்\" என்று இயேசு சொல்கிறார்." },
-      { "en": "Zacchaeus gives back what he took, and more.", "ta": "சகேயு தான் எடுத்ததை அதிகமாகத் திருப்பிக் கொடுக்கிறான்.", "art": "coins" }
-    ] },
-    { "id": "easter", "ref": ["LUK", 24, 6], "en": "Jesus is alive", "ta": "இயேசு உயிரோடிருக்கிறார்", "steps": [
-      { "en": "Jesus rides into Jerusalem on a donkey.", "ta": "இயேசு கழுதையின்மேல் ஏறி எருசலேமுக்கு வருகிறார்.", "art": "donkey" },
-      { "en": "Jesus dies on the cross for us.", "ta": "இயேசு நமக்காகச் சிலுவையில் மரிக்கிறார்." },
-      { "en": "Jesus is laid in a tomb.", "ta": "இயேசு கல்லறையில் வைக்கப்படுகிறார்.", "art": "cave" },
-      { "en": "On the third day, Jesus rises again!", "ta": "மூன்றாம் நாளில் இயேசு உயிர்த்தெழுகிறார்!" }
-    ] }
-  ]
+ "quiz": [
+  {
+   "id": "ark",
+   "ref": [
+    "GEN",
+    6,
+    14
+   ],
+   "art": "ark",
+   "en": [
+    "Who built a big boat called the ark?",
+    "Noah",
+    "Moses",
+    "David"
+   ],
+   "ta": [
+    "பேழை என்ற பெரிய கப்பலைக் கட்டியவர் யார்?",
+    "நோவா",
+    "மோசே",
+    "தாவீது"
+   ]
+  },
+  {
+   "id": "light",
+   "ref": [
+    "GEN",
+    1,
+    3
+   ],
+   "art": "sun",
+   "en": [
+    "What did God make first?",
+    "Light",
+    "Fish",
+    "Trees"
+   ],
+   "ta": [
+    "தேவன் முதலில் எதை உண்டாக்கினார்?",
+    "வெளிச்சம்",
+    "மீன்கள்",
+    "மரங்கள்"
+   ]
+  },
+  {
+   "id": "adam",
+   "ref": [
+    "GEN",
+    2,
+    7
+   ],
+   "en": [
+    "Who was the first man?",
+    "Adam",
+    "Noah",
+    "Abraham"
+   ],
+   "ta": [
+    "முதல் மனிதன் யார்?",
+    "ஆதாம்",
+    "நோவா",
+    "ஆபிரகாம்"
+   ]
+  },
+  {
+   "id": "eve",
+   "ref": [
+    "GEN",
+    3,
+    20
+   ],
+   "en": [
+    "Who was the first woman?",
+    "Eve",
+    "Mary",
+    "Ruth"
+   ],
+   "ta": [
+    "முதல் பெண் யார்?",
+    "ஏவாள்",
+    "மரியாள்",
+    "ரூத்"
+   ]
+  },
+  {
+   "id": "eden",
+   "ref": [
+    "GEN",
+    2,
+    8
+   ],
+   "art": "tree",
+   "en": [
+    "What was the name of the garden where Adam and Eve lived?",
+    "Eden",
+    "Galilee",
+    "Egypt"
+   ],
+   "ta": [
+    "ஆதாமும் ஏவாளும் வாழ்ந்த தோட்டத்தின் பெயர் என்ன?",
+    "ஏதேன்",
+    "கலிலேயா",
+    "எகிப்து"
+   ]
+  },
+  {
+   "id": "dove",
+   "ref": [
+    "GEN",
+    8,
+    11
+   ],
+   "art": "dove",
+   "en": [
+    "Which bird came back to Noah with a leaf?",
+    "A dove",
+    "A crow",
+    "An eagle"
+   ],
+   "ta": [
+    "இலையோடு நோவாவிடம் திரும்பி வந்த பறவை எது?",
+    "புறா",
+    "காகம்",
+    "கழுகு"
+   ]
+  },
+  {
+   "id": "rainbow",
+   "ref": [
+    "GEN",
+    9,
+    13
+   ],
+   "art": "bow",
+   "en": [
+    "What did God put in the sky after the flood?",
+    "A rainbow",
+    "The moon",
+    "A cloud"
+   ],
+   "ta": [
+    "வெள்ளத்துக்குப் பிறகு தேவன் வானத்தில் எதை வைத்தார்?",
+    "வானவில்",
+    "சந்திரன்",
+    "மேகம்"
+   ]
+  },
+  {
+   "id": "babel",
+   "ref": [
+    "GEN",
+    11,
+    4
+   ],
+   "art": "tower",
+   "en": [
+    "People built a very tall tower. What was it called?",
+    "Babel",
+    "Jericho",
+    "Eden"
+   ],
+   "ta": [
+    "மக்கள் மிக உயரமான ஒரு கோபுரத்தைக் கட்டினார்கள். அதன் பெயர் என்ன?",
+    "பாபேல்",
+    "எரிகோ",
+    "ஏதேன்"
+   ]
+  },
+  {
+   "id": "isaac",
+   "ref": [
+    "GEN",
+    21,
+    3
+   ],
+   "en": [
+    "What was the name of Abraham's son?",
+    "Isaac",
+    "Moses",
+    "David"
+   ],
+   "ta": [
+    "ஆபிரகாமின் மகனுடைய பெயர் என்ன?",
+    "ஈசாக்கு",
+    "மோசே",
+    "தாவீது"
+   ]
+  },
+  {
+   "id": "ladder",
+   "ref": [
+    "GEN",
+    28,
+    12
+   ],
+   "art": "ladder",
+   "en": [
+    "Who dreamed of a ladder going up to heaven?",
+    "Jacob",
+    "Isaac",
+    "Noah"
+   ],
+   "ta": [
+    "வானம்வரை எட்டும் ஏணியைக் கனவில் கண்டவர் யார்?",
+    "யாக்கோபு",
+    "ஈசாக்கு",
+    "நோவா"
+   ]
+  },
+  {
+   "id": "coat",
+   "ref": [
+    "GEN",
+    37,
+    3
+   ],
+   "art": "coat",
+   "en": [
+    "Who got a coat of many colours from his father?",
+    "Joseph",
+    "Jacob",
+    "Moses"
+   ],
+   "ta": [
+    "தகப்பனிடமிருந்து பலவருணமான அங்கியைப் பெற்றவர் யார்?",
+    "யோசேப்பு",
+    "யாக்கோபு",
+    "மோசே"
+   ]
+  },
+  {
+   "id": "bush",
+   "ref": [
+    "EXO",
+    3,
+    2
+   ],
+   "art": "bush",
+   "en": [
+    "God spoke to Moses from a burning …?",
+    "Bush",
+    "Boat",
+    "House"
+   ],
+   "ta": [
+    "எரிகிற எதிலிருந்து தேவன் மோசேயோடு பேசினார்?",
+    "முட்செடி",
+    "படகு",
+    "வீடு"
+   ]
+  },
+  {
+   "id": "exodus",
+   "ref": [
+    "EXO",
+    3,
+    10
+   ],
+   "en": [
+    "Who led God's people out of Egypt?",
+    "Moses",
+    "David",
+    "Jonah"
+   ],
+   "ta": [
+    "தேவனுடைய மக்களை எகிப்திலிருந்து வெளியே நடத்தியவர் யார்?",
+    "மோசே",
+    "தாவீது",
+    "யோனா"
+   ]
+  },
+  {
+   "id": "redsea",
+   "ref": [
+    "EXO",
+    14,
+    21
+   ],
+   "art": "river",
+   "en": [
+    "Which sea did God open so his people could walk through?",
+    "The Red Sea",
+    "The Black Sea",
+    "The Salt Sea"
+   ],
+   "ta": [
+    "தம் மக்கள் நடந்துபோகத் தேவன் எந்தக் கடலைப் பிரித்தார்?",
+    "சிவந்த சமுத்திரம்",
+    "கருங்கடல்",
+    "உப்புக்கடல்"
+   ]
+  },
+  {
+   "id": "manna",
+   "ref": [
+    "EXO",
+    16,
+    15
+   ],
+   "en": [
+    "What bread did God send from heaven in the desert?",
+    "Manna",
+    "Rice",
+    "Apples"
+   ],
+   "ta": [
+    "வனாந்தரத்தில் தேவன் வானத்திலிருந்து அனுப்பிய அப்பம் எது?",
+    "மன்னா",
+    "அரிசி",
+    "ஆப்பிள்"
+   ]
+  },
+  {
+   "id": "ten",
+   "ref": [
+    "DEU",
+    10,
+    4
+   ],
+   "art": "stones",
+   "en": [
+    "How many commandments did God give Moses?",
+    "10",
+    "3",
+    "7"
+   ],
+   "ta": [
+    "தேவன் மோசேக்கு எத்தனை கற்பனைகளைக் கொடுத்தார்?",
+    "10",
+    "3",
+    "7"
+   ]
+  },
+  {
+   "id": "jericho",
+   "ref": [
+    "JOS",
+    6,
+    20
+   ],
+   "en": [
+    "Whose walls fell down when the people shouted?",
+    "Jericho",
+    "Jerusalem",
+    "Babel"
+   ],
+   "ta": [
+    "மக்கள் ஆர்ப்பரித்தபோது எந்தப் பட்டணத்தின் மதில்கள் விழுந்தன?",
+    "எரிகோ",
+    "எருசலேம்",
+    "பாபேல்"
+   ]
+  },
+  {
+   "id": "samson",
+   "ref": [
+    "JDG",
+    16,
+    17
+   ],
+   "en": [
+    "Who was very strong and had long hair?",
+    "Samson",
+    "Samuel",
+    "Saul"
+   ],
+   "ta": [
+    "மிகப் பலசாலியாகவும் நீண்ட தலைமுடியுடனும் இருந்தவர் யார்?",
+    "சிம்சோன்",
+    "சாமுவேல்",
+    "சவுல்"
+   ]
+  },
+  {
+   "id": "ruth",
+   "ref": [
+    "RUT",
+    1,
+    16
+   ],
+   "en": [
+    "Who said to Naomi, \"Where you go, I will go\"?",
+    "Ruth",
+    "Esther",
+    "Eve"
+   ],
+   "ta": [
+    "\"நீர் போகும் இடத்துக்கு நானும் வருவேன்\" என்று நகோமியிடம் சொன்னவர் யார்?",
+    "ரூத்",
+    "எஸ்தர்",
+    "ஏவாள்"
+   ]
+  },
+  {
+   "id": "samuel",
+   "ref": [
+    "1SA",
+    3,
+    10
+   ],
+   "art": "lamp",
+   "en": [
+    "Which boy heard God call his name at night?",
+    "Samuel",
+    "David",
+    "Daniel"
+   ],
+   "ta": [
+    "இரவில் தேவன் தன் பெயரைக் கூப்பிடுவதைக் கேட்ட சிறுவன் யார்?",
+    "சாமுவேல்",
+    "தாவீது",
+    "தானியேல்"
+   ]
+  },
+  {
+   "id": "davidsheep",
+   "ref": [
+    "1SA",
+    16,
+    11
+   ],
+   "art": "sheep",
+   "en": [
+    "What did young David look after?",
+    "Sheep",
+    "Camels",
+    "Fish"
+   ],
+   "ta": [
+    "சிறுவனாக இருந்தபோது தாவீது எதை மேய்த்தான்?",
+    "ஆடுகள்",
+    "ஒட்டகங்கள்",
+    "மீன்கள்"
+   ]
+  },
+  {
+   "id": "goliath",
+   "ref": [
+    "1SA",
+    17,
+    4
+   ],
+   "en": [
+    "Who was the giant?",
+    "Goliath",
+    "Samson",
+    "Saul"
+   ],
+   "ta": [
+    "இராட்சதன் யார்?",
+    "கோலியாத்",
+    "சிம்சோன்",
+    "சவுல்"
+   ]
+  },
+  {
+   "id": "sling",
+   "ref": [
+    "1SA",
+    17,
+    49
+   ],
+   "art": "sling",
+   "en": [
+    "What did David use to beat Goliath?",
+    "A sling and a stone",
+    "A sword",
+    "A bow"
+   ],
+   "ta": [
+    "கோலியாத்தை வெல்லத் தாவீது எதைப் பயன்படுத்தினான்?",
+    "கவணும் கல்லும்",
+    "பட்டயம்",
+    "வில்"
+   ]
+  },
+  {
+   "id": "shepherd",
+   "ref": [
+    "PSA",
+    23,
+    1
+   ],
+   "art": "sheep",
+   "en": [
+    "Who wrote, \"The Lord is my shepherd\"?",
+    "David",
+    "Moses",
+    "Paul"
+   ],
+   "ta": [
+    "\"கர்த்தர் என் மேய்ப்பராயிருக்கிறார்\" என்று எழுதியவர் யார்?",
+    "தாவீது",
+    "மோசே",
+    "பவுல்"
+   ]
+  },
+  {
+   "id": "solomon",
+   "ref": [
+    "1KI",
+    3,
+    12
+   ],
+   "art": "crown",
+   "en": [
+    "Which king asked God for wisdom?",
+    "Solomon",
+    "Goliath",
+    "Pharaoh"
+   ],
+   "ta": [
+    "தேவனிடம் ஞானத்தைக் கேட்ட ராஜா யார்?",
+    "சாலொமோன்",
+    "கோலியாத்",
+    "பார்வோன்"
+   ]
+  },
+  {
+   "id": "ravens",
+   "ref": [
+    "1KI",
+    17,
+    6
+   ],
+   "art": "raven",
+   "en": [
+    "Which birds brought food to Elijah?",
+    "Ravens",
+    "Doves",
+    "Eagles"
+   ],
+   "ta": [
+    "எலியாவுக்கு உணவு கொண்டுவந்த பறவைகள் எவை?",
+    "காகங்கள்",
+    "புறாக்கள்",
+    "கழுகுகள்"
+   ]
+  },
+  {
+   "id": "esther",
+   "ref": [
+    "EST",
+    4,
+    16
+   ],
+   "art": "crown",
+   "en": [
+    "Which brave queen saved her people?",
+    "Esther",
+    "Ruth",
+    "Sarah"
+   ],
+   "ta": [
+    "தன் மக்களைக் காப்பாற்றிய தைரியமான ராணி யார்?",
+    "எஸ்தர்",
+    "ரூத்",
+    "சாராள்"
+   ]
+  },
+  {
+   "id": "lions",
+   "ref": [
+    "DAN",
+    6,
+    16
+   ],
+   "art": "lion",
+   "en": [
+    "Daniel was put in a den of …?",
+    "Lions",
+    "Bears",
+    "Sheep"
+   ],
+   "ta": [
+    "தானியேல் எந்தக் கெபியில் போடப்பட்டான்?",
+    "சிங்கங்களின் கெபி",
+    "கரடிகளின் கெபி",
+    "ஆடுகளின் கொட்டில்"
+   ]
+  },
+  {
+   "id": "fish",
+   "ref": [
+    "JON",
+    1,
+    17
+   ],
+   "art": "fish",
+   "en": [
+    "What swallowed Jonah?",
+    "A big fish",
+    "A lion",
+    "A bear"
+   ],
+   "ta": [
+    "யோனாவை விழுங்கியது எது?",
+    "ஒரு பெரிய மீன்",
+    "ஒரு சிங்கம்",
+    "ஒரு கரடி"
+   ]
+  },
+  {
+   "id": "threedays",
+   "ref": [
+    "JON",
+    1,
+    17
+   ],
+   "art": "fish",
+   "en": [
+    "How many days was Jonah inside the fish?",
+    "3",
+    "7",
+    "40"
+   ],
+   "ta": [
+    "யோனா மீனின் வயிற்றில் எத்தனை நாள் இருந்தான்?",
+    "3",
+    "7",
+    "40"
+   ]
+  },
+  {
+   "id": "mary",
+   "ref": [
+    "LUK",
+    1,
+    31
+   ],
+   "en": [
+    "Who was Jesus' mother?",
+    "Mary",
+    "Martha",
+    "Sarah"
+   ],
+   "ta": [
+    "இயேசுவின் தாய் யார்?",
+    "மரியாள்",
+    "மார்த்தாள்",
+    "சாராள்"
+   ]
+  },
+  {
+   "id": "bethlehem",
+   "ref": [
+    "MAT",
+    2,
+    1
+   ],
+   "art": "star",
+   "en": [
+    "In which town was Jesus born?",
+    "Bethlehem",
+    "Nazareth",
+    "Rome"
+   ],
+   "ta": [
+    "இயேசு எந்த ஊரில் பிறந்தார்?",
+    "பெத்லகேம்",
+    "நாசரேத்",
+    "ரோமாபுரி"
+   ]
+  },
+  {
+   "id": "manger",
+   "ref": [
+    "LUK",
+    2,
+    7
+   ],
+   "en": [
+    "Where was baby Jesus laid?",
+    "In a manger",
+    "In a boat",
+    "In a basket"
+   ],
+   "ta": [
+    "குழந்தை இயேசு எங்கே கிடத்தப்பட்டார்?",
+    "முன்னணையில்",
+    "படகில்",
+    "கூடையில்"
+   ]
+  },
+  {
+   "id": "star",
+   "ref": [
+    "MAT",
+    2,
+    2
+   ],
+   "art": "star",
+   "en": [
+    "What did the wise men follow to find Jesus?",
+    "A star",
+    "A cloud",
+    "A bird"
+   ],
+   "ta": [
+    "இயேசுவைக் கண்டுபிடிக்கச் சாஸ்திரிகள் எதைப் பின்தொடர்ந்தார்கள்?",
+    "ஒரு நட்சத்திரம்",
+    "ஒரு மேகம்",
+    "ஒரு பறவை"
+   ]
+  },
+  {
+   "id": "baptism",
+   "ref": [
+    "MAT",
+    3,
+    13
+   ],
+   "art": "river",
+   "en": [
+    "Who baptised Jesus in the river Jordan?",
+    "John the Baptist",
+    "Peter",
+    "Paul"
+   ],
+   "ta": [
+    "யோர்தான் நதியில் இயேசுவுக்கு ஞானஸ்நானம் கொடுத்தவர் யார்?",
+    "யோவான் ஸ்நானகன்",
+    "பேதுரு",
+    "பவுல்"
+   ]
+  },
+  {
+   "id": "spiritdove",
+   "ref": [
+    "MAT",
+    3,
+    16
+   ],
+   "art": "dove",
+   "en": [
+    "When Jesus was baptised, the Holy Spirit came down like a …?",
+    "Dove",
+    "Lion",
+    "Eagle"
+   ],
+   "ta": [
+    "இயேசு ஞானஸ்நானம் பெற்றபோது பரிசுத்த ஆவியானவர் எதைப்போல இறங்கினார்?",
+    "புறா",
+    "சிங்கம்",
+    "கழுகு"
+   ]
+  },
+  {
+   "id": "fisherman",
+   "ref": [
+    "MAT",
+    4,
+    18
+   ],
+   "art": "boat",
+   "en": [
+    "What was Peter's work before he followed Jesus?",
+    "Fisherman",
+    "Farmer",
+    "King"
+   ],
+   "ta": [
+    "இயேசுவைப் பின்பற்றும் முன் பேதுருவின் வேலை என்ன?",
+    "மீன் பிடிப்பவர்",
+    "விவசாயி",
+    "ராஜா"
+   ]
+  },
+  {
+   "id": "twelve",
+   "ref": [
+    "LUK",
+    6,
+    13
+   ],
+   "en": [
+    "How many disciples did Jesus choose?",
+    "12",
+    "7",
+    "3"
+   ],
+   "ta": [
+    "இயேசு எத்தனை சீஷர்களைத் தெரிந்துகொண்டார்?",
+    "12",
+    "7",
+    "3"
+   ]
+  },
+  {
+   "id": "wine",
+   "ref": [
+    "JHN",
+    2,
+    9
+   ],
+   "art": "cup",
+   "en": [
+    "At a wedding, Jesus turned water into …?",
+    "Wine",
+    "Milk",
+    "Honey"
+   ],
+   "ta": [
+    "ஒரு கலியாணத்தில் இயேசு தண்ணீரை எதுவாக மாற்றினார்?",
+    "திராட்சரசம்",
+    "பால்",
+    "தேன்"
+   ]
+  },
+  {
+   "id": "loaves",
+   "ref": [
+    "JHN",
+    6,
+    9
+   ],
+   "art": "loaves",
+   "en": [
+    "How many loaves did the boy give to Jesus?",
+    "5",
+    "2",
+    "10"
+   ],
+   "ta": [
+    "அந்தச் சிறுவன் இயேசுவிடம் எத்தனை அப்பங்களைக் கொடுத்தான்?",
+    "5",
+    "2",
+    "10"
+   ]
+  },
+  {
+   "id": "twofish",
+   "ref": [
+    "JHN",
+    6,
+    9
+   ],
+   "art": "loaves",
+   "en": [
+    "How many fish did the boy give to Jesus?",
+    "2",
+    "5",
+    "7"
+   ],
+   "ta": [
+    "அந்தச் சிறுவன் இயேசுவிடம் எத்தனை மீன்களைக் கொடுத்தான்?",
+    "2",
+    "5",
+    "7"
+   ]
+  },
+  {
+   "id": "water",
+   "ref": [
+    "MAT",
+    14,
+    25
+   ],
+   "art": "boat",
+   "en": [
+    "Jesus walked on the …?",
+    "Water",
+    "Clouds",
+    "Fire"
+   ],
+   "ta": [
+    "இயேசு எதன்மேல் நடந்தார்?",
+    "தண்ணீர்",
+    "மேகங்கள்",
+    "நெருப்பு"
+   ]
+  },
+  {
+   "id": "lostsheep",
+   "ref": [
+    "LUK",
+    15,
+    4
+   ],
+   "art": "sheep",
+   "en": [
+    "In Jesus' story, how many sheep did the shepherd have?",
+    "100",
+    "10",
+    "1000"
+   ],
+   "ta": [
+    "இயேசு சொன்ன கதையில் மேய்ப்பனுக்கு எத்தனை ஆடுகள் இருந்தன?",
+    "100",
+    "10",
+    "1000"
+   ]
+  },
+  {
+   "id": "children",
+   "ref": [
+    "MRK",
+    10,
+    14
+   ],
+   "en": [
+    "Jesus said, \"Let the little … come to me.\"",
+    "Children",
+    "Kings",
+    "Soldiers"
+   ],
+   "ta": [
+    "\"சிறு … என்னிடத்தில் வரட்டும்\" என்று இயேசு சொன்னார்.",
+    "பிள்ளைகள்",
+    "ராஜாக்கள்",
+    "போர்வீரர்கள்"
+   ]
+  },
+  {
+   "id": "zacchaeus",
+   "ref": [
+    "LUK",
+    19,
+    4
+   ],
+   "art": "tree",
+   "en": [
+    "Who climbed a tree to see Jesus?",
+    "Zacchaeus",
+    "Peter",
+    "Paul"
+   ],
+   "ta": [
+    "இயேசுவைப் பார்க்க மரத்தில் ஏறியவர் யார்?",
+    "சகேயு",
+    "பேதுரு",
+    "பவுல்"
+   ]
+  },
+  {
+   "id": "lazarus",
+   "ref": [
+    "JHN",
+    11,
+    43
+   ],
+   "en": [
+    "Which friend did Jesus bring back to life?",
+    "Lazarus",
+    "Peter",
+    "Thomas"
+   ],
+   "ta": [
+    "இயேசு மரித்தோரிலிருந்து எழுப்பிய நண்பர் யார்?",
+    "லாசரு",
+    "பேதுரு",
+    "தோமா"
+   ]
+  },
+  {
+   "id": "donkey",
+   "ref": [
+    "MAT",
+    21,
+    7
+   ],
+   "art": "donkey",
+   "en": [
+    "Which animal did Jesus ride into Jerusalem?",
+    "A donkey",
+    "A horse",
+    "A camel"
+   ],
+   "ta": [
+    "எருசலேமுக்குள் இயேசு எந்த மிருகத்தின்மேல் ஏறி வந்தார்?",
+    "கழுதை",
+    "குதிரை",
+    "ஒட்டகம்"
+   ]
+  },
+  {
+   "id": "thirdday",
+   "ref": [
+    "LUK",
+    24,
+    7
+   ],
+   "en": [
+    "On which day did Jesus rise from the dead?",
+    "The third day",
+    "The tenth day",
+    "The fortieth day"
+   ],
+   "ta": [
+    "இயேசு எத்தனையாம் நாளில் உயிர்த்தெழுந்தார்?",
+    "மூன்றாம் நாள்",
+    "பத்தாம் நாள்",
+    "நாற்பதாம் நாள்"
+   ]
+  },
+  {
+   "id": "ascension",
+   "ref": [
+    "ACT",
+    1,
+    9
+   ],
+   "en": [
+    "Where did Jesus go when he was taken up in a cloud?",
+    "Up to heaven",
+    "To Egypt",
+    "Into the sea"
+   ],
+   "ta": [
+    "மேகத்தில் எடுத்துக்கொள்ளப்பட்டபோது இயேசு எங்கே போனார்?",
+    "பரலோகத்துக்கு",
+    "எகிப்துக்கு",
+    "கடலுக்குள்"
+   ]
+  },
+  {
+   "id": "loveworld",
+   "ref": [
+    "JHN",
+    3,
+    16
+   ],
+   "en": [
+    "\"For God so loved the …\"",
+    "World",
+    "Sky",
+    "Sea"
+   ],
+   "ta": [
+    "\"தேவன் இவ்வளவாய் … அன்புகூர்ந்தார்\"",
+    "உலகத்தில்",
+    "வானத்தில்",
+    "கடலில்"
+   ]
+  },
+  {
+   "id": "cain",
+   "ref": [
+    "GEN",
+    4,
+    1
+   ],
+   "en": [
+    "Who was the first son of Adam and Eve?",
+    "Cain",
+    "Abel",
+    "Seth"
+   ],
+   "ta": [
+    "ஆதாம் ஏவாளின் முதல் மகன் யார்?",
+    "காயீன்",
+    "ஆபேல்",
+    "சேத்"
+   ]
+  },
+  {
+   "id": "serpent",
+   "ref": [
+    "GEN",
+    3,
+    1
+   ],
+   "art": "tree",
+   "en": [
+    "Which animal tricked Eve in the garden?",
+    "The serpent",
+    "The lion",
+    "The donkey"
+   ],
+   "ta": [
+    "தோட்டத்தில் ஏவாளை வஞ்சித்த ஜீவன் எது?",
+    "சர்ப்பம்",
+    "சிங்கம்",
+    "கழுதை"
+   ]
+  },
+  {
+   "id": "rest",
+   "ref": [
+    "GEN",
+    2,
+    2
+   ],
+   "en": [
+    "On which day did God rest?",
+    "The seventh day",
+    "The first day",
+    "The third day"
+   ],
+   "ta": [
+    "தேவன் எந்த நாளில் ஓய்ந்திருந்தார்?",
+    "ஏழாம் நாள்",
+    "முதலாம் நாள்",
+    "மூன்றாம் நாள்"
+   ]
+  },
+  {
+   "id": "fortydays",
+   "ref": [
+    "GEN",
+    7,
+    12
+   ],
+   "art": "ark",
+   "en": [
+    "How many days and nights did it rain in the flood?",
+    "40",
+    "7",
+    "100"
+   ],
+   "ta": [
+    "ஜலப்பிரளயத்தில் எத்தனை இரவும் பகலும் மழை பெய்தது?",
+    "40",
+    "7",
+    "100"
+   ]
+  },
+  {
+   "id": "abrastars",
+   "ref": [
+    "GEN",
+    15,
+    5
+   ],
+   "art": "stars",
+   "en": [
+    "God told Abraham his family would be as many as the …?",
+    "Stars",
+    "Trees",
+    "Rivers"
+   ],
+   "ta": [
+    "ஆபிரகாமின் சந்ததி எவைகளைப்போல் இருக்கும் என்று தேவன் சொன்னார்?",
+    "நட்சத்திரங்கள்",
+    "மரங்கள்",
+    "ஆறுகள்"
+   ]
+  },
+  {
+   "id": "sarah",
+   "ref": [
+    "GEN",
+    21,
+    2
+   ],
+   "en": [
+    "Abraham's wife had a baby when she was very old. What was her name?",
+    "Sarah",
+    "Ruth",
+    "Eve"
+   ],
+   "ta": [
+    "முதிர்வயதில் பிள்ளை பெற்ற ஆபிரகாமின் மனைவியின் பெயர் என்ன?",
+    "சாராள்",
+    "ரூத்",
+    "ஏவாள்"
+   ]
+  },
+  {
+   "id": "rebekah",
+   "ref": [
+    "GEN",
+    24,
+    19
+   ],
+   "art": "camel",
+   "en": [
+    "Rebekah gave water to Abraham's servant and to all his …?",
+    "Camels",
+    "Horses",
+    "Sheep"
+   ],
+   "ta": [
+    "ரெபெக்காள் ஆபிரகாமின் வேலைக்காரனுக்கும் அவனுடைய எல்லா … தண்ணீர் கொடுத்தாள்.",
+    "ஒட்டகங்களுக்கும்",
+    "குதிரைகளுக்கும்",
+    "ஆடுகளுக்கும்"
+   ]
+  },
+  {
+   "id": "esau",
+   "ref": [
+    "GEN",
+    25,
+    25
+   ],
+   "en": [
+    "Who was Jacob's twin brother?",
+    "Esau",
+    "Joseph",
+    "Isaac"
+   ],
+   "ta": [
+    "யாக்கோபின் இரட்டைச் சகோதரன் யார்?",
+    "ஏசா",
+    "யோசேப்பு",
+    "ஈசாக்கு"
+   ]
+  },
+  {
+   "id": "twelvesons",
+   "ref": [
+    "GEN",
+    35,
+    22
+   ],
+   "en": [
+    "How many sons did Jacob have?",
+    "12",
+    "3",
+    "7"
+   ],
+   "ta": [
+    "யாக்கோபுக்கு எத்தனை குமாரர் இருந்தார்கள்?",
+    "12",
+    "3",
+    "7"
+   ]
+  },
+  {
+   "id": "josephegypt",
+   "ref": [
+    "GEN",
+    37,
+    28
+   ],
+   "art": "camel",
+   "en": [
+    "Joseph's brothers sold him. Where was he taken?",
+    "Egypt",
+    "Babylon",
+    "Rome"
+   ],
+   "ta": [
+    "யோசேப்பின் சகோதரர் அவனை விற்றுப்போட்டார்கள். அவன் எங்கே கொண்டுபோகப்பட்டான்?",
+    "எகிப்து",
+    "பாபிலோன்",
+    "ரோமாபுரி"
+   ]
+  },
+  {
+   "id": "basket",
+   "ref": [
+    "EXO",
+    2,
+    3
+   ],
+   "art": "river",
+   "en": [
+    "Baby Moses was hidden in a basket by the …?",
+    "River",
+    "Mountain",
+    "Well"
+   ],
+   "ta": [
+    "குழந்தை மோசே ஒரு நாணற்பெட்டியில் எதன் ஓரத்தில் வைக்கப்பட்டான்?",
+    "நதி",
+    "மலை",
+    "கிணறு"
+   ]
+  },
+  {
+   "id": "pharaohdaughter",
+   "ref": [
+    "EXO",
+    2,
+    5
+   ],
+   "en": [
+    "Who found baby Moses in the river?",
+    "Pharaoh's daughter",
+    "A fisherman",
+    "A soldier"
+   ],
+   "ta": [
+    "நதியில் குழந்தை மோசேயைக் கண்டவள் யார்?",
+    "பார்வோனின் குமாரத்தி",
+    "ஒரு மீனவன்",
+    "ஒரு போர்வீரன்"
+   ]
+  },
+  {
+   "id": "aaron",
+   "ref": [
+    "EXO",
+    4,
+    14
+   ],
+   "en": [
+    "Who was Moses' brother?",
+    "Aaron",
+    "Joshua",
+    "Caleb"
+   ],
+   "ta": [
+    "மோசேயின் சகோதரன் யார்?",
+    "ஆரோன்",
+    "யோசுவா",
+    "காலேப்"
+   ]
+  },
+  {
+   "id": "frogs",
+   "ref": [
+    "EXO",
+    8,
+    6
+   ],
+   "en": [
+    "God sent frogs, flies and other plagues on which land?",
+    "Egypt",
+    "Canaan",
+    "Babylon"
+   ],
+   "ta": [
+    "தவளைகள், ஈக்கள் போன்ற வாதைகளைத் தேவன் எந்த தேசத்தின்மேல் வரப்பண்ணினார்?",
+    "எகிப்து",
+    "கானான்",
+    "பாபிலோன்"
+   ]
+  },
+  {
+   "id": "cloud",
+   "ref": [
+    "EXO",
+    13,
+    21
+   ],
+   "en": [
+    "By day, God led his people with a pillar of …?",
+    "Cloud",
+    "Gold",
+    "Stone"
+   ],
+   "ta": [
+    "பகலில் தேவன் எந்தத் தூணால் தம் மக்களை வழிநடத்தினார்?",
+    "மேகஸ்தம்பம்",
+    "பொன் தூண்",
+    "கல் தூண்"
+   ]
+  },
+  {
+   "id": "rock",
+   "ref": [
+    "EXO",
+    17,
+    6
+   ],
+   "art": "stones",
+   "en": [
+    "Moses hit a rock, and out came …?",
+    "Water",
+    "Fire",
+    "Bread"
+   ],
+   "ta": [
+    "மோசே கன்மலையை அடித்தபோது அதிலிருந்து என்ன வந்தது?",
+    "தண்ணீர்",
+    "அக்கினி",
+    "அப்பம்"
+   ]
+  },
+  {
+   "id": "sinai",
+   "ref": [
+    "EXO",
+    19,
+    20
+   ],
+   "art": "stones",
+   "en": [
+    "On which mountain did God give the Ten Commandments?",
+    "Mount Sinai",
+    "Mount Zion",
+    "Mount Carmel"
+   ],
+   "ta": [
+    "தேவன் பத்துக் கற்பனைகளை எந்த மலையில் கொடுத்தார்?",
+    "சீனாய் மலை",
+    "சீயோன் மலை",
+    "கர்மேல் மலை"
+   ]
+  },
+  {
+   "id": "calf",
+   "ref": [
+    "EXO",
+    32,
+    4
+   ],
+   "en": [
+    "While Moses was on the mountain, the people made a gold …?",
+    "Calf",
+    "Crown",
+    "Boat"
+   ],
+   "ta": [
+    "மோசே மலையில் இருந்தபோது மக்கள் பொன்னால் எதை உண்டாக்கினார்கள்?",
+    "கன்றுக்குட்டி",
+    "கிரீடம்",
+    "படகு"
+   ]
+  },
+  {
+   "id": "balaam",
+   "ref": [
+    "NUM",
+    22,
+    28
+   ],
+   "art": "donkey",
+   "en": [
+    "Whose donkey talked?",
+    "Balaam's",
+    "Abraham's",
+    "David's"
+   ],
+   "ta": [
+    "யாருடைய கழுதை பேசியது?",
+    "பிலேயாமுடையது",
+    "ஆபிரகாமுடையது",
+    "தாவீதுடையது"
+   ]
+  },
+  {
+   "id": "joshua",
+   "ref": [
+    "JOS",
+    1,
+    2
+   ],
+   "en": [
+    "Who led God's people into the promised land after Moses?",
+    "Joshua",
+    "Aaron",
+    "Samson"
+   ],
+   "ta": [
+    "மோசேக்குப் பின் வாக்குத்தத்த தேசத்துக்குள் மக்களை நடத்தியவர் யார்?",
+    "யோசுவா",
+    "ஆரோன்",
+    "சிம்சோன்"
+   ]
+  },
+  {
+   "id": "sevendays",
+   "ref": [
+    "JOS",
+    6,
+    15
+   ],
+   "en": [
+    "For how many days did the people march around Jericho?",
+    "7",
+    "3",
+    "40"
+   ],
+   "ta": [
+    "மக்கள் எரிகோவை எத்தனை நாள் சுற்றி வந்தார்கள்?",
+    "7",
+    "3",
+    "40"
+   ]
+  },
+  {
+   "id": "gideon",
+   "ref": [
+    "JDG",
+    6,
+    37
+   ],
+   "en": [
+    "Gideon asked God for a sign with a piece of …?",
+    "Wool",
+    "Stone",
+    "Wood"
+   ],
+   "ta": [
+    "கிதியோன் எதைக் களத்திலே போட்டுத் தேவனிடம் அடையாளம் கேட்டான்?",
+    "மயிருள்ள தோல்",
+    "கல்",
+    "மரக்கட்டை"
+   ]
+  },
+  {
+   "id": "samsonlion",
+   "ref": [
+    "JDG",
+    14,
+    6
+   ],
+   "art": "lion",
+   "en": [
+    "Samson tore apart a young … with his bare hands.",
+    "Lion",
+    "Bear",
+    "Wolf"
+   ],
+   "ta": [
+    "சிம்சோன் வெறுங்கையால் எதைக் கிழித்துப்போட்டான்?",
+    "பாலசிங்கம்",
+    "கரடி",
+    "ஓநாய்"
+   ]
+  },
+  {
+   "id": "hannah",
+   "ref": [
+    "1SA",
+    1,
+    20
+   ],
+   "en": [
+    "Who prayed for a baby and had Samuel?",
+    "Hannah",
+    "Ruth",
+    "Esther"
+   ],
+   "ta": [
+    "பிள்ளைக்காக ஜெபித்துச் சாமுவேலைப் பெற்றவள் யார்?",
+    "அன்னாள்",
+    "ரூத்",
+    "எஸ்தர்"
+   ]
+  },
+  {
+   "id": "speak",
+   "ref": [
+    "1SA",
+    3,
+    10
+   ],
+   "art": "lamp",
+   "en": [
+    "Samuel said, \"Speak, for your … hears.\"",
+    "Servant",
+    "Friend",
+    "King"
+   ],
+   "ta": [
+    "சாமுவேல்: \"சொல்லும்; … கேட்கிறேன்\" என்றான்.",
+    "அடியேன்",
+    "நண்பன்",
+    "ராஜா"
+   ]
+  },
+  {
+   "id": "saul",
+   "ref": [
+    "1SA",
+    10,
+    1
+   ],
+   "art": "crown",
+   "en": [
+    "Who was the first king of Israel?",
+    "Saul",
+    "David",
+    "Solomon"
+   ],
+   "ta": [
+    "இஸ்ரவேலின் முதல் ராஜா யார்?",
+    "சவுல்",
+    "தாவீது",
+    "சாலொமோன்"
+   ]
+  },
+  {
+   "id": "harp",
+   "ref": [
+    "1SA",
+    16,
+    23
+   ],
+   "art": "harp",
+   "en": [
+    "What did David play to help King Saul feel better?",
+    "A harp",
+    "A drum",
+    "A trumpet"
+   ],
+   "ta": [
+    "சவுல் ராஜாவுக்கு ஆறுதலாகத் தாவீது எதை வாசித்தான்?",
+    "சுரமண்டலம்",
+    "மேளம்",
+    "எக்காளம்"
+   ]
+  },
+  {
+   "id": "jonathan",
+   "ref": [
+    "1SA",
+    18,
+    1
+   ],
+   "en": [
+    "Who was David's best friend?",
+    "Jonathan",
+    "Goliath",
+    "Absalom"
+   ],
+   "ta": [
+    "தாவீதின் உயிர்த்தோழன் யார்?",
+    "யோனத்தான்",
+    "கோலியாத்",
+    "அப்சலோம்"
+   ]
+  },
+  {
+   "id": "temple",
+   "ref": [
+    "1KI",
+    6,
+    14
+   ],
+   "en": [
+    "Who built God's temple in Jerusalem?",
+    "Solomon",
+    "Moses",
+    "Jonah"
+   ],
+   "ta": [
+    "எருசலேமில் தேவனுக்கு ஆலயத்தைக் கட்டியவர் யார்?",
+    "சாலொமோன்",
+    "மோசே",
+    "யோனா"
+   ]
+  },
+  {
+   "id": "carmel",
+   "ref": [
+    "1KI",
+    18,
+    38
+   ],
+   "art": "altar",
+   "en": [
+    "When Elijah prayed on Mount Carmel, God sent … from heaven.",
+    "Fire",
+    "Snow",
+    "Fish"
+   ],
+   "ta": [
+    "கர்மேல் மலையில் எலியா ஜெபித்தபோது தேவன் வானத்திலிருந்து எதை இறங்கப்பண்ணினார்?",
+    "அக்கினி",
+    "பனி",
+    "மீன்கள்"
+   ]
+  },
+  {
+   "id": "whirlwind",
+   "ref": [
+    "2KI",
+    2,
+    11
+   ],
+   "en": [
+    "How did Elijah go up to heaven?",
+    "In a whirlwind",
+    "In a boat",
+    "Up a ladder"
+   ],
+   "ta": [
+    "எலியா எப்படிப் பரலோகத்துக்கு ஏறிப்போனான்?",
+    "சுழல்காற்றில்",
+    "படகில்",
+    "ஏணியில்"
+   ]
+  },
+  {
+   "id": "naaman",
+   "ref": [
+    "2KI",
+    5,
+    14
+   ],
+   "art": "river",
+   "en": [
+    "How many times did Naaman dip in the river Jordan?",
+    "7",
+    "3",
+    "10"
+   ],
+   "ta": [
+    "நாகமான் யோர்தானில் எத்தனை தரம் முழுகினான்?",
+    "7",
+    "3",
+    "10"
+   ]
+  },
+  {
+   "id": "nehemiah",
+   "ref": [
+    "NEH",
+    2,
+    17
+   ],
+   "en": [
+    "Who helped build the walls of Jerusalem again?",
+    "Nehemiah",
+    "Jonah",
+    "Samson"
+   ],
+   "ta": [
+    "எருசலேமின் அலங்கத்தைத் திரும்பக் கட்ட உதவியவர் யார்?",
+    "நெகேமியா",
+    "யோனா",
+    "சிம்சோன்"
+   ]
+  },
+  {
+   "id": "lampfeet",
+   "ref": [
+    "PSA",
+    119,
+    105
+   ],
+   "art": "lamp",
+   "en": [
+    "\"Your word is a … to my feet.\"",
+    "Lamp",
+    "Shoe",
+    "Rock"
+   ],
+   "ta": [
+    "\"உம்முடைய வசனம் என் கால்களுக்குத் …\"",
+    "தீபம்",
+    "பாதரட்சை",
+    "கன்மலை"
+   ]
+  },
+  {
+   "id": "furnace",
+   "ref": [
+    "DAN",
+    3,
+    20
+   ],
+   "en": [
+    "Shadrach, Meshach and Abednego were thrown into a hot …?",
+    "Furnace",
+    "River",
+    "Pit"
+   ],
+   "ta": [
+    "சாத்ராக், மேஷாக், ஆபேத்நேகோ எதில் போடப்பட்டார்கள்?",
+    "அக்கினிச்சூளையில்",
+    "நதியில்",
+    "குழியில்"
+   ]
+  },
+  {
+   "id": "gabriel",
+   "ref": [
+    "LUK",
+    1,
+    26
+   ],
+   "en": [
+    "Which angel told Mary she would have a baby?",
+    "Gabriel",
+    "Michael",
+    "Elijah"
+   ],
+   "ta": [
+    "மரியாளுக்குக் குழந்தை பிறக்கும் என்று சொன்ன தூதன் யார்?",
+    "காபிரியேல்",
+    "மிகாவேல்",
+    "எலியா"
+   ]
+  },
+  {
+   "id": "shepherds",
+   "ref": [
+    "LUK",
+    2,
+    8
+   ],
+   "art": "sheep",
+   "en": [
+    "Who did the angels tell first about baby Jesus?",
+    "Shepherds",
+    "Kings",
+    "Fishermen"
+   ],
+   "ta": [
+    "குழந்தை இயேசுவைப் பற்றித் தூதர்கள் முதலில் யாருக்கு அறிவித்தார்கள்?",
+    "மேய்ப்பர்கள்",
+    "ராஜாக்கள்",
+    "மீனவர்கள்"
+   ]
+  },
+  {
+   "id": "gifts",
+   "ref": [
+    "MAT",
+    2,
+    11
+   ],
+   "art": "star",
+   "en": [
+    "What gifts did the wise men bring to Jesus?",
+    "Gold, frankincense and myrrh",
+    "Bread, fish and water",
+    "Toys, clothes and shoes"
+   ],
+   "ta": [
+    "சாஸ்திரிகள் இயேசுவுக்கு என்ன காணிக்கைகளைக் கொண்டுவந்தார்கள்?",
+    "பொன், தூபவர்க்கம், வெள்ளைப்போளம்",
+    "அப்பம், மீன், தண்ணீர்",
+    "பொம்மைகள், உடைகள், செருப்புகள்"
+   ]
+  },
+  {
+   "id": "nazareth",
+   "ref": [
+    "LUK",
+    2,
+    51
+   ],
+   "en": [
+    "In which town did Jesus grow up?",
+    "Nazareth",
+    "Jericho",
+    "Rome"
+   ],
+   "ta": [
+    "இயேசு எந்த ஊரில் வளர்ந்தார்?",
+    "நாசரேத்",
+    "எரிகோ",
+    "ரோமாபுரி"
+   ]
+  },
+  {
+   "id": "boyjesus",
+   "ref": [
+    "LUK",
+    2,
+    46
+   ],
+   "en": [
+    "When Jesus was 12, his parents found him in the …?",
+    "Temple",
+    "Market",
+    "Sea"
+   ],
+   "ta": [
+    "இயேசுவுக்குப் பன்னிரண்டு வயதானபோது அவருடைய பெற்றோர் அவரை எங்கே கண்டார்கள்?",
+    "தேவாலயத்தில்",
+    "சந்தையில்",
+    "கடலில்"
+   ]
+  },
+  {
+   "id": "storm",
+   "ref": [
+    "MRK",
+    4,
+    39
+   ],
+   "art": "boat",
+   "en": [
+    "Jesus said to the wind and the sea, \"Peace, be …\"",
+    "Still",
+    "Loud",
+    "Quick"
+   ],
+   "ta": [
+    "இயேசு காற்றையும் கடலையும் பார்த்து: \"இரையாதே, …\" என்றார்.",
+    "அமைதலாயிரு",
+    "சத்தமிடு",
+    "சீக்கிரம் ஓடு"
+   ]
+  },
+  {
+   "id": "bartimaeus",
+   "ref": [
+    "MRK",
+    10,
+    52
+   ],
+   "en": [
+    "What did Jesus do for blind Bartimaeus?",
+    "He made him see",
+    "He gave him money",
+    "He gave him a coat"
+   ],
+   "ta": [
+    "குருடனான பர்திமேயுவுக்கு இயேசு என்ன செய்தார்?",
+    "பார்வையடையச் செய்தார்",
+    "பணம் கொடுத்தார்",
+    "அங்கி கொடுத்தார்"
+   ]
+  },
+  {
+   "id": "samaritan",
+   "ref": [
+    "LUK",
+    10,
+    33
+   ],
+   "art": "donkey",
+   "en": [
+    "In Jesus' story, who stopped to help the hurt man?",
+    "The Samaritan",
+    "The priest",
+    "The robber"
+   ],
+   "ta": [
+    "இயேசு சொன்ன கதையில் காயப்பட்டவனுக்கு உதவி செய்தவன் யார்?",
+    "சமாரியன்",
+    "ஆசாரியன்",
+    "கள்ளன்"
+   ]
+  },
+  {
+   "id": "marylisten",
+   "ref": [
+    "LUK",
+    10,
+    39
+   ],
+   "en": [
+    "Mary sat at Jesus' feet to …?",
+    "Listen to him",
+    "Sleep",
+    "Eat"
+   ],
+   "ta": [
+    "மரியாள் இயேசுவின் பாதத்தருகே உட்கார்ந்து என்ன செய்தாள்?",
+    "அவருடைய வசனத்தைக் கேட்டாள்",
+    "தூங்கினாள்",
+    "சாப்பிட்டாள்"
+   ]
+  },
+  {
+   "id": "lostson",
+   "ref": [
+    "LUK",
+    15,
+    20
+   ],
+   "en": [
+    "When the lost son came home, what did his father do?",
+    "Ran and hugged him",
+    "Sent him away",
+    "Got angry"
+   ],
+   "ta": [
+    "காணாமற்போன மகன் வீடு திரும்பியபோது தகப்பன் என்ன செய்தான்?",
+    "ஓடி அவனைக் கட்டிக்கொண்டான்",
+    "அவனைத் துரத்திவிட்டான்",
+    "கோபப்பட்டான்"
+   ]
+  },
+  {
+   "id": "tenlepers",
+   "ref": [
+    "LUK",
+    17,
+    15
+   ],
+   "en": [
+    "Jesus healed 10 men. How many came back to say thank you?",
+    "1",
+    "5",
+    "10"
+   ],
+   "ta": [
+    "இயேசு பத்துப் பேரைச் சுகமாக்கினார். எத்தனை பேர் நன்றி சொல்லத் திரும்பி வந்தார்கள்?",
+    "1",
+    "5",
+    "10"
+   ]
+  },
+  {
+   "id": "thomas",
+   "ref": [
+    "JHN",
+    20,
+    25
+   ],
+   "en": [
+    "Which disciple wanted to see Jesus' hands before he believed?",
+    "Thomas",
+    "Peter",
+    "John"
+   ],
+   "ta": [
+    "இயேசுவின் கைகளைப் பார்த்தால்தான் விசுவாசிப்பேன் என்று சொன்ன சீஷன் யார்?",
+    "தோமா",
+    "பேதுரு",
+    "யோவான்"
+   ]
+  },
+  {
+   "id": "breakfast",
+   "ref": [
+    "JHN",
+    21,
+    9
+   ],
+   "art": "fish",
+   "en": [
+    "After he rose, Jesus made breakfast by the sea. What was it?",
+    "Fish and bread",
+    "Rice and curry",
+    "Eggs and milk"
+   ],
+   "ta": [
+    "உயிர்த்தெழுந்த பின் இயேசு கடற்கரையில் சீஷர்களுக்கு என்ன உணவு வைத்திருந்தார்?",
+    "மீனும் அப்பமும்",
+    "சோறும் கறியும்",
+    "முட்டையும் பாலும்"
+   ]
+  },
+  {
+   "id": "pentecost",
+   "ref": [
+    "ACT",
+    2,
+    3
+   ],
+   "en": [
+    "The Holy Spirit came on the disciples like tongues of …?",
+    "Fire",
+    "Water",
+    "Snow"
+   ],
+   "ta": [
+    "பரிசுத்த ஆவியானவர் சீஷர்கள்மேல் எதைப்போன்ற நாவுகளாக இறங்கினார்?",
+    "அக்கினி",
+    "தண்ணீர்",
+    "பனி"
+   ]
+  },
+  {
+   "id": "damascus",
+   "ref": [
+    "ACT",
+    9,
+    3
+   ],
+   "en": [
+    "Saul saw a bright light on the road to …?",
+    "Damascus",
+    "Bethlehem",
+    "Egypt"
+   ],
+   "ta": [
+    "சவுல் எந்த ஊருக்குப் போகும் வழியில் பெரிய வெளிச்சத்தைக் கண்டான்?",
+    "தமஸ்கு",
+    "பெத்லகேம்",
+    "எகிப்து"
+   ]
+  },
+  {
+   "id": "viper",
+   "ref": [
+    "ACT",
+    28,
+    5
+   ],
+   "en": [
+    "A snake bit Paul's hand. What happened to Paul?",
+    "He was not hurt",
+    "He was very sick",
+    "He fell asleep"
+   ],
+   "ta": [
+    "ஒரு விரியன்பாம்பு பவுலின் கையைக் கவ்விக்கொண்டது. பவுலுக்கு என்ன ஆனது?",
+    "ஒரு தீங்கும் வரவில்லை",
+    "மிகவும் நோயுற்றான்",
+    "தூங்கிவிட்டான்"
+   ]
+  }
+ ],
+ "yesno": [
+  {
+   "id": "made",
+   "ref": [
+    "GEN",
+    1,
+    1
+   ],
+   "answer": true,
+   "en": "God made the heavens and the earth.",
+   "ta": "தேவன் வானத்தையும் பூமியையும் உண்டாக்கினார்."
+  },
+  {
+   "id": "sunmoon",
+   "ref": [
+    "GEN",
+    1,
+    16
+   ],
+   "answer": true,
+   "en": "God made the sun and the moon.",
+   "ta": "தேவன் சூரியனையும் சந்திரனையும் உண்டாக்கினார்."
+  },
+  {
+   "id": "garden",
+   "ref": [
+    "GEN",
+    2,
+    8
+   ],
+   "answer": true,
+   "en": "Adam and Eve lived in a garden.",
+   "ta": "ஆதாமும் ஏவாளும் ஒரு தோட்டத்தில் வாழ்ந்தார்கள்."
+  },
+  {
+   "id": "twobytwo",
+   "ref": [
+    "GEN",
+    7,
+    9
+   ],
+   "answer": true,
+   "en": "The animals went into the ark two by two.",
+   "ta": "மிருகங்கள் ஜோடி ஜோடியாகப் பேழைக்குள் போயின."
+  },
+  {
+   "id": "mosesark",
+   "ref": [
+    "GEN",
+    6,
+    14
+   ],
+   "answer": false,
+   "en": "Moses built the ark.",
+   "ta": "மோசே பேழையைக் கட்டினார்.",
+   "why": {
+    "en": "Noah built the ark.",
+    "ta": "நோவாதான் பேழையைக் கட்டினார்."
+   }
+  },
+  {
+   "id": "doveleaf",
+   "ref": [
+    "GEN",
+    8,
+    11
+   ],
+   "answer": true,
+   "en": "A dove came back to Noah with an olive leaf.",
+   "ta": "ஒரு புறா ஒலிவ இலையோடு நோவாவிடம் திரும்பி வந்தது."
+  },
+  {
+   "id": "josephcoat",
+   "ref": [
+    "GEN",
+    37,
+    3
+   ],
+   "answer": true,
+   "en": "Joseph had a coat of many colours.",
+   "ta": "யோசேப்புக்குப் பலவருணமான அங்கி இருந்தது."
+  },
+  {
+   "id": "tencmd",
+   "ref": [
+    "EXO",
+    20,
+    1
+   ],
+   "answer": true,
+   "en": "God gave Moses the Ten Commandments.",
+   "ta": "தேவன் மோசேக்குப் பத்துக் கற்பனைகளைக் கொடுத்தார்."
+  },
+  {
+   "id": "jerichowall",
+   "ref": [
+    "JOS",
+    6,
+    20
+   ],
+   "answer": true,
+   "en": "The walls of Jericho fell down.",
+   "ta": "எரிகோவின் மதில்கள் விழுந்தன."
+  },
+  {
+   "id": "samsonshoes",
+   "ref": [
+    "JDG",
+    16,
+    17
+   ],
+   "answer": false,
+   "en": "Samson's strength was in his shoes.",
+   "ta": "சிம்சோனின் பலம் அவனுடைய செருப்புகளில் இருந்தது.",
+   "why": {
+    "en": "God made Samson strong; he had promised never to cut his hair.",
+    "ta": "தேவன் சிம்சோனைப் பலசாலியாக்கினார்; அவன் தலைமுடியைச் சிரைக்கக்கூடாது."
+   }
+  },
+  {
+   "id": "samuelcall",
+   "ref": [
+    "1SA",
+    3,
+    10
+   ],
+   "answer": true,
+   "en": "Samuel heard God call him at night.",
+   "ta": "சாமுவேல் இரவில் தேவன் தன்னைக் கூப்பிடுவதைக் கேட்டான்."
+  },
+  {
+   "id": "davidgiant",
+   "ref": [
+    "1SA",
+    17,
+    4
+   ],
+   "answer": false,
+   "en": "David was a giant.",
+   "ta": "தாவீது ஒரு இராட்சதன்.",
+   "why": {
+    "en": "Goliath was the giant. David was a young shepherd.",
+    "ta": "கோலியாத்துதான் இராட்சதன். தாவீது ஒரு இளம் மேய்ப்பன்."
+   }
+  },
+  {
+   "id": "goliathwon",
+   "ref": [
+    "1SA",
+    17,
+    50
+   ],
+   "answer": false,
+   "en": "Goliath won the fight with David.",
+   "ta": "தாவீதோடு நடந்த சண்டையில் கோலியாத் வென்றான்.",
+   "why": {
+    "en": "God helped David win.",
+    "ta": "தேவன் தாவீதுக்கு வெற்றி கொடுத்தார்."
+   }
+  },
+  {
+   "id": "elijahravens",
+   "ref": [
+    "1KI",
+    17,
+    6
+   ],
+   "answer": true,
+   "en": "Ravens brought food to Elijah.",
+   "ta": "காகங்கள் எலியாவுக்கு உணவு கொண்டுவந்தன."
+  },
+  {
+   "id": "daniellions",
+   "ref": [
+    "DAN",
+    6,
+    22
+   ],
+   "answer": false,
+   "en": "The lions hurt Daniel.",
+   "ta": "சிங்கங்கள் தானியேலைக் காயப்படுத்தின.",
+   "why": {
+    "en": "God sent his angel and shut the lions' mouths.",
+    "ta": "தேவன் தம் தூதனை அனுப்பிச் சிங்கங்களின் வாயைக் கட்டினார்."
+   }
+  },
+  {
+   "id": "jonahfish",
+   "ref": [
+    "JON",
+    1,
+    17
+   ],
+   "answer": true,
+   "en": "A big fish swallowed Jonah.",
+   "ta": "ஒரு பெரிய மீன் யோனாவை விழுங்கியது."
+  },
+  {
+   "id": "jonahran",
+   "ref": [
+    "JON",
+    1,
+    3
+   ],
+   "answer": false,
+   "en": "Jonah went to Nineveh as soon as God told him.",
+   "ta": "தேவன் சொன்னவுடனே யோனா நினிவேக்குப் போனான்.",
+   "why": {
+    "en": "At first Jonah ran away on a ship.",
+    "ta": "முதலில் யோனா ஒரு கப்பலில் ஏறி ஓடிப்போனான்."
+   }
+  },
+  {
+   "id": "bornbethlehem",
+   "ref": [
+    "MAT",
+    2,
+    1
+   ],
+   "answer": true,
+   "en": "Jesus was born in Bethlehem.",
+   "ta": "இயேசு பெத்லகேமில் பிறந்தார்."
+  },
+  {
+   "id": "manger",
+   "ref": [
+    "LUK",
+    2,
+    7
+   ],
+   "answer": true,
+   "en": "Baby Jesus was laid in a manger.",
+   "ta": "குழந்தை இயேசு முன்னணையில் கிடத்தப்பட்டார்."
+  },
+  {
+   "id": "rainbowmen",
+   "ref": [
+    "MAT",
+    2,
+    2
+   ],
+   "answer": false,
+   "en": "The wise men followed a rainbow to find Jesus.",
+   "ta": "சாஸ்திரிகள் ஒரு வானவில்லைப் பின்தொடர்ந்து இயேசுவைக் கண்டார்கள்.",
+   "why": {
+    "en": "They followed a star.",
+    "ta": "அவர்கள் ஒரு நட்சத்திரத்தைப் பின்தொடர்ந்தார்கள்."
+   }
+  },
+  {
+   "id": "son",
+   "ref": [
+    "MAT",
+    3,
+    17
+   ],
+   "answer": true,
+   "en": "Jesus is God's Son.",
+   "ta": "இயேசு தேவனுடைய குமாரன்."
+  },
+  {
+   "id": "peterfish",
+   "ref": [
+    "MAT",
+    4,
+    18
+   ],
+   "answer": true,
+   "en": "Peter was a fisherman.",
+   "ta": "பேதுரு மீன் பிடிப்பவர்."
+  },
+  {
+   "id": "twelve",
+   "ref": [
+    "LUK",
+    6,
+    13
+   ],
+   "answer": true,
+   "en": "Jesus chose 12 disciples.",
+   "ta": "இயேசு 12 சீஷர்களைத் தெரிந்துகொண்டார்."
+  },
+  {
+   "id": "milk",
+   "ref": [
+    "JHN",
+    2,
+    9
+   ],
+   "answer": false,
+   "en": "Jesus turned water into milk.",
+   "ta": "இயேசு தண்ணீரைப் பாலாக மாற்றினார்.",
+   "why": {
+    "en": "He turned water into wine.",
+    "ta": "அவர் தண்ணீரைத் திராட்சரசமாக மாற்றினார்."
+   }
+  },
+  {
+   "id": "fed",
+   "ref": [
+    "JHN",
+    6,
+    11
+   ],
+   "answer": true,
+   "en": "Jesus fed many people with 5 loaves and 2 fish.",
+   "ta": "இயேசு 5 அப்பங்களாலும் 2 மீன்களாலும் அநேகருக்கு உணவளித்தார்."
+  },
+  {
+   "id": "walkwater",
+   "ref": [
+    "MAT",
+    14,
+    25
+   ],
+   "answer": true,
+   "en": "Jesus walked on the water.",
+   "ta": "இயேசு தண்ணீரின்மேல் நடந்தார்."
+  },
+  {
+   "id": "kids",
+   "ref": [
+    "MRK",
+    10,
+    16
+   ],
+   "answer": true,
+   "en": "Jesus loves children.",
+   "ta": "இயேசு பிள்ளைகளை நேசிக்கிறார்."
+  },
+  {
+   "id": "zactree",
+   "ref": [
+    "LUK",
+    19,
+    4
+   ],
+   "answer": true,
+   "en": "Zacchaeus climbed a tree to see Jesus.",
+   "ta": "இயேசுவைப் பார்க்கச் சகேயு ஒரு மரத்தில் ஏறினான்."
+  },
+  {
+   "id": "stayeddead",
+   "ref": [
+    "LUK",
+    24,
+    6
+   ],
+   "answer": false,
+   "en": "Jesus stayed in the tomb forever.",
+   "ta": "இயேசு என்றென்றும் கல்லறையிலேயே இருந்தார்.",
+   "why": {
+    "en": "Jesus rose again on the third day!",
+    "ta": "இயேசு மூன்றாம் நாளில் உயிர்த்தெழுந்தார்!"
+   }
+  },
+  {
+   "id": "loves",
+   "ref": [
+    "JHN",
+    3,
+    16
+   ],
+   "answer": true,
+   "en": "God loves the whole world.",
+   "ta": "தேவன் முழு உலகத்திலும் அன்புகூருகிறார்."
+  },
+  {
+   "id": "rested",
+   "ref": [
+    "GEN",
+    2,
+    2
+   ],
+   "answer": true,
+   "en": "God rested on the seventh day.",
+   "ta": "தேவன் ஏழாம் நாளில் ஓய்ந்திருந்தார்."
+  },
+  {
+   "id": "rain40",
+   "ref": [
+    "GEN",
+    7,
+    12
+   ],
+   "answer": true,
+   "en": "It rained for 40 days and 40 nights.",
+   "ta": "நாற்பது நாள் இரவும் பகலும் மழை பெய்தது."
+  },
+  {
+   "id": "sarahbaby",
+   "ref": [
+    "GEN",
+    21,
+    2
+   ],
+   "answer": true,
+   "en": "Sarah had a baby when she was very old.",
+   "ta": "சாராள் முதிர்வயதில் ஒரு குழந்தையைப் பெற்றாள்."
+  },
+  {
+   "id": "twins",
+   "ref": [
+    "GEN",
+    25,
+    24
+   ],
+   "answer": true,
+   "en": "Jacob and Esau were twins.",
+   "ta": "யாக்கோபும் ஏசாவும் இரட்டைப் பிள்ளைகள்."
+  },
+  {
+   "id": "brotherskind",
+   "ref": [
+    "GEN",
+    37,
+    28
+   ],
+   "answer": false,
+   "en": "Joseph's brothers were always kind to him.",
+   "ta": "யோசேப்பின் சகோதரர் எப்போதும் அவனிடம் அன்பாக இருந்தார்கள்.",
+   "why": {
+    "en": "They were jealous and sold him.",
+    "ta": "அவர்கள் பொறாமைகொண்டு அவனை விற்றுப்போட்டார்கள்."
+   }
+  },
+  {
+   "id": "forgave",
+   "ref": [
+    "GEN",
+    45,
+    15
+   ],
+   "answer": true,
+   "en": "Joseph forgave his brothers.",
+   "ta": "யோசேப்பு தன் சகோதரரை மன்னித்தான்."
+  },
+  {
+   "id": "mosesbasket",
+   "ref": [
+    "EXO",
+    2,
+    5
+   ],
+   "answer": true,
+   "en": "Baby Moses was found in a basket in the river.",
+   "ta": "குழந்தை மோசே நதியில் ஒரு பெட்டியில் கண்டெடுக்கப்பட்டான்."
+  },
+  {
+   "id": "frogs",
+   "ref": [
+    "EXO",
+    8,
+    6
+   ],
+   "answer": true,
+   "en": "God sent frogs all over Egypt.",
+   "ta": "தேவன் எகிப்து தேசமெங்கும் தவளைகளை வரப்பண்ணினார்."
+  },
+  {
+   "id": "dryground",
+   "ref": [
+    "EXO",
+    14,
+    22
+   ],
+   "answer": true,
+   "en": "God's people walked through the Red Sea on dry ground.",
+   "ta": "தேவனுடைய மக்கள் சிவந்த சமுத்திரத்தின் நடுவே காய்ந்த தரையில் நடந்தார்கள்."
+  },
+  {
+   "id": "icecream",
+   "ref": [
+    "EXO",
+    16,
+    15
+   ],
+   "answer": false,
+   "en": "God fed his people with ice cream in the desert.",
+   "ta": "வனாந்தரத்தில் தேவன் தம் மக்களுக்கு ஐஸ்கிரீம் கொடுத்தார்.",
+   "why": {
+    "en": "He gave them manna, bread from heaven.",
+    "ta": "அவர் வானத்திலிருந்து மன்னா என்னும் அப்பத்தைக் கொடுத்தார்."
+   }
+  },
+  {
+   "id": "donkeytalk",
+   "ref": [
+    "NUM",
+    22,
+    28
+   ],
+   "answer": true,
+   "en": "Balaam's donkey talked.",
+   "ta": "பிலேயாமின் கழுதை பேசியது."
+  },
+  {
+   "id": "gideonarmy",
+   "ref": [
+    "JDG",
+    7,
+    7
+   ],
+   "answer": false,
+   "en": "Gideon needed a very big army to win.",
+   "ta": "வெற்றி பெறக் கிதியோனுக்குப் பெரிய சேனை தேவைப்பட்டது.",
+   "why": {
+    "en": "God saved them with only 300 men.",
+    "ta": "தேவன் 300 பேரைக்கொண்டே அவர்களை இரட்சித்தார்."
+   }
+  },
+  {
+   "id": "ruthnaomi",
+   "ref": [
+    "RUT",
+    1,
+    16
+   ],
+   "answer": true,
+   "en": "Ruth stayed with Naomi.",
+   "ta": "ரூத் நகோமியோடு தங்கினாள்."
+  },
+  {
+   "id": "firstking",
+   "ref": [
+    "1SA",
+    10,
+    1
+   ],
+   "answer": true,
+   "en": "Saul was the first king of Israel.",
+   "ta": "சவுல் இஸ்ரவேலின் முதல் ராஜா."
+  },
+  {
+   "id": "davidharp",
+   "ref": [
+    "1SA",
+    16,
+    23
+   ],
+   "answer": true,
+   "en": "David played the harp.",
+   "ta": "தாவீது சுரமண்டலம் வாசித்தான்."
+  },
+  {
+   "id": "templebuilt",
+   "ref": [
+    "1KI",
+    6,
+    14
+   ],
+   "answer": true,
+   "en": "Solomon built the temple.",
+   "ta": "சாலொமோன் ஆலயத்தைக் கட்டினான்."
+  },
+  {
+   "id": "whirl",
+   "ref": [
+    "2KI",
+    2,
+    11
+   ],
+   "answer": true,
+   "en": "Elijah went up to heaven in a whirlwind.",
+   "ta": "எலியா சுழல்காற்றில் பரலோகத்துக்கு ஏறிப்போனான்."
+  },
+  {
+   "id": "burned",
+   "ref": [
+    "DAN",
+    3,
+    27
+   ],
+   "answer": false,
+   "en": "The three friends were burned in the fire.",
+   "ta": "அந்த மூன்று நண்பர்களும் அக்கினியில் வெந்துபோனார்கள்.",
+   "why": {
+    "en": "God kept them safe: not even a hair was burned.",
+    "ta": "தேவன் அவர்களைக் காத்தார்: ஒரு மயிர்கூடக் கருகவில்லை."
+   }
+  },
+  {
+   "id": "shepherdsvisit",
+   "ref": [
+    "LUK",
+    2,
+    16
+   ],
+   "answer": true,
+   "en": "Shepherds came to see baby Jesus.",
+   "ta": "மேய்ப்பர்கள் குழந்தை இயேசுவைப் பார்க்க வந்தார்கள்."
+  },
+  {
+   "id": "grewnazareth",
+   "ref": [
+    "LUK",
+    2,
+    51
+   ],
+   "answer": true,
+   "en": "Jesus grew up in Nazareth.",
+   "ta": "இயேசு நாசரேத்தில் வளர்ந்தார்."
+  },
+  {
+   "id": "calm",
+   "ref": [
+    "MRK",
+    4,
+    39
+   ],
+   "answer": true,
+   "en": "Jesus stopped a big storm.",
+   "ta": "இயேசு பெரிய புயலை அமர்த்தினார்."
+  },
+  {
+   "id": "allthanks",
+   "ref": [
+    "LUK",
+    17,
+    15
+   ],
+   "answer": false,
+   "en": "All ten healed men came back to say thank you.",
+   "ta": "சுகமான பத்துப் பேரும் நன்றி சொல்லத் திரும்பி வந்தார்கள்.",
+   "why": {
+    "en": "Only one came back to thank Jesus.",
+    "ta": "ஒருவன் மட்டுமே இயேசுவுக்கு நன்றி சொல்லத் திரும்பி வந்தான்."
+   }
+  },
+  {
+   "id": "samaritanhelped",
+   "ref": [
+    "LUK",
+    10,
+    34
+   ],
+   "answer": true,
+   "en": "The good Samaritan helped the hurt man.",
+   "ta": "நல்ல சமாரியன் காயப்பட்டவனுக்கு உதவினான்."
+  },
+  {
+   "id": "thomassaw",
+   "ref": [
+    "JHN",
+    20,
+    27
+   ],
+   "answer": true,
+   "en": "Jesus showed Thomas his hands.",
+   "ta": "இயேசு தோமாவுக்குத் தம் கைகளைக் காட்டினார்."
+  },
+  {
+   "id": "fire",
+   "ref": [
+    "ACT",
+    2,
+    3
+   ],
+   "answer": true,
+   "en": "The Holy Spirit came like tongues of fire.",
+   "ta": "பரிசுத்த ஆவியானவர் அக்கினிமயமான நாவுகளைப்போல் இறங்கினார்."
+  },
+  {
+   "id": "paulsnake",
+   "ref": [
+    "ACT",
+    28,
+    5
+   ],
+   "answer": false,
+   "en": "Paul died when a snake bit him.",
+   "ta": "ஒரு பாம்பு கடித்ததால் பவுல் மரித்துப்போனான்.",
+   "why": {
+    "en": "He shook it into the fire and was not hurt.",
+    "ta": "அவன் அதை நெருப்பில் உதறிப்போட்டான்; அவனுக்கு ஒரு தீங்கும் வரவில்லை."
+   }
+  },
+  {
+   "id": "comeagain",
+   "ref": [
+    "ACT",
+    1,
+    11
+   ],
+   "answer": true,
+   "en": "Jesus will come again.",
+   "ta": "இயேசு மறுபடியும் வருவார்."
+  },
+  {
+   "id": "jonahpray",
+   "ref": [
+    "JON",
+    2,
+    1
+   ],
+   "answer": true,
+   "en": "Jonah prayed to God from inside the fish.",
+   "ta": "யோனா மீனின் வயிற்றிலிருந்து தேவனை நோக்கி ஜெபம்பண்ணினான்."
+  },
+  {
+   "id": "lampword",
+   "ref": [
+    "PSA",
+    119,
+    105
+   ],
+   "answer": true,
+   "en": "God's word is like a lamp that shows us the way.",
+   "ta": "தேவனுடைய வசனம் நமக்கு வழிகாட்டும் தீபம் போன்றது."
+  },
+  {
+   "id": "lionsbig",
+   "ref": [
+    "1SA",
+    17,
+    34
+   ],
+   "answer": true,
+   "en": "David kept his sheep safe from a lion and a bear.",
+   "ta": "தாவீது தன் ஆடுகளைச் சிங்கத்திடமிருந்தும் கரடியிடமிருந்தும் காப்பாற்றினான்."
+  }
+ ],
+ "who": [
+  {
+   "id": "noah",
+   "ref": [
+    "GEN",
+    6,
+    14
+   ],
+   "art": "ark",
+   "en": [
+    "I built a big boat. The animals came in two by two. Who am I?",
+    "Noah",
+    "Moses",
+    "Peter"
+   ],
+   "ta": [
+    "நான் ஒரு பெரிய பேழையைக் கட்டினேன். மிருகங்கள் ஜோடி ஜோடியாக உள்ளே வந்தன. நான் யார்?",
+    "நோவா",
+    "மோசே",
+    "பேதுரு"
+   ]
+  },
+  {
+   "id": "adam",
+   "ref": [
+    "GEN",
+    2,
+    7
+   ],
+   "en": [
+    "I was the first man God made. Who am I?",
+    "Adam",
+    "Noah",
+    "Abel"
+   ],
+   "ta": [
+    "தேவன் உண்டாக்கிய முதல் மனிதன் நான். நான் யார்?",
+    "ஆதாம்",
+    "நோவா",
+    "ஆபேல்"
+   ]
+  },
+  {
+   "id": "eve",
+   "ref": [
+    "GEN",
+    3,
+    20
+   ],
+   "en": [
+    "I was the first woman. Who am I?",
+    "Eve",
+    "Mary",
+    "Sarah"
+   ],
+   "ta": [
+    "நான்தான் முதல் பெண். நான் யார்?",
+    "ஏவாள்",
+    "மரியாள்",
+    "சாராள்"
+   ]
+  },
+  {
+   "id": "jacob",
+   "ref": [
+    "GEN",
+    28,
+    12
+   ],
+   "art": "ladder",
+   "en": [
+    "In a dream, I saw a ladder going up to heaven. Who am I?",
+    "Jacob",
+    "Joseph",
+    "Isaac"
+   ],
+   "ta": [
+    "வானம்வரை எட்டும் ஏணியை நான் கனவில் கண்டேன். நான் யார்?",
+    "யாக்கோபு",
+    "யோசேப்பு",
+    "ஈசாக்கு"
+   ]
+  },
+  {
+   "id": "joseph",
+   "ref": [
+    "GEN",
+    37,
+    3
+   ],
+   "art": "coat",
+   "en": [
+    "My father gave me a coat of many colours. Who am I?",
+    "Joseph",
+    "Benjamin",
+    "David"
+   ],
+   "ta": [
+    "என் தகப்பன் எனக்குப் பலவருணமான அங்கியைக் கொடுத்தார். நான் யார்?",
+    "யோசேப்பு",
+    "பென்யமீன்",
+    "தாவீது"
+   ]
+  },
+  {
+   "id": "moses",
+   "ref": [
+    "EXO",
+    14,
+    21
+   ],
+   "en": [
+    "I led God's people through the Red Sea. Who am I?",
+    "Moses",
+    "Joshua",
+    "Aaron"
+   ],
+   "ta": [
+    "நான் தேவனுடைய மக்களைச் சிவந்த சமுத்திரத்தின் வழியாக நடத்தினேன். நான் யார்?",
+    "மோசே",
+    "யோசுவா",
+    "ஆரோன்"
+   ]
+  },
+  {
+   "id": "samson",
+   "ref": [
+    "JDG",
+    16,
+    17
+   ],
+   "en": [
+    "I was very, very strong. My hair was never cut. Who am I?",
+    "Samson",
+    "Goliath",
+    "Gideon"
+   ],
+   "ta": [
+    "நான் மிக மிகப் பலசாலி. என் தலைமுடி ஒருபோதும் சிரைக்கப்படவில்லை. நான் யார்?",
+    "சிம்சோன்",
+    "கோலியாத்",
+    "கிதியோன்"
+   ]
+  },
+  {
+   "id": "ruth",
+   "ref": [
+    "RUT",
+    1,
+    16
+   ],
+   "en": [
+    "I told Naomi, \"Where you go, I will go.\" Who am I?",
+    "Ruth",
+    "Esther",
+    "Eve"
+   ],
+   "ta": [
+    "\"நீர் போகும் இடத்துக்கு நானும் வருவேன்\" என்று நகோமியிடம் சொன்னேன். நான் யார்?",
+    "ரூத்",
+    "எஸ்தர்",
+    "ஏவாள்"
+   ]
+  },
+  {
+   "id": "samuel",
+   "ref": [
+    "1SA",
+    3,
+    10
+   ],
+   "art": "lamp",
+   "en": [
+    "When I was a boy, God called my name at night. Who am I?",
+    "Samuel",
+    "David",
+    "Joseph"
+   ],
+   "ta": [
+    "நான் சிறுவனாக இருந்தபோது இரவில் தேவன் என் பெயரைக் கூப்பிட்டார். நான் யார்?",
+    "சாமுவேல்",
+    "தாவீது",
+    "யோசேப்பு"
+   ]
+  },
+  {
+   "id": "david",
+   "ref": [
+    "1SA",
+    17,
+    49
+   ],
+   "art": "sling",
+   "en": [
+    "I beat a giant with a sling and a stone. Who am I?",
+    "David",
+    "Saul",
+    "Samson"
+   ],
+   "ta": [
+    "நான் ஒரு கவணாலும் கல்லாலும் இராட்சதனை வென்றேன். நான் யார்?",
+    "தாவீது",
+    "சவுல்",
+    "சிம்சோன்"
+   ]
+  },
+  {
+   "id": "goliath",
+   "ref": [
+    "1SA",
+    17,
+    4
+   ],
+   "en": [
+    "I was a big giant, but a young boy beat me. Who am I?",
+    "Goliath",
+    "Samson",
+    "Pharaoh"
+   ],
+   "ta": [
+    "நான் பெரிய இராட்சதன்; ஆனால் ஒரு சிறுவன் என்னை வென்றான். நான் யார்?",
+    "கோலியாத்",
+    "சிம்சோன்",
+    "பார்வோன்"
+   ]
+  },
+  {
+   "id": "solomon",
+   "ref": [
+    "1KI",
+    3,
+    12
+   ],
+   "art": "crown",
+   "en": [
+    "I asked God for wisdom, and I became a wise king. Who am I?",
+    "Solomon",
+    "Saul",
+    "Pharaoh"
+   ],
+   "ta": [
+    "நான் தேவனிடம் ஞானத்தைக் கேட்டேன்; ஞானமுள்ள ராஜாவானேன். நான் யார்?",
+    "சாலொமோன்",
+    "சவுல்",
+    "பார்வோன்"
+   ]
+  },
+  {
+   "id": "elijah",
+   "ref": [
+    "1KI",
+    17,
+    6
+   ],
+   "art": "raven",
+   "en": [
+    "Ravens brought me bread and meat. Who am I?",
+    "Elijah",
+    "Elisha",
+    "Daniel"
+   ],
+   "ta": [
+    "காகங்கள் எனக்கு அப்பமும் இறைச்சியும் கொண்டுவந்தன. நான் யார்?",
+    "எலியா",
+    "எலிசா",
+    "தானியேல்"
+   ]
+  },
+  {
+   "id": "esther",
+   "ref": [
+    "EST",
+    4,
+    16
+   ],
+   "art": "crown",
+   "en": [
+    "I was a queen. I was brave and saved my people. Who am I?",
+    "Esther",
+    "Ruth",
+    "Sarah"
+   ],
+   "ta": [
+    "நான் ஒரு ராணி. தைரியமாக என் மக்களைக் காப்பாற்றினேன். நான் யார்?",
+    "எஸ்தர்",
+    "ரூத்",
+    "சாராள்"
+   ]
+  },
+  {
+   "id": "daniel",
+   "ref": [
+    "DAN",
+    6,
+    22
+   ],
+   "art": "lion",
+   "en": [
+    "I prayed to God, and he kept me safe from the lions. Who am I?",
+    "Daniel",
+    "Elijah",
+    "Jonah"
+   ],
+   "ta": [
+    "நான் தேவனிடம் ஜெபித்தேன்; அவர் என்னைச் சிங்கங்களிடமிருந்து காப்பாற்றினார். நான் யார்?",
+    "தானியேல்",
+    "எலியா",
+    "யோனா"
+   ]
+  },
+  {
+   "id": "jonah",
+   "ref": [
+    "JON",
+    1,
+    17
+   ],
+   "art": "fish",
+   "en": [
+    "I ran away from God, and a big fish swallowed me. Who am I?",
+    "Jonah",
+    "Daniel",
+    "Paul"
+   ],
+   "ta": [
+    "நான் தேவனைவிட்டு ஓடினேன்; ஒரு பெரிய மீன் என்னை விழுங்கியது. நான் யார்?",
+    "யோனா",
+    "தானியேல்",
+    "பவுல்"
+   ]
+  },
+  {
+   "id": "mary",
+   "ref": [
+    "LUK",
+    1,
+    31
+   ],
+   "en": [
+    "An angel told me I would be the mother of Jesus. Who am I?",
+    "Mary",
+    "Elizabeth",
+    "Martha"
+   ],
+   "ta": [
+    "நான் இயேசுவின் தாயாவேன் என்று ஒரு தூதன் எனக்குச் சொன்னார். நான் யார்?",
+    "மரியாள்",
+    "எலிசபெத்து",
+    "மார்த்தாள்"
+   ]
+  },
+  {
+   "id": "john",
+   "ref": [
+    "MAT",
+    3,
+    13
+   ],
+   "art": "river",
+   "en": [
+    "I baptised Jesus in the river Jordan. Who am I?",
+    "John the Baptist",
+    "Peter",
+    "Elijah"
+   ],
+   "ta": [
+    "நான் யோர்தான் நதியில் இயேசுவுக்கு ஞானஸ்நானம் கொடுத்தேன். நான் யார்?",
+    "யோவான் ஸ்நானகன்",
+    "பேதுரு",
+    "எலியா"
+   ]
+  },
+  {
+   "id": "peter",
+   "ref": [
+    "MAT",
+    14,
+    29
+   ],
+   "art": "boat",
+   "en": [
+    "I was a fisherman. I walked on the water to Jesus. Who am I?",
+    "Peter",
+    "Andrew",
+    "Thomas"
+   ],
+   "ta": [
+    "நான் மீன் பிடிப்பவன். தண்ணீரின்மேல் நடந்து இயேசுவிடம் போனேன். நான் யார்?",
+    "பேதுரு",
+    "அந்திரேயா",
+    "தோமா"
+   ]
+  },
+  {
+   "id": "zacchaeus",
+   "ref": [
+    "LUK",
+    19,
+    4
+   ],
+   "art": "tree",
+   "en": [
+    "I was short, so I climbed a tree to see Jesus. Who am I?",
+    "Zacchaeus",
+    "Peter",
+    "John"
+   ],
+   "ta": [
+    "நான் குள்ளனாக இருந்ததால் இயேசுவைப் பார்க்க மரத்தில் ஏறினேன். நான் யார்?",
+    "சகேயு",
+    "பேதுரு",
+    "யோவான்"
+   ]
+  },
+  {
+   "id": "lazarus",
+   "ref": [
+    "JHN",
+    11,
+    43
+   ],
+   "en": [
+    "Jesus called me out of my tomb, alive again. Who am I?",
+    "Lazarus",
+    "Jairus",
+    "Paul"
+   ],
+   "ta": [
+    "இயேசு என்னைக் கல்லறையிலிருந்து உயிரோடு வெளியே வரச் சொன்னார். நான் யார்?",
+    "லாசரு",
+    "யவீரு",
+    "பவுல்"
+   ]
+  },
+  {
+   "id": "jesus",
+   "ref": [
+    "LUK",
+    24,
+    6
+   ],
+   "en": [
+    "I am God's Son. I died on the cross and rose again. Who am I?",
+    "Jesus",
+    "Moses",
+    "David"
+   ],
+   "ta": [
+    "நான் தேவனுடைய குமாரன். சிலுவையில் மரித்து உயிர்த்தெழுந்தேன். நான் யார்?",
+    "இயேசு",
+    "மோசே",
+    "தாவீது"
+   ]
+  },
+  {
+   "id": "abel",
+   "ref": [
+    "GEN",
+    4,
+    4
+   ],
+   "art": "sheep",
+   "en": [
+    "I looked after sheep and gave God my best lamb. My brother was Cain. Who am I?",
+    "Abel",
+    "Seth",
+    "Enoch"
+   ],
+   "ta": [
+    "நான் ஆடுகளை மேய்த்து, என் மந்தையின் தலையீற்றைத் தேவனுக்குச் செலுத்தினேன். என் சகோதரன் காயீன். நான் யார்?",
+    "ஆபேல்",
+    "சேத்",
+    "ஏனோக்கு"
+   ]
+  },
+  {
+   "id": "abraham",
+   "ref": [
+    "GEN",
+    15,
+    5
+   ],
+   "art": "stars",
+   "en": [
+    "God showed me the stars and said my family would be as many. Who am I?",
+    "Abraham",
+    "Lot",
+    "Noah"
+   ],
+   "ta": [
+    "தேவன் எனக்கு நட்சத்திரங்களைக் காட்டி, என் சந்ததி அவ்வளவாயிருக்கும் என்றார். நான் யார்?",
+    "ஆபிரகாம்",
+    "லோத்து",
+    "நோவா"
+   ]
+  },
+  {
+   "id": "sarah",
+   "ref": [
+    "GEN",
+    18,
+    12
+   ],
+   "en": [
+    "I laughed when God said I would have a baby in my old age. Who am I?",
+    "Sarah",
+    "Rebekah",
+    "Rachel"
+   ],
+   "ta": [
+    "முதிர்வயதில் எனக்குப் பிள்ளை பிறக்கும் என்று தேவன் சொன்னபோது நான் நகைத்தேன். நான் யார்?",
+    "சாராள்",
+    "ரெபெக்காள்",
+    "ராகேல்"
+   ]
+  },
+  {
+   "id": "rebekah",
+   "ref": [
+    "GEN",
+    24,
+    19
+   ],
+   "art": "camel",
+   "en": [
+    "I gave water to a servant and to all his camels. Who am I?",
+    "Rebekah",
+    "Rachel",
+    "Ruth"
+   ],
+   "ta": [
+    "ஒரு வேலைக்காரனுக்கும் அவனுடைய எல்லா ஒட்டகங்களுக்கும் நான் தண்ணீர் கொடுத்தேன். நான் யார்?",
+    "ரெபெக்காள்",
+    "ராகேல்",
+    "ரூத்"
+   ]
+  },
+  {
+   "id": "miriam",
+   "ref": [
+    "EXO",
+    2,
+    4
+   ],
+   "art": "river",
+   "en": [
+    "I watched over my baby brother in a basket by the river. Who am I?",
+    "Miriam",
+    "Hannah",
+    "Deborah"
+   ],
+   "ta": [
+    "நதியோரத்தில் பெட்டியிலிருந்த என் குழந்தைத் தம்பியைக் கவனித்துக்கொண்டேன். நான் யார்?",
+    "மிரியாம்",
+    "அன்னாள்",
+    "தெபொராள்"
+   ]
+  },
+  {
+   "id": "aaron",
+   "ref": [
+    "EXO",
+    4,
+    14
+   ],
+   "en": [
+    "I was Moses' brother and spoke for him to Pharaoh. Who am I?",
+    "Aaron",
+    "Joshua",
+    "Caleb"
+   ],
+   "ta": [
+    "நான் மோசேயின் சகோதரன்; அவனுக்காகப் பார்வோனிடம் பேசினேன். நான் யார்?",
+    "ஆரோன்",
+    "யோசுவா",
+    "காலேப்"
+   ]
+  },
+  {
+   "id": "joshua",
+   "ref": [
+    "JOS",
+    6,
+    20
+   ],
+   "en": [
+    "I led God's people around Jericho, and the walls fell down. Who am I?",
+    "Joshua",
+    "Moses",
+    "Gideon"
+   ],
+   "ta": [
+    "நான் தேவனுடைய மக்களை எரிகோவைச் சுற்றி நடத்தினேன்; மதில்கள் விழுந்தன. நான் யார்?",
+    "யோசுவா",
+    "மோசே",
+    "கிதியோன்"
+   ]
+  },
+  {
+   "id": "gideon",
+   "ref": [
+    "JDG",
+    7,
+    7
+   ],
+   "en": [
+    "With only 300 men, God helped me win. Who am I?",
+    "Gideon",
+    "Samson",
+    "Saul"
+   ],
+   "ta": [
+    "வெறும் 300 பேரைக்கொண்டு தேவன் எனக்கு வெற்றி கொடுத்தார். நான் யார்?",
+    "கிதியோன்",
+    "சிம்சோன்",
+    "சவுல்"
+   ]
+  },
+  {
+   "id": "hannah",
+   "ref": [
+    "1SA",
+    1,
+    20
+   ],
+   "en": [
+    "I prayed for a baby, and God gave me Samuel. Who am I?",
+    "Hannah",
+    "Sarah",
+    "Mary"
+   ],
+   "ta": [
+    "நான் பிள்ளைக்காக ஜெபித்தேன்; தேவன் எனக்குச் சாமுவேலைக் கொடுத்தார். நான் யார்?",
+    "அன்னாள்",
+    "சாராள்",
+    "மரியாள்"
+   ]
+  },
+  {
+   "id": "jonathan",
+   "ref": [
+    "1SA",
+    18,
+    1
+   ],
+   "en": [
+    "I was King Saul's son and David's best friend. Who am I?",
+    "Jonathan",
+    "Absalom",
+    "Solomon"
+   ],
+   "ta": [
+    "நான் சவுல் ராஜாவின் மகன்; தாவீதின் உயிர்த்தோழன். நான் யார்?",
+    "யோனத்தான்",
+    "அப்சலோம்",
+    "சாலொமோன்"
+   ]
+  },
+  {
+   "id": "naaman",
+   "ref": [
+    "2KI",
+    5,
+    14
+   ],
+   "art": "river",
+   "en": [
+    "I dipped seven times in the river Jordan, and God healed me. Who am I?",
+    "Naaman",
+    "Elisha",
+    "Jonah"
+   ],
+   "ta": [
+    "நான் யோர்தானில் ஏழுதரம் முழுகினேன்; தேவன் என்னைச் சுகமாக்கினார். நான் யார்?",
+    "நாகமான்",
+    "எலிசா",
+    "யோனா"
+   ]
+  },
+  {
+   "id": "nehemiah",
+   "ref": [
+    "NEH",
+    2,
+    17
+   ],
+   "en": [
+    "I helped build the walls of Jerusalem again. Who am I?",
+    "Nehemiah",
+    "Ezra",
+    "Daniel"
+   ],
+   "ta": [
+    "எருசலேமின் அலங்கத்தைத் திரும்பக் கட்ட நான் உதவினேன். நான் யார்?",
+    "நெகேமியா",
+    "எஸ்றா",
+    "தானியேல்"
+   ]
+  },
+  {
+   "id": "gabriel",
+   "ref": [
+    "LUK",
+    1,
+    26
+   ],
+   "en": [
+    "I am an angel. I told Mary she would be the mother of Jesus. Who am I?",
+    "Gabriel",
+    "Michael",
+    "John"
+   ],
+   "ta": [
+    "நான் ஒரு தூதன். மரியாள் இயேசுவின் தாயாவாள் என்று சொன்னேன். நான் யார்?",
+    "காபிரியேல்",
+    "மிகாவேல்",
+    "யோவான்"
+   ]
+  },
+  {
+   "id": "martha",
+   "ref": [
+    "LUK",
+    10,
+    40
+   ],
+   "en": [
+    "My sister Mary sat at Jesus' feet while I was busy serving. Who am I?",
+    "Martha",
+    "Ruth",
+    "Esther"
+   ],
+   "ta": [
+    "என் சகோதரி மரியாள் இயேசுவின் பாதத்தருகே உட்கார்ந்திருந்தாள்; நானோ பணிவிடையில் மும்முரமாயிருந்தேன். நான் யார்?",
+    "மார்த்தாள்",
+    "ரூத்",
+    "எஸ்தர்"
+   ]
+  },
+  {
+   "id": "thomas",
+   "ref": [
+    "JHN",
+    20,
+    25
+   ],
+   "en": [
+    "I said I would believe when I saw Jesus' hands. Who am I?",
+    "Thomas",
+    "Peter",
+    "James"
+   ],
+   "ta": [
+    "இயேசுவின் கைகளைக் கண்டால்தான் விசுவாசிப்பேன் என்று சொன்னேன். நான் யார்?",
+    "தோமா",
+    "பேதுரு",
+    "யாக்கோபு"
+   ]
+  },
+  {
+   "id": "paul",
+   "ref": [
+    "ACT",
+    9,
+    3
+   ],
+   "en": [
+    "I saw a bright light on the road to Damascus. Later I wrote many letters. Who am I?",
+    "Paul",
+    "Peter",
+    "Timothy"
+   ],
+   "ta": [
+    "தமஸ்குவுக்குப் போகும் வழியில் பெரிய வெளிச்சத்தைக் கண்டேன். பின்பு அநேக நிருபங்களை எழுதினேன். நான் யார்?",
+    "பவுல்",
+    "பேதுரு",
+    "தீமோத்தேயு"
+   ]
+  }
+ ],
+ "match": [
+  {
+   "id": "noah",
+   "art": "ark",
+   "en": "Noah",
+   "ta": "நோவா",
+   "thing": {
+    "en": "The ark",
+    "ta": "பேழை"
+   }
+  },
+  {
+   "id": "jonah",
+   "art": "fish",
+   "en": "Jonah",
+   "ta": "யோனா",
+   "thing": {
+    "en": "The big fish",
+    "ta": "பெரிய மீன்"
+   }
+  },
+  {
+   "id": "daniel",
+   "art": "lion",
+   "en": "Daniel",
+   "ta": "தானியேல்",
+   "thing": {
+    "en": "The lions",
+    "ta": "சிங்கங்கள்"
+   }
+  },
+  {
+   "id": "david",
+   "art": "sling",
+   "en": "David",
+   "ta": "தாவீது",
+   "thing": {
+    "en": "The sling",
+    "ta": "கவண்"
+   }
+  },
+  {
+   "id": "moses",
+   "art": "bush",
+   "en": "Moses",
+   "ta": "மோசே",
+   "thing": {
+    "en": "The burning bush",
+    "ta": "எரியும் முட்செடி"
+   }
+  },
+  {
+   "id": "joseph",
+   "art": "coat",
+   "en": "Joseph",
+   "ta": "யோசேப்பு",
+   "thing": {
+    "en": "The coat of many colours",
+    "ta": "பலவருணமான அங்கி"
+   }
+  },
+  {
+   "id": "jacob",
+   "art": "ladder",
+   "en": "Jacob",
+   "ta": "யாக்கோபு",
+   "thing": {
+    "en": "The ladder",
+    "ta": "ஏணி"
+   }
+  },
+  {
+   "id": "zacchaeus",
+   "art": "tree",
+   "en": "Zacchaeus",
+   "ta": "சகேயு",
+   "thing": {
+    "en": "The tree",
+    "ta": "மரம்"
+   }
+  },
+  {
+   "id": "elijah",
+   "art": "raven",
+   "en": "Elijah",
+   "ta": "எலியா",
+   "thing": {
+    "en": "The ravens",
+    "ta": "காகங்கள்"
+   }
+  },
+  {
+   "id": "peter",
+   "art": "boat",
+   "en": "Peter",
+   "ta": "பேதுரு",
+   "thing": {
+    "en": "The fishing boat",
+    "ta": "மீன்பிடி படகு"
+   }
+  },
+  {
+   "id": "wisemen",
+   "art": "star",
+   "en": "The wise men",
+   "ta": "சாஸ்திரிகள்",
+   "thing": {
+    "en": "The star",
+    "ta": "நட்சத்திரம்"
+   }
+  },
+  {
+   "id": "samuel",
+   "art": "lamp",
+   "en": "Samuel",
+   "ta": "சாமுவேல்",
+   "thing": {
+    "en": "The lamp in God's house",
+    "ta": "தேவனுடைய ஆலயத்தின் விளக்கு"
+   }
+  },
+  {
+   "id": "abraham",
+   "art": "stars",
+   "en": "Abraham",
+   "ta": "ஆபிரகாம்",
+   "thing": {
+    "en": "The stars",
+    "ta": "நட்சத்திரங்கள்"
+   }
+  },
+  {
+   "id": "rebekah",
+   "art": "camel",
+   "en": "Rebekah",
+   "ta": "ரெபெக்காள்",
+   "thing": {
+    "en": "The camels",
+    "ta": "ஒட்டகங்கள்"
+   }
+  },
+  {
+   "id": "balaam",
+   "art": "donkey",
+   "en": "Balaam",
+   "ta": "பிலேயாம்",
+   "thing": {
+    "en": "The talking donkey",
+    "ta": "பேசிய கழுதை"
+   }
+  },
+  {
+   "id": "naaman",
+   "art": "river",
+   "en": "Naaman",
+   "ta": "நாகமான்",
+   "thing": {
+    "en": "The river Jordan",
+    "ta": "யோர்தான் நதி"
+   }
+  },
+  {
+   "id": "solomon",
+   "art": "crown",
+   "en": "King Solomon",
+   "ta": "சாலொமோன் ராஜா",
+   "thing": {
+    "en": "The crown",
+    "ta": "கிரீடம்"
+   }
+  },
+  {
+   "id": "jesus",
+   "art": "sheep",
+   "en": "Jesus, the Good Shepherd",
+   "ta": "நல்ல மேய்ப்பராகிய இயேசு",
+   "thing": {
+    "en": "The lost sheep",
+    "ta": "காணாமற்போன ஆடு"
+   }
+  }
+ ],
+ "order": [
+  {
+   "id": "creation",
+   "ref": [
+    "GEN",
+    1,
+    1
+   ],
+   "en": "God makes the world",
+   "ta": "தேவன் உலகத்தை உண்டாக்குகிறார்",
+   "steps": [
+    {
+     "en": "God makes light.",
+     "ta": "தேவன் வெளிச்சத்தை உண்டாக்குகிறார்.",
+     "art": "sun"
+    },
+    {
+     "en": "God makes the sky.",
+     "ta": "தேவன் வானத்தை உண்டாக்குகிறார்."
+    },
+    {
+     "en": "God makes the land and the plants.",
+     "ta": "தேவன் நிலத்தையும் செடிகளையும் உண்டாக்குகிறார்.",
+     "art": "tree"
+    },
+    {
+     "en": "God makes people.",
+     "ta": "தேவன் மனிதனை உண்டாக்குகிறார்."
+    }
+   ]
+  },
+  {
+   "id": "noah",
+   "ref": [
+    "GEN",
+    6,
+    14
+   ],
+   "en": "Noah and the ark",
+   "ta": "நோவாவும் பேழையும்",
+   "steps": [
+    {
+     "en": "God tells Noah to build an ark.",
+     "ta": "பேழையைக் கட்டும்படி தேவன் நோவாவுக்குச் சொல்கிறார்."
+    },
+    {
+     "en": "The animals go into the ark.",
+     "ta": "மிருகங்கள் பேழைக்குள் போகின்றன.",
+     "art": "ark"
+    },
+    {
+     "en": "Rain falls for 40 days.",
+     "ta": "40 நாள் மழை பெய்கிறது."
+    },
+    {
+     "en": "God puts a rainbow in the sky.",
+     "ta": "தேவன் வானத்தில் வானவில்லை வைக்கிறார்.",
+     "art": "bow"
+    }
+   ]
+  },
+  {
+   "id": "david",
+   "ref": [
+    "1SA",
+    17,
+    40
+   ],
+   "en": "David and Goliath",
+   "ta": "தாவீதும் கோலியாத்தும்",
+   "steps": [
+    {
+     "en": "Goliath shouts at God's people.",
+     "ta": "கோலியாத் தேவனுடைய மக்களைப் பார்த்துச் சத்தமிடுகிறான்."
+    },
+    {
+     "en": "David picks five smooth stones.",
+     "ta": "தாவீது ஐந்து கூழாங்கற்களைப் பொறுக்குகிறான்.",
+     "art": "stones"
+    },
+    {
+     "en": "David throws a stone with his sling.",
+     "ta": "தாவீது கவணால் ஒரு கல்லை எறிகிறான்.",
+     "art": "sling"
+    },
+    {
+     "en": "Goliath falls down.",
+     "ta": "கோலியாத் கீழே விழுகிறான்."
+    }
+   ]
+  },
+  {
+   "id": "jonah",
+   "ref": [
+    "JON",
+    1,
+    1
+   ],
+   "en": "Jonah and the big fish",
+   "ta": "யோனாவும் பெரிய மீனும்",
+   "steps": [
+    {
+     "en": "God tells Jonah to go to Nineveh.",
+     "ta": "நினிவேக்குப் போகும்படி தேவன் யோனாவுக்குச் சொல்கிறார்."
+    },
+    {
+     "en": "Jonah runs away on a ship.",
+     "ta": "யோனா ஒரு கப்பலில் ஏறி ஓடிப்போகிறான்.",
+     "art": "boat"
+    },
+    {
+     "en": "A big fish swallows Jonah.",
+     "ta": "ஒரு பெரிய மீன் யோனாவை விழுங்குகிறது.",
+     "art": "fish"
+    },
+    {
+     "en": "Jonah goes to Nineveh and tells God's message.",
+     "ta": "யோனா நினிவேக்குப் போய்த் தேவனுடைய செய்தியைச் சொல்கிறான்."
+    }
+   ]
+  },
+  {
+   "id": "daniel",
+   "ref": [
+    "DAN",
+    6,
+    10
+   ],
+   "en": "Daniel and the lions",
+   "ta": "தானியேலும் சிங்கங்களும்",
+   "steps": [
+    {
+     "en": "Daniel prays to God every day.",
+     "ta": "தானியேல் ஒவ்வொரு நாளும் தேவனிடம் ஜெபிக்கிறான்."
+    },
+    {
+     "en": "Daniel is put in the lions' den.",
+     "ta": "தானியேல் சிங்கக் கெபியில் போடப்படுகிறான்.",
+     "art": "lion"
+    },
+    {
+     "en": "God shuts the lions' mouths.",
+     "ta": "தேவன் சிங்கங்களின் வாயைக் கட்டுகிறார்."
+    },
+    {
+     "en": "Daniel comes out safe.",
+     "ta": "தானியேல் காயமின்றி வெளியே வருகிறான்."
+    }
+   ]
+  },
+  {
+   "id": "christmas",
+   "ref": [
+    "LUK",
+    2,
+    7
+   ],
+   "en": "Jesus is born",
+   "ta": "இயேசு பிறக்கிறார்",
+   "steps": [
+    {
+     "en": "An angel visits Mary.",
+     "ta": "ஒரு தூதன் மரியாளிடம் வருகிறார்."
+    },
+    {
+     "en": "Mary and Joseph go to Bethlehem.",
+     "ta": "மரியாளும் யோசேப்பும் பெத்லகேமுக்குப் போகிறார்கள்.",
+     "art": "donkey"
+    },
+    {
+     "en": "Jesus is born and laid in a manger.",
+     "ta": "இயேசு பிறந்து முன்னணையில் கிடத்தப்படுகிறார்."
+    },
+    {
+     "en": "Wise men follow a star to Jesus.",
+     "ta": "சாஸ்திரிகள் நட்சத்திரத்தைப் பின்தொடர்ந்து இயேசுவிடம் வருகிறார்கள்.",
+     "art": "star"
+    }
+   ]
+  },
+  {
+   "id": "zacchaeus",
+   "ref": [
+    "LUK",
+    19,
+    1
+   ],
+   "en": "Zacchaeus meets Jesus",
+   "ta": "சகேயு இயேசுவைச் சந்திக்கிறான்",
+   "steps": [
+    {
+     "en": "Jesus comes to Jericho.",
+     "ta": "இயேசு எரிகோவுக்கு வருகிறார்."
+    },
+    {
+     "en": "Zacchaeus climbs a tree to see him.",
+     "ta": "அவரைப் பார்க்கச் சகேயு மரத்தில் ஏறுகிறான்.",
+     "art": "tree"
+    },
+    {
+     "en": "Jesus says, \"Come down! I will stay at your house.\"",
+     "ta": "\"இறங்கி வா! இன்று உன் வீட்டில் தங்குவேன்\" என்று இயேசு சொல்கிறார்."
+    },
+    {
+     "en": "Zacchaeus gives back what he took, and more.",
+     "ta": "சகேயு தான் எடுத்ததை அதிகமாகத் திருப்பிக் கொடுக்கிறான்.",
+     "art": "coins"
+    }
+   ]
+  },
+  {
+   "id": "easter",
+   "ref": [
+    "LUK",
+    24,
+    6
+   ],
+   "en": "Jesus is alive",
+   "ta": "இயேசு உயிரோடிருக்கிறார்",
+   "steps": [
+    {
+     "en": "Jesus rides into Jerusalem on a donkey.",
+     "ta": "இயேசு கழுதையின்மேல் ஏறி எருசலேமுக்கு வருகிறார்.",
+     "art": "donkey"
+    },
+    {
+     "en": "Jesus dies on the cross for us.",
+     "ta": "இயேசு நமக்காகச் சிலுவையில் மரிக்கிறார்."
+    },
+    {
+     "en": "Jesus is laid in a tomb.",
+     "ta": "இயேசு கல்லறையில் வைக்கப்படுகிறார்.",
+     "art": "cave"
+    },
+    {
+     "en": "On the third day, Jesus rises again!",
+     "ta": "மூன்றாம் நாளில் இயேசு உயிர்த்தெழுகிறார்!"
+    }
+   ]
+  },
+  {
+   "id": "joseph",
+   "ref": [
+    "GEN",
+    37,
+    3
+   ],
+   "en": "Joseph and his brothers",
+   "ta": "யோசேப்பும் அவன் சகோதரரும்",
+   "steps": [
+    {
+     "en": "Jacob gives Joseph a coat of many colours.",
+     "ta": "யாக்கோபு யோசேப்புக்குப் பலவருணமான அங்கியைக் கொடுக்கிறான்.",
+     "art": "coat"
+    },
+    {
+     "en": "His jealous brothers sell Joseph.",
+     "ta": "பொறாமைகொண்ட சகோதரர் யோசேப்பை விற்றுப்போடுகிறார்கள்.",
+     "art": "camel"
+    },
+    {
+     "en": "God helps Joseph explain Pharaoh's dreams.",
+     "ta": "பார்வோனின் சொப்பனங்களுக்கு அர்த்தம் சொல்லத் தேவன் யோசேப்புக்கு உதவுகிறார்."
+    },
+    {
+     "en": "Joseph forgives his brothers.",
+     "ta": "யோசேப்பு தன் சகோதரரை மன்னிக்கிறான்."
+    }
+   ]
+  },
+  {
+   "id": "babymoses",
+   "ref": [
+    "EXO",
+    2,
+    3
+   ],
+   "en": "Baby Moses",
+   "ta": "குழந்தை மோசே",
+   "steps": [
+    {
+     "en": "Moses' mother hides her baby.",
+     "ta": "மோசேயின் தாய் தன் குழந்தையை ஒளித்து வைக்கிறாள்."
+    },
+    {
+     "en": "She puts him in a basket by the river.",
+     "ta": "அவனை ஒரு நாணற்பெட்டியில் வைத்து நதியோரத்தில் விடுகிறாள்.",
+     "art": "river"
+    },
+    {
+     "en": "Pharaoh's daughter finds the baby.",
+     "ta": "பார்வோனின் குமாரத்தி குழந்தையைக் காண்கிறாள்."
+    },
+    {
+     "en": "Moses grows up in Pharaoh's palace.",
+     "ta": "மோசே பார்வோனின் அரண்மனையில் வளருகிறான்.",
+     "art": "crown"
+    }
+   ]
+  },
+  {
+   "id": "samaritan",
+   "ref": [
+    "LUK",
+    10,
+    30
+   ],
+   "en": "The good Samaritan",
+   "ta": "நல்ல சமாரியன்",
+   "steps": [
+    {
+     "en": "Robbers hurt a man on the road.",
+     "ta": "வழியில் கள்ளர்கள் ஒரு மனிதனைக் காயப்படுத்துகிறார்கள்."
+    },
+    {
+     "en": "A priest sees him and walks past.",
+     "ta": "ஒரு ஆசாரியன் அவனைக் கண்டு விலகிப்போகிறான்."
+    },
+    {
+     "en": "A Samaritan stops and helps him.",
+     "ta": "ஒரு சமாரியன் நின்று அவனுக்கு உதவுகிறான்."
+    },
+    {
+     "en": "He puts the man on his own animal and takes him to an inn.",
+     "ta": "அவனைத் தன் சுயவாகனத்தின்மேல் ஏற்றிச் சத்திரத்துக்குக் கொண்டுபோகிறான்.",
+     "art": "donkey"
+    }
+   ]
+  },
+  {
+   "id": "lostson",
+   "ref": [
+    "LUK",
+    15,
+    12
+   ],
+   "en": "The lost son",
+   "ta": "காணாமற்போன மகன்",
+   "steps": [
+    {
+     "en": "The younger son takes his money and leaves home.",
+     "ta": "இளைய மகன் தன் பங்கை வாங்கிக்கொண்டு வீட்டைவிட்டுப் போகிறான்.",
+     "art": "coins"
+    },
+    {
+     "en": "He spends it all and looks after pigs.",
+     "ta": "எல்லாவற்றையும் செலவழித்துப் பன்றிகளை மேய்க்கிறான்."
+    },
+    {
+     "en": "He goes home, sorry for what he did.",
+     "ta": "தான் செய்ததற்காக மனம் வருந்தி வீட்டுக்குத் திரும்புகிறான்.",
+     "art": "path"
+    },
+    {
+     "en": "His father runs and hugs him.",
+     "ta": "தகப்பன் ஓடிவந்து அவனைக் கட்டிக்கொள்கிறான்."
+    }
+   ]
+  },
+  {
+   "id": "feeding",
+   "ref": [
+    "JHN",
+    6,
+    9
+   ],
+   "en": "Jesus feeds many people",
+   "ta": "இயேசு திரளான மக்களுக்கு உணவளிக்கிறார்",
+   "steps": [
+    {
+     "en": "Many people come to hear Jesus and get hungry.",
+     "ta": "திரளான மக்கள் இயேசுவின் வார்த்தையைக் கேட்க வந்து பசியாகிறார்கள்."
+    },
+    {
+     "en": "A boy gives 5 loaves and 2 fish.",
+     "ta": "ஒரு சிறுவன் 5 அப்பங்களையும் 2 மீன்களையும் கொடுக்கிறான்.",
+     "art": "loaves"
+    },
+    {
+     "en": "Jesus gives thanks and shares the food.",
+     "ta": "இயேசு ஸ்தோத்திரம்பண்ணி உணவைப் பகிர்ந்து கொடுக்கிறார்."
+    },
+    {
+     "en": "Everyone eats, and 12 baskets are left over.",
+     "ta": "எல்லாரும் சாப்பிடுகிறார்கள்; 12 கூடைகள் மீதியாகின்றன."
+    }
+   ]
+  }
+ ]
 }
