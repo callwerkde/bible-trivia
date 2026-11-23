@@ -239,7 +239,7 @@ function TaskSheet({ task, members, done, onPart, isAdmin, onEdit, onDelete }: {
                 </button>
                 {item && (
                   <a className="cm-part-open" href={openUrl(item)} target="_blank" rel="noopener noreferrer" aria-label={item.yt ? t.totWatch : t.totOpenRead} title={item.yt ? t.totWatch : t.totOpenRead}>
-                    {item.yt ? <Tv size={16} strokeWidth={STROKE} /> : <ExternalLink size={16} strokeWidth={STROKE} />}
+                    {item.yt ? <Tv size={16} strokeWidth={STROKE} /> : item.audio?.length ? <Headphones size={16} strokeWidth={STROKE} /> : <ExternalLink size={16} strokeWidth={STROKE} />}
                   </a>
                 )}
               </div>
@@ -374,7 +374,7 @@ function TaskBuilder({ initial, onSave }: { initial?: Task; onSave: (t: TaskInpu
     const items = sr.items.slice(a, b + 1);
     const label = (i: (typeof items)[number]) => (i.n != null ? `${String(i.n).padStart(2, '0')} - ${i.ta}` : i.ta);
     setTotIds(items.map((i) => i.id));
-    setKind(items.some((i) => i.yt) ? 'watch' : 'read');
+    setKind(items.some((i) => i.yt) ? 'watch' : items.some((i) => i.audio?.length) ? 'listen' : 'read');
     if (items.length === 1) {
       setTitle(items[0].ta.slice(0, 120));
       setParts([]);

@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
-import { motion } from 'motion/react';
-import { BookOpen, Check, ChevronLeft, ChevronRight, Church, ExternalLink, House, MessageSquare, PenLine, Play, Send, Users } from 'lucide-react';
+import { AnimatePresence, motion } from 'motion/react';
+import { BookOpen, Check, ChevronLeft, ChevronRight, Church, ExternalLink, Headphones, House, MessageSquare, PenLine, Play, Send, Users, X } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { useApp, useT } from '../store';
 import { spring } from '../motion/springs';
@@ -12,7 +12,7 @@ import { LangToggle } from '../components/LangToggle';
 import { useBackStep } from '../hooks/useBackStep';
 import { chapterText } from '../engine/bible';
 import { formatRef } from '../i18n/books';
-import { doneIn, isVideo, loadTot, nextIn, openUrl, sectionItems, totIndex, ytThumb, totRefLabel, type TotCatalog, type TotItem, type TotPlace, type TotRef, type TotSection, type TotSeries } from '../engine/tot';
+import { doneIn, hasAudio, mediaOf, taskKindOf, loadTot, nextIn, openUrl, sectionItems, totIndex, ytThumb, totRefLabel, type TotCatalog, type TotItem, type TotPlace, type TotRef, type TotSection, type TotSeries } from '../engine/tot';
 import { useTot } from '../online/tot';
 import { useAccount } from '../online/account';
 import { createTask, myCommunities, type Community } from '../online/community';
@@ -40,6 +40,8 @@ export function Library({ onExit }: { onExit: () => void }) {
   const [sectionId, setSectionId] = useState<TotSection['id'] | null>(null);
   const [seriesId, setSeriesId] = useState<string | null>(null);
   const [open, setOpen] = useState<TotPlace | null>(null);
+  // The message playing now (keeps playing while you browse the library).
+  const [playing, setPlaying] = useState<TotItem | null>(null);
 
   useEffect(() => {
     void loadTot().then(setCat, () => setFailed(true));
@@ -178,8 +180,18 @@ export function Library({ onExit }: { onExit: () => void }) {
       )}
 
       <Sheet open={open !== null} onClose={() => setOpen(null)} label={open?.item.ta ?? ''}>
-        {open && <ItemSheet place={open} done={done.has(open.item.id)} />}
+        {open && (
+          <ItemSheet
+            place={open}
+            done={done.has(open.item.id)}
+            onListen={(i) => {
+              setPlaying(i);
+              setOpen(null);
+            }}
+          />
+        )}
       </Sheet>
+      <AnimatePresence>{playing && <Player key={playing.id} item={playing} onClose={() => setPlaying(null)} />}</AnimatePresence>
     </div>
   );
 }
@@ -230,7 +242,7 @@ function SeriesList({ series, section, done, onOpen }: { series: TotSeries; sect
                   {i.ta}
                 </span>
                 <span className="caption lib-item-meta">
-                  {isVideo(i) ? <Play size={11} strokeWidth={STROKE} /> : <BookOpen size={11} strokeWidth={STROKE} />} {isVideo(i) ? t.totVideo : t.totText}
+                  <Media item={i} size={11} />
                   {i.ref && <span lang={uiLang}> · {refText(i.ref, uiLang)}</span>}
                 </span>
               </span>
@@ -253,7 +265,57 @@ function SeriesList({ series, section, done, onOpen }: { series: TotSeries; sect
   );
 }
 
-function ItemSheet({ place, done }: { place: TotPlace; done: boolean }) {
+function MediaIcon({ kind, size }: { kind: 'video' | 'audio' | 'text'; size: number }) {
+  return kind === 'video' ? <Play size={size} strokeWidth={STROKE} /> : kind === 'audio' ? <Headphones size={size} strokeWidth={STROKE} /> : <BookOpen size={size} strokeWidth={STROKE} />;
+}
+
+/** "Video · Audio · Text" with small icons. */
+function Media({ item, size }: { item: TotItem; size: number }) {
+  const t = useT();
+  return (
+    <>
+      {mediaOf(item).map((m, k) => (
+        <span key={m} className="lib-media">
+          {k > 0 && ' · '}
+          <MediaIcon kind={m} size={size} /> {m === 'video' ? t.totVideo : m === 'audio' ? t.totAudio : t.totText}
+        </span>
+      ))}
+    </>
+  );
+}
+
+/** Plays a message's recording at the bottom of the library, while you keep browsing. */
+function Player({ item, onClose }: { item: TotItem; onClose: () => void }) {
+  const t = useT();
+  const [part, setPart] = useState(0);
+  const src = item.audio?.[part] ?? '';
+  return (
+    <motion.div className="lib-player glass glass-thick" initial={{ y: 90, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: 90, opacity: 0 }} transition={spring.sheet}>
+      <div className="lib-player-head">
+        <Headphones size={16} strokeWidth={STROKE} />
+        <strong className="grow" lang="ta">
+          {item.n != null ? `${item.n} - ` : ''}
+          {item.ta}
+        </strong>
+        <button className="icon-btn" onClick={onClose} aria-label={t.close} title={t.close}>
+          <X size={18} strokeWidth={STROKE} />
+        </button>
+      </div>
+      <audio key={src} src={src} controls autoPlay preload="metadata" className="lib-audio" />
+      {(item.audio?.length ?? 0) > 1 && (
+        <div className="tl-pills">
+          {item.audio!.map((_, k) => (
+            <button key={k} className={`tl-chip ${k === part ? 'is-on' : ''}`} onClick={() => setPart(k)}>
+              {k + 1}
+            </button>
+          ))}
+        </div>
+      )}
+    </motion.div>
+  );
+}
+
+function ItemSheet({ place, done, onListen }: { place: TotPlace; done: boolean; onListen: (i: TotItem) => void }) {
   const t = useT();
   const uiLang = useApp((s) => s.uiLang);
   const qLang = useApp((s) => s.qLang);
@@ -294,9 +356,11 @@ function ItemSheet({ place, done }: { place: TotPlace; done: boolean }) {
         {item.ta}
       </h2>
       <div className="lib-chips">
-        <span>
-          {isVideo(item) ? <Play size={12} strokeWidth={STROKE} /> : <BookOpen size={12} strokeWidth={STROKE} />} {isVideo(item) ? t.totVideo : t.totText}
-        </span>
+        {mediaOf(item).map((m) => (
+          <span key={m}>
+            <MediaIcon kind={m} size={12} /> {m === 'video' ? t.totVideo : m === 'audio' ? t.totAudio : t.totText}
+          </span>
+        ))}
         {item.ref && (
           <span lang={uiLang}>
             <BookOpen size={12} strokeWidth={STROKE} /> {refText(item.ref, uiLang)}
@@ -308,10 +372,23 @@ function ItemSheet({ place, done }: { place: TotPlace; done: boolean }) {
           <Thumb item={item} big />
         </a>
       )}
-      <a className="btn btn-primary" href={openUrl(item)} target="_blank" rel="noopener noreferrer">
-        {item.yt ? <Play size={17} strokeWidth={STROKE} /> : <ExternalLink size={17} strokeWidth={STROKE} />} {item.yt ? t.totWatch : t.totOpenRead}
-      </a>
+      {/* Watch (video) first, then Listen (in the app), then Read (on tot.org.in). */}
       {item.yt && (
+        <a className="btn btn-primary" href={openUrl(item)} target="_blank" rel="noopener noreferrer">
+          <Play size={17} strokeWidth={STROKE} /> {t.totWatch}
+        </a>
+      )}
+      {hasAudio(item) && (
+        <Pressable className={`btn ${item.yt ? 'glass' : 'btn-primary'}`} onClick={() => onListen(item)}>
+          <Headphones size={17} strokeWidth={STROKE} /> {t.totListen}
+        </Pressable>
+      )}
+      {(item.text || (!item.yt && !hasAudio(item))) && (
+        <a className={`btn ${item.yt || hasAudio(item) ? 'glass' : 'btn-primary'}`} href={item.url} target="_blank" rel="noopener noreferrer">
+          <BookOpen size={17} strokeWidth={STROKE} /> {t.totOpenRead}
+        </a>
+      )}
+      {!item.text && (item.yt || hasAudio(item)) && (
         <a className="link lib-notes" href={item.url} target="_blank" rel="noopener noreferrer">
           <ExternalLink size={14} strokeWidth={STROKE} /> {t.totPage}
         </a>
@@ -373,7 +450,7 @@ function ItemSheet({ place, done }: { place: TotPlace; done: boolean }) {
         title: item.ta.slice(0, 120),
         note: '',
         ref: item.ref ? { b: item.ref.b, c: item.ref.c, ...(item.ref.v ? { v: item.ref.v } : {}), ...(item.ref.v2 && !item.ref.c2 ? { v2: item.ref.v2 } : {}) } : null,
-        kind: item.yt ? 'watch' : 'read',
+        kind: taskKindOf(item),
         link: openUrl(item),
         parts: [],
         due_on: null,

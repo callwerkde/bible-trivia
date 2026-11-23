@@ -27,6 +27,10 @@ export interface TotItem {
   url: string;
   /** YouTube video id, when the page has a video. */
   yt?: string;
+  /** Recordings of the message (mp3 on tot.org.in), usually one. */
+  audio?: string[];
+  /** The message is written out on its page. */
+  text?: boolean;
   /** The Bible passage named in its title. */
   ref?: TotRef;
 }
@@ -81,6 +85,11 @@ export function totIndex(c: TotCatalog): Map<number, TotPlace> {
 }
 
 export const isVideo = (i: TotItem) => Boolean(i.yt);
+export const hasAudio = (i: TotItem) => Boolean(i.audio?.length);
+/** What an item offers, in the order shown: video, audio, text. */
+export const mediaOf = (i: TotItem): ('video' | 'audio' | 'text')[] => [...(i.yt ? (['video'] as const) : []), ...(hasAudio(i) ? (['audio'] as const) : []), ...(i.text || (!i.yt && !hasAudio(i)) ? (['text'] as const) : [])];
+/** The kind of group task an item makes: watch a video, listen to a message, or read. */
+export const taskKindOf = (i: TotItem): 'watch' | 'listen' | 'read' => (i.yt ? 'watch' : hasAudio(i) ? 'listen' : 'read');
 export const ytThumb = (id: string) => `https://i.ytimg.com/vi/${id}/mqdefault.jpg`;
 export const ytLink = (id: string) => `https://www.youtube.com/watch?v=${id}`;
 /** Where tapping "watch" or "read" goes. */

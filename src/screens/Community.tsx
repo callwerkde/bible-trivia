@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { motion } from 'motion/react';
-import { BookOpen, ChartNoAxesColumn, Check, ExternalLink, Flame, ListChecks, Square, Tent, HandHeart, Lock, ChevronLeft, ChevronRight, Copy, Crown, Link2, LogOut, Pause, Play, Plus, RefreshCw, Settings2, Share2, Shield, Trash2, UserPlus, Users } from 'lucide-react';
+import { BookOpen, ChartNoAxesColumn, Check, ExternalLink, Flame, Headphones, ListChecks, Square, Tent, HandHeart, Lock, ChevronLeft, ChevronRight, Copy, Crown, Link2, LogOut, Pause, Play, Plus, RefreshCw, Settings2, Share2, Shield, Trash2, UserPlus, Users } from 'lucide-react';
 import QRCode from 'qrcode';
 import { useApp, useT } from '../store';
 import { spring } from '../motion/springs';
@@ -604,7 +604,7 @@ function TodayCard({ plan, done, members, onRead, onTick }: { plan: Plan; done: 
             <div className="cm-tot-day" lang="ta">
               {dayItems.map((i) => (
                 <a key={i.id} className="cm-tot-item" href={openUrl(i)} target="_blank" rel="noopener noreferrer">
-                  <span className="cm-tot-icon">{i.yt ? <Play size={15} strokeWidth={STROKE} /> : <ExternalLink size={15} strokeWidth={STROKE} />}</span>
+                  <span className="cm-tot-icon">{i.yt ? <Play size={15} strokeWidth={STROKE} /> : i.audio?.length ? <Headphones size={15} strokeWidth={STROKE} /> : <ExternalLink size={15} strokeWidth={STROKE} />}</span>
                   <strong className="grow">{i.n != null ? `${i.n} - ${i.ta}` : i.ta}</strong>
                 </a>
               ))}
@@ -625,7 +625,8 @@ function TodayCard({ plan, done, members, onRead, onTick }: { plan: Plan; done: 
             {tot ? (
               dayItems[0] && (
                 <a className="btn btn-primary" href={openUrl(dayItems[0])} target="_blank" rel="noopener noreferrer">
-                  {dayItems[0].yt ? <Play size={18} strokeWidth={STROKE} /> : <ExternalLink size={18} strokeWidth={STROKE} />} {dayItems[0].yt ? t.cmWatch : t.cmRead}
+                  {dayItems[0].yt ? <Play size={18} strokeWidth={STROKE} /> : dayItems[0].audio?.length ? <Headphones size={18} strokeWidth={STROKE} /> : <ExternalLink size={18} strokeWidth={STROKE} />}{' '}
+                  {dayItems[0].yt ? t.cmWatch : dayItems[0].audio?.length ? t.cmListen : t.cmRead}
                 </a>
               )
             ) : (

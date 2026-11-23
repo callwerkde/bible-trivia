@@ -2184,3 +2184,11 @@ textarea.field.post-body-input:lang(ta) { line-height: 1.85; }
 .cm-set-plan-actions .link { display: inline-flex; align-items: center; gap: 4px; font-size: 0.86rem; }
 .cm-danger-link { color: var(--red-ink); }
 .segmented small span svg { vertical-align: -2px; }
+
+/* Library audio: plays at the bottom while you browse. */
+.lib-media { display: inline-flex; align-items: center; gap: 3px; }
+.lib-player { position: fixed; left: 12px; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom)); z-index: 40; max-width: 560px; margin: 0 auto; padding: 10px 12px; border-radius: 20px; display: flex; flex-direction: column; gap: 6px; box-shadow: var(--shadow-md); }
+.lib-player-head { display: flex; align-items: center; gap: 8px; color: var(--accent-ink); }
+.lib-player-head strong { color: var(--text); font-size: 0.9rem; line-height: 1.35; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lib-audio { width: 100%; height: 40px; }
+.library:has(.lib-player) { padding-bottom: 150px; }

@@ -60,6 +60,15 @@ async function get(path) {
 }
 
 const links = (html) => [...html.replace(/<script[\s\S]*?<\/script>/g, '').matchAll(/<a[^>]+href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/g)].map((m) => ({ href: m[1].trim(), text: decode(m[2]) }));
+/** What a page offers: its recordings (mp3), and whether the message is written out. */
+function mediaOf(page) {
+  // (Some links have plain spaces in them: encode them so they play everywhere.)
+  const audio = [...new Set([...page.matchAll(/data-mp3="([^"]+)"/g)].map((m) => encodeURI(decodeURI(m[1].trim()))).filter((u) => /^https?:\/\/\S+\.mp3$/i.test(u)))];
+  const body = page.slice(Math.max(0, page.indexOf('event-section-2'))).replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>/g, '');
+  const chars = [...body.matchAll(/<p[^>]*>([\s\S]*?)<\/p>/g)].map((m) => decode(m[1])).filter((x) => x.length > 80).reduce((n, x) => n + x.length, 0);
+  return { ...(audio.length ? { audio } : {}), ...(chars > 2000 ? { text: true } : {}) };
+}
+
 const idOf = (href) => Number(/\/(\d+)\/?$/.exec(href)?.[1] ?? 0);
 
 // Tamil book names → codes (for the verses in titles like "எபிரெயர் 4:14-16").
@@ -89,7 +98,8 @@ function tidyTitle(raw, seriesTa) {
   const keep = parts.filter((p) => p !== seriesTa && !(ref && refIn(p) && p.replace(/[\d:.\s-]/g, '') === (BOOKS.find((b) => b.code === ref.b)?.ta ?? '')));
   const title = keep
     .join(' - ')
-    .replace(new RegExp(`^${seriesTa}\\s*[\\d.:]*\\s*[-–]?\\s*`), '')
+    // "எபிரெயர் 11.3 - …" → "…" (but never cut a word: "கிறிஸ்துவே …" stays whole).
+    .replace(new RegExp(`^${seriesTa}(?:\\s+[\\d.:]+)?\\s*[-–]\\s+`), '')
     .replace(/\s*[-–]\s*\d+\s*:\s*\d+(?:\s*-\s*\d+)?\s*$/, '')
     .replace(/[\s\-–]+$/, '')
     .trim();
@@ -113,7 +123,7 @@ async function main() {
       const page = await get(l.href);
       const yt = /youtube(?:-nocookie)?\.com\/embed\/([\w-]{11})/.exec(page)?.[1] ?? null;
       const { n, ref, title } = tidyTitle(l.text, seriesTa);
-      items.push({ id: idOf(l.href), n, ta: title, url: l.href, ...(yt ? { yt } : {}), ...(ref ? { ref } : {}) });
+      items.push({ id: idOf(l.href), n, ta: title, url: l.href, ...(yt ? { yt } : {}), ...mediaOf(page), ...(ref ? { ref } : {}) });
       process.stdout.write('.');
     }
     return items;
@@ -149,7 +159,7 @@ async function main() {
     await sleep(250);
     const page = await get(a.href);
     const yt = /youtube(?:-nocookie)?\.com\/embed\/([\w-]{11})/.exec(page)?.[1] ?? null;
-    articles.push({ id: idOf(a.href), n: null, ta: a.text, url: a.href, ...(yt ? { yt } : {}) });
+    articles.push({ id: idOf(a.href), n: null, ta: a.text, url: a.href, ...(yt ? { yt } : {}), ...mediaOf(page) });
   }
   sections.push({ id: 'articles', ta: 'கட்டுரைகள்', en: 'Articles', url: authors[0]?.href ?? BASE, series: [{ id: 'articles', ta: 'கட்டுரைகள்', en: 'Articles', url: authors[0]?.href ?? BASE, items: articles }] });
 
