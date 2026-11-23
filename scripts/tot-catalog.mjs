@@ -163,14 +163,34 @@ async function main() {
   }
   sections.push({ id: 'articles', ta: 'கட்டுரைகள்', en: 'Articles', url: authors[0]?.href ?? BASE, series: [{ id: 'articles', ta: 'கட்டுரைகள்', en: 'Articles', url: authors[0]?.href ?? BASE, items: articles }] });
 
+  // The day each item was first seen, kept from the last catalogue, so the app can mark
+  // new messages ("New"). Items already there before dates were kept get an old date.
+  let before = null;
+  try {
+    before = JSON.parse(readFileSync(OUT, 'utf8'));
+  } catch {
+    /* first run */
+  }
+  const today = new Date().toISOString().slice(0, 10);
+  const known = new Map();
+  for (const sec of before?.sections ?? []) for (const ser of sec.series) for (const it of ser.items) known.set(it.id, it.added ?? '2026-11-01');
+  for (const sec of sections) for (const ser of sec.series) for (const it of ser.items) it.added = known.get(it.id) ?? (before ? today : '2026-11-01');
+
   const count = sections.reduce((n, s) => n + s.series.reduce((k, x) => k + x.items.length, 0), 0);
-  const catalog = { source: 'https://www.tot.org.in/tamil', updated: new Date().toISOString().slice(0, 10), count, sections };
+  // Nothing changed on the site: leave the files alone (no commit, no new version).
+  if (before && JSON.stringify(before.sections) === JSON.stringify(sections)) {
+    console.log(`\nno changes: ${count} items, as before`);
+    return;
+  }
+  const added = [...sections.flatMap((s) => s.series.flatMap((x) => x.items))].filter((i) => i.added === today && before);
+  const catalog = { source: 'https://www.tot.org.in/tamil', updated: today, count, sections };
   mkdirSync('public/packs', { recursive: true });
   writeFileSync(OUT, JSON.stringify(catalog));
   // A version tag so phones fetch the new list instead of a saved old one.
   let hash = 0;
   for (const ch of JSON.stringify(sections)) hash = (hash * 31 + ch.charCodeAt(0)) | 0;
   writeFileSync(VERSION_FILE, `// Written by scripts/tot-catalog.mjs: changes whenever the catalogue does.\nexport const TOT_VERSION = '${(hash >>> 0).toString(36)}';\n`);
+  if (added.length) console.log(`\nnew: ${added.length} — ${added.map((i) => i.ta).join(' | ')}`);
   console.log(`\nwrote ${OUT}: ${count} items in ${sections.length} sections`);
   for (const s of sections) console.log(`  ${s.en}: ${s.series.map((x) => `${x.en} ${x.items.length}`).join(', ')}`);
 }

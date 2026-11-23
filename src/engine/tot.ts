@@ -31,6 +31,8 @@ export interface TotItem {
   audio?: string[];
   /** The message is written out on its page. */
   text?: boolean;
+  /** The day it first appeared in the catalogue (yyyy-mm-dd). */
+  added?: string;
   /** The Bible passage named in its title. */
   ref?: TotRef;
 }
@@ -94,6 +96,14 @@ export const ytThumb = (id: string) => `https://i.ytimg.com/vi/${id}/mqdefault.j
 export const ytLink = (id: string) => `https://www.youtube.com/watch?v=${id}`;
 /** Where tapping "watch" or "read" goes. */
 export const openUrl = (i: TotItem) => (i.yt ? ytLink(i.yt) : i.url);
+
+/** New: first seen in the last 14 days, and not finished yet. */
+export function isNewItem(i: TotItem, done: Set<number>, today = new Date()): boolean {
+  if (!i.added || done.has(i.id)) return false;
+  const days = (today.getTime() - new Date(i.added + 'T00:00:00').getTime()) / 86_400_000;
+  return days >= 0 && days <= 14;
+}
+export const newIn = (items: TotItem[], done: Set<number>) => items.filter((i) => isNewItem(i, done)).length;
 
 /** How many items of a list are done. */
 export const doneIn = (items: TotItem[], done: Set<number>) => items.reduce((n, i) => n + (done.has(i.id) ? 1 : 0), 0);

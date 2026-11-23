@@ -2298,3 +2298,23 @@ textarea.field.post-body-input:lang(ta) { line-height: 1.85; }
 .cl-actions .btn { display: inline-flex; align-items: center; gap: 6px; }
 .cl-name { display: flex; flex-direction: column; gap: 8px; padding: 14px; border-radius: 18px; }
 .cl-name .caption { margin: 0; }
+
+/* Admin → Reports */
+.rp-list { display: flex; flex-direction: column; gap: 10px; margin-top: 12px; }
+.rp-card { padding: 14px; border-radius: 18px; display: flex; flex-direction: column; gap: 8px; }
+.rp-head { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.rp-head .caption { margin: 0; }
+.rp-cat { font-size: 0.78rem; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: var(--accent-wash); color: var(--accent-ink); }
+.rp-cat.is-wrong_answer { background: var(--red-wash); color: var(--red-ink); }
+.rp-reason { margin: 0; font-weight: 600; line-height: 1.5; }
+.rp-fields { margin: 0; display: flex; flex-direction: column; gap: 6px; padding: 10px 12px; border-radius: 12px; background: var(--bg-2); }
+.rp-fields div { display: grid; grid-template-columns: 92px 1fr; gap: 8px; font-size: 0.86rem; }
+.rp-fields dt { color: var(--text-3); text-transform: capitalize; }
+.rp-fields dd { margin: 0; line-height: 1.45; word-break: break-word; }
+.rp-meta { margin: 0; word-break: break-all; }
+.rp-actions { display: flex; gap: 8px; }
+.rp-actions .btn { display: inline-flex; align-items: center; gap: 5px; }
+.rp-badge { position: static; margin-right: 6px; }
+
+.lib-new { display: inline-block; margin: 0 6px 0 4px; padding: 1px 8px; border-radius: 999px; background: var(--red); color: #fff; font-size: 0.7rem; font-weight: 700; vertical-align: 2px; }
+.lib-item-title .lib-new { margin-left: 0; }

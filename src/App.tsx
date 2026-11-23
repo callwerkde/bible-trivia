@@ -11,6 +11,7 @@ import { Practice, type PracticeAction } from './screens/Practice';
 import { MemoryVerses } from './screens/MemoryVerses';
 import { Timeline } from './screens/Timeline';
 import { Library } from './screens/Library';
+import { AdminReports } from './screens/AdminReports';
 import { syncKids } from './online/kids';
 import { KidsMatch } from './screens/KidsMatch';
 import { KidsOrder } from './screens/KidsOrder';
@@ -73,6 +74,7 @@ type Route =
   | { kind: 'adminThoughts' }
   | { kind: 'adminFaqs' }
   | { kind: 'adminTimeline' }
+  | { kind: 'adminReports' }
   | { kind: 'library' }
   | { kind: 'kidsMatch' }
   | { kind: 'kidsOrder' }
@@ -580,7 +582,8 @@ function MainApp() {
             {route.kind === 'tab' && route.tab === 'settings' && <Settings onAdmin={() => setRoute({ kind: 'admin' })} />}
             {route.kind === 'post' && <Thought post={route.post} onExit={() => (route.from === 'list' ? setRoute({ kind: 'posts' }) : route.from === 'gospel' ? goTab('gospel') : goTab('play'))} onShowAll={route.from === 'gospel' ? undefined : showThoughts} />}
             {route.kind === 'posts' && <Thoughts onExit={() => goTab('play')} onOpen={(post) => setRoute({ kind: 'post', post, from: 'list' })} />}
-            {route.kind === 'admin' && isAdmin && <Admin onExit={() => goTab('settings')} onThoughts={() => setRoute({ kind: 'adminThoughts' })} onFaqs={() => setRoute({ kind: 'adminFaqs' })} onTimeline={() => setRoute({ kind: 'adminTimeline' })} />}
+            {route.kind === 'admin' && isAdmin && <Admin onExit={() => goTab('settings')} onThoughts={() => setRoute({ kind: 'adminThoughts' })} onFaqs={() => setRoute({ kind: 'adminFaqs' })} onTimeline={() => setRoute({ kind: 'adminTimeline' })} onReports={() => setRoute({ kind: 'adminReports' })} />}
+            {route.kind === 'adminReports' && isAdmin && <AdminReports onExit={() => setRoute({ kind: 'admin' })} />}
             {route.kind === 'adminThoughts' && isAdmin && <AdminThoughts onExit={() => setRoute({ kind: 'admin' })} />}
             {route.kind === 'adminFaqs' && isAdmin && <AdminFaqs onExit={() => setRoute({ kind: 'admin' })} />}
             {route.kind === 'adminTimeline' && isAdmin && <AdminTimeline onExit={() => setRoute({ kind: 'admin' })} />}

@@ -56,3 +56,14 @@ describe('Picture stories', () => {
     for (const q of STORY_QUESTIONS) expect(new Set(q.en.options).size, q.id).toBe(3);
   });
 });
+
+describe('Tent of Testimony "New"', () => {
+  it('marks items first seen in the last two weeks, until finished', async () => {
+    const { isNewItem } = await import('../src/engine/tot');
+    const item = { id: 1, n: 1, ta: 'x', url: 'u', added: '2026-11-20' };
+    expect(isNewItem(item, new Set(), new Date('2026-11-23T10:00:00'))).toBe(true);
+    expect(isNewItem(item, new Set([1]), new Date('2026-11-23T10:00:00'))).toBe(false);
+    expect(isNewItem(item, new Set(), new Date('2026-12-10T10:00:00'))).toBe(false);
+    expect(isNewItem({ ...item, added: undefined }, new Set(), new Date('2026-11-23'))).toBe(false);
+  });
+});

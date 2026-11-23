@@ -1,0 +1,40 @@
+# Every Monday: re-read the Tent of Testimony site (tot.org.in) for new messages and
+# lessons. If anything changed, the catalogue (public/packs/tot.json) is updated and
+# pushed, and the app shows the new items with a "New" badge.
+# Can also be run by hand: Actions → "Tent of Testimony refresh" → Run workflow.
+name: Tent of Testimony refresh
+
+on:
+  schedule:
+    - cron: '17 2 * * 1' # Mondays 02:17 UTC (07:47 in India)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: tot-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Read the site
+        run: node scripts/tot-catalog.mjs
+      - name: Push if anything changed
+        run: |
+          if git diff --quiet -- public/packs/tot.json src/engine/totVersion.ts; then
+            echo "No new messages this week."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/packs/tot.json src/engine/totVersion.ts
+          git commit -m "Tent of Testimony: weekly refresh of the library"
+          git push

@@ -12,7 +12,7 @@ import { LangToggle } from '../components/LangToggle';
 import { useBackStep } from '../hooks/useBackStep';
 import { chapterText } from '../engine/bible';
 import { formatRef } from '../i18n/books';
-import { doneIn, hasAudio, mediaOf, taskKindOf, loadTot, nextIn, openUrl, sectionItems, totIndex, ytThumb, totRefLabel, type TotCatalog, type TotItem, type TotPlace, type TotRef, type TotSection, type TotSeries } from '../engine/tot';
+import { doneIn, isNewItem, newIn, hasAudio, mediaOf, taskKindOf, loadTot, nextIn, openUrl, sectionItems, totIndex, ytThumb, totRefLabel, type TotCatalog, type TotItem, type TotPlace, type TotRef, type TotSection, type TotSeries } from '../engine/tot';
 import { useTot } from '../online/tot';
 import { useAccount } from '../online/account';
 import { createTask, myCommunities, type Community } from '../online/community';
@@ -128,7 +128,10 @@ export function Library({ onExit }: { onExit: () => void }) {
                     <Icon size={20} strokeWidth={STROKE} />
                   </span>
                   <strong>{name(s)}</strong>
-                  <span className="caption">{t.totCount[s.id](items.length)}</span>
+                  <span className="caption">
+                    {t.totCount[s.id](items.length)}
+                    {newIn(items, done) > 0 && <b className="lib-new">{t.totNewN(newIn(items, done))}</b>}
+                  </span>
                   <Bar value={n / items.length} />
                 </button>
               );
@@ -154,7 +157,10 @@ export function Library({ onExit }: { onExit: () => void }) {
               <button key={x.id} className="lib-card glass lib-series" onClick={() => setSeriesId(x.id)}>
                 <span className="grow">
                   <strong>{name(x)}</strong>
-                  <span className="caption">{n === x.items.length ? t.totAllDone : t.totDoneOf(n, x.items.length)}</span>
+                  <span className="caption">
+                    {n === x.items.length ? t.totAllDone : t.totDoneOf(n, x.items.length)}
+                    {newIn(x.items, done) > 0 && <b className="lib-new">{t.totNewN(newIn(x.items, done))}</b>}
+                  </span>
                   {next && n > 0 && (
                     <span className="caption lib-next" lang="ta">
                       {t.totContinue}: {label(next)}
@@ -230,6 +236,7 @@ function SeriesList({ series, section, done, onOpen }: { series: TotSeries; sect
               <span className="lib-num">{i.n ?? k + 1}</span>
               <span className="grow">
                 <span className="lib-item-title" lang="ta">
+                  {isNewItem(i, done) && <b className="lib-new">{t.totNew}</b>}
                   {i.ta}
                 </span>
                 <span className="caption lib-item-meta">
