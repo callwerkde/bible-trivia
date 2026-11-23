@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
-import { AnimatePresence, motion } from 'motion/react';
-import { BookOpen, Check, ChevronLeft, ChevronRight, Church, ExternalLink, Headphones, House, MessageSquare, PenLine, Play, Send, Users, X } from 'lucide-react';
+import { motion } from 'motion/react';
+import { BookOpen, Check, ChevronLeft, ChevronRight, Church, ExternalLink, Headphones, House, MessageSquare, PenLine, Play, Send, Users } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { useApp, useT } from '../store';
 import { spring } from '../motion/springs';
@@ -40,8 +40,6 @@ export function Library({ onExit }: { onExit: () => void }) {
   const [sectionId, setSectionId] = useState<TotSection['id'] | null>(null);
   const [seriesId, setSeriesId] = useState<string | null>(null);
   const [open, setOpen] = useState<TotPlace | null>(null);
-  // The message playing now (keeps playing while you browse the library).
-  const [playing, setPlaying] = useState<TotItem | null>(null);
 
   useEffect(() => {
     void loadTot().then(setCat, () => setFailed(true));
@@ -181,17 +179,10 @@ export function Library({ onExit }: { onExit: () => void }) {
 
       <Sheet open={open !== null} onClose={() => setOpen(null)} label={open?.item.ta ?? ''}>
         {open && (
-          <ItemSheet
-            place={open}
-            done={done.has(open.item.id)}
-            onListen={(i) => {
-              setPlaying(i);
-              setOpen(null);
-            }}
-          />
+          <ItemSheet place={open} done={done.has(open.item.id)} />
         )}
       </Sheet>
-      <AnimatePresence>{playing && <Player key={playing.id} item={playing} onClose={() => setPlaying(null)} />}</AnimatePresence>
+
     </div>
   );
 }
@@ -284,38 +275,7 @@ function Media({ item, size }: { item: TotItem; size: number }) {
   );
 }
 
-/** Plays a message's recording at the bottom of the library, while you keep browsing. */
-function Player({ item, onClose }: { item: TotItem; onClose: () => void }) {
-  const t = useT();
-  const [part, setPart] = useState(0);
-  const src = item.audio?.[part] ?? '';
-  return (
-    <motion.div className="lib-player glass glass-thick" initial={{ y: 90, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: 90, opacity: 0 }} transition={spring.sheet}>
-      <div className="lib-player-head">
-        <Headphones size={16} strokeWidth={STROKE} />
-        <strong className="grow" lang="ta">
-          {item.n != null ? `${item.n} - ` : ''}
-          {item.ta}
-        </strong>
-        <button className="icon-btn" onClick={onClose} aria-label={t.close} title={t.close}>
-          <X size={18} strokeWidth={STROKE} />
-        </button>
-      </div>
-      <audio key={src} src={src} controls autoPlay preload="metadata" className="lib-audio" />
-      {(item.audio?.length ?? 0) > 1 && (
-        <div className="tl-pills">
-          {item.audio!.map((_, k) => (
-            <button key={k} className={`tl-chip ${k === part ? 'is-on' : ''}`} onClick={() => setPart(k)}>
-              {k + 1}
-            </button>
-          ))}
-        </div>
-      )}
-    </motion.div>
-  );
-}
-
-function ItemSheet({ place, done, onListen }: { place: TotPlace; done: boolean; onListen: (i: TotItem) => void }) {
+function ItemSheet({ place, done }: { place: TotPlace; done: boolean }) {
   const t = useT();
   const uiLang = useApp((s) => s.uiLang);
   const qLang = useApp((s) => s.qLang);
@@ -372,27 +332,18 @@ function ItemSheet({ place, done, onListen }: { place: TotPlace; done: boolean; 
           <Thumb item={item} big />
         </a>
       )}
-      {/* Watch (video) first, then Listen (in the app), then Read (on tot.org.in). */}
+      {/* Nothing plays inside the app: Watch opens YouTube; Listen and Read open the
+          message's own page on tot.org.in (its player and the written message). */}
       {item.yt && (
         <a className="btn btn-primary" href={openUrl(item)} target="_blank" rel="noopener noreferrer">
           <Play size={17} strokeWidth={STROKE} /> {t.totWatch}
         </a>
       )}
-      {hasAudio(item) && (
-        <Pressable className={`btn ${item.yt ? 'glass' : 'btn-primary'}`} onClick={() => onListen(item)}>
-          <Headphones size={17} strokeWidth={STROKE} /> {t.totListen}
-        </Pressable>
-      )}
-      {(item.text || (!item.yt && !hasAudio(item))) && (
-        <a className={`btn ${item.yt || hasAudio(item) ? 'glass' : 'btn-primary'}`} href={item.url} target="_blank" rel="noopener noreferrer">
-          <BookOpen size={17} strokeWidth={STROKE} /> {t.totOpenRead}
-        </a>
-      )}
-      {!item.text && (item.yt || hasAudio(item)) && (
-        <a className="link lib-notes" href={item.url} target="_blank" rel="noopener noreferrer">
-          <ExternalLink size={14} strokeWidth={STROKE} /> {t.totPage}
-        </a>
-      )}
+      <a className={`btn ${item.yt ? 'glass' : 'btn-primary'}`} href={item.url} target="_blank" rel="noopener noreferrer">
+        {hasAudio(item) ? <Headphones size={17} strokeWidth={STROKE} /> : <BookOpen size={17} strokeWidth={STROKE} />}{' '}
+        {hasAudio(item) && item.text ? t.totListenRead : hasAudio(item) ? t.totListen : item.yt ? t.totPage : t.totOpenRead}
+        <ExternalLink size={14} strokeWidth={STROKE} className="lib-ext" />
+      </a>
       {item.ref && (
         <Pressable className="btn glass" onClick={() => setShowVerses(!showVerses)} aria-expanded={showVerses}>
           <BookOpen size={17} strokeWidth={STROKE} /> {t.totReadVerses(refText(item.ref, uiLang))}
