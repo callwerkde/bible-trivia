@@ -288,7 +288,12 @@ export interface Task {
   parts: string[];
   due_on: string | null;
   created_at: string;
+  /** Tent of Testimony library items, one per part (or one for a task without parts). */
+  tot_items?: number[];
 }
+export type TaskInput = Pick<Task, 'title' | 'note' | 'ref' | 'due_on' | 'kind' | 'link' | 'parts'> & { tot_items?: number[] };
+/** Sends tot_items only when there are some (so ordinary tasks work on any database). */
+const taskRow = ({ tot_items, ...t }: TaskInput) => (tot_items?.length ? { ...t, tot_items } : t);
 /** Who ticked which parts: done[taskId][userId] = part numbers (0 = the whole task). */
 export type TaskDone = Record<string, Record<string, number[]>>;
 export const isTaskDone = (d: TaskDone, task: string, user: string) => Boolean(d[task]?.[user]?.includes(0));
@@ -329,8 +334,8 @@ export async function tasks(community: string): Promise<{ list: Task[]; done: Ta
   return { list, done };
 }
 
-export async function createTask(community: string, t: Pick<Task, 'title' | 'note' | 'ref' | 'due_on' | 'kind' | 'link' | 'parts'>) {
-  const { error } = await need().from('community_tasks').insert({ community_id: community, ...t });
+export async function createTask(community: string, t: TaskInput) {
+  const { error } = await need().from('community_tasks').insert({ community_id: community, ...taskRow(t) });
   if (error) throw error;
 }
 export async function deleteTask(id: string) {
@@ -417,8 +422,8 @@ export async function react(community: string, target: string, item: string, emo
   if (error) throw error;
 }
 
-export async function updateTask(id: string, t: Pick<Task, 'title' | 'note' | 'ref' | 'due_on' | 'kind' | 'link' | 'parts'>) {
-  const { error } = await need().from('community_tasks').update(t).eq('id', id);
+export async function updateTask(id: string, t: TaskInput) {
+  const { error } = await need().from('community_tasks').update(taskRow(t)).eq('id', id);
   if (error) throw error;
 }
 

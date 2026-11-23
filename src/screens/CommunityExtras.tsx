@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import { BookOpen, Check, CheckSquare, ExternalLink, Pencil, Headphones, Plus, Send, Trash2, Tv, X } from 'lucide-react';
+import { BookOpen, Check, CheckSquare, ExternalLink, Pencil, Headphones, Plus, Send, Tent, Trash2, Tv, X } from 'lucide-react';
 import { useApp, useT } from '../store';
 import { cue } from '../feedback';
 import { Pressable } from '../components/Pressable';
@@ -10,6 +10,8 @@ import { verseWords } from '../engine/bible';
 import { isoDay } from '../engine/readingPlan';
 import { refLabel } from '../engine/timeline';
 import { useAccount } from '../online/account';
+import { useTot } from '../online/tot';
+import { loadTot, totIndex, openUrl, type TotCatalog, type TotSeries } from '../engine/tot';
 import {
   createTask,
   updateTask,
@@ -27,6 +29,7 @@ import {
   type Community,
   type Member,
   type Task,
+  type TaskInput,
 } from '../online/community';
 import { bibleFirst } from '../online/stock';
 import { Avatar } from './Friends';
@@ -84,6 +87,8 @@ export function GroupExtras({ group, isAdmin, members, refresh = 0, onCount }: {
     setTaskList({ ...taskList, done: { ...taskList.done, [task.id]: { ...(taskList.done[task.id] ?? {}), [myId]: next } } });
     if (on && (part === 0 || allParts)) cue('correct');
     await setTaskPart(task.id, part, on, whole).catch(() => load());
+    // Ticks in a library task also mark the message done in your library (the database does it).
+    if (task.tot_items?.length) void useTot.getState().load();
   }
 
   return (
@@ -191,6 +196,11 @@ function TaskSheet({ task, members, done, onPart, isAdmin, onEdit, onDelete }: {
   useEffect(() => {
     if (task.ref) void verseWords(task.ref.b, task.ref.c, task.ref.v ?? 1, task.ref.v2 ?? (task.ref.v ? undefined : 5)).then(setWords);
   }, [task.ref]);
+  // A task made from the Tent of Testimony library: each part opens its own message.
+  const [totItems, setTotItems] = useState<ReturnType<typeof totIndex> | null>(null);
+  useEffect(() => {
+    if (task.tot_items?.length) void loadTot().then((c) => setTotItems(totIndex(c)), () => {});
+  }, [task.tot_items]);
   const mine = (myId && done[task.id]?.[myId]) || [];
   const doneBy = Object.keys(done[task.id] ?? {}).filter((u) => isTaskDone(done, task.id, u));
   const Icon = KIND_ICON[task.kind] ?? BookOpen;
@@ -220,11 +230,19 @@ function TaskSheet({ task, members, done, onPart, isAdmin, onEdit, onDelete }: {
           <span className="caption">{t.cmSelfTracked}</span>
           {task.parts.map((p, i) => {
             const on = mine.includes(i + 1);
+            const item = totItems?.get(task.tot_items?.[i] ?? 0)?.item;
             return (
-              <button key={i} className={`cm-part ${on ? 'is-done' : ''}`} onClick={() => onPart(i + 1, !on)} aria-pressed={on}>
-                <span className="cm-check">{on && <Check size={14} strokeWidth={2.8} />}</span>
-                {p}
-              </button>
+              <div key={i} className="cm-part-row">
+                <button className={`cm-part ${on ? 'is-done' : ''}`} onClick={() => onPart(i + 1, !on)} aria-pressed={on}>
+                  <span className="cm-check">{on && <Check size={14} strokeWidth={2.8} />}</span>
+                  <span lang={item ? 'ta' : undefined}>{p}</span>
+                </button>
+                {item && (
+                  <a className="cm-part-open" href={openUrl(item)} target="_blank" rel="noopener noreferrer" aria-label={item.yt ? t.totWatch : t.totOpenRead} title={item.yt ? t.totWatch : t.totOpenRead}>
+                    {item.yt ? <Tv size={16} strokeWidth={STROKE} /> : <ExternalLink size={16} strokeWidth={STROKE} />}
+                  </a>
+                )}
+              </div>
             );
           })}
         </div>
@@ -331,8 +349,43 @@ function TaskComments({ task, isAdmin }: { task: Task; isAdmin: boolean }) {
   );
 }
 
-function TaskBuilder({ initial, onSave }: { initial?: Task; onSave: (t: Pick<Task, 'title' | 'note' | 'ref' | 'due_on' | 'kind' | 'link' | 'parts'>) => Promise<void> }) {
+function TaskBuilder({ initial, onSave }: { initial?: Task; onSave: (t: TaskInput) => Promise<void> }) {
   const t = useT();
+  const uiLang = useApp((s) => s.uiLang);
+  // From a link (anything), or from the Tent of Testimony library (a series and a range).
+  const [source, setSource] = useState<'link' | 'tot'>(initial?.tot_items?.length ? 'tot' : 'link');
+  const [cat, setCat] = useState<TotCatalog | null>(null);
+  const [seriesId, setSeriesId] = useState('');
+  const [range, setRange] = useState<[number, number]>([0, 0]);
+  const [totIds, setTotIds] = useState<number[]>(initial?.tot_items ?? []);
+  useEffect(() => {
+    if (source === 'tot' && !cat) void loadTot().then(setCat, () => {});
+  }, [source, cat]);
+  const allSeries: { s: TotSeries; label: string }[] = cat ? cat.sections.flatMap((sec) => sec.series.map((s) => ({ s, label: sec.series.length > 1 ? `${uiLang === 'en' ? sec.en : sec.ta} › ${uiLang === 'en' ? s.en : s.ta}` : uiLang === 'en' ? sec.en : sec.ta }))) : [];
+  const series = allSeries.find((x) => x.s.id === seriesId)?.s ?? null;
+  /** Fill the task from a series and a range (at most 10 items). */
+  function chooseTot(sid: string, from: number, to: number) {
+    const sr = allSeries.find((x) => x.s.id === sid)?.s;
+    if (!sr) return;
+    const a = Math.max(0, Math.min(from, sr.items.length - 1));
+    const b = Math.max(a, Math.min(to, a + 9, sr.items.length - 1));
+    setSeriesId(sid);
+    setRange([a, b]);
+    const items = sr.items.slice(a, b + 1);
+    const label = (i: (typeof items)[number]) => (i.n != null ? `${String(i.n).padStart(2, '0')} - ${i.ta}` : i.ta);
+    setTotIds(items.map((i) => i.id));
+    setKind(items.some((i) => i.yt) ? 'watch' : 'read');
+    if (items.length === 1) {
+      setTitle(items[0].ta.slice(0, 120));
+      setParts([]);
+      setLink(openUrl(items[0]));
+    } else {
+      const ends = [items[0], items[items.length - 1]].map((i) => (i.n != null ? i.n : sr.items.indexOf(i) + 1));
+      setTitle(`${sr.ta} ${ends[0]}–${ends[1]}`.slice(0, 120));
+      setParts(items.map((i) => label(i).slice(0, 120)));
+      setLink(sr.url);
+    }
+  }
   const [kind, setKind] = useState<Task['kind']>(initial?.kind ?? 'read');
   const [title, setTitle] = useState(initial?.title ?? '');
   const [note, setNote] = useState(initial?.note ?? '');
@@ -344,9 +397,78 @@ function TaskBuilder({ initial, onSave }: { initial?: Task; onSave: (t: Pick<Tas
   const [busy, setBusy] = useState(false);
   const [msg, setMsg] = useState<string | null>(null);
   const linkOk = !link.trim() || /^https?:\/\/\S+\.\S+/i.test(link.trim());
+  const fromTot = source === 'tot';
   return (
     <div className="tl-panel">
       <h2 className="title">{initial ? t.cmEditTask : t.cmNewTask}</h2>
+      {!initial && (
+        <div className="tl-formfield">
+          <div className="tl-pills">
+            <button className={`tl-chip ${!fromTot ? 'is-on' : ''}`} onClick={() => setSource('link')}>
+              <ExternalLink size={14} strokeWidth={STROKE} /> {t.cmFromLink}
+            </button>
+            <button
+              className={`tl-chip ${fromTot ? 'is-on' : ''}`}
+              onClick={() => {
+                setSource('tot');
+              }}
+            >
+              <Tent size={14} strokeWidth={STROKE} /> {t.cmFromTot}
+            </button>
+          </div>
+        </div>
+      )}
+      {fromTot && !initial && (
+        <>
+          {!cat && <p className="caption">{t.totOffline}</p>}
+          {cat && (
+            <>
+              <label className="tl-formfield">
+                <span className="caption">{t.cmTotSeries}</span>
+                <select className="field" value={seriesId} onChange={(e) => chooseTot(e.target.value, 0, 0)}>
+                  <option value="" disabled>
+                    …
+                  </option>
+                  {allSeries.map(({ s: x, label }) => (
+                    <option key={x.id} value={x.id}>
+                      {label} ({x.items.length})
+                    </option>
+                  ))}
+                </select>
+              </label>
+              {series && (
+                <div className="cm-tot-range">
+                  {([0, 1] as const).map((end) => (
+                    <label key={end} className="tl-formfield">
+                      <span className="caption">{end ? t.cmTotTo : t.cmTotFrom}</span>
+                      <select
+                        className="field"
+                        lang="ta"
+                        value={range[end]}
+                        onChange={(e) => {
+                          const v = Number(e.target.value);
+                          if (end) chooseTot(series.id, Math.min(range[0], v), v);
+                          else chooseTot(series.id, v, Math.max(v, range[1]));
+                        }}
+                      >
+                        {series.items.map((i, k) =>
+                          end && (k < range[0] || k > range[0] + 9) ? null : (
+                            <option key={i.id} value={k}>
+                              {i.n != null ? `${i.n} - ` : ''}
+                              {i.ta.slice(0, 40)}
+                            </option>
+                          ),
+                        )}
+                      </select>
+                    </label>
+                  ))}
+                  <span className="caption">{t.cmTotMax}</span>
+                </div>
+              )}
+            </>
+          )}
+        </>
+      )}
       <div className="tl-formfield">
         <span className="caption">{t.cmTaskKind}</span>
         <div className="tl-pills">
@@ -368,12 +490,22 @@ function TaskBuilder({ initial, onSave }: { initial?: Task; onSave: (t: Pick<Tas
         <span className="caption">{t.cmPreface}</span>
         <textarea className="field" rows={3} maxLength={500} value={note} onChange={(e) => setNote(e.target.value)} placeholder={t.cmPrefaceHint} />
       </label>
-      <label className="tl-formfield">
+      {!fromTot && <label className="tl-formfield">
         <span className="caption">{t.cmLink}</span>
         <input className="field" type="url" inputMode="url" maxLength={500} value={link} onChange={(e) => setLink(e.target.value)} placeholder={t.cmLinkHint} />
         {!linkOk && <span className="caption form-msg is-error">{t.cmLinkBad}</span>}
-      </label>
-      <div className="tl-formfield">
+      </label>}
+      {fromTot && parts.length > 0 && (
+        <div className="tl-formfield">
+          <span className="caption">{t.cmParts}</span>
+          <ol className="cm-tot-preview" lang="ta">
+            {parts.map((p, i) => (
+              <li key={i}>{p}</li>
+            ))}
+          </ol>
+        </div>
+      )}
+      {!fromTot && <div className="tl-formfield">
         <span className="caption">{t.cmParts}</span>
         {parts.map((p, i) => (
           <div key={i} className="cm-part-edit">
@@ -388,7 +520,7 @@ function TaskBuilder({ initial, onSave }: { initial?: Task; onSave: (t: Pick<Tas
             <Plus size={15} strokeWidth={STROKE} /> {t.cmAddPart}
           </button>
         )}
-      </div>
+      </div>}
       <label className="tl-check">
         <input type="checkbox" checked={withVerse} onChange={(e) => setWithVerse(e.target.checked)} /> {t.cmTaskVerse}
       </label>
@@ -400,7 +532,7 @@ function TaskBuilder({ initial, onSave }: { initial?: Task; onSave: (t: Pick<Tas
       {msg && <p className="caption form-msg is-error">{msg}</p>}
       <Pressable
         className="btn btn-primary"
-        disabled={!title.trim() || !linkOk || busy}
+        disabled={!title.trim() || !linkOk || busy || (fromTot && !totIds.length)}
         onClick={async () => {
           setBusy(true);
           try {
@@ -412,6 +544,7 @@ function TaskBuilder({ initial, onSave }: { initial?: Task; onSave: (t: Pick<Tas
               parts: parts.map((p, i) => p.trim() || t.cmPartHint(i + 1).split(',')[0]),
               ref: withVerse ? { b: pick.book, c: pick.chapter, v: pick.from, ...(pick.to > pick.from ? { v2: pick.to } : {}) } : null,
               due_on: due || null,
+              ...(fromTot ? { tot_items: totIds } : {}),
             });
           } catch {
             setMsg(t.cmFailed);

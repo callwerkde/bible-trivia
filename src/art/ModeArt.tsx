@@ -315,6 +315,26 @@ export function GenealogyArt({ className }: { className?: string }) {
   );
 }
 
+/** The Tent of Testimony library: a smiling tent with a small flag. */
+const TentArt = () => (
+  <>
+    <Shadow />
+    <path d="M22 98 L80 26 L138 98 Z" fill={C.white} {...line} />
+    <path d="M80 26 L60 98 M80 26 L100 98" fill="none" {...line} strokeWidth={2.4} />
+    <path d="M68 98 L80 70 L92 98 Z" fill={C.woodSoft} {...line} />
+    <path d="M80 26 V8 L96 13 L80 18" fill={C.red} {...line} strokeWidth={2.4} />
+    <Face x={80} y={52} gap={14} smile={6} />
+  </>
+);
+
+export function LibraryArt({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 160 120" className={className} aria-hidden>
+      <TentArt />
+    </svg>
+  );
+}
+
 export function TimelineArt({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 160 120" className={className} aria-hidden>

@@ -10,6 +10,7 @@ import { Home } from './screens/Home';
 import { Practice, type PracticeAction } from './screens/Practice';
 import { MemoryVerses } from './screens/MemoryVerses';
 import { Timeline } from './screens/Timeline';
+import { Library } from './screens/Library';
 import { Community } from './screens/Community';
 import { clearPendingJoin, readPendingJoin, savePendingJoin } from './online/community';
 import { Genealogy } from './screens/Genealogy';
@@ -63,6 +64,7 @@ type Route =
   | { kind: 'adminThoughts' }
   | { kind: 'adminFaqs' }
   | { kind: 'adminTimeline' }
+  | { kind: 'library' }
   | { kind: 'game'; mode: ModeId; run: number; challenge?: { id: string; questionIds: string[] }; scope?: { book: string; chapter: number | null }; ids?: string[]; resume?: GameSnapshot } | { kind: 'result'; result: RoundResult; xp: number };
 
 /** Applies theme and text size to <html>. */
@@ -351,6 +353,7 @@ function MainApp() {
     history.replaceState(null, '', location.pathname);
     if (open === 'friends') goTab('friends');
     else if (open === 'timeline') setRoute({ kind: 'timeline' });
+    else if (open === 'library') setRoute({ kind: 'library' });
     else if (open === 'daily') setRoute({ kind: 'game', mode: 'daily', run: Date.now() });
     else if (open === 'challenge') {
       // "X challenged you": open that challenge (once the challenges have loaded) if it's still your turn.
@@ -529,7 +532,7 @@ function MainApp() {
           >
             <ScrollPlace screenKey={screenKey} positions={scrollPos} current={currentScreen} />
             <ErrorBoundary resetKey={key} title={t.crashTitle} body={t.crashBody} home={t.tabPlay} onHome={() => goTab('play')}>
-            {route.kind === 'tab' && route.tab === 'play' && <Home onPlay={play} onMemory={() => setRoute({ kind: 'memory' })} onTimeline={() => setRoute({ kind: 'timeline' })} onGenealogy={() => setRoute({ kind: 'genealogy' })} onResume={resumeGame} onShowSaved={() => setRoute({ kind: 'saved' })} onOpenPost={(post) => setRoute({ kind: 'post', post, from: 'home' })} onShowPosts={showThoughts} />}
+            {route.kind === 'tab' && route.tab === 'play' && <Home onPlay={play} onMemory={() => setRoute({ kind: 'memory' })} onTimeline={() => setRoute({ kind: 'timeline' })} onGenealogy={() => setRoute({ kind: 'genealogy' })} onLibrary={() => setRoute({ kind: 'library' })} onResume={resumeGame} onShowSaved={() => setRoute({ kind: 'saved' })} onOpenPost={(post) => setRoute({ kind: 'post', post, from: 'home' })} onShowPosts={showThoughts} />}
             {route.kind === 'tab' && route.tab === 'friends' && (
               <Community
                 onStartChallenge={startChallenge}
@@ -546,6 +549,7 @@ function MainApp() {
             {route.kind === 'saved' && <SavedGames onBack={() => goTab('play')} onResume={resumeGame} />}
             {route.kind === 'memory' && <MemoryVerses onExit={() => goTab(lastTab)} />}
             {route.kind === 'timeline' && <Timeline focus={route.focus} onExit={() => goTab(lastTab)} onGenealogy={() => setRoute({ kind: 'genealogy' })} />}
+            {route.kind === 'library' && <Library onExit={() => goTab(lastTab)} />}
             {route.kind === 'genealogy' && <Genealogy onExit={() => goTab(lastTab)} onOpenTimeline={(id) => setRoute({ kind: 'timeline', focus: id })} />}
             {route.kind === 'notebook' && <Notebook onExit={() => goTab('progress')} />}
             {route.kind === 'tab' && route.tab === 'settings' && <Settings onAdmin={() => setRoute({ kind: 'admin' })} />}

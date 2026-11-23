@@ -27,7 +27,8 @@
     "translate:recall": "node --env-file-if-exists=.env.local scripts/translate-recall.mjs",
     "emails": "node scripts/build-email-templates.mjs",
     "push:keys": "web-push generate-vapid-keys",
-    "content:timeline": "node scripts/build-timeline.mjs"
+    "content:timeline": "node scripts/build-timeline.mjs",
+    "content:tot": "node scripts/tot-catalog.mjs"
   },
   "license": "UNLICENSED",
   "dependencies": {
