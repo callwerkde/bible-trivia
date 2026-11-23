@@ -2160,3 +2160,27 @@ textarea.field.post-body-input:lang(ta) { line-height: 1.85; }
 .cm-tot-range > .caption { grid-column: 1 / -1; margin: -4px 2px 0; }
 .cm-tot-range select { min-width: 0; width: 100%; }
 .cm-tot-preview { list-style: none; margin: 0; padding: 10px 14px; border-radius: 12px; background: var(--accent-wash); font-size: 0.86rem; line-height: 1.7; }
+
+/* Several plans in a group; Tent of Testimony plans. */
+.cm-today-head .eyebrow { display: inline-flex; align-items: center; gap: 5px; }
+.cm-today-head .eyebrow svg { color: var(--accent-ink); }
+.cm-tot-day { display: flex; flex-direction: column; gap: 6px; margin: 2px 0; }
+.cm-tot-item { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 12px; background: var(--accent-wash); color: var(--text); text-decoration: none; }
+.cm-tot-item strong { font-size: 1rem; line-height: 1.4; }
+.cm-tot-icon { flex: none; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: var(--card-solid); color: var(--accent-ink); }
+.cm-members-wrap { display: flex; flex-direction: column; gap: 10px; }
+.cm-plan-pick { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; padding-bottom: 2px; }
+.cm-plan-pick::-webkit-scrollbar { display: none; }
+.cm-plan-pick .tl-chip { flex: none; display: inline-flex; align-items: center; gap: 5px; }
+.cm-member-plans { display: flex; flex-direction: column; gap: 8px; }
+.cm-member-plan { display: grid; grid-template-columns: 1fr auto; gap: 2px 8px; align-items: center; }
+.cm-member-plan .caption { margin: 0; display: inline-flex; align-items: center; gap: 5px; }
+.cm-member-plan .cm-mini-bar { grid-column: 1 / -1; max-width: none; }
+.cm-set-plan { display: flex; flex-direction: column; gap: 6px; padding: 10px 2px; border-top: 1px solid var(--line); }
+.cm-set-plan-name { display: flex; align-items: center; gap: 8px; }
+.cm-set-plan-name svg { color: var(--accent-ink); flex: none; }
+.cm-set-plan-name .caption { margin: 0; }
+.cm-set-plan-actions { display: flex; gap: 18px; padding-left: 24px; }
+.cm-set-plan-actions .link { display: inline-flex; align-items: center; gap: 4px; font-size: 0.86rem; }
+.cm-danger-link { color: var(--red-ink); }
+.segmented small span svg { vertical-align: -2px; }

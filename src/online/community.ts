@@ -179,7 +179,7 @@ export function remember(key: string, value: unknown) {
 
 /** Calls back (at most every ~1.5 s) when anyone in the group ticks a reading day or a task.
  *  The database only sends changes the person may see. Returns a function to stop. */
-export function watchGroup(community: string, planId: string | null, onChange: (what: 'reading' | 'tasks') => void): () => void {
+export function watchGroup(community: string, planIds: string[], onChange: (what: 'reading' | 'tasks') => void): () => void {
   if (!supabase || !me()) return () => {};
   const db = supabase;
   const timers: Partial<Record<'reading' | 'tasks', ReturnType<typeof setTimeout>>> = {};
@@ -188,7 +188,7 @@ export function watchGroup(community: string, planId: string | null, onChange: (
     timers[what] = setTimeout(() => onChange(what), 1500);
   };
   let ch = db.channel(`cm-${community}-${Math.random().toString(36).slice(2, 8)}`);
-  if (planId) ch = ch.on('postgres_changes', { event: '*', schema: 'public', table: 'reading_log', filter: `plan_id=eq.${planId}` }, () => fire('reading'));
+  if (planIds.length) ch = ch.on('postgres_changes', { event: '*', schema: 'public', table: 'reading_log', filter: planIds.length === 1 ? `plan_id=eq.${planIds[0]}` : `plan_id=in.(${planIds.join(',')})` }, () => fire('reading'));
   ch = ch.on('postgres_changes', { event: '*', schema: 'public', table: 'community_task_done' }, () => fire('tasks'));
   ch.subscribe();
   return () => {
@@ -232,12 +232,64 @@ export async function plans(community: string): Promise<Plan[]> {
   return data as Plan[];
 }
 
+/** A new plan; it runs alongside the group's other plans. */
 export async function createPlan(community: string, p: PlanSpec & { title: string }): Promise<void> {
-  const db = need();
-  // One active plan at a time: the newest one.
-  await db.from('reading_plans').update({ status: 'done' }).eq('community_id', community).eq('status', 'active');
-  const { error } = await db.from('reading_plans').insert({ community_id: community, ...p });
+  const { tot_items, ...rest } = p;
+  const { error } = await need()
+    .from('reading_plans')
+    .insert({ community_id: community, ...rest, ...(tot_items?.length ? { tot_items } : {}) });
   if (error) throw error;
+}
+
+/** One member's progress in one plan (worked out by the database). */
+export interface PlanProgress {
+  plan_id: string;
+  user_id: string;
+  days_read: number;
+  /** Chapters (or lessons) in the days they've read. */
+  units_read: number;
+  next_day: number | null;
+  behind: number;
+  read_today: boolean;
+  last_read: string | null;
+}
+
+/** Everyone's progress in each current plan. Before that update is on the server, the
+ *  app works it out from the reading log. */
+export async function planProgress(community: string, current: Plan[], people: string[]): Promise<PlanProgress[]> {
+  const r = await need().rpc('community_plan_progress', { p_community: community });
+  if (!r.error) return (r.data as PlanProgress[]).map((x) => ({ ...x, days_read: Number(x.days_read), units_read: Number(x.units_read) }));
+  if (!current.length) return [];
+  const log = await groupLog(current.map((p) => p.id));
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  return current.flatMap((plan) => {
+    const total = totalDays(plan);
+    const due = daysDue(plan);
+    return people.map((user) => {
+      const mine = log.filter((l) => l.plan_id === plan.id && l.user_id === user);
+      const days = new Set(mine.map((l) => l.day));
+      let next: number | null = null;
+      for (let d = 1; d <= total; d++)
+        if (!days.has(d)) {
+          next = d;
+          break;
+        }
+      let behind = 0;
+      for (let d = 1; d <= due; d++) if (!days.has(d)) behind++;
+      const k = Math.max(1, plan.chapters_per_day ?? 1);
+      return {
+        plan_id: plan.id,
+        user_id: user,
+        days_read: days.size,
+        units_read: [...days].reduce((n, d) => n + (plan.tot_items?.length ? plan.tot_items.slice((d - 1) * k, d * k).length : chaptersFor(plan, d).length), 0),
+        next_day: next,
+        behind,
+        read_today: mine.some((l) => new Date(l.done_at) >= today),
+        last_read: mine.length ? mine[mine.length - 1].done_at : null,
+      };
+    });
+  });
 }
 
 export async function setPlanStatus(id: string, status: Plan['status']) {

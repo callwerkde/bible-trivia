@@ -79,3 +79,16 @@ describe('reading ahead', () => {
     expect(planStatus(plan, new Set([1]), new Date(2026, 0, 9))).toMatchObject({ next: 2, canRead: true, behind: 4 });
   });
 });
+
+describe('Tent of Testimony plans', () => {
+  it('goes through the lessons, k a day', async () => {
+    const { totalDays, totDayItems, chaptersFor, planStatus, isTotPlan } = await import('../src/engine/readingPlan');
+    const p = { books: [], chapters_per_day: 2, start_date: '2026-11-01', rest_days: [], tot_items: [10, 11, 12, 13, 14] };
+    expect(isTotPlan(p)).toBe(true);
+    expect(totalDays(p)).toBe(3);
+    expect(totDayItems(p, 1)).toEqual([10, 11]);
+    expect(totDayItems(p, 3)).toEqual([14]);
+    expect(chaptersFor(p, 1)).toEqual([]);
+    expect(planStatus(p, new Set([1]), new Date(2026, 10, 2)).next).toBe(2);
+  });
+});

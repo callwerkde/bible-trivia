@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { motion } from 'motion/react';
-import { BookOpen, ChartNoAxesColumn, Check, Flame, ListChecks, Square, HandHeart, Lock, ChevronLeft, ChevronRight, Copy, Crown, Link2, LogOut, Pause, Play, Plus, RefreshCw, Settings2, Share2, Shield, Trash2, UserPlus, Users } from 'lucide-react';
+import { BookOpen, ChartNoAxesColumn, Check, ExternalLink, Flame, ListChecks, Square, Tent, HandHeart, Lock, ChevronLeft, ChevronRight, Copy, Crown, Link2, LogOut, Pause, Play, Plus, RefreshCw, Settings2, Share2, Shield, Trash2, UserPlus, Users } from 'lucide-react';
 import QRCode from 'qrcode';
 import { useApp, useT } from '../store';
 import { spring } from '../motion/springs';
@@ -26,9 +26,13 @@ import {
   isoDay,
   planStatus,
   totalDays,
+  isTotPlan,
+  totDayItems,
   type Chapter,
   type PlanSpec,
 } from '../engine/readingPlan';
+import { loadTot, openUrl, totIndex, type TotCatalog, type TotItem, type TotPlace, type TotSeries } from '../engine/tot';
+import { useTot } from '../online/tot';
 import {
   createCommunity,
   createPlan,
@@ -40,6 +44,8 @@ import {
   markDay,
   members as loadMembers,
   memberDays,
+  planProgress,
+  type PlanProgress,
   cached,
   remember,
   watchGroup,
@@ -242,26 +248,35 @@ function GroupView({ group, onChanged }: { group: Group; onChanged: () => void }
   const isAdmin = group.role === 'owner' || group.role === 'admin';
   // The last copy seen on this phone shows at once; the fresh one replaces it quietly.
   const cacheKey = `group:${group.id}`;
-  const [snap] = useState(() => cached<{ list: Member[]; plans: Plan[]; done: number[] }>(cacheKey));
+  type Snap = { list: Member[]; plans: Plan[]; days?: Record<string, number[]>; progress?: PlanProgress[] };
+  const [snap] = useState(() => cached<Snap>(cacheKey));
   const [list, setList] = useState<Member[] | null>(snap?.list ?? null);
-  const [plan, setPlan] = useState<Plan | null | undefined>(snap ? (snap.plans.find((p) => p.status !== 'done') ?? null) : undefined);
-  const [allPlans, setAllPlans] = useState<Plan[]>(snap?.plans ?? []);
-  const [done, setDone] = useState<Set<number>>(new Set(snap?.done ?? []));
+  const [allPlans, setAllPlans] = useState<Plan[] | null>(snap?.plans ?? null);
+  // Your days in each current plan, and everyone's progress in each.
+  const [days, setDays] = useState<Record<string, number[]>>(snap?.days ?? {});
+  const [progress, setProgress] = useState<PlanProgress[] | null>(snap?.progress ?? null);
   const [tasksTick, setTasksTick] = useState(0);
-  const [sheet, setSheet] = useState<null | 'invite' | 'plan' | 'settings' | { member: Member } | { read: number }>(null);
+  const [sheet, setSheet] = useState<null | 'invite' | 'plan' | 'settings' | { member: Member } | { read: number; plan: Plan }>(null);
   const [msg, setMsg] = useState<string | null>(null);
+  // Several plans can run at once (newest first); ended ones stay in the history.
+  const plans = (allPlans ?? []).filter((p) => p.status !== 'done');
 
   const load = useCallback(async () => {
     try {
-      // Plans, members (with their progress) and your days, all at once.
-      const psP = loadPlans(group.id);
-      const curP = psP.then((ps) => ps.find((p) => p.status !== 'done') ?? null);
-      const [ps, cur, m, d] = await Promise.all([psP, curP, loadMembers(group.id, curP), curP.then((c) => (c ? myDays(c.id) : new Set<number>()))]);
+      const ps = await loadPlans(group.id);
+      const cur = ps.filter((p) => p.status !== 'done');
+      const m = await loadMembers(group.id, cur[0] ?? null);
+      const people = m.filter((x) => x.status === 'active').map((x) => x.user_id);
+      const [pr, mine] = await Promise.all([
+        planProgress(group.id, cur, people).catch(() => null),
+        Promise.all(cur.map((p) => myDays(p.id).then((d) => [p.id, [...d]] as [string, number[]]))),
+      ]);
+      const d = Object.fromEntries(mine);
       setAllPlans(ps);
-      setPlan(cur);
       setList(m);
-      setDone(d);
-      remember(cacheKey, { list: m, plans: ps, done: [...d] });
+      setDays(d);
+      setProgress(pr);
+      remember(cacheKey, { list: m, plans: ps, days: d, progress: pr ?? undefined });
     } catch {
       if (!snap) setMsg(t.cmFailed);
     }
@@ -269,17 +284,23 @@ function GroupView({ group, onChanged }: { group: Group; onChanged: () => void }
   useEffect(() => {
     void load();
   }, [load]);
-  // Save the books of the next week's readings for offline first.
-  const nextDay = plan ? (planStatus(plan, done).next ?? null) : null;
+  // Save the books of each Bible plan's next week of readings for offline first.
+  const planKey = plans.map((p) => `${p.id}:${planStatus(p, new Set(days[p.id] ?? [])).next ?? 0}`).join(',');
   useEffect(() => {
-    if (!plan || nextDay === null) return;
-    const total = totalDays(plan);
-    const days = Array.from({ length: 7 }, (_, i) => nextDay + i).filter((d) => d <= total);
-    bibleFirst([...new Set(days.flatMap((d) => chaptersFor(plan, d).map((c) => c.b)))]);
-  }, [plan, nextDay]);
+    const books = plans.flatMap((p) => {
+      if (isTotPlan(p)) return [];
+      const next = planStatus(p, new Set(days[p.id] ?? [])).next;
+      if (next == null) return [];
+      const total = totalDays(p);
+      return Array.from({ length: 7 }, (_, i) => next + i)
+        .filter((d) => d <= total)
+        .flatMap((d) => chaptersFor(p, d).map((c) => c.b));
+    });
+    if (books.length) bibleFirst([...new Set(books)]);
+  }, [planKey]); // eslint-disable-line react-hooks/exhaustive-deps
   // Live: when anyone ticks a day or a task, the screen updates by itself.
-  const planId = plan?.id ?? null;
-  useEffect(() => watchGroup(group.id, planId, (what) => (what === 'reading' ? void load() : setTasksTick((n) => n + 1))), [group.id, planId, load]);
+  const planIds = plans.map((p) => p.id).join(',');
+  useEffect(() => watchGroup(group.id, planIds ? planIds.split(',') : [], (what) => (what === 'reading' ? void load() : setTasksTick((n) => n + 1))), [group.id, planIds, load]);
   // And when you come back to the app.
   useEffect(() => {
     const back = () => {
@@ -304,13 +325,23 @@ function GroupView({ group, onChanged }: { group: Group; onChanged: () => void }
     }
   }
   const active = list?.filter((m) => m.status === 'active') ?? [];
-  // How each member is doing in the current plan: chapters done, where they are, how far behind.
-  // (The database works these out: one short row per member.)
-  const planTotal = plan ? totalDays(plan) : 1;
-  const progressRows = active
-    .map((m) => ({ m, done: Number(m.days_read) || 0, chapters: Number(m.chapters_read) || 0, behind: m.behind ?? 0, next: m.next_day }))
-    .sort((a, b) => (plan ? b.behind - a.behind || a.done - b.done : 0) || a.m.display_name.localeCompare(b.m.display_name));
   const pending = list?.filter((m) => m.status === 'pending') ?? [];
+
+  // Members' progress, one plan at a time (a picker when there are several).
+  const [pickedPlan, setPickedPlan] = useState<string | null>(null);
+  const shownPlan = plans.find((p) => p.id === pickedPlan) ?? plans[0] ?? null;
+  const planTotal = shownPlan ? totalDays(shownPlan) : 1;
+  const rowsFor = (m: Member) => {
+    const pr = shownPlan && progress?.find((x) => x.plan_id === shownPlan.id && x.user_id === m.user_id);
+    if (pr) return { m, done: pr.days_read, units: pr.units_read, behind: pr.behind, next: pr.next_day, today: pr.read_today };
+    // (Before the progress for every plan is on the server: the newest plan's numbers.)
+    return { m, done: Number(m.days_read) || 0, units: Number(m.chapters_read) || 0, behind: m.behind ?? 0, next: m.next_day, today: m.read_today };
+  };
+  const progressRows = active
+    .map(rowsFor)
+    .sort((a, b) => (shownPlan ? b.behind - a.behind || a.done - b.done : 0) || a.m.display_name.localeCompare(b.m.display_name));
+  const unitsLabel = (p: Plan | null, n: number) => (p && isTotPlan(p) ? t.cmLessonsN(n) : t.cmChaptersN(n));
+
   // Tasks first when there are any; otherwise members. (Members can't add tasks, so
   // they only see the Tasks tab when there's something in it.)
   const [taskCount, setTaskCount] = useState(0);
@@ -318,22 +349,22 @@ function GroupView({ group, onChanged }: { group: Group; onChanged: () => void }
   const showTasks = isAdmin || taskCount > 0;
   const tab = showTasks ? (picked ?? (taskCount > 0 ? 'tasks' : 'members')) : 'members';
 
-  async function tick(day: number, on: boolean) {
-    if (!plan) return;
-    const next = new Set(done);
-    if (on) next.add(day);
-    else next.delete(day);
-    setDone(next);
+  async function tick(plan: Plan, day: number, on: boolean) {
+    const before = days[plan.id] ?? [];
+    const next = on ? [...new Set([...before, day])] : before.filter((d) => d !== day);
+    setDays({ ...days, [plan.id]: next });
     try {
       await markDay(plan.id, day, on);
       if (on) {
         cue('correct');
         useApp.getState().markReadingDay();
         void pushProgress().catch(() => {});
+        // A Tent of Testimony day also marks its lessons done in the library (the database does it).
+        if (isTotPlan(plan)) void useTot.getState().load();
       }
       void load();
     } catch {
-      setDone(done);
+      setDays({ ...days, [plan.id]: before });
       setMsg(t.cmFailed);
     }
   }
@@ -364,8 +395,20 @@ function GroupView({ group, onChanged }: { group: Group; onChanged: () => void }
         </button>
       </div>
 
-      {plan === undefined ? null : plan ? (
-        <TodayCard plan={plan} done={done} members={active} onRead={(day) => setSheet({ read: day })} onTick={tick} />
+      {allPlans === null ? null : plans.length ? (
+        plans.map((p) => {
+          const readers = new Set((progress ?? []).filter((x) => x.plan_id === p.id && x.read_today).map((x) => x.user_id));
+          return (
+            <TodayCard
+              key={p.id}
+              plan={p}
+              done={new Set(days[p.id] ?? [])}
+              members={active.map((m) => ({ ...m, read_today: progress ? readers.has(m.user_id) : m.read_today }))}
+              onRead={(day) => setSheet({ read: day, plan: p })}
+              onTick={(day, on) => tick(p, day, on)}
+            />
+          );
+        })
       ) : (
         <div className="cm-card glass cm-noplan">
           <BookOpen size={22} strokeWidth={STROKE} />
@@ -378,7 +421,7 @@ function GroupView({ group, onChanged }: { group: Group; onChanged: () => void }
         </div>
       )}
 
-      {list && plan && <WeekCard plan={plan} members={active} />}
+      {list && plans.length > 0 && <WeekCard plans={plans} members={active} progress={progress} />}
 
       {/* Tasks and members, one at a time. */}
       <div className="cm-tabs" role="tablist">
@@ -399,59 +442,70 @@ function GroupView({ group, onChanged }: { group: Group; onChanged: () => void }
         </div>
       )}
 
-      <section className="cm-card glass is-solid cm-members" hidden={tab !== 'members'} aria-label={plan ? t.cmProgressTitle : t.cmMembers}>
-        {progressRows.map(({ m, done: d, chapters, behind, next }) => (
-          <button key={m.user_id} className="cm-member" onClick={() => setSheet({ member: m })}>
-            <Avatar horse={m.avatar as Friend['avatar']} size={36} />
-            <span className="grow cm-member-main">
-              <strong>
-                {m.display_name}
-                {m.role !== 'member' && (
-                  <span className={`cm-role is-${m.role}`}>
-                    {m.role === 'owner' ? <Crown size={11} strokeWidth={2} /> : <Shield size={11} strokeWidth={2} />} {t.cmRole[m.role]}
-                  </span>
+      <div className="cm-members-wrap" hidden={tab !== 'members'}>
+        {plans.length > 1 && (
+          <div className="cm-plan-pick" role="tablist" aria-label={t.cmProgressTitle}>
+            {plans.map((p) => (
+              <button key={p.id} role="tab" aria-selected={shownPlan?.id === p.id} className={`tl-chip ${shownPlan?.id === p.id ? 'is-on' : ''}`} onClick={() => setPickedPlan(p.id)}>
+                {isTotPlan(p) ? <Tent size={14} strokeWidth={STROKE} /> : <BookOpen size={14} strokeWidth={STROKE} />} {p.title}
+              </button>
+            ))}
+          </div>
+        )}
+        <section className="cm-card glass is-solid cm-members" aria-label={shownPlan ? t.cmProgressTitle : t.cmMembers}>
+          {progressRows.map(({ m, done: d, units, behind, next, today }) => (
+            <button key={m.user_id} className="cm-member" onClick={() => setSheet({ member: m })}>
+              <Avatar horse={m.avatar as Friend['avatar']} size={36} />
+              <span className="grow cm-member-main">
+                <strong>
+                  {m.display_name}
+                  {m.role !== 'member' && (
+                    <span className={`cm-role is-${m.role}`}>
+                      {m.role === 'owner' ? <Crown size={11} strokeWidth={2} /> : <Shield size={11} strokeWidth={2} />} {t.cmRole[m.role]}
+                    </span>
+                  )}
+                </strong>
+                {shownPlan && (
+                  <>
+                    <span className="caption">
+                      {unitsLabel(shownPlan, units)} · {next ? t.cmOnDay(next) : t.cmFinishedShort}
+                      {behind > 0 && <b className="cm-behind"> · {t.cmBehind(behind)}</b>}
+                    </span>
+                    <span className="cm-mini-bar" aria-hidden>
+                      <i style={{ width: `${Math.round((d / planTotal) * 100)}%` }} />
+                    </span>
+                  </>
                 )}
-              </strong>
-              {plan && (
-                <>
-                  <span className="caption">
-                    {t.cmChaptersN(chapters)} · {next ? t.cmOnDay(next) : t.cmFinishedShort}
-                    {behind > 0 && <b className="cm-behind"> · {t.cmBehind(behind)}</b>}
-                  </span>
-                  <span className="cm-mini-bar" aria-hidden>
-                    <i style={{ width: `${Math.round((d / planTotal) * 100)}%` }} />
-                  </span>
-                </>
+              </span>
+              {shownPlan && today && (
+                <span className="cm-today" title={t.cmReadToday}>
+                  <Check size={14} strokeWidth={2.6} />
+                </span>
               )}
-            </span>
-            {plan && m.read_today && (
-              <span className="cm-today" title={t.cmReadToday}>
-                <Check size={14} strokeWidth={2.6} />
-              </span>
-            )}
-            {plan && isAdmin && !m.read_today && m.user_id !== myId && (
-              <span
-                role="button"
-                tabIndex={0}
-                className={`cm-nudge ${nudged[m.user_id] ? 'is-done' : ''}`}
-                title={t.cmEncourage}
-                aria-label={`${t.cmEncourage}: ${m.display_name}`}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  void nudge(m);
-                }}
-              >
-                <HandHeart size={15} strokeWidth={nudged[m.user_id] ? 2.4 : STROKE} />
-              </span>
-            )}
-            {m.streak > 0 && (
-              <span className="cm-streak">
-                <Flame size={14} strokeWidth={STROKE} /> {m.streak}
-              </span>
-            )}
-          </button>
-        ))}
-      </section>
+              {shownPlan && isAdmin && !m.read_today && m.user_id !== myId && (
+                <span
+                  role="button"
+                  tabIndex={0}
+                  className={`cm-nudge ${nudged[m.user_id] ? 'is-done' : ''}`}
+                  title={t.cmEncourage}
+                  aria-label={`${t.cmEncourage}: ${m.display_name}`}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    void nudge(m);
+                  }}
+                >
+                  <HandHeart size={15} strokeWidth={nudged[m.user_id] ? 2.4 : STROKE} />
+                </span>
+              )}
+              {m.streak > 0 && (
+                <span className="cm-streak">
+                  <Flame size={14} strokeWidth={STROKE} /> {m.streak}
+                </span>
+              )}
+            </button>
+          ))}
+        </section>
+      </div>
 
       {msg && <p className={`caption form-msg ${msg === t.cmFailed ? 'is-error' : 'is-ok'}`}>{msg}</p>}
 
@@ -459,7 +513,6 @@ function GroupView({ group, onChanged }: { group: Group; onChanged: () => void }
         {sheet === 'invite' && <InviteSheet group={group} isAdmin={isAdmin} onChanged={onChanged} />}
         {sheet === 'plan' && (
           <PlanBuilder
-            hasPlan={Boolean(plan)}
             onSave={async (p) => {
               await createPlan(group.id, p);
               setSheet(null);
@@ -472,13 +525,13 @@ function GroupView({ group, onChanged }: { group: Group; onChanged: () => void }
             group={group}
             isAdmin={isAdmin}
             pending={pending}
-            plan={plan ?? null}
+            plans={plans}
             onApprove={async (m) => {
               await manageMember(group.id, m.user_id, 'approve').catch(() => setMsg(t.cmFailed));
               void load();
             }}
-            onPlan={async (status) => {
-              if (plan) await setPlanStatus(plan.id, status).catch(() => setMsg(t.cmFailed));
+            onPlan={async (plan, status) => {
+              await setPlanStatus(plan.id, status).catch(() => setMsg(t.cmFailed));
               void load();
             }}
             onNewPlan={() => setSheet('plan')}
@@ -493,21 +546,22 @@ function GroupView({ group, onChanged }: { group: Group; onChanged: () => void }
             group={group}
             m={sheet.member}
             canManage={isAdmin && sheet.member.user_id !== myId && sheet.member.role !== 'owner'}
-            plan={plan ?? null}
-            plans={allPlans}
+            plans={plans}
+            progress={progress}
+            allPlans={allPlans ?? []}
             onDone={() => {
               setSheet(null);
               void load();
             }}
           />
         )}
-        {sheet && typeof sheet === 'object' && 'read' in sheet && plan && (
+        {sheet && typeof sheet === 'object' && 'read' in sheet && (
           <ReadSheet
-            chapters={chaptersFor(plan, sheet.read)}
+            chapters={chaptersFor(sheet.plan, sheet.read)}
             lang={uiLang}
-            done={done.has(sheet.read)}
+            done={(days[sheet.plan.id] ?? []).includes(sheet.read)}
             onDone={() => {
-              void tick(sheet.read, true);
+              void tick(sheet.plan, sheet.read, true);
               setSheet(null);
             }}
           />
@@ -525,10 +579,18 @@ function TodayCard({ plan, done, members, onRead, onTick }: { plan: Plan; done: 
   const day = st.next ?? st.total;
   const chapters = chaptersFor(plan, day);
   const pct = Math.round((st.done / st.total) * 100);
+  // A Tent of Testimony plan: the day's lessons, each opening on YouTube or tot.org.in.
+  const tot = isTotPlan(plan);
+  const [lib, setLib] = useState<Map<number, TotPlace> | null>(null);
+  useEffect(() => {
+    if (tot) void loadTot().then((c) => setLib(totIndex(c)), () => {});
+  }, [tot]);
+  const dayItems = tot ? totDayItems(plan, day).map((id) => lib?.get(id)?.item).filter((i): i is TotItem => Boolean(i)) : [];
   return (
-    <section className="cm-card glass cm-today-card">
+    <section className={`cm-card glass cm-today-card ${tot ? 'is-tot' : ''}`}>
       <div className="cm-today-head">
         <span className="eyebrow">
+          {tot ? <Tent size={13} strokeWidth={STROKE} /> : <BookOpen size={13} strokeWidth={STROKE} />}{' '}
           {plan.title}
           {!st.finished && ` · ${t.cmDayOf(day, st.total)}`}
         </span>
@@ -538,7 +600,19 @@ function TodayCard({ plan, done, members, onRead, onTick }: { plan: Plan; done: 
         <h2 className="title">{t.cmFinished}</h2>
       ) : (
         <>
-          <h2 className="title cm-chapters">{chaptersLabel(chapters, uiLang)}</h2>
+          {tot ? (
+            <div className="cm-tot-day" lang="ta">
+              {dayItems.map((i) => (
+                <a key={i.id} className="cm-tot-item" href={openUrl(i)} target="_blank" rel="noopener noreferrer">
+                  <span className="cm-tot-icon">{i.yt ? <Play size={15} strokeWidth={STROKE} /> : <ExternalLink size={15} strokeWidth={STROKE} />}</span>
+                  <strong className="grow">{i.n != null ? `${i.n} - ${i.ta}` : i.ta}</strong>
+                </a>
+              ))}
+              {!lib && <span className="cm-skeleton" aria-hidden />}
+            </div>
+          ) : (
+            <h2 className="title cm-chapters">{chaptersLabel(chapters, uiLang)}</h2>
+          )}
           <p className={`caption cm-status ${st.behind > 1 ? 'is-behind' : ''}`}>
             {!st.started ? t.cmStartsOn(fmt(dateOfDay(plan, 1))) : st.behind > 0 ? `${t.cmBehind(st.behind)} · ${t.cmInOrder(day)}` : st.ahead > 0 ? t.cmAhead(st.ahead) : st.todayIsRest ? t.cmRestDay : t.cmCaughtUp}
           </p>
@@ -548,9 +622,17 @@ function TodayCard({ plan, done, members, onRead, onTick }: { plan: Plan; done: 
             </p>
           ) : (
           <div className="cm-today-actions">
-            <Pressable className="btn btn-primary" onClick={() => onRead(day)}>
-              <BookOpen size={18} strokeWidth={STROKE} /> {t.cmRead}
-            </Pressable>
+            {tot ? (
+              dayItems[0] && (
+                <a className="btn btn-primary" href={openUrl(dayItems[0])} target="_blank" rel="noopener noreferrer">
+                  {dayItems[0].yt ? <Play size={18} strokeWidth={STROKE} /> : <ExternalLink size={18} strokeWidth={STROKE} />} {dayItems[0].yt ? t.cmWatch : t.cmRead}
+                </a>
+              )
+            ) : (
+              <Pressable className="btn btn-primary" onClick={() => onRead(day)}>
+                <BookOpen size={18} strokeWidth={STROKE} /> {t.cmRead}
+              </Pressable>
+            )}
             <Pressable className="btn glass" onClick={() => onTick(day, true)}>
               <Check size={18} strokeWidth={STROKE} /> {t.cmIRead}
             </Pressable>
@@ -803,29 +885,32 @@ function InviteSheet({ group, isAdmin, onChanged }: { group: Group; isAdmin: boo
   );
 }
 
-function MemberSheet({ group, m, canManage, plan, plans, onDone }: { group: Group; m: Member; canManage: boolean; plan: Plan | null; plans: Plan[]; onDone: () => void }) {
+function MemberSheet({ group, m, canManage, plans, progress, allPlans, onDone }: { group: Group; m: Member; canManage: boolean; plans: Plan[]; progress: PlanProgress[] | null; allPlans: Plan[]; onDone: () => void }) {
   const t = useT();
   const [note, setNote] = useState<string | null>(null);
   // Only this week's days are needed for the calendar: fetched when the sheet opens.
   const [log, setLog] = useState<{ done_at: string }[]>([]);
+  const planIds = allPlans.map((p) => p.id).join(',');
   useEffect(() => {
     const now = new Date();
     const sunday = new Date(now.getFullYear(), now.getMonth(), now.getDate() - now.getDay());
     let live = true;
-    memberDays(group.id, m.user_id, sunday, plans.map((p) => p.id))
+    memberDays(group.id, m.user_id, sunday, planIds.split(','))
       .then((rows) => live && setLog(rows))
       .catch(() => {});
     return () => {
       live = false;
     };
-  }, [group.id, m.user_id, plans]);
+  }, [group.id, m.user_id, planIds]);
   const act = async (a: 'make_admin' | 'make_member' | 'remove') => {
     if (a === 'remove' && !confirm(t.cmRemoveConfirm(m.display_name))) return;
     await manageMember(group.id, m.user_id, a).catch(() => {});
     onDone();
   };
-  const chapters = Number(m.chapters_read) || 0;
-  const planDone = Number(m.days_read) || 0;
+  // Their progress in each current plan.
+  const mine = plans.map((p) => ({ p, pr: progress?.find((x) => x.plan_id === p.id && x.user_id === m.user_id) }));
+  const chapters = progress ? mine.reduce((n, { p, pr }) => n + (pr && !isTotPlan(p) ? pr.units_read : 0), 0) : Number(m.chapters_read) || 0;
+  const lessons = mine.reduce((n, { p, pr }) => n + (pr && isTotPlan(p) ? pr.units_read : 0), 0);
   return (
     <div className="tl-panel">
       <div className="cm-member is-big">
@@ -837,9 +922,27 @@ function MemberSheet({ group, m, canManage, plan, plans, onDone }: { group: Grou
       </div>
       <div className="cm-stats is-small">
         <Stat value={chapters} label={t.cmStatChapters} />
-        {plan && <Stat value={`${Math.round((planDone / totalDays(plan)) * 100)}%`} label={t.cmStatPlan} />}
+        {lessons > 0 && <Stat value={lessons} label={t.cmStatLessons} />}
         <Stat value={`🔥 ${m.streak}`} label={t.cmStatStreak} />
       </div>
+      {plans.length > 0 && (
+        <div className="cm-member-plans">
+          {mine.map(({ p, pr }) => {
+            const d = pr ? pr.days_read : plans.length === 1 ? Number(m.days_read) || 0 : 0;
+            return (
+              <div key={p.id} className="cm-member-plan">
+                <span className="caption">
+                  {isTotPlan(p) ? <Tent size={13} strokeWidth={STROKE} /> : <BookOpen size={13} strokeWidth={STROKE} />} {p.title}
+                </span>
+                <strong>{Math.round((d / totalDays(p)) * 100)}%</strong>
+                <span className="cm-mini-bar" aria-hidden>
+                  <i style={{ width: `${Math.round((d / totalDays(p)) * 100)}%` }} />
+                </span>
+              </div>
+            );
+          })}
+        </div>
+      )}
       <h3 className="eyebrow">{t.cmCalendar}</h3>
       <ReadingCalendar log={log} />
       {canManage && (
@@ -909,12 +1012,18 @@ function ReadToday({ members }: { members: Member[] }) {
 
 /** The group this week: one shared bar (who has read in the last 7 days), and the
  *  chapters, plan progress and best streak in a line beneath it. */
-function WeekCard({ plan, members }: { plan: Plan; members: Member[] }) {
+function WeekCard({ plans, members, progress }: { plans: Plan[]; members: Member[]; progress: PlanProgress[] | null }) {
   const t = useT();
   const readers = members.filter((m) => m.read_week).length;
-  const chapters = members.reduce((n, m) => n + (Number(m.chapters_read) || 0), 0);
-  const total = totalDays(plan);
-  const pct = members.length ? Math.round((members.reduce((n, m) => n + Math.min(total, Number(m.days_read) || 0), 0) / (total * members.length)) * 100) : 0;
+  const ids = new Set(members.map((m) => m.user_id));
+  const rows = (progress ?? []).filter((x) => ids.has(x.user_id));
+  const isTot = new Set(plans.filter(isTotPlan).map((p) => p.id));
+  const chapters = progress ? rows.filter((x) => !isTot.has(x.plan_id)).reduce((n, x) => n + x.units_read, 0) : members.reduce((n, m) => n + (Number(m.chapters_read) || 0), 0);
+  const lessons = rows.filter((x) => isTot.has(x.plan_id)).reduce((n, x) => n + x.units_read, 0);
+  // All current plans together: days read out of every member's days.
+  const totalAll = plans.reduce((n, p) => n + totalDays(p), 0) * Math.max(1, members.length);
+  const readAll = progress ? rows.reduce((n, x) => n + x.days_read, 0) : members.reduce((n, m) => n + (Number(m.days_read) || 0), 0);
+  const pct = totalAll ? Math.round((readAll / totalAll) * 100) : 0;
   const best = Math.max(0, ...members.map((m) => m.streak));
   return (
     <section className="cm-card glass cm-week-card">
@@ -929,8 +1038,13 @@ function WeekCard({ plan, members }: { plan: Plan; members: Member[] }) {
         <span>
           <BookOpen size={15} strokeWidth={STROKE} /> <b>{chapters}</b> {t.cmStatChapters}
         </span>
+        {lessons > 0 && (
+          <span>
+            <Tent size={15} strokeWidth={STROKE} /> <b>{lessons}</b> {t.cmStatLessons}
+          </span>
+        )}
         <span>
-          <ChartNoAxesColumn size={15} strokeWidth={STROKE} /> <b>{pct}%</b> {t.cmStatGroupPlan}
+          <ChartNoAxesColumn size={15} strokeWidth={STROKE} /> <b>{pct}%</b> {plans.length > 1 ? t.cmStatPlans : t.cmStatGroupPlan}
         </span>
         <span>
           <Flame size={15} strokeWidth={STROKE} /> <b>{best}</b> {t.cmStatBestStreak}
@@ -978,7 +1092,7 @@ function GroupSettings({
   group,
   isAdmin,
   pending,
-  plan,
+  plans,
   onApprove,
   onPlan,
   onNewPlan,
@@ -987,9 +1101,9 @@ function GroupSettings({
   group: Group;
   isAdmin: boolean;
   pending: Member[];
-  plan: Plan | null;
+  plans: Plan[];
   onApprove: (m: Member) => Promise<void>;
-  onPlan: (status: Plan['status']) => Promise<void>;
+  onPlan: (plan: Plan, status: Plan['status']) => Promise<void>;
   onNewPlan: () => void;
   onChanged: () => void;
 }) {
@@ -1021,20 +1135,28 @@ function GroupSettings({
       {isAdmin && (
         <section className="cm-set-section">
           <h3 className="eyebrow">{t.cmPlanSection}</h3>
-          {plan && (
-            <>
-              <button className="cm-set-row" onClick={() => onPlan(plan.status === 'paused' ? 'active' : 'paused')}>
-                {plan.status === 'paused' ? <Play size={18} strokeWidth={STROKE} /> : <Pause size={18} strokeWidth={STROKE} />}
-                <span className="grow">{plan.status === 'paused' ? t.cmResumePlan : t.cmPausePlan}</span>
-                <ChevronRight size={16} strokeWidth={STROKE} />
-              </button>
-              <button className="cm-set-row" onClick={() => onPlan('done')}>
-                <Square size={18} strokeWidth={STROKE} />
-                <span className="grow">{t.cmEndPlan}</span>
-                <ChevronRight size={16} strokeWidth={STROKE} />
-              </button>
-            </>
-          )}
+          {plans.map((plan) => (
+            <div key={plan.id} className="cm-set-plan">
+              <span className="cm-set-plan-name">
+                {isTotPlan(plan) ? <Tent size={16} strokeWidth={STROKE} /> : <BookOpen size={16} strokeWidth={STROKE} />}
+                <strong className="grow">{plan.title}</strong>
+                {plan.status === 'paused' && <span className="caption">{t.cmPausedTag}</span>}
+              </span>
+              <span className="cm-set-plan-actions">
+                <button className="link" onClick={() => onPlan(plan, plan.status === 'paused' ? 'active' : 'paused')}>
+                  {plan.status === 'paused' ? <Play size={14} strokeWidth={STROKE} /> : <Pause size={14} strokeWidth={STROKE} />} {plan.status === 'paused' ? t.cmResumePlan : t.cmPausePlan}
+                </button>
+                <button
+                  className="link cm-danger-link"
+                  onClick={() => {
+                    if (confirm(t.cmEndPlanConfirm(plan.title))) void onPlan(plan, 'done');
+                  }}
+                >
+                  <Square size={14} strokeWidth={STROKE} /> {t.cmEndPlan}
+                </button>
+              </span>
+            </div>
+          ))}
           <button className="cm-set-row is-accent" onClick={onNewPlan}>
             <Plus size={18} strokeWidth={STROKE} />
             <span className="grow">{t.cmNewPlan}</span>
@@ -1104,9 +1226,24 @@ const DURATIONS: Record<string, (d: Date) => Date> = {
   d30: (d) => new Date(d.getFullYear(), d.getMonth(), d.getDate() + 29),
 };
 
-function PlanBuilder({ hasPlan, onSave }: { hasPlan: boolean; onSave: (p: PlanSpec & { title: string }) => Promise<void> }) {
+function PlanBuilder({ onSave }: { onSave: (p: PlanSpec & { title: string }) => Promise<void> }) {
   const t = useT();
   const uiLang = useApp((s) => s.uiLang);
+  // The Bible, or a series of Tent of Testimony lessons.
+  const [source, setSource] = useState<'bible' | 'tot'>('bible');
+  const [cat, setCat] = useState<TotCatalog | null>(null);
+  const [seriesId, setSeriesId] = useState('');
+  const [startAt, setStartAt] = useState(0);
+  const [perTot, setPerTot] = useState(1);
+  useEffect(() => {
+    if (source === 'tot' && !cat) void loadTot().then(setCat, () => {});
+  }, [source, cat]);
+  const allSeries: { s: TotSeries; label: string }[] = cat
+    ? cat.sections.flatMap((sec) => sec.series.map((x) => ({ s: x, label: sec.series.length > 1 ? `${uiLang === 'en' ? sec.en : sec.ta} › ${uiLang === 'en' ? x.en : x.ta}` : uiLang === 'en' ? sec.en : sec.ta })))
+    : [];
+  const series = allSeries.find((x) => x.s.id === seriesId) ?? null;
+  const totItems = series ? series.s.items.slice(startAt).map((i) => i.id) : [];
+  const fromTot = source === 'tot';
   const [preset, setPreset] = useState('bible');
   const [custom, setCustom] = useState<string[]>([]);
   const [order, setOrder] = useState<'canonical' | 'mixed'>('canonical');
@@ -1130,19 +1267,94 @@ function PlanBuilder({ hasPlan, onSave }: { hasPlan: boolean; onSave: (p: PlanSp
   const endDate = pace === 'by' ? new Date(end + 'T00:00') : duration === 'custom' ? null : DURATIONS[duration](startDate);
   const targetDays =
     pace === 'chapters' ? null : pace === 'in' && duration === 'custom' ? Math.max(1, daysCount) : Math.max(1, readingDaysBetween({ start_date: start, rest_days: rest }, endDate!));
-  const spec: PlanSpec = { books, chapters_per_day: pace === 'chapters' ? per : null, days_total: targetDays, reading_order: hasBoth ? order : 'canonical', start_date: start, rest_days: rest };
+  const spec: PlanSpec = fromTot
+    ? { books: [], chapters_per_day: perTot, days_total: null, reading_order: 'canonical', start_date: start, rest_days: rest, tot_items: totItems }
+    : { books, chapters_per_day: pace === 'chapters' ? per : null, days_total: targetDays, reading_order: hasBoth ? order : 'canonical', start_date: start, rest_days: rest };
   const chapterCount = books.length ? chapterList(books).length : 0;
   const days = books.length ? totalDays(spec) : 0;
   const capped = targetDays != null && targetDays > chapterCount;
   const fmt = (d: Date) => d.toLocaleDateString(uiLang === 'ta' ? 'ta-IN' : undefined, { day: 'numeric', month: 'short', year: 'numeric' });
-  const name = title.trim() || t.cmPreset[preset];
-  const [lo, hi] = books.length ? dailyRange(spec) : [0, 0];
+  const defaultName = fromTot ? (series ? (uiLang === 'en' ? series.s.en : series.s.ta) : t.cmSourceTot) : t.cmPreset[preset];
+  const name = title.trim() || defaultName;
+  const ready = fromTot ? totItems.length > 0 : books.length > 0;
+  const [lo, hi] = !fromTot && books.length ? dailyRange(spec) : [0, 0];
+  const totDays = fromTot && totItems.length ? totalDays(spec) : 0;
 
   return (
     <div className="tl-panel cm-builder">
       <h2 className="title">{t.cmNewPlan}</h2>
+      <p className="caption">{t.cmPlanAlongside}</p>
 
       <div className="tl-formfield">
+        <span className="caption">{t.cmPlanSource}</span>
+        <div className="segmented small" role="tablist">
+          {(['bible', 'tot'] as const).map((v) => (
+            <button key={v} role="tab" aria-selected={source === v} className={source === v ? 'is-on' : ''} onClick={() => setSource(v)}>
+              {source === v && <motion.span layoutId="seg-source" className="segmented-thumb" transition={spring.calm} />}
+              <span>
+                {v === 'tot' ? <Tent size={14} strokeWidth={STROKE} /> : <BookOpen size={14} strokeWidth={STROKE} />} {v === 'bible' ? t.cmSourceBible : t.cmSourceTot}
+              </span>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {fromTot && (
+        <>
+          {!cat && <p className="caption">{t.totOffline}</p>}
+          {cat && (
+            <>
+              <label className="tl-formfield">
+                <span className="caption">{t.cmTotSeries}</span>
+                <select
+                  className="field"
+                  value={seriesId}
+                  onChange={(e) => {
+                    setSeriesId(e.target.value);
+                    setStartAt(0);
+                  }}
+                >
+                  <option value="" disabled>
+                    …
+                  </option>
+                  {allSeries.map(({ s: x, label }) => (
+                    <option key={x.id} value={x.id}>
+                      {label} ({x.items.length})
+                    </option>
+                  ))}
+                </select>
+              </label>
+              {series && (
+                <label className="tl-formfield">
+                  <span className="caption">{t.cmTotStartAt}</span>
+                  <select className="field" lang="ta" value={startAt} onChange={(e) => setStartAt(Number(e.target.value))}>
+                    {series.s.items.map((i, k) => (
+                      <option key={i.id} value={k}>
+                        {i.n != null ? `${i.n} - ` : ''}
+                        {i.ta.slice(0, 50)}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+              )}
+              <div className="tl-formfield">
+                <span className="caption">{t.cmLessonsPerDay}</span>
+                <div className="cm-stepper">
+                  <button className="icon-btn glass" onClick={() => setPerTot(Math.max(1, perTot - 1))} aria-label="-">
+                    −
+                  </button>
+                  <strong>{perTot}</strong>
+                  <button className="icon-btn glass" onClick={() => setPerTot(Math.min(5, perTot + 1))} aria-label="+">
+                    +
+                  </button>
+                </div>
+              </div>
+            </>
+          )}
+        </>
+      )}
+
+      {!fromTot && <div className="tl-formfield">
         <span className="caption">{t.cmWhatToRead}</span>
         <div className="tl-pills">
           {[...PRESETS.map((p) => p.id), 'custom'].map((id) => (
@@ -1160,9 +1372,9 @@ function PlanBuilder({ hasPlan, onSave }: { hasPlan: boolean; onSave: (p: PlanSp
             ))}
           </div>
         )}
-      </div>
+      </div>}
 
-      {hasBoth && (
+      {!fromTot && hasBoth && (
         <div className="tl-formfield">
           <span className="caption">{t.cmOrder}</span>
           <div className="tl-pills">
@@ -1180,7 +1392,7 @@ function PlanBuilder({ hasPlan, onSave }: { hasPlan: boolean; onSave: (p: PlanSp
         <input className="field" type="date" value={start} onChange={(e) => e.target.value && setStart(e.target.value)} />
       </label>
 
-      <div className="tl-formfield">
+      {!fromTot && <div className="tl-formfield">
         <span className="caption">{t.cmPace}</span>
         <div className="segmented small" role="tablist">
           {(['in', 'by', 'chapters'] as const).map((v) => (
@@ -1216,7 +1428,7 @@ function PlanBuilder({ hasPlan, onSave }: { hasPlan: boolean; onSave: (p: PlanSp
           </>
         )}
         {pace === 'by' && <input className="field" type="date" min={start} value={end} onChange={(e) => e.target.value && setEnd(e.target.value)} aria-label={t.cmEndDate} />}
-      </div>
+      </div>}
 
       <div className="tl-formfield">
         <span className="caption">{t.cmReadOn}</span>
@@ -1241,14 +1453,24 @@ function PlanBuilder({ hasPlan, onSave }: { hasPlan: boolean; onSave: (p: PlanSp
             ))}
           </div>
         )}
+        {fromTot && <span className="caption">{t.cmTotPlanHint}</span>}
       </div>
 
       <label className="tl-formfield">
         <span className="caption">{t.cmPlanTitle}</span>
-        <input className="field" maxLength={80} value={title} onChange={(e) => setTitle(e.target.value)} placeholder={t.cmPreset[preset]} />
+        <input className="field" maxLength={80} value={title} onChange={(e) => setTitle(e.target.value)} placeholder={defaultName} />
       </label>
 
-      {books.length > 0 && (
+      {fromTot && totItems.length > 0 && series && (
+        <div className="cm-preview-box glass">
+          <strong>{t.cmPreview(totDays, fmt(finishDate(spec)))}</strong>
+          <span>{t.cmLessonsADay(perTot)}</span>
+          <span className="caption" lang="ta">
+            {t.cmTotDay1(series.s.items[startAt].ta)}
+          </span>
+        </div>
+      )}
+      {!fromTot && books.length > 0 && (
         <div className="cm-preview-box glass">
           <strong>{t.cmPreview(days, fmt(finishDate(spec)))}</strong>
           <span>{t.cmPerDayRange(lo, hi)}</span>
@@ -1256,15 +1478,14 @@ function PlanBuilder({ hasPlan, onSave }: { hasPlan: boolean; onSave: (p: PlanSp
           {capped && <span className="caption">{t.cmCapped(days)}</span>}
         </div>
       )}
-      {hasPlan && <p className="caption">{t.cmPlanReplaces}</p>}
       {msg && <p className="caption form-msg is-error">{msg}</p>}
       <Pressable
         className="btn btn-primary"
-        disabled={!books.length || busy}
+        disabled={!ready || busy}
         onClick={async () => {
           setBusy(true);
           try {
-            await onSave({ ...spec, days_total: capped ? chapterCount : spec.days_total, title: name });
+            await onSave(fromTot ? { ...spec, title: name.slice(0, 80) } : { ...spec, days_total: capped ? chapterCount : spec.days_total, title: name });
           } catch {
             setMsg(t.cmFailed);
             setBusy(false);

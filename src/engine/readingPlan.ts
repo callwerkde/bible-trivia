@@ -18,6 +18,16 @@ export interface PlanSpec {
   start_date: string;
   /** 0 = Sunday … 6 = Saturday */
   rest_days: number[];
+  /** A Tent of Testimony plan: these tot.org.in lessons in order, chapters_per_day of them a day. */
+  tot_items?: number[];
+}
+
+/** A plan of Tent of Testimony lessons rather than Bible chapters. */
+export const isTotPlan = (p: Pick<PlanSpec, 'tot_items'>) => Boolean(p.tot_items?.length);
+/** The lessons of day n of a Tent of Testimony plan. */
+export function totDayItems(p: PlanSpec, day: number): number[] {
+  const k = Math.max(1, p.chapters_per_day ?? 1);
+  return (p.tot_items ?? []).slice((day - 1) * k, day * k);
 }
 
 export type Chapter = { b: string; c: number };
@@ -55,6 +65,7 @@ export function chapterList(books: string[], order: PlanSpec['reading_order'] = 
 const chaptersOf = (p: PlanSpec) => chapterList(p.books, p.reading_order);
 
 export function totalDays(p: PlanSpec): number {
+  if (isTotPlan(p)) return Math.max(1, Math.ceil(p.tot_items!.length / Math.max(1, p.chapters_per_day ?? 1)));
   const n = chaptersOf(p).length;
   if (p.days_total) return Math.max(1, Math.min(p.days_total, n));
   return Math.ceil(n / Math.max(1, p.chapters_per_day ?? 1));
@@ -62,6 +73,7 @@ export function totalDays(p: PlanSpec): number {
 
 /** The chapters for day n (1-based). A plan set by length spreads them evenly. */
 export function chaptersFor(p: PlanSpec, day: number): Chapter[] {
+  if (isTotPlan(p)) return [];
   const all = chaptersOf(p);
   if (p.days_total) {
     const d = totalDays(p);
@@ -73,6 +85,7 @@ export function chaptersFor(p: PlanSpec, day: number): Chapter[] {
 
 /** The fewest and most chapters on any day ("3–4 chapters a day"). */
 export function dailyRange(p: PlanSpec): [number, number] {
+  if (isTotPlan(p)) return [Math.max(1, p.chapters_per_day ?? 1), Math.max(1, p.chapters_per_day ?? 1)];
   const n = chaptersOf(p).length;
   const d = totalDays(p);
   if (!p.days_total) return [Math.min(n, p.chapters_per_day ?? 1), Math.min(n, p.chapters_per_day ?? 1)];
