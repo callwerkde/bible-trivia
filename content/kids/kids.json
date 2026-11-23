@@ -3729,13 +3729,13 @@
    }
   },
   {
-   "id": "naaman",
-   "art": "river",
-   "en": "Naaman",
-   "ta": "நாகமான்",
+   "id": "ruth",
+   "art": "sheaves",
+   "en": "Ruth",
+   "ta": "ரூத்",
    "thing": {
-    "en": "The river Jordan",
-    "ta": "யோர்தான் நதி"
+    "en": "The grain she gathered",
+    "ta": "அவள் பொறுக்கிய கதிர்கள்"
    }
   },
   {

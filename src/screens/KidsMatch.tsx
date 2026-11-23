@@ -8,6 +8,7 @@ import { Pressable } from '../components/Pressable';
 import { STROKE } from '../components/icons';
 import { LangToggle } from '../components/LangToggle';
 import { Illustration } from '../art/Illustrations';
+import { KidsPortrait } from '../art/KidsPeople';
 import { KIDS_MATCH, type MatchPair } from '../engine/kids';
 import { shuffle } from '../engine/picker';
 
@@ -95,11 +96,7 @@ export function KidsMatch({ onExit }: { onExit: () => void }) {
                   ?
                 </span>
                 <span className={`km-face km-front is-${c.side}`}>
-                  {c.side === 'picture' && (
-                    <span className="km-art">
-                      <Illustration name={c.pair.art} />
-                    </span>
-                  )}
+                  <span className="km-art">{c.side === 'picture' ? <Illustration name={c.pair.art} /> : <KidsPortrait id={c.pair.id} />}</span>
                   <strong lang={uiLang}>{label[uiLang]}</strong>
                   {both && <span className="km-sec" lang={other}>{label[other]}</span>}
                 </span>

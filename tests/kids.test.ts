@@ -41,3 +41,10 @@ describe('Kids games', () => {
     expect(KIDS_MATCH.length).toBeGreaterThanOrEqual(6);
   });
 });
+
+describe('Picture Match portraits', () => {
+  it('draws every person in the game', async () => {
+    const { PORTRAIT_IDS } = await import('../src/art/KidsPeople');
+    for (const m of KIDS_MATCH) expect(PORTRAIT_IDS, m.id).toContain(m.id);
+  });
+});
