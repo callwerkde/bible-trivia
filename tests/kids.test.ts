@@ -10,11 +10,10 @@ describe('Kids games', () => {
     expect(new Set(ids).size).toBe(ids.length);
   });
   it('asks three choices in both languages, with the right answer in place', () => {
-    const raw = [...data.quiz, ...data.who];
     for (const q of [...KIDS_QUIZ, ...KIDS_WHO]) {
       expect(q.en.options, q.id).toHaveLength(3);
       expect(q.ta.options, q.id).toHaveLength(3);
-      const src = raw.find((x) => q.id.endsWith(`-${x.id}`) && (q.id.startsWith('kd-q-') ? data.quiz.includes(x) : data.who.includes(x)))!;
+      const src = (q.id.startsWith('kd-q-') ? data.quiz : data.who).find((x) => q.id === `kd-${q.id.startsWith('kd-q-') ? 'q' : 'who'}-${x.id}`)!;
       expect(q.en.options![q.answer as number], q.id).toBe(src.en[1]);
       expect(q.ta.options![q.answer as number], q.id).toBe(src.ta[1]);
       expect(new Set(q.en.options).size, q.id).toBe(3);

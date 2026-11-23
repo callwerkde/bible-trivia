@@ -2073,6 +2073,2207 @@
     "மிகவும் நோயுற்றான்",
     "தூங்கிவிட்டான்"
    ]
+  },
+  {
+   "id": "qa-gen131",
+   "ref": [
+    "GEN",
+    1,
+    31
+   ],
+   "en": [
+    "After God made everything, what did he see?",
+    "It was very good",
+    "It was too dark",
+    "It was too small"
+   ],
+   "ta": [
+    "தேவன் தாம் உண்டாக்கின எல்லாவற்றையும் பார்த்த பின், அது எப்படி இருந்தது?",
+    "அது மிகவும் நன்றாயிருந்தது",
+    "அது மிகவும் இருட்டாயிருந்தது",
+    "அது மிகவும் சிறியதாயிருந்தது"
+   ]
+  },
+  {
+   "id": "qa-gen127",
+   "ref": [
+    "GEN",
+    1,
+    27
+   ],
+   "en": [
+    "What did God make people to be like?",
+    "Like himself",
+    "Like the animals",
+    "Like the stars"
+   ],
+   "ta": [
+    "தேவன் மனுஷனை யாருடைய சாயலாக உண்டாக்கினார்?",
+    "தம்முடைய சாயலாக",
+    "மிருகங்களின் சாயலாக",
+    "நட்சத்திரங்களின் சாயலாக"
+   ]
+  },
+  {
+   "id": "qa-gen27",
+   "ref": [
+    "GEN",
+    2,
+    7
+   ],
+   "en": [
+    "What did God make the first man from?",
+    "Dust from the ground",
+    "Wood from a tree",
+    "Water from a river"
+   ],
+   "ta": [
+    "தேவன் முதல் மனுஷனை எதினால் உருவாக்கினார்?",
+    "பூமியின் மண்ணினாலே",
+    "மரத்தினாலே",
+    "நதியின் தண்ணீரினாலே"
+   ]
+  },
+  {
+   "id": "qa-gen219",
+   "ref": [
+    "GEN",
+    2,
+    19
+   ],
+   "en": [
+    "What did Adam do with the animals?",
+    "He gave each one a name",
+    "He built a house for each one",
+    "He put them all to sleep"
+   ],
+   "ta": [
+    "ஆதாம் மிருகங்களுக்கு என்ன செய்தான்?",
+    "ஒவ்வொன்றுக்கும் பேரிட்டான்",
+    "ஒவ்வொன்றுக்கும் வீடு கட்டினான்",
+    "எல்லாவற்றையும் தூங்கச் செய்தான்"
+   ]
+  },
+  {
+   "id": "qa-gen321",
+   "ref": [
+    "GEN",
+    3,
+    21
+   ],
+   "en": [
+    "What did God make to clothe Adam and his wife?",
+    "Coats of skins",
+    "Coats of gold",
+    "Hats of leaves"
+   ],
+   "ta": [
+    "தேவன் ஆதாமுக்கும் அவன் மனைவிக்கும் என்ன உண்டாக்கி உடுத்தினார்?",
+    "தோல் உடைகள்",
+    "பொன் உடைகள்",
+    "இலைத் தொப்பிகள்"
+   ]
+  },
+  {
+   "id": "qa-gen524",
+   "ref": [
+    "GEN",
+    5,
+    24
+   ],
+   "en": [
+    "Who walked with God, and God took him away?",
+    "Enoch",
+    "Noah",
+    "Cain"
+   ],
+   "ta": [
+    "தேவனோடே சஞ்சரித்து, தேவன் எடுத்துக்கொண்டவன் யார்?",
+    "ஏனோக்கு",
+    "நோவா",
+    "காயீன்"
+   ]
+  },
+  {
+   "id": "qa-gen1613",
+   "ref": [
+    "GEN",
+    16,
+    13
+   ],
+   "en": [
+    "Who called God 'the God who sees me'?",
+    "Hagar",
+    "Sarah",
+    "Rebekah"
+   ],
+   "ta": [
+    "'என்னைக் காண்கிற தேவன்' என்று தேவனுக்குப் பேரிட்டவள் யார்?",
+    "ஆகார்",
+    "சாராள்",
+    "ரெபெக்காள்"
+   ]
+  },
+  {
+   "id": "qa-gen175",
+   "ref": [
+    "GEN",
+    17,
+    5
+   ],
+   "en": [
+    "God changed Abram's name to what?",
+    "Abraham",
+    "Isaac",
+    "Jacob"
+   ],
+   "ta": [
+    "தேவன் ஆபிராமின் பேரை எதுவாக மாற்றினார்?",
+    "ஆபிரகாம்",
+    "ஈசாக்கு",
+    "யாக்கோபு"
+   ]
+  },
+  {
+   "id": "qa-gen2213",
+   "ref": [
+    "GEN",
+    22,
+    13
+   ],
+   "en": [
+    "What did Abraham offer instead of Isaac?",
+    "A ram",
+    "A camel",
+    "A cow"
+   ],
+   "ta": [
+    "ஈசாக்குக்குப் பதிலாக ஆபிரகாம் எதைப் பலியிட்டான்?",
+    "ஒரு ஆட்டுக்கடா",
+    "ஒரு ஒட்டகம்",
+    "ஒரு மாடு"
+   ]
+  },
+  {
+   "id": "qa-gen2920",
+   "ref": [
+    "GEN",
+    29,
+    20
+   ],
+   "en": [
+    "How many years did Jacob work for Rachel?",
+    "Seven",
+    "Two",
+    "Ten"
+   ],
+   "ta": [
+    "யாக்கோபு ராகேலுக்காக எத்தனை வருஷம் வேலைசெய்தான்?",
+    "ஏழு",
+    "இரண்டு",
+    "பத்து"
+   ]
+  },
+  {
+   "id": "qa-gen3228",
+   "ref": [
+    "GEN",
+    32,
+    28
+   ],
+   "en": [
+    "What new name did God give Jacob?",
+    "Israel",
+    "Abraham",
+    "Moses"
+   ],
+   "ta": [
+    "தேவன் யாக்கோபுக்குக் கொடுத்த புதிய பேர் என்ன?",
+    "இஸ்ரவேல்",
+    "ஆபிரகாம்",
+    "மோசே"
+   ]
+  },
+  {
+   "id": "qa-gen4142",
+   "ref": [
+    "GEN",
+    41,
+    42
+   ],
+   "en": [
+    "What did Pharaoh put on Joseph's hand?",
+    "A ring",
+    "A stick",
+    "A stone"
+   ],
+   "ta": [
+    "பார்வோன் யோசேப்பின் கையில் எதைப் போட்டான்?",
+    "ஒரு மோதிரம்",
+    "ஒரு கோல்",
+    "ஒரு கல்"
+   ]
+  },
+  {
+   "id": "qa-exo35",
+   "ref": [
+    "EXO",
+    3,
+    5
+   ],
+   "en": [
+    "Why did God tell Moses to take off his shoes?",
+    "The ground was holy",
+    "His feet were dirty",
+    "It was raining"
+   ],
+   "ta": [
+    "தேவன் மோசேயிடம் பாதரட்சையைக் கழற்றச் சொன்னது ஏன்?",
+    "நின்ற இடம் பரிசுத்த பூமி",
+    "அவனுடைய கால்கள் அழுக்காயிருந்தது",
+    "மழை பெய்துகொண்டிருந்தது"
+   ],
+   "art": "bush"
+  },
+  {
+   "id": "qa-exo43",
+   "ref": [
+    "EXO",
+    4,
+    3
+   ],
+   "en": [
+    "What did Moses' rod turn into?",
+    "A snake",
+    "A tree",
+    "A bird"
+   ],
+   "ta": [
+    "மோசேயின் கோல் எதுவாக மாறியது?",
+    "ஒரு சர்ப்பம்",
+    "ஒரு மரம்",
+    "ஒரு பறவை"
+   ]
+  },
+  {
+   "id": "qa-exo1321",
+   "ref": [
+    "EXO",
+    13,
+    21
+   ],
+   "en": [
+    "What went in front of God's people at night?",
+    "A pillar of fire",
+    "A pillar of cloud",
+    "A big rock"
+   ],
+   "ta": [
+    "இரவில் கர்த்தருடைய ஜனங்களுக்கு முன்பாகச் சென்றது எது?",
+    "அக்கினிஸ்தம்பம்",
+    "மேகஸ்தம்பம்",
+    "ஒரு பெரிய கல்"
+   ]
+  },
+  {
+   "id": "qa-exo1520",
+   "ref": [
+    "EXO",
+    15,
+    20
+   ],
+   "en": [
+    "What did Miriam take in her hand?",
+    "A tambourine",
+    "A basket",
+    "A bell"
+   ],
+   "ta": [
+    "மிரியாம் தன் கையில் என்ன எடுத்துக்கொண்டாள்?",
+    "தம்புரு",
+    "கூடை",
+    "மணி"
+   ]
+  },
+  {
+   "id": "qa-exo1613",
+   "ref": [
+    "EXO",
+    16,
+    13
+   ],
+   "en": [
+    "What did God send in the evening for the people to eat?",
+    "Quails",
+    "Grapes",
+    "Eggs"
+   ],
+   "ta": [
+    "சாயங்காலத்தில் மக்கள் சாப்பிடும்படி கர்த்தர் எதை அனுப்பினார்?",
+    "காடைகள்",
+    "திராட்சைப்பழங்கள்",
+    "முட்டைகள்"
+   ]
+  },
+  {
+   "id": "qa-exo3118",
+   "ref": [
+    "EXO",
+    31,
+    18
+   ],
+   "en": [
+    "What did God write the Ten Commandments on?",
+    "Stone tablets",
+    "Wooden boards",
+    "Gold plates"
+   ],
+   "ta": [
+    "கட்டளைகள் எதில் எழுதப்பட்டன?",
+    "கற்பலகைகள்",
+    "மரப்பலகைகள்",
+    "பொன் தகடுகள்"
+   ]
+  },
+  {
+   "id": "qa-lev1918",
+   "ref": [
+    "LEV",
+    19,
+    18
+   ],
+   "en": [
+    "What did God tell us to do for our neighbour?",
+    "Love them",
+    "Ignore them",
+    "Hide from them"
+   ],
+   "ta": [
+    "நம்முடைய பிறனுக்காக நாம் என்ன செய்ய வேண்டும்?",
+    "அன்புகூரவேண்டும்",
+    "புறக்கணிக்கவேண்டும்",
+    "ஒளிந்துகொள்ளவேண்டும்"
+   ]
+  },
+  {
+   "id": "qa-num219",
+   "ref": [
+    "NUM",
+    21,
+    9
+   ],
+   "en": [
+    "What did Moses lift up on a pole so the bitten people could look and live?",
+    "A bronze snake",
+    "A golden cup",
+    "A wooden box"
+   ],
+   "ta": [
+    "சர்ப்பம் கடித்தவர்கள் நோக்கிப்பார்த்துப் பிழைக்கும்படி மோசே கம்பத்தின்மேல் எதைத் தூக்கிவைத்தான்?",
+    "ஒரு வெண்கலச் சர்ப்பம்",
+    "ஒரு பொன் கிண்ணம்",
+    "ஒரு மரப்பெட்டி"
+   ]
+  },
+  {
+   "id": "qa-deu65",
+   "ref": [
+    "DEU",
+    6,
+    5
+   ],
+   "en": [
+    "With what should we love God?",
+    "With all our heart",
+    "With our feet only",
+    "With our eyes only"
+   ],
+   "ta": [
+    "நாம் தேவனிடத்தில் எதோடு அன்புகூரவேண்டும்?",
+    "முழு இருதயத்தோடும்",
+    "கால்களோடு மட்டும்",
+    "கண்களோடு மட்டும்"
+   ]
+  },
+  {
+   "id": "qa-jos19",
+   "ref": [
+    "JOS",
+    1,
+    9
+   ],
+   "en": [
+    "Who was told, 'Be strong and of good courage'?",
+    "Joshua",
+    "Samuel",
+    "Daniel"
+   ],
+   "ta": [
+    "'பலங்கொண்டு திடமனதாயிரு' என்று சொல்லப்பட்டவர் யார்?",
+    "யோசுவா",
+    "சாமுவேல்",
+    "தானியேல்"
+   ]
+  },
+  {
+   "id": "qa-jos2415",
+   "ref": [
+    "JOS",
+    24,
+    15
+   ],
+   "en": [
+    "What did Joshua say he and his family would do?",
+    "Serve the LORD",
+    "Build boats",
+    "Sell fish"
+   ],
+   "ta": [
+    "யோசுவா தானும் தன் வீட்டாரும் என்ன செய்வோம் என்றான்?",
+    "கர்த்தரையே சேவிப்போம்",
+    "கப்பல்கள் கட்டுவோம்",
+    "மீன் விற்போம்"
+   ]
+  },
+  {
+   "id": "qa-jdg44",
+   "ref": [
+    "JDG",
+    4,
+    4
+   ],
+   "en": [
+    "Which prophetess judged Israel?",
+    "Deborah",
+    "Ruth",
+    "Hannah"
+   ],
+   "ta": [
+    "இஸ்ரவேலை நியாயம் விசாரித்த தீர்க்கதரிசியானவள் யார்?",
+    "தெபொராள்",
+    "ரூத்",
+    "அன்னாள்"
+   ]
+  },
+  {
+   "id": "qa-rut414",
+   "ref": [
+    "RUT",
+    4,
+    13
+   ],
+   "en": [
+    "Who married Ruth?",
+    "Boaz",
+    "Joseph",
+    "Jonathan"
+   ],
+   "ta": [
+    "ரூத்தை விவாகம் பண்ணியவர் யார்?",
+    "போவாஸ்",
+    "யோசேப்பு",
+    "யோனத்தான்"
+   ]
+  },
+  {
+   "id": "qa-1sa167",
+   "ref": [
+    "1SA",
+    16,
+    7
+   ],
+   "en": [
+    "Man looks at the face, but what does the LORD look at?",
+    "The heart",
+    "The height",
+    "The shoes"
+   ],
+   "ta": [
+    "மனுஷன் முகத்தைப் பார்ப்பான், கர்த்தரோ எதைப் பார்க்கிறார்?",
+    "இருதயத்தை",
+    "சரீரவளர்ச்சியை",
+    "பாதரட்சையை"
+   ]
+  },
+  {
+   "id": "qa-1ki1912",
+   "ref": [
+    "1KI",
+    19,
+    12
+   ],
+   "en": [
+    "How did God speak to Elijah?",
+    "In a still small voice",
+    "In a very loud drum",
+    "In a big shout"
+   ],
+   "ta": [
+    "கர்த்தர் எலியாவோடு எப்படிப் பேசினார்?",
+    "அமர்ந்த மெல்லியசத்தம்",
+    "பெரிய முரசு",
+    "பெரிய கூப்பாடு"
+   ]
+  },
+  {
+   "id": "qa-est27",
+   "ref": [
+    "EST",
+    2,
+    7
+   ],
+   "en": [
+    "Who raised Esther after her parents died?",
+    "Mordecai",
+    "Pharaoh",
+    "Jonah"
+   ],
+   "ta": [
+    "எஸ்தர் தாய் தகப்பனை இழந்தபின் அவளை வளர்த்தவர் யார்?",
+    "மொர்தெகாய்",
+    "பார்வோன்",
+    "யோனா"
+   ]
+  },
+  {
+   "id": "qa-job121",
+   "ref": [
+    "JOB",
+    1,
+    21
+   ],
+   "en": [
+    "Who said, 'The LORD gave, and the LORD has taken away'?",
+    "Job",
+    "Noah",
+    "Jonah"
+   ],
+   "ta": [
+    "'கர்த்தர் கொடுத்தார், கர்த்தர் எடுத்தார்' என்று சொன்னவர் யார்?",
+    "யோபு",
+    "நோவா",
+    "யோனா"
+   ]
+  },
+  {
+   "id": "qa-psa191",
+   "ref": [
+    "PSA",
+    19,
+    1
+   ],
+   "en": [
+    "What do the heavens show us?",
+    "The glory of God",
+    "The price of food",
+    "Rain for the crops"
+   ],
+   "ta": [
+    "வானங்கள் எதை வெளிப்படுத்துகின்றன?",
+    "தேவனுடைய மகிமை",
+    "உணவின் விலை",
+    "பயிர்களுக்கு மழை"
+   ]
+  },
+  {
+   "id": "qa-psa461",
+   "ref": [
+    "PSA",
+    46,
+    1
+   ],
+   "en": [
+    "In trouble, what is God to us?",
+    "A safe place",
+    "A big ship",
+    "A bright sun"
+   ],
+   "ta": [
+    "ஆபத்துக்காலத்தில் தேவன் நமக்கு என்னவாயிருக்கிறார்?",
+    "அடைக்கலம்",
+    "ஒரு பெரிய கப்பல்",
+    "ஒரு பிரகாசமான சூரியன்"
+   ]
+  },
+  {
+   "id": "qa-psa11824",
+   "ref": [
+    "PSA",
+    118,
+    24
+   ],
+   "en": [
+    "What did the LORD make for us to rejoice in?",
+    "The day",
+    "The sea",
+    "A mountain"
+   ],
+   "ta": [
+    "நாம் களிகூர்ந்து மகிழும்படி கர்த்தர் எதை உண்டுபண்ணினார்?",
+    "நாள்",
+    "சமுத்திரம்",
+    "பர்வதம்"
+   ]
+  },
+  {
+   "id": "qa-psa1273",
+   "ref": [
+    "PSA",
+    127,
+    3
+   ],
+   "en": [
+    "Children are a gift from whom?",
+    "From the LORD",
+    "From the king",
+    "From the sea"
+   ],
+   "ta": [
+    "பிள்ளைகள் யாரால் வரும் சுதந்தரம்?",
+    "கர்த்தரால்",
+    "ராஜாவால்",
+    "சமுத்திரத்தால்"
+   ]
+  },
+  {
+   "id": "qa-pro17",
+   "ref": [
+    "PRO",
+    1,
+    7
+   ],
+   "en": [
+    "What is the beginning of knowledge?",
+    "Fear of the LORD",
+    "Eating breakfast",
+    "Sleeping late"
+   ],
+   "ta": [
+    "ஞானத்தின் ஆரம்பம் எது?",
+    "கர்த்தருக்குப் பயப்படுதல்",
+    "காலை உணவு சாப்பிடுதல்",
+    "தாமதமாய்த் தூங்குதல்"
+   ]
+  },
+  {
+   "id": "qa-pro35",
+   "ref": [
+    "PRO",
+    3,
+    5
+   ],
+   "en": [
+    "Whom should we trust with all our heart?",
+    "The LORD",
+    "Toys",
+    "Money"
+   ],
+   "ta": [
+    "நம் முழு இருதயத்தோடும் யாரில் நம்பிக்கையாயிருக்கவேண்டும்?",
+    "கர்த்தரில்",
+    "பொம்மைகளில்",
+    "பணத்தில்"
+   ]
+  },
+  {
+   "id": "qa-pro151",
+   "ref": [
+    "PRO",
+    15,
+    1
+   ],
+   "en": [
+    "What turns away anger?",
+    "A soft answer",
+    "A loud shout",
+    "Hitting"
+   ],
+   "ta": [
+    "எது கோபத்தை மாற்றும்?",
+    "மெதுவான பிரதியுத்தரம்",
+    "பெரிய சத்தம்",
+    "அடிப்பது"
+   ]
+  },
+  {
+   "id": "qa-ecc31",
+   "ref": [
+    "ECC",
+    3,
+    1
+   ],
+   "en": [
+    "The Bible says: 'To every thing there is a ___.' Which word fits?",
+    "Season",
+    "Name",
+    "Colour"
+   ],
+   "ta": [
+    "'ஒவ்வொன்றிற்கும் ஒவ்வொரு ___ உண்டு' என்று பைபிள் சொல்கிறது. எந்தச் சொல் பொருந்தும்?",
+    "காலம்",
+    "பெயர்",
+    "நிறம்"
+   ]
+  },
+  {
+   "id": "qa-isa96",
+   "ref": [
+    "ISA",
+    9,
+    6
+   ],
+   "en": [
+    "Which prophet said a child would be born who is called the Prince of Peace?",
+    "Isaiah",
+    "Elijah",
+    "Daniel"
+   ],
+   "ta": [
+    "'சமாதானப்பிரபு' என்னப்படும் பாலகன் பிறந்தார் என்று சொன்ன தீர்க்கதரிசி யார்?",
+    "ஏசாயா",
+    "எலியா",
+    "தானியேல்"
+   ]
+  },
+  {
+   "id": "qa-isa4110",
+   "ref": [
+    "ISA",
+    41,
+    10
+   ],
+   "en": [
+    "God says, 'Fear not, for I am ___.' Finish it.",
+    "with you",
+    "far away",
+    "sleeping"
+   ],
+   "ta": [
+    "'நீ பயப்படாதே, நான் ___' என்று தேவன் சொல்கிறார். எது சரியாக முடிக்கும்?",
+    "உன்னுடனே இருக்கிறேன்",
+    "தூரமாய்ப் போய்விட்டேன்",
+    "தூங்குகிறேன்"
+   ]
+  },
+  {
+   "id": "qa-jer295",
+   "ref": [
+    "JER",
+    29,
+    11
+   ],
+   "en": [
+    "What kind of thoughts does God have toward you?",
+    "Thoughts of peace",
+    "Thoughts of fear",
+    "Thoughts of trouble"
+   ],
+   "ta": [
+    "தேவன் உங்கள்பேரில் எப்படிப்பட்ட நினைவுகளை வைத்திருக்கிறார்?",
+    "சமாதானத்துக்கேதுவான நினைவுகள்",
+    "பயத்துக்கேதுவான நினைவுகள்",
+    "ஆபத்துக்கேதுவான நினைவுகள்"
+   ]
+  },
+  {
+   "id": "qa-lam323",
+   "ref": [
+    "LAM",
+    3,
+    23
+   ],
+   "en": [
+    "What is new every morning?",
+    "God's mercies",
+    "Our toys",
+    "Our beds"
+   ],
+   "ta": [
+    "ஒவ்வொரு காலையிலும் புதியவைகள் எவை?",
+    "கர்த்தருடைய இரக்கங்கள்",
+    "எங்கள் பொம்மைகள்",
+    "எங்கள் படுக்கைகள்"
+   ]
+  },
+  {
+   "id": "qa-ezk3626",
+   "ref": [
+    "EZK",
+    36,
+    26
+   ],
+   "en": [
+    "What did God promise to give his people?",
+    "A new heart",
+    "A new shoe",
+    "A new hat"
+   ],
+   "ta": [
+    "தேவன் தம் மக்களுக்கு என்ன கொடுப்பேன் என்று சொன்னார்?",
+    "நவமான இருதயம்",
+    "நவமான பாதரட்சை",
+    "நவமான தொப்பி"
+   ]
+  },
+  {
+   "id": "qa-dan18",
+   "ref": [
+    "DAN",
+    1,
+    8
+   ],
+   "en": [
+    "What did Daniel decide not to eat?",
+    "The king's food",
+    "Honey",
+    "Apples"
+   ],
+   "ta": [
+    "தானியேல் எதைச் சாப்பிடக்கூடாது என்று தீர்மானித்தான்?",
+    "ராஜாவின் போஜனம்",
+    "தேன்",
+    "ஆப்பிள்கள்"
+   ]
+  },
+  {
+   "id": "qa-hos111",
+   "ref": [
+    "HOS",
+    11,
+    1
+   ],
+   "en": [
+    "Out of which land did God call his son?",
+    "Egypt",
+    "Babel",
+    "Nineveh"
+   ],
+   "ta": [
+    "தேவன் தம்முடைய குமாரனை எந்த தேசத்திலிருந்து வரவழைத்தார்?",
+    "எகிப்து",
+    "பாபேல்",
+    "நினிவே"
+   ]
+  },
+  {
+   "id": "qa-jon35",
+   "ref": [
+    "JON",
+    3,
+    5
+   ],
+   "en": [
+    "What did the people of Nineveh do when they heard God's message?",
+    "They believed God",
+    "They built a boat",
+    "They ran away"
+   ],
+   "ta": [
+    "நினிவே ஜனங்கள் தேவனுடைய செய்தியைக் கேட்டபோது என்ன செய்தார்கள்?",
+    "தேவனை விசுவாசித்தார்கள்",
+    "ஒரு படகைக் கட்டினார்கள்",
+    "ஓடிப்போனார்கள்"
+   ]
+  },
+  {
+   "id": "qa-mic68",
+   "ref": [
+    "MIC",
+    6,
+    8
+   ],
+   "en": [
+    "What does the LORD ask of us?",
+    "Do what is fair, love mercy and walk humbly",
+    "Shout very loudly",
+    "Eat only sweets"
+   ],
+   "ta": [
+    "கர்த்தர் நம்மிடம் என்ன கேட்கிறார்?",
+    "நியாயஞ்செய்து, இரக்கத்தைச் சிநேகித்து, மனத்தாழ்மையாய் நடப்பது",
+    "பெரிய சத்தமாய்க் கத்துவது",
+    "மிட்டாய் மட்டும் சாப்பிடுவது"
+   ]
+  },
+  {
+   "id": "qa-zec46",
+   "ref": [
+    "ZEC",
+    4,
+    6
+   ],
+   "en": [
+    "Not by might, nor by power, but by what?",
+    "By my Spirit",
+    "By money",
+    "By running fast"
+   ],
+   "ta": [
+    "பலத்தினாலும் அல்ல, பராக்கிரமத்தினாலும் அல்ல, எதினால்?",
+    "என்னுடைய ஆவியினாலேயே",
+    "பணத்தினால்",
+    "வேகமாய் ஓடுவதினால்"
+   ]
+  },
+  {
+   "id": "qa-gen122",
+   "ref": [
+    "GEN",
+    12,
+    2
+   ],
+   "en": [
+    "What did God say he would make of Abram?",
+    "A great nation",
+    "A small village",
+    "A tall tower"
+   ],
+   "ta": [
+    "தேவன் ஆபிராமை எதுவாக்குவேன் என்றார்?",
+    "ஒரு பெரிய ஜாதி",
+    "ஒரு சிறிய கிராமம்",
+    "ஒரு உயரமான கோபுரம்"
+   ]
+  },
+  {
+   "id": "qa-neh810",
+   "ref": [
+    "NEH",
+    8,
+    10
+   ],
+   "en": [
+    "The Bible says the joy of the LORD is your ___. What fits?",
+    "Strength",
+    "Shoes",
+    "Name"
+   ],
+   "ta": [
+    "'கர்த்தருக்குள் மகிழ்ச்சியாயிருப்பதே உங்களுடைய ___' என்று சொல்லப்பட்டது. எது பொருந்தும்?",
+    "பெலன்",
+    "பாதரட்சை",
+    "பேர்"
+   ]
+  },
+  {
+   "id": "qa-deu316",
+   "ref": [
+    "DEU",
+    31,
+    6
+   ],
+   "en": [
+    "Who will never leave you or forsake you?",
+    "The LORD your God",
+    "The sun",
+    "Your toys"
+   ],
+   "ta": [
+    "உன்னை விட்டு விலகாதவரும் உன்னைக் கைவிடாதவரும் யார்?",
+    "உன் தேவனாகிய கர்த்தர்",
+    "சூரியன்",
+    "உன் பொம்மைகள்"
+   ]
+  },
+  {
+   "id": "qa-pro226",
+   "ref": [
+    "PRO",
+    22,
+    6
+   ],
+   "en": [
+    "Train up a child in the way he should ___.",
+    "go",
+    "sleep",
+    "swim"
+   ],
+   "ta": [
+    "பிள்ளையானவன் நடக்கவேண்டிய வழியிலே அவனை ___ என்று பைபிள் சொல்கிறது. எந்தச் சொல் பொருந்தும்?",
+    "நடத்து",
+    "தூங்கப்பண்ணு",
+    "நீந்தப்பண்ணு"
+   ]
+  },
+  {
+   "id": "qa-jer15",
+   "ref": [
+    "JER",
+    1,
+    5
+   ],
+   "en": [
+    "Who knew Jeremiah before he was formed in his mother's belly?",
+    "God",
+    "Moses",
+    "His father"
+   ],
+   "ta": [
+    "எரேமியா தாயின் வயிற்றில் உருவாக்கப்படுமுன்னே அவனை அறிந்தவர் யார்?",
+    "தேவன்",
+    "மோசே",
+    "அவனுடைய தகப்பன்"
+   ]
+  },
+  {
+   "id": "qa-ecc49",
+   "ref": [
+    "ECC",
+    4,
+    9
+   ],
+   "en": [
+    "Which is better: two together, or one alone?",
+    "Two together",
+    "One alone",
+    "Neither one"
+   ],
+   "ta": [
+    "ஒண்டியாயிருப்பதா, இருவர் கூடியிருப்பதா, எது நலம்?",
+    "இருவர் கூடியிருப்பது",
+    "ஒண்டியாயிருப்பது",
+    "இரண்டும் நலமில்லை"
+   ]
+  },
+  {
+   "id": "qa-exo2012",
+   "ref": [
+    "EXO",
+    20,
+    12
+   ],
+   "en": [
+    "How should children treat their father and mother?",
+    "Honour them",
+    "Ignore them",
+    "Run away from them"
+   ],
+   "ta": [
+    "பிள்ளைகள் தங்கள் தகப்பனையும் தாயையும் எப்படி நடத்தவேண்டும்?",
+    "கனம்பண்ண வேண்டும்",
+    "புறக்கணிக்க வேண்டும்",
+    "விட்டு ஓடவேண்டும்"
+   ]
+  },
+  {
+   "id": "qa-1ch1634",
+   "ref": [
+    "1CH",
+    16,
+    34
+   ],
+   "en": [
+    "Give thanks to the LORD, for he is what?",
+    "Good",
+    "Tired",
+    "Far away"
+   ],
+   "ta": [
+    "கர்த்தரைத் துதியுங்கள், அவர் எப்படிப்பட்டவர்?",
+    "நல்லவர்",
+    "களைத்தவர்",
+    "தூரமானவர்"
+   ]
+  },
+  {
+   "id": "qb-01",
+   "ref": [
+    "MAT",
+    1,
+    21
+   ],
+   "en": [
+    "An angel said Jesus would save his people from what?",
+    "Their sins",
+    "Their hunger",
+    "The rain"
+   ],
+   "ta": [
+    "தூதன் இயேசு தம்முடைய ஜனங்களை எதிலிருந்து இரட்சிப்பார் என்றான்?",
+    "அவர்களுடைய பாவங்களிலிருந்து",
+    "அவர்களுடைய பசியிலிருந்து",
+    "மழையிலிருந்து"
+   ]
+  },
+  {
+   "id": "qb-02",
+   "ref": [
+    "MAT",
+    2,
+    13
+   ],
+   "en": [
+    "Where did Joseph take baby Jesus to keep him safe from King Herod?",
+    "Egypt",
+    "Jerusalem",
+    "Samaria"
+   ],
+   "ta": [
+    "ஏரோது ராஜாவுக்குப் பயந்து, யோசேப்பு பிள்ளையை எங்கே கொண்டுபோனான்?",
+    "எகிப்து",
+    "எருசலேம்",
+    "சமாரியா"
+   ]
+  },
+  {
+   "id": "qb-03",
+   "ref": [
+    "MAT",
+    4,
+    4
+   ],
+   "en": [
+    "Jesus said we live by every word that comes out of whose mouth?",
+    "God's",
+    "The king's",
+    "A friend's"
+   ],
+   "ta": [
+    "இயேசு சொன்னார்: மனுஷன் ஒவ்வொரு வார்த்தையினாலும் பிழைப்பான்; அந்த வார்த்தை யாருடைய வாயிலிருந்து வருகிறது?",
+    "தேவனுடைய",
+    "ராஜாவினுடைய",
+    "நண்பனுடைய"
+   ]
+  },
+  {
+   "id": "qb-04",
+   "ref": [
+    "MAT",
+    4,
+    2
+   ],
+   "en": [
+    "How many days and nights did Jesus fast?",
+    "40",
+    "7",
+    "12"
+   ],
+   "ta": [
+    "இயேசு எத்தனை நாள் இரவும் பகலும் உபவாசமாயிருந்தார்?",
+    "நாற்பது",
+    "ஏழு",
+    "பன்னிரண்டு"
+   ]
+  },
+  {
+   "id": "qb-05",
+   "ref": [
+    "MAT",
+    4,
+    19
+   ],
+   "en": [
+    "Jesus said he would make his friends fishers of what?",
+    "People",
+    "Birds",
+    "Trees"
+   ],
+   "ta": [
+    "இயேசு சொன்னார்: நான் உங்களை எவைகளைப் பிடிக்கிறவர்களாக்குவேன்?",
+    "மனுஷரை",
+    "பறவைகளை",
+    "மரங்களை"
+   ]
+  },
+  {
+   "id": "qb-06",
+   "ref": [
+    "MAT",
+    5,
+    44
+   ],
+   "en": [
+    "Jesus taught us to love even our what?",
+    "Enemies",
+    "Shoes",
+    "Trees"
+   ],
+   "ta": [
+    "இயேசு நம்முடைய எவர்களையும் சிநேகிக்கச் சொன்னார்?",
+    "சத்துருக்களை",
+    "செருப்புகளை",
+    "மரங்களை"
+   ]
+  },
+  {
+   "id": "qb-07",
+   "ref": [
+    "MAT",
+    6,
+    9
+   ],
+   "en": [
+    "Jesus taught us to pray to our ___ in heaven.",
+    "Father",
+    "King",
+    "Teacher"
+   ],
+   "ta": [
+    "இயேசு ஜெபிக்கக் கற்றுக்கொடுத்தபோது, பரமண்டலங்களிலிருக்கிற நம்முடைய யாரிடம் ஜெபிக்கச் சொன்னார்?",
+    "பிதாவிடம்",
+    "ராஜாவிடம்",
+    "ஆசிரியரிடம்"
+   ]
+  },
+  {
+   "id": "qb-08",
+   "ref": [
+    "MAT",
+    6,
+    26
+   ],
+   "en": [
+    "Who feeds the birds of the air?",
+    "Your heavenly Father",
+    "The farmer",
+    "The wind"
+   ],
+   "ta": [
+    "ஆகாயத்துப் பட்சிகளை யார் பிழைப்பூட்டுகிறார்?",
+    "உங்கள் பரமபிதா",
+    "விவசாயி",
+    "காற்று"
+   ]
+  },
+  {
+   "id": "qb-09",
+   "ref": [
+    "MAT",
+    7,
+    24
+   ],
+   "en": [
+    "The wise man built his house on what?",
+    "A rock",
+    "Sand",
+    "Mud"
+   ],
+   "ta": [
+    "புத்தியுள்ள மனுஷன் தன் வீட்டை எதின்மேல் கட்டினான்?",
+    "கன்மலை",
+    "மணல்",
+    "சேறு"
+   ]
+  },
+  {
+   "id": "qb-10",
+   "ref": [
+    "MAT",
+    14,
+    30
+   ],
+   "en": [
+    "Peter began to sink in the water. What did he cry out?",
+    "Lord, save me!",
+    "I can swim!",
+    "Look at me!"
+   ],
+   "ta": [
+    "பேதுரு அமிழ்ந்துபோகத் தொடங்கியபோது என்ன சொல்லிக் கூப்பிட்டான்?",
+    "ஆண்டவரே என்னை இரட்சியும்",
+    "நான் நீந்துவேன்",
+    "என்னைப் பாருங்கள்"
+   ]
+  },
+  {
+   "id": "qb-11",
+   "ref": [
+    "MAT",
+    18,
+    2
+   ],
+   "en": [
+    "Jesus called a little child and put the child where?",
+    "In the middle of them",
+    "Up a tree",
+    "In a boat"
+   ],
+   "ta": [
+    "இயேசு ஒரு சிறு பிள்ளையை அழைத்து எங்கே நிறுத்தினார்?",
+    "அவர்கள் நடுவே",
+    "மரத்தின்மேல்",
+    "படகில்"
+   ]
+  },
+  {
+   "id": "qb-12",
+   "ref": [
+    "MAT",
+    18,
+    20
+   ],
+   "en": [
+    "When two or three gather in Jesus' name, who is in the middle of them?",
+    "Jesus",
+    "A lion",
+    "A bird"
+   ],
+   "ta": [
+    "இரண்டு பேராவது மூன்று பேராவது இயேசுவின் நாமத்தினாலே கூடியிருக்கும்போது, அவர்கள் நடுவே இருப்பவர் யார்?",
+    "இயேசு",
+    "ஒரு சிங்கம்",
+    "ஒரு பறவை"
+   ]
+  },
+  {
+   "id": "qb-13",
+   "ref": [
+    "MAT",
+    16,
+    18
+   ],
+   "en": [
+    "Jesus said he would build his ___ on a rock.",
+    "Church",
+    "Castle",
+    "Boat"
+   ],
+   "ta": [
+    "இயேசு கன்மலையின்மேல் தம்முடைய எதைக் கட்டுவேன் என்றார்?",
+    "சபையை",
+    "கோட்டையை",
+    "படகை"
+   ]
+  },
+  {
+   "id": "qb-14",
+   "ref": [
+    "MAT",
+    28,
+    6
+   ],
+   "en": [
+    "What did the angel say about Jesus at the tomb?",
+    "He is risen!",
+    "He is asleep.",
+    "He is in a boat."
+   ],
+   "ta": [
+    "கல்லறையில் தூதன் இயேசுவைப்பற்றி என்ன சொன்னான்?",
+    "அவர் உயிர்த்தெழுந்தார்",
+    "அவர் தூங்குகிறார்",
+    "அவர் படகில் இருக்கிறார்"
+   ]
+  },
+  {
+   "id": "qb-15",
+   "ref": [
+    "MAT",
+    28,
+    19
+   ],
+   "en": [
+    "Jesus told his friends to go and teach all what?",
+    "Nations",
+    "Animals",
+    "Stars"
+   ],
+   "ta": [
+    "இயேசு தம்முடைய சீஷர்களிடம் போய் சகல எவற்றை சீஷராக்குங்கள் என்றார்?",
+    "ஜாதிகளை",
+    "மிருகங்களை",
+    "நட்சத்திரங்களை"
+   ]
+  },
+  {
+   "id": "qb-16",
+   "ref": [
+    "MAT",
+    28,
+    20
+   ],
+   "en": [
+    "Jesus said, 'I am with you ___.' When?",
+    "Always",
+    "Sometimes",
+    "Never"
+   ],
+   "ta": [
+    "இயேசு சொன்னார்: நான் உங்களுடனேகூட இருக்கிறேன். எப்பொழுது?",
+    "எல்லா நாட்களிலும்",
+    "சில சமயங்களில்",
+    "ஒருநாளும் இல்லை"
+   ]
+  },
+  {
+   "id": "qb-17",
+   "ref": [
+    "MRK",
+    2,
+    4
+   ],
+   "en": [
+    "Friends let a sick man down to Jesus. Through what did they lower him?",
+    "The roof",
+    "The window",
+    "The door"
+   ],
+   "ta": [
+    "நண்பர்கள் திமிர்வாதக்காரனை இயேசுவிடம் எதின்வழியாக இறக்கினார்கள்?",
+    "மேற்கூரை",
+    "ஜன்னல்",
+    "வாசல்"
+   ]
+  },
+  {
+   "id": "qb-18",
+   "ref": [
+    "MRK",
+    5,
+    41
+   ],
+   "en": [
+    "Jesus took a little girl by the hand. What did he tell her to do?",
+    "Get up!",
+    "Go to sleep!",
+    "Run away!"
+   ],
+   "ta": [
+    "இயேசு ஒரு சிறுபெண்ணின் கையைப் பிடித்து, அவளிடம் என்ன செய்யச் சொன்னார்?",
+    "எழுந்திரு",
+    "தூங்கு",
+    "ஓடிப்போ"
+   ]
+  },
+  {
+   "id": "qb-19",
+   "ref": [
+    "LUK",
+    1,
+    37
+   ],
+   "en": [
+    "The angel told Mary that with God nothing is ___.",
+    "Impossible",
+    "Sleepy",
+    "Tasty"
+   ],
+   "ta": [
+    "தூதன் மரியாளிடம் சொன்னான்: தேவனாலே ___ காரியம் ஒன்றுமில்லை. எந்த வார்த்தை?",
+    "கூடாத",
+    "தூங்குகிற",
+    "ருசியான"
+   ]
+  },
+  {
+   "id": "qb-20",
+   "ref": [
+    "LUK",
+    12,
+    6
+   ],
+   "en": [
+    "Jesus said God does not forget even one of the little ___.",
+    "Sparrows",
+    "Lions",
+    "Whales"
+   ],
+   "ta": [
+    "இயேசு சொன்னார்: தேவனால் ஒன்றாகிலும் மறக்கப்படுவதில்லை. எவை?",
+    "அடைக்கலான் குருவிகள்",
+    "சிங்கங்கள்",
+    "திமிங்கலங்கள்"
+   ]
+  },
+  {
+   "id": "qb-21",
+   "ref": [
+    "LUK",
+    19,
+    10
+   ],
+   "en": [
+    "Jesus came to seek and to save what?",
+    "That which was lost",
+    "Money",
+    "Houses"
+   ],
+   "ta": [
+    "இயேசு எதைத் தேடவும் இரட்சிக்கவும் வந்தார்?",
+    "இழந்துபோனதை",
+    "பணத்தை",
+    "வீடுகளை"
+   ]
+  },
+  {
+   "id": "qb-22",
+   "ref": [
+    "LUK",
+    23,
+    43
+   ],
+   "en": [
+    "Jesus told a man beside him on the cross that he would be with him in what?",
+    "Paradise",
+    "School",
+    "The desert"
+   ],
+   "ta": [
+    "இயேசு தம் அருகில் சிலுவையில் இருந்த மனிதனிடம், நீ என்னுடனேகூட எங்கே இருப்பாய் என்றார்?",
+    "பரதீஸ்",
+    "பள்ளிக்கூடம்",
+    "வனாந்தரம்"
+   ]
+  },
+  {
+   "id": "qb-23",
+   "ref": [
+    "LUK",
+    5,
+    6
+   ],
+   "en": [
+    "When Peter let down the nets, what happened?",
+    "They caught so many fish that the net broke",
+    "They caught a bird",
+    "They caught a rabbit"
+   ],
+   "ta": [
+    "பேதுரு வலையைப் போட்டபோது என்ன நடந்தது?",
+    "மிகுதியான மீன்கள் பிடிபட்டன; வலை கிழிந்தது",
+    "ஒரு பறவை பிடிபட்டது",
+    "ஒரு முயல் பிடிபட்டது"
+   ]
+  },
+  {
+   "id": "qb-24",
+   "ref": [
+    "JHN",
+    8,
+    12
+   ],
+   "en": [
+    "Jesus said, 'I am the ___ of the world.'",
+    "Light",
+    "Rain",
+    "Stone"
+   ],
+   "ta": [
+    "இயேசு சொன்னார்: நான் உலகத்திற்கு ___ ஆயிருக்கிறேன்.",
+    "ஒளி",
+    "மழை",
+    "கல்"
+   ]
+  },
+  {
+   "id": "qb-25",
+   "ref": [
+    "JHN",
+    10,
+    11
+   ],
+   "en": [
+    "Jesus said, 'I am the good ___.'",
+    "Shepherd",
+    "Fisherman",
+    "King"
+   ],
+   "ta": [
+    "இயேசு சொன்னார்: நானே நல்ல ___.",
+    "மேய்ப்பன்",
+    "மீனவன்",
+    "ராஜா"
+   ]
+  },
+  {
+   "id": "qb-26",
+   "ref": [
+    "JHN",
+    11,
+    35
+   ],
+   "en": [
+    "What is the shortest verse in the Bible?",
+    "Jesus wept.",
+    "Jesus laughed.",
+    "Jesus ran away."
+   ],
+   "ta": [
+    "பைபிளில் மிகச் சிறிய வசனம் எது?",
+    "இயேசு கண்ணீர் விட்டார்.",
+    "இயேசு சிரித்தார்.",
+    "இயேசு ஓடிப்போனார்."
+   ]
+  },
+  {
+   "id": "qb-27",
+   "ref": [
+    "JHN",
+    13,
+    34
+   ],
+   "en": [
+    "What new commandment did Jesus give?",
+    "Love one another",
+    "Build big houses",
+    "Sleep all day"
+   ],
+   "ta": [
+    "இயேசு கொடுத்த புதிய கட்டளை என்ன?",
+    "ஒருவரிலொருவர் அன்பாயிருங்கள்",
+    "பெரிய வீடுகளைக் கட்டுங்கள்",
+    "நாள் முழுவதும் தூங்குங்கள்"
+   ]
+  },
+  {
+   "id": "qb-28",
+   "ref": [
+    "JHN",
+    14,
+    2
+   ],
+   "en": [
+    "Jesus said there are many rooms in his Father's ___.",
+    "House",
+    "Boat",
+    "Field"
+   ],
+   "ta": [
+    "இயேசு சொன்னார்: என் பிதாவின் எங்கே அநேக வாசஸ்தலங்கள் உண்டு?",
+    "வீட்டில்",
+    "படகில்",
+    "வயலில்"
+   ]
+  },
+  {
+   "id": "qb-29",
+   "ref": [
+    "JHN",
+    14,
+    6
+   ],
+   "en": [
+    "Jesus said, 'I am the way, the truth, and the ___.'",
+    "Life",
+    "Night",
+    "Rain"
+   ],
+   "ta": [
+    "இயேசு சொன்னார்: நானே வழியும் சத்தியமும் ___ ஆயிருக்கிறேன்.",
+    "ஜீவன்",
+    "இரவு",
+    "மழை"
+   ]
+  },
+  {
+   "id": "qb-30",
+   "ref": [
+    "JHN",
+    15,
+    5
+   ],
+   "en": [
+    "Jesus said, 'I am the vine, and you are the ___.'",
+    "Branches",
+    "Rocks",
+    "Birds"
+   ],
+   "ta": [
+    "இயேசு சொன்னார்: நானே திராட்சச்செடி, நீங்கள் ___.",
+    "கொடிகள்",
+    "கற்கள்",
+    "பறவைகள்"
+   ]
+  },
+  {
+   "id": "qb-31",
+   "ref": [
+    "JHN",
+    9,
+    6
+   ],
+   "en": [
+    "Jesus made mud and put it on whose eyes?",
+    "A blind man's",
+    "A dog's",
+    "A bird's"
+   ],
+   "ta": [
+    "இயேசு சேறு உண்டாக்கி யாருடைய கண்களின்மேல் பூசினார்?",
+    "குருடனுடைய",
+    "நாயினுடைய",
+    "பறவையினுடைய"
+   ]
+  },
+  {
+   "id": "qb-32",
+   "ref": [
+    "JHN",
+    12,
+    13
+   ],
+   "en": [
+    "When people went out to meet Jesus, what did they hold?",
+    "Palm branches",
+    "Umbrellas",
+    "Balls"
+   ],
+   "ta": [
+    "இயேசுவை எதிர்கொள்ள மக்கள் எவைகளைப் பிடித்துக்கொண்டு போனார்கள்?",
+    "குருத்தோலைகளை",
+    "குடைகளை",
+    "பந்துகளை"
+   ]
+  },
+  {
+   "id": "qb-33",
+   "ref": [
+    "ACT",
+    2,
+    41
+   ],
+   "en": [
+    "On one day, about how many people were added to the group of believers?",
+    "About 3,000",
+    "About 30",
+    "About 3"
+   ],
+   "ta": [
+    "அன்றையத்தினம் ஏறக்குறைய எத்தனைபேர் சேர்த்துக்கொள்ளப்பட்டார்கள்?",
+    "ஏறக்குறைய மூவாயிரம்பேர்",
+    "ஏறக்குறைய முப்பதுபேர்",
+    "ஏறக்குறைய மூன்றுபேர்"
+   ]
+  },
+  {
+   "id": "qb-34",
+   "ref": [
+    "ACT",
+    9,
+    25
+   ],
+   "en": [
+    "Friends let Paul down over a wall in what?",
+    "A basket",
+    "A boat",
+    "A tent"
+   ],
+   "ta": [
+    "சீஷர்கள் பவுலை மதிலின்வழியாய் எதிலே வைத்து இறக்கினார்கள்?",
+    "ஒரு கூடையில்",
+    "ஒரு படகில்",
+    "ஒரு கூடாரத்தில்"
+   ]
+  },
+  {
+   "id": "qb-35",
+   "ref": [
+    "ACT",
+    9,
+    40
+   ],
+   "en": [
+    "Peter prayed and told a woman who had died to get up. What was her name?",
+    "Tabitha",
+    "Esther",
+    "Ruth"
+   ],
+   "ta": [
+    "பேதுரு ஜெபம்பண்ணி இறந்துபோன ஒரு பெண்ணை எழுந்திரு என்றான். அவளுடைய பெயர் என்ன?",
+    "தபீத்தாள்",
+    "எஸ்தர்",
+    "ரூத்"
+   ]
+  },
+  {
+   "id": "qb-36",
+   "ref": [
+    "ACT",
+    10,
+    38
+   ],
+   "en": [
+    "Jesus went about doing what?",
+    "Good",
+    "Bad things",
+    "Nothing at all"
+   ],
+   "ta": [
+    "இயேசு சுற்றித்திரிந்து என்ன செய்தார்?",
+    "நன்மை",
+    "தீமை",
+    "ஒன்றும் செய்யாமல்"
+   ]
+  },
+  {
+   "id": "qb-37",
+   "ref": [
+    "ACT",
+    12,
+    7
+   ],
+   "en": [
+    "When the angel came to Peter, what fell off his hands?",
+    "Chains",
+    "Shoes",
+    "Hats"
+   ],
+   "ta": [
+    "தூதன் பேதுருவிடம் வந்தபோது அவன் கைகளிலிருந்து எவைகள் விழுந்தது?",
+    "சங்கிலிகள்",
+    "செருப்புகள்",
+    "தொப்பிகள்"
+   ]
+  },
+  {
+   "id": "qb-38",
+   "ref": [
+    "ACT",
+    16,
+    9
+   ],
+   "en": [
+    "In a vision at night, Paul saw a man from which land asking for help?",
+    "Macedonia",
+    "Jerusalem",
+    "Samaria"
+   ],
+   "ta": [
+    "இராத்திரியிலே பவுலுக்குத் தரிசனத்தில் உதவி கேட்ட ஒருவர் எந்த தேசத்தானாயிருந்தார்?",
+    "மக்கெதோனியா",
+    "எருசலேம்",
+    "சமாரியா"
+   ]
+  },
+  {
+   "id": "qb-39",
+   "ref": [
+    "ACT",
+    16,
+    26
+   ],
+   "en": [
+    "What shook the prison so hard that the doors opened?",
+    "An earthquake",
+    "A big dog",
+    "A loud song"
+   ],
+   "ta": [
+    "சிறைச்சாலையின் அஸ்திபாரங்கள் அசையும்படியாக எது நடந்தது?",
+    "பூமி அதிர்ச்சி",
+    "ஒரு பெரிய நாய்",
+    "ஒரு சத்தமான பாட்டு"
+   ]
+  },
+  {
+   "id": "qb-40",
+   "ref": [
+    "ACT",
+    16,
+    31
+   ],
+   "en": [
+    "What did they tell the jailer to believe in?",
+    "The Lord Jesus Christ",
+    "The sun",
+    "The sea"
+   ],
+   "ta": [
+    "சிறைக்காவலனிடம் எதை விசுவாசிக்கச் சொன்னார்கள்?",
+    "கர்த்தராகிய இயேசுகிறிஸ்துவை",
+    "சூரியனை",
+    "கடலை"
+   ]
+  },
+  {
+   "id": "qb-41",
+   "ref": [
+    "ACT",
+    18,
+    3
+   ],
+   "en": [
+    "What was Paul's job?",
+    "Making tents",
+    "Catching fish",
+    "Herding sheep"
+   ],
+   "ta": [
+    "பவுலின் தொழில் என்ன?",
+    "கூடாரம் பண்ணுதல்",
+    "மீன் பிடித்தல்",
+    "ஆடு மேய்த்தல்"
+   ]
+  },
+  {
+   "id": "qb-42",
+   "ref": [
+    "ACT",
+    20,
+    35
+   ],
+   "en": [
+    "Jesus said it is more blessed to give than to what?",
+    "Receive",
+    "Sleep",
+    "Run"
+   ],
+   "ta": [
+    "வாங்குகிறதைப்பார்க்கிலும் எது பாக்கியம் என்று இயேசு சொன்னார்?",
+    "கொடுக்கிறதே",
+    "தூங்குவதே",
+    "ஓடுவதே"
+   ]
+  },
+  {
+   "id": "qb-43",
+   "ref": [
+    "ROM",
+    5,
+    8
+   ],
+   "en": [
+    "Christ died for us while we were still what?",
+    "Sinners",
+    "Hungry",
+    "Sleeping"
+   ],
+   "ta": [
+    "நாம் எப்படியிருக்கையில் கிறிஸ்து நமக்காக மரித்தார்?",
+    "பாவிகளாயிருக்கையில்",
+    "பசியாயிருக்கையில்",
+    "தூங்கிக்கொண்டிருக்கையில்"
+   ]
+  },
+  {
+   "id": "qb-44",
+   "ref": [
+    "ROM",
+    6,
+    23
+   ],
+   "en": [
+    "What is God's gift to us?",
+    "Eternal life",
+    "Gold coins",
+    "A big house"
+   ],
+   "ta": [
+    "தேவனுடைய கிருபைவரம் என்ன?",
+    "நித்தியஜீவன்",
+    "பொன் காசுகள்",
+    "பெரிய வீடு"
+   ]
+  },
+  {
+   "id": "qb-45",
+   "ref": [
+    "1CO",
+    13,
+    13
+   ],
+   "en": [
+    "Which is the greatest of these: faith, hope or love?",
+    "Love",
+    "Faith",
+    "Hope"
+   ],
+   "ta": [
+    "விசுவாசம், நம்பிக்கை, அன்பு இவைகளில் பெரியது எது?",
+    "அன்பு",
+    "விசுவாசம்",
+    "நம்பிக்கை"
+   ]
+  },
+  {
+   "id": "qb-46",
+   "ref": [
+    "GAL",
+    5,
+    22
+   ],
+   "en": [
+    "The fruit of the Spirit is love, joy and what?",
+    "Peace",
+    "Anger",
+    "Sadness"
+   ],
+   "ta": [
+    "ஆவியின் கனி அன்பு, சந்தோஷம், எது?",
+    "சமாதானம்",
+    "கோபம்",
+    "சோகம்"
+   ]
+  },
+  {
+   "id": "qb-47",
+   "ref": [
+    "EPH",
+    2,
+    8
+   ],
+   "en": [
+    "You are saved by God's ___, through faith.",
+    "Grace",
+    "Money",
+    "Your own hard work"
+   ],
+   "ta": [
+    "நீங்கள் விசுவாசத்தைக்கொண்டு எதினாலே இரட்சிக்கப்பட்டீர்கள்?",
+    "கிருபையினாலே",
+    "பணத்தினாலே",
+    "உங்கள் வேலையினாலே"
+   ]
+  },
+  {
+   "id": "qb-48",
+   "ref": [
+    "EPH",
+    4,
+    32
+   ],
+   "en": [
+    "Paul said, 'Be kind to one another, and ___ one another.'",
+    "Forgive",
+    "Shout at",
+    "Hit"
+   ],
+   "ta": [
+    "பவுல் சொன்னார்: ஒருவருக்கொருவர் தயவாயிருங்கள், ஒருவருக்காருவர் ___.",
+    "மன்னியுங்கள்",
+    "கத்துங்கள்",
+    "அடியுங்கள்"
+   ]
+  },
+  {
+   "id": "qb-49",
+   "ref": [
+    "EPH",
+    6,
+    1
+   ],
+   "en": [
+    "Paul said, 'Children, obey your ___ in the Lord.'",
+    "Parents",
+    "Pets",
+    "Neighbours"
+   ],
+   "ta": [
+    "பவுல் சொன்னார்: பிள்ளைகளே, கர்த்தருக்குள் யாருக்குக் கீழ்ப்படியுங்கள்?",
+    "பெற்றாருக்கு",
+    "பூனைக்கு",
+    "அயலாருக்கு"
+   ]
+  },
+  {
+   "id": "qb-50",
+   "ref": [
+    "PHP",
+    4,
+    13
+   ],
+   "en": [
+    "Paul said, 'I can do all things through ___.'",
+    "Christ",
+    "Money",
+    "Magic"
+   ],
+   "ta": [
+    "பவுல் சொன்னார்: என்னைப் பெலப்படுத்துகிற யாரினாலே எல்லாவற்றையும் செய்ய முடியும்?",
+    "கிறிஸ்துவினாலே",
+    "பணத்தினாலே",
+    "மந்திரத்தினாலே"
+   ]
+  },
+  {
+   "id": "qb-51",
+   "ref": [
+    "2TI",
+    3,
+    15
+   ],
+   "en": [
+    "Paul said, 'From a child you have known the holy ___.'",
+    "Scriptures",
+    "Songs",
+    "Games"
+   ],
+   "ta": [
+    "பவுல் சொன்னார்: நீ சிறுவயது முதல் பரிசுத்த ___ அறிந்தவன்.",
+    "வேத எழுத்துக்களை",
+    "பாடல்களை",
+    "விளையாட்டுகளை"
+   ]
+  },
+  {
+   "id": "qb-52",
+   "ref": [
+    "1PE",
+    5,
+    7
+   ],
+   "en": [
+    "Peter said, 'Give all your worries to God, because he ___ for you.'",
+    "Cares",
+    "Sleeps",
+    "Forgets"
+   ],
+   "ta": [
+    "பேதுரு சொன்னார்: உங்கள் கவலைகளையெல்லாம் தேவன்மேல் வைத்துவிடுங்கள், ஏனெனில் அவர் உங்களை ___.",
+    "விசாரிக்கிறார்",
+    "தூங்குகிறார்",
+    "மறக்கிறார்"
+   ]
+  },
+  {
+   "id": "qb-53",
+   "ref": [
+    "1JN",
+    4,
+    8
+   ],
+   "en": [
+    "The Bible says, 'God is ___.'",
+    "Love",
+    "Angry",
+    "Hungry"
+   ],
+   "ta": [
+    "வேதம் சொல்கிறது: தேவன் ___ ஆகவே இருக்கிறார்.",
+    "அன்பாகவே",
+    "கோபமாகவே",
+    "பசியாகவே"
+   ]
+  },
+  {
+   "id": "qb-54",
+   "ref": [
+    "REV",
+    21,
+    4
+   ],
+   "en": [
+    "What will God wipe away from every eye in heaven?",
+    "Tears",
+    "Smiles",
+    "Songs"
+   ],
+   "ta": [
+    "பரலோகத்தில் தேவன் எவைகளைத் துடைப்பார்?",
+    "கண்ணீர்",
+    "சிரிப்பு",
+    "பாடல்"
+   ]
+  },
+  {
+   "id": "qb-55",
+   "ref": [
+    "REV",
+    3,
+    20
+   ],
+   "en": [
+    "Jesus stands at the door and what?",
+    "Knocks",
+    "Sleeps",
+    "Runs away"
+   ],
+   "ta": [
+    "இயேசு வாசற்படியிலே நின்று என்ன செய்கிறார்?",
+    "தட்டுகிறார்",
+    "தூங்குகிறார்",
+    "ஓடுகிறார்"
+   ]
   }
  ],
  "yesno": [
@@ -2795,6 +4996,1817 @@
    "answer": true,
    "en": "David kept his sheep safe from a lion and a bear.",
    "ta": "தாவீது தன் ஆடுகளைச் சிங்கத்திடமிருந்தும் கரடியிடமிருந்தும் காப்பாற்றினான்."
+  },
+  {
+   "id": "ya-gen127",
+   "ref": [
+    "GEN",
+    1,
+    27
+   ],
+   "answer": true,
+   "en": "God made people to be like himself.",
+   "ta": "தேவன் மனுஷனைத் தம்முடைய சாயலாக சிருஷ்டித்தார்."
+  },
+  {
+   "id": "ya-gen27",
+   "ref": [
+    "GEN",
+    2,
+    7
+   ],
+   "answer": true,
+   "en": "God made the first man from the dust of the ground.",
+   "ta": "தேவனாகிய கர்த்தர் மனுஷனைப் பூமியின் மண்ணினாலே உருவாக்கினார்."
+  },
+  {
+   "id": "ya-gen619",
+   "ref": [
+    "GEN",
+    6,
+    19
+   ],
+   "answer": true,
+   "en": "God told Noah to take two of every kind of animal into the ark.",
+   "ta": "தேவன் நோவாவிடம், சகல ஜீவன்களிலும் ஒவ்வொரு ஜோடு பேழைக்குள்ளே சேர்த்துக்கொள் என்றார்."
+  },
+  {
+   "id": "ya-gen820",
+   "ref": [
+    "GEN",
+    8,
+    20
+   ],
+   "answer": true,
+   "en": "After the flood, Noah built an altar to the LORD.",
+   "ta": "நோவா கர்த்தருக்கு ஒரு பலிபீடம் கட்டினான்."
+  },
+  {
+   "id": "ya-gen121",
+   "ref": [
+    "GEN",
+    12,
+    1
+   ],
+   "answer": true,
+   "en": "God told Abram to leave his country and go to a new land.",
+   "ta": "கர்த்தர் ஆபிராமை நோக்கி, நீ உன் தேசத்தை விட்டுப் புறப்பட்டுப்போ என்றார்."
+  },
+  {
+   "id": "ya-gen2213",
+   "ref": [
+    "GEN",
+    22,
+    13
+   ],
+   "answer": true,
+   "en": "God gave Abraham a ram to offer instead of his son Isaac.",
+   "ta": "ஆபிரகாம் தன் குமாரனுக்குப் பதிலாக ஒரு ஆட்டுக்கடாவை தகனபலியிட்டான்."
+  },
+  {
+   "id": "ya-gen2467",
+   "ref": [
+    "GEN",
+    24,
+    67
+   ],
+   "answer": true,
+   "en": "Isaac married Rebekah.",
+   "ta": "ஈசாக்கு ரெபெக்காளைத் தனக்கு மனைவியாக்கிக்கொண்டான்."
+  },
+  {
+   "id": "ya-gen373",
+   "ref": [
+    "GEN",
+    37,
+    3
+   ],
+   "answer": true,
+   "en": "Jacob loved Joseph more than all his other sons.",
+   "ta": "இஸ்ரவேல் யோசேப்பை தன் குமாரர் எல்லாரிலும் அதிகமாய் நேசித்தான்."
+  },
+  {
+   "id": "ya-gen3920",
+   "ref": [
+    "GEN",
+    39,
+    20
+   ],
+   "answer": true,
+   "en": "Joseph was put in prison.",
+   "ta": "யோசேப்பு சிறைச்சாலையிலே வைக்கப்பட்டான்."
+  },
+  {
+   "id": "ya-exo35",
+   "ref": [
+    "EXO",
+    3,
+    5
+   ],
+   "answer": true,
+   "en": "God told Moses to take off his shoes, because the ground was holy.",
+   "ta": "தேவன் மோசேயிடம்: உன் பாதரட்சையைக் கழற்றிப்போடு; நீ நிற்கிற இடம் பரிசுத்த பூமி என்றார்."
+  },
+  {
+   "id": "ya-exo720",
+   "ref": [
+    "EXO",
+    7,
+    20
+   ],
+   "answer": true,
+   "en": "The water in the river turned to blood.",
+   "ta": "நதியிலுள்ள தண்ணீரெல்லாம் இரத்தமாய் மாறிப்போயிற்று."
+  },
+  {
+   "id": "ya-exo1213",
+   "ref": [
+    "EXO",
+    12,
+    13
+   ],
+   "answer": true,
+   "en": "God said the blood on the doors would be a sign for his people.",
+   "ta": "வீடுகளில் அந்த இரத்தம் உங்களுக்காக அடையாளமாய் இருக்கும்."
+  },
+  {
+   "id": "ya-exo1414",
+   "ref": [
+    "EXO",
+    14,
+    14
+   ],
+   "answer": true,
+   "en": "God said, \"The LORD will fight for you.\"",
+   "ta": "கர்த்தர் உங்களுக்காக யுத்தம்பண்ணுவார்."
+  },
+  {
+   "id": "ya-exo1520",
+   "ref": [
+    "EXO",
+    15,
+    20
+   ],
+   "answer": true,
+   "en": "Miriam took a tambourine in her hand.",
+   "ta": "மிரியாம் தன் கையிலே தம்புரை எடுத்துக்கொண்டாள்."
+  },
+  {
+   "id": "ya-exo1613",
+   "ref": [
+    "EXO",
+    16,
+    13
+   ],
+   "answer": true,
+   "en": "In the evening, quail came and covered the camp.",
+   "ta": "சாயங்காலத்தில் காடைகள் வந்து விழுந்து பாளயத்தை மூடிக்கொண்டது."
+  },
+  {
+   "id": "ya-lev1918",
+   "ref": [
+    "LEV",
+    19,
+    18
+   ],
+   "answer": true,
+   "en": "God said to love your neighbour as yourself.",
+   "ta": "உன்னில் நீ அன்புகூருவதுபோல் பிறனிலும் அன்புகூருவாயாக."
+  },
+  {
+   "id": "ya-num219",
+   "ref": [
+    "NUM",
+    21,
+    9
+   ],
+   "answer": true,
+   "en": "Moses made a bronze snake on a pole, and people who looked at it lived.",
+   "ta": "மோசே ஒரு வெண்கலச் சர்ப்பத்தை உண்டாக்கி, அதைக் கம்பத்தின்மேல் தூக்கிவைத்தான்."
+  },
+  {
+   "id": "ya-deu65",
+   "ref": [
+    "DEU",
+    6,
+    5
+   ],
+   "answer": true,
+   "en": "God said to love him with all your heart.",
+   "ta": "உன் முழு இருதயத்தோடும் கர்த்தரிடத்தில் அன்புகூருவாயாக."
+  },
+  {
+   "id": "ya-jos19",
+   "ref": [
+    "JOS",
+    1,
+    9
+   ],
+   "answer": true,
+   "en": "God told Joshua to be strong and brave.",
+   "ta": "கர்த்தர் யோசுவாவிடம்: பலங்கொண்டு திடமனதாயிரு என்றார்."
+  },
+  {
+   "id": "ya-rut23",
+   "ref": [
+    "RUT",
+    2,
+    3
+   ],
+   "answer": true,
+   "en": "Ruth picked up grain in Boaz's field.",
+   "ta": "ரூத் போவாசுடைய வயல்நிலத்தில் பொறுக்கினாள்."
+  },
+  {
+   "id": "ya-1ki1714",
+   "ref": [
+    "1KI",
+    17,
+    14
+   ],
+   "answer": true,
+   "en": "God said the flour and oil would not run out.",
+   "ta": "பானையின் மா செலவழிந்துபோவதும் இல்லை; கலசத்தின் எண்ணெய் குறைந்துபோவதும் இல்லை என்று கர்த்தர் சொன்னார்."
+  },
+  {
+   "id": "ya-1ki1912",
+   "ref": [
+    "1KI",
+    19,
+    12
+   ],
+   "answer": true,
+   "en": "God spoke in a still, small voice.",
+   "ta": "தேவன் அமர்ந்த மெல்லியசத்தத்திலே பேசினார்."
+  },
+  {
+   "id": "ya-job121",
+   "ref": [
+    "JOB",
+    1,
+    21
+   ],
+   "answer": true,
+   "en": "Job said, \"The LORD gave, and the LORD has taken away.\"",
+   "ta": "யோபு: கர்த்தர் கொடுத்தார், கர்த்தர் எடுத்தார் என்றான்."
+  },
+  {
+   "id": "ya-job4212",
+   "ref": [
+    "JOB",
+    42,
+    12
+   ],
+   "answer": true,
+   "en": "God blessed the end of Job's life more than the beginning.",
+   "ta": "கர்த்தர் யோபின் முன்னிலைமையைப் பார்க்கிலும் அவன் பின்னிலைமையை ஆசீர்வதித்தார்."
+  },
+  {
+   "id": "ya-psa10312",
+   "ref": [
+    "PSA",
+    103,
+    12
+   ],
+   "answer": true,
+   "en": "God has taken our sins as far from us as east is from west.",
+   "ta": "மேற்குக்கும் கிழக்குக்கும் எவ்வளவு தூரமோ, அவ்வளவு தூரமாய் அவர் நம்முடைய பாவங்களை நம்மை விட்டு விலக்கினார்."
+  },
+  {
+   "id": "ya-psa11824",
+   "ref": [
+    "PSA",
+    118,
+    24
+   ],
+   "answer": true,
+   "en": "This is the day the LORD has made.",
+   "ta": "இது கர்த்தர் உண்டுபண்ணின நாள்."
+  },
+  {
+   "id": "ya-pro1717",
+   "ref": [
+    "PRO",
+    17,
+    17
+   ],
+   "answer": true,
+   "en": "A friend loves at all times.",
+   "ta": "சிநேகிதன் எல்லாக் காலத்திலும் சிநேகிப்பான்."
+  },
+  {
+   "id": "ya-pro226",
+   "ref": [
+    "PRO",
+    22,
+    6
+   ],
+   "answer": true,
+   "en": "The Bible says to train a child in the way he should go.",
+   "ta": "பிள்ளையானவன் நடக்கவேண்டிய வழியிலே அவனை நடத்து என்று வேதம் சொல்லுகிறது."
+  },
+  {
+   "id": "ya-ecc31",
+   "ref": [
+    "ECC",
+    3,
+    1
+   ],
+   "answer": true,
+   "en": "There is a time for everything.",
+   "ta": "ஒவ்வொன்றிற்கும் ஒவ்வொரு காலமுண்டு."
+  },
+  {
+   "id": "ya-isa118",
+   "ref": [
+    "ISA",
+    1,
+    18
+   ],
+   "answer": true,
+   "en": "God said our sins can be as white as snow.",
+   "ta": "உங்கள் பாவங்கள் உறைந்த மழையைப் போல் வெண்மையாகும் என்று கர்த்தர் சொல்லுகிறார்."
+  },
+  {
+   "id": "ya-isa68",
+   "ref": [
+    "ISA",
+    6,
+    8
+   ],
+   "answer": true,
+   "en": "Isaiah said, \"Here I am. Send me.\"",
+   "ta": "ஏசாயா: இதோ, அடியேன் இருக்கிறேன்; என்னை அனுப்பும் என்றான்."
+  },
+  {
+   "id": "ya-isa96",
+   "ref": [
+    "ISA",
+    9,
+    6
+   ],
+   "answer": true,
+   "en": "Isaiah said a child would be born, and he would be called the Prince of Peace.",
+   "ta": "நமக்கு ஒரு பாலகன் பிறந்தார்; அவர் சமாதானப்பிரபு என்னப்படும்."
+  },
+  {
+   "id": "ya-isa4031",
+   "ref": [
+    "ISA",
+    40,
+    31
+   ],
+   "answer": true,
+   "en": "Those who wait on the LORD will get new strength.",
+   "ta": "கர்த்தருக்குக் காத்திருக்கிறவர்கள் புதுப்பெலனடைவார்கள்."
+  },
+  {
+   "id": "ya-lam323",
+   "ref": [
+    "LAM",
+    3,
+    23
+   ],
+   "answer": true,
+   "en": "God's mercies are new every morning.",
+   "ta": "தேவனுடைய இரக்கங்கள் காலைதோறும் புதியவைகள்."
+  },
+  {
+   "id": "ya-dan55",
+   "ref": [
+    "DAN",
+    5,
+    5
+   ],
+   "answer": true,
+   "en": "A hand came out and wrote words on the king's wall.",
+   "ta": "மனுஷர் கைவிரல்கள் தோன்றி, ராஜ அரமனையின் சுவரிலே எழுதிற்று."
+  },
+  {
+   "id": "ya-hos111",
+   "ref": [
+    "HOS",
+    11,
+    1
+   ],
+   "answer": true,
+   "en": "God said, \"Out of Egypt I called my son.\"",
+   "ta": "தேவன்: எகிப்திலிருந்து என்னுடைய குமாரனை வரவழைத்தேன் என்றார்."
+  },
+  {
+   "id": "ya-jon35",
+   "ref": [
+    "JON",
+    3,
+    5
+   ],
+   "answer": true,
+   "en": "The people of Nineveh believed God.",
+   "ta": "நினிவேயிலுள்ள ஜனங்கள் தேவனை விசுவாசித்து."
+  },
+  {
+   "id": "ya-jdg44",
+   "ref": [
+    "JDG",
+    4,
+    4
+   ],
+   "answer": true,
+   "en": "Deborah was a prophetess who judged Israel.",
+   "ta": "தெபொராள் என்னும் தீர்க்கதரிசியானவள் இஸ்ரவேலை நியாயம் விசாரித்தாள்."
+  },
+  {
+   "id": "ya-gen222",
+   "ref": [
+    "GEN",
+    2,
+    22
+   ],
+   "answer": false,
+   "en": "God made Eve from a stone.",
+   "ta": "தேவனாகிய கர்த்தர் மனுஷியை ஒரு கல்லிலிருந்து உருவாக்கினார்.",
+   "why": {
+    "en": "God made the woman from one of the man's ribs.",
+    "ta": "தேவனாகிய கர்த்தர் தாம் மனுஷனில் எடுத்த விலா எலும்பை மனுஷியாக உருவாக்கினார்."
+   }
+  },
+  {
+   "id": "ya-gen36",
+   "ref": [
+    "GEN",
+    3,
+    6
+   ],
+   "answer": false,
+   "en": "The man ate the fruit before the woman did.",
+   "ta": "புருஷன் ஸ்திரீக்கு முன்னே அந்தக் கனியைப் புசித்தான்.",
+   "why": {
+    "en": "The woman ate the fruit first, and then gave some to the man.",
+    "ta": "ஸ்திரீயானவள் அதின் கனியைப் பறித்து, புசித்து, தன் புருஷனுக்கும் கொடுத்தாள்."
+   }
+  },
+  {
+   "id": "ya-gen48",
+   "ref": [
+    "GEN",
+    4,
+    8
+   ],
+   "answer": false,
+   "en": "Cain was kind to his brother Abel.",
+   "ta": "காயீன் தன் சகோதரனாகிய ஆபேலிடம் அன்பாயிருந்தான்.",
+   "why": {
+    "en": "Cain was angry with Abel and killed him.",
+    "ta": "காயீன் தன் சகோதரனாகிய ஆபேலுக்கு விரோதமாய் எழும்பி, அவனைக் கொலைசெய்தான்."
+   }
+  },
+  {
+   "id": "ya-gen614",
+   "ref": [
+    "GEN",
+    6,
+    14
+   ],
+   "answer": false,
+   "en": "Noah built the ark out of stone.",
+   "ta": "நோவா கல்லினால் ஒரு பேழையைக் கட்டினான்.",
+   "why": {
+    "en": "Noah made the ark from gopher wood.",
+    "ta": "நீ கொப்பேர் மரத்தால் உனக்கு ஒரு பேழையை உண்டாக்கு."
+   }
+  },
+  {
+   "id": "ya-gen69",
+   "ref": [
+    "GEN",
+    6,
+    9
+   ],
+   "answer": false,
+   "en": "Noah was a bad man who did not walk with God.",
+   "ta": "நோவா தேவனோடே சஞ்சரிக்காத கெட்ட மனுஷனாயிருந்தான்.",
+   "why": {
+    "en": "Noah was a just man who walked with God.",
+    "ta": "நோவா நீதிமானும் உத்தமனுமாயிருந்தான்; நோவா தேவனோடே சஞ்சரித்துக் கொண்டிருந்தான்."
+   }
+  },
+  {
+   "id": "ya-gen1311",
+   "ref": [
+    "GEN",
+    13,
+    11
+   ],
+   "answer": false,
+   "en": "Abram chose the plain of Jordan for himself.",
+   "ta": "ஆபிராம் யோர்தானுக்கு அருகான சமபூமி முழுவதையும் தனக்காகத் தெரிந்துகொண்டான்.",
+   "why": {
+    "en": "Lot chose the plain of Jordan.",
+    "ta": "லோத்து யோர்தானுக்கு அருகான சமபூமி முழுவதையும் தெரிந்துகொண்டான்."
+   }
+  },
+  {
+   "id": "ya-gen2920",
+   "ref": [
+    "GEN",
+    29,
+    20
+   ],
+   "answer": false,
+   "en": "Jacob worked for Rachel for only one year.",
+   "ta": "யாக்கோபு ராகேலுக்காக ஒரு வருஷம் மட்டும் வேலைசெய்தான்.",
+   "why": {
+    "en": "Jacob worked seven years for Rachel.",
+    "ta": "யாக்கோபு ராகேலுக்காக ஏழு வருஷம் வேலைசெய்தான்."
+   }
+  },
+  {
+   "id": "ya-gen3224",
+   "ref": [
+    "GEN",
+    32,
+    24
+   ],
+   "answer": false,
+   "en": "Jacob wrestled with a lion.",
+   "ta": "யாக்கோபு ஒரு சிங்கத்தோடே போராடினான்.",
+   "why": {
+    "en": "Jacob wrestled with a man.",
+    "ta": "ஒரு புருஷன் பொழுது விடியுமளவும் அவனுடனே போராடி."
+   }
+  },
+  {
+   "id": "ya-gen3728",
+   "ref": [
+    "GEN",
+    37,
+    28
+   ],
+   "answer": false,
+   "en": "Joseph was sold for twenty pieces of gold.",
+   "ta": "யோசேப்பு இருபது பொற்காசுக்கு விற்கப்பட்டான்.",
+   "why": {
+    "en": "Joseph was sold for twenty pieces of silver.",
+    "ta": "அவனை இஸ்மவேலர் கையில் இருபது வெள்ளிக்காசுக்கு விற்றுப்போட்டார்கள்."
+   }
+  },
+  {
+   "id": "ya-exo43",
+   "ref": [
+    "EXO",
+    4,
+    3
+   ],
+   "answer": false,
+   "en": "Moses' stick turned into a fish.",
+   "ta": "மோசேயின் கோல் ஒரு மீனாக மாறிற்று.",
+   "why": {
+    "en": "Moses' stick turned into a snake.",
+    "ta": "அது சர்ப்பமாயிற்று."
+   }
+  },
+  {
+   "id": "ya-exo1022",
+   "ref": [
+    "EXO",
+    10,
+    22
+   ],
+   "answer": false,
+   "en": "The darkness in Egypt lasted only one day.",
+   "ta": "எகிப்து தேசத்தில் ஒரு நாள் மட்டும் காரிருள் உண்டாயிற்று.",
+   "why": {
+    "en": "The darkness in Egypt lasted three days.",
+    "ta": "மூன்றுநாள் மட்டும் காரிருள் உண்டாயிற்று."
+   }
+  },
+  {
+   "id": "ya-exo127",
+   "ref": [
+    "EXO",
+    12,
+    7
+   ],
+   "answer": false,
+   "en": "The people painted their doors with green paint.",
+   "ta": "அவர்கள் வீட்டுவாசல் நிலைக்கால்களில் பச்சை வர்ணம் பூசினார்கள்.",
+   "why": {
+    "en": "The people put blood on the doorposts of their houses.",
+    "ta": "அதின் இரத்தத்தில் கொஞ்சம் எடுத்து, வீட்டுவாசல் நிலைக்கால்கள் இரண்டிலும் தெளித்து."
+   }
+  },
+  {
+   "id": "ya-exo2016",
+   "ref": [
+    "EXO",
+    20,
+    16
+   ],
+   "answer": false,
+   "en": "God says it is fine to tell lies.",
+   "ta": "பொய் சொல்லுவது தவறில்லை என்று தேவன் சொல்லுகிறார்.",
+   "why": {
+    "en": "God says not to tell lies about your neighbour.",
+    "ta": "பிறனுக்கு விரோதமாகப் பொய்ச்சாட்சி சொல்லாதிருப்பாயாக."
+   }
+  },
+  {
+   "id": "ya-num1323",
+   "ref": [
+    "NUM",
+    13,
+    23
+   ],
+   "answer": false,
+   "en": "The spies carried a big bunch of apples on a pole.",
+   "ta": "அவர்கள் ஒரு குலை ஆப்பிள் பழங்களைத் தடியிலே கட்டித் தூக்கிக்கொண்டுவந்தார்கள்.",
+   "why": {
+    "en": "The spies carried a cluster of grapes on a pole.",
+    "ta": "ஒரே குலையுள்ள திராட்சக்கொடியை அறுத்தார்கள்; அதை ஒரு தடியிலே இரண்டுபேர் கட்டித் தூக்கிக்கொண்டுவந்தார்கள்."
+   }
+  },
+  {
+   "id": "ya-deu344",
+   "ref": [
+    "DEU",
+    34,
+    4
+   ],
+   "answer": false,
+   "en": "Moses went into the promised land.",
+   "ta": "மோசே அந்தத் தேசத்துக்குள் கடந்துபோனான்.",
+   "why": {
+    "en": "God let Moses see the land, but he did not go over into it.",
+    "ta": "இதை உன் கண் காணும்படி செய்தேன்; ஆனாலும் அவ்விடத்திற்குக் கடந்துபோவதில்லை."
+   }
+  },
+  {
+   "id": "ya-deu316",
+   "ref": [
+    "DEU",
+    31,
+    6
+   ],
+   "answer": false,
+   "en": "God told the people to be afraid of their enemies.",
+   "ta": "அவர்களுக்குப் பயப்படவும் திகைக்கவும் வேண்டும் என்று கர்த்தர் சொன்னார்.",
+   "why": {
+    "en": "God told them to be strong and not afraid.",
+    "ta": "நீங்கள் பலங்கொண்டு திடமனதாயிருங்கள், அவர்களுக்குப் பயப்படவும் திகைக்கவும் வேண்டாம்."
+   }
+  },
+  {
+   "id": "ya-jos24",
+   "ref": [
+    "JOS",
+    2,
+    4
+   ],
+   "answer": false,
+   "en": "Rahab sent the two men away to the soldiers.",
+   "ta": "அந்த ஸ்திரீ அவ்விரண்டு மனுஷரையும் வெளியே அனுப்பிவிட்டாள்.",
+   "why": {
+    "en": "Rahab hid the two men.",
+    "ta": "அந்த ஸ்திரீ அவ்விரண்டு மனுஷரையும் கொண்டுபோய் அவர்களை ஒழித்து வைத்து."
+   }
+  },
+  {
+   "id": "ya-jos317",
+   "ref": [
+    "JOS",
+    3,
+    17
+   ],
+   "answer": false,
+   "en": "The people crossed the Jordan River in boats.",
+   "ta": "இஸ்ரவேலர் படகுகளில் யோர்தானைக் கடந்துபோனார்கள்.",
+   "why": {
+    "en": "The people walked across the Jordan on dry ground.",
+    "ta": "இஸ்ரவேலரெல்லாரும் தண்ணீரற்ற உலர்ந்த தரைவழியாய்க் கடந்து போனார்கள்."
+   }
+  },
+  {
+   "id": "ya-1sa1739",
+   "ref": [
+    "1SA",
+    17,
+    39
+   ],
+   "answer": false,
+   "en": "David wore Saul's armour to fight the giant.",
+   "ta": "தாவீது சவுலின் வஸ்திரங்களைப் போட்டுக்கொண்டு போனான்.",
+   "why": {
+    "en": "David took the armour off, because he had not practised with it.",
+    "ta": "இந்த அப்பியாசம் எனக்கு இல்லை என்று சொல்லி, அவைகளைக் களைந்துபோட்டு."
+   }
+  },
+  {
+   "id": "ya-1sa1613",
+   "ref": [
+    "1SA",
+    16,
+    13
+   ],
+   "answer": false,
+   "en": "Saul poured oil on David's head.",
+   "ta": "சவுல் தாவீதை தைலக்கொம்பினால் அபிஷேகம்பண்ணினான்.",
+   "why": {
+    "en": "Samuel poured oil on David's head.",
+    "ta": "சாமுவேல்: தைலக்கொம்பை எடுத்து, அவனை அபிஷேகம்பண்ணினான்."
+   }
+  },
+  {
+   "id": "ya-1ki39",
+   "ref": [
+    "1KI",
+    3,
+    9
+   ],
+   "answer": false,
+   "en": "Solomon asked God for lots of money instead of wisdom.",
+   "ta": "சாலொமோன் ஞானத்தைக் கேட்காமல், ஐசுவரியத்தைக் கேட்டான்.",
+   "why": {
+    "en": "Solomon asked God for an understanding heart.",
+    "ta": "ஞானமுள்ள இருதயத்தைத் தந்தருளும்."
+   }
+  },
+  {
+   "id": "ya-1ki1911",
+   "ref": [
+    "1KI",
+    19,
+    11
+   ],
+   "answer": false,
+   "en": "God was in the strong wind.",
+   "ta": "கர்த்தர் பெருங்காற்றிலே இருந்தார்.",
+   "why": {
+    "en": "God was not in the wind. He spoke in a still small voice.",
+    "ta": "ஆனாலும் அந்தக் காற்றிலே கர்த்தர் இருக்கவில்லை."
+   }
+  },
+  {
+   "id": "ya-2ki66",
+   "ref": [
+    "2KI",
+    6,
+    6
+   ],
+   "answer": false,
+   "en": "The iron axe head sank in the water.",
+   "ta": "அந்த இரும்பு தண்ணீரில் மூழ்கிப்போயிற்று.",
+   "why": {
+    "en": "God made the iron float.",
+    "ta": "அந்த இரும்பை மிதக்கப்பண்ணி."
+   }
+  },
+  {
+   "id": "ya-job11",
+   "ref": [
+    "JOB",
+    1,
+    1
+   ],
+   "answer": false,
+   "en": "Job was a wicked man who hated God.",
+   "ta": "யோபு தேவனை வெறுத்த பொல்லாத மனுஷனாயிருந்தான்.",
+   "why": {
+    "en": "Job was a perfect and upright man who feared God.",
+    "ta": "அந்த மனுஷன் உத்தமனும் சன்மார்க்கனும், தேவனுக்குப் பயந்து பொல்லாப்புக்கு விலகுகிறவனுமாயிருந்தான்."
+   }
+  },
+  {
+   "id": "ya-pro35",
+   "ref": [
+    "PRO",
+    3,
+    5
+   ],
+   "answer": false,
+   "en": "God says to lean on your own understanding.",
+   "ta": "உன் சுயபுத்தியின்மேல் சாய்ந்துகொள் என்று வேதம் சொல்லுகிறது.",
+   "why": {
+    "en": "God says to trust him with all your heart.",
+    "ta": "உன் முழு இருதயத்தோடும் கர்த்தரில் நம்பிக்கையாயிருந்து."
+   }
+  },
+  {
+   "id": "ya-pro151",
+   "ref": [
+    "PRO",
+    15,
+    1
+   ],
+   "answer": false,
+   "en": "Harsh words calm down anger.",
+   "ta": "கடுஞ்சொற்கள் கோபத்தை மாற்றும்.",
+   "why": {
+    "en": "A soft answer turns away anger.",
+    "ta": "மெதுவான பிரதியுத்தரம் உக்கிரத்தை மாற்றும்."
+   }
+  },
+  {
+   "id": "ya-jer2911",
+   "ref": [
+    "JER",
+    29,
+    11
+   ],
+   "answer": false,
+   "en": "God's plans for his people are full of evil.",
+   "ta": "தேவன் தம்முடைய ஜனங்களுக்குத் தீமையான நினைவுகளையே நினைக்கிறார்.",
+   "why": {
+    "en": "God's thoughts toward his people are thoughts of peace.",
+    "ta": "அவைகள் தீமைக்கல்ல, சமாதானத்துக்கேதுவான நினைவுகளே."
+   }
+  },
+  {
+   "id": "ya-psa13914",
+   "ref": [
+    "PSA",
+    139,
+    14
+   ],
+   "answer": false,
+   "en": "We were made by mistake, not by God.",
+   "ta": "நாம் தேவனால் அல்ல, தவறுதலாக உண்டாக்கப்பட்டோம்.",
+   "why": {
+    "en": "We are fearfully and wonderfully made by God.",
+    "ta": "நான் பிரமிக்கத்தக்க அதிசயமாய் உண்டாக்கப்பட்டபடியால் உம்மைத் துதிப்பேன்."
+   }
+  },
+  {
+   "id": "ya-ezk371",
+   "ref": [
+    "EZK",
+    37,
+    1
+   ],
+   "answer": false,
+   "en": "Ezekiel saw a valley full of flowers.",
+   "ta": "எசேக்கியேல் பூக்கள் நிறைந்த ஒரு பள்ளத்தாக்கைக் கண்டான்.",
+   "why": {
+    "en": "Ezekiel saw a valley full of bones.",
+    "ta": "எலும்புகள் நிறைந்த ஒரு பள்ளத்தாக்கின் நடுவில் நிறுத்தி."
+   }
+  },
+  {
+   "id": "ya-dan18",
+   "ref": [
+    "DAN",
+    1,
+    8
+   ],
+   "answer": false,
+   "en": "Daniel ate the king's food and drank the king's wine.",
+   "ta": "தானியேல் ராஜாவின் போஜனத்தைப் புசித்து, திராட்சரசத்தையும் குடித்தான்.",
+   "why": {
+    "en": "Daniel did not want to make himself unclean, so he refused the king's food and wine.",
+    "ta": "தன்னைத் தீட்டுப்படுத்தலாகாதென்று, தன் இருதயத்தில் தீர்மானம்பண்ணிக்கொண்டு."
+   }
+  },
+  {
+   "id": "ya-jon310",
+   "ref": [
+    "JON",
+    3,
+    10
+   ],
+   "answer": false,
+   "en": "God destroyed Nineveh after the people said sorry.",
+   "ta": "மனஸ்தாபப்பட்ட பின்னும், தேவன் நினிவேக்குத் தீங்கைச் செய்தார்.",
+   "why": {
+    "en": "God saw they turned from their evil way, so he did not do the harm he had said.",
+    "ta": "அவர்கள் தங்கள் பொல்லாத வழியைவிட்டுத் திரும்பினார்களென்று தேவன் கண்டு, அதைச் செய்யாதிருந்தார்."
+   }
+  },
+  {
+   "id": "ya-mic68",
+   "ref": [
+    "MIC",
+    6,
+    8
+   ],
+   "answer": false,
+   "en": "God wants only gold and gifts from us.",
+   "ta": "கர்த்தர் நம்மிடத்தில் பொன்னையும் காணிக்கைகளையும் மட்டும் கேட்கிறார்.",
+   "why": {
+    "en": "God wants us to do justly, love mercy, and walk humbly.",
+    "ta": "நியாயஞ்செய்து, இரக்கத்தைச் சிநேகித்து, உன் தேவனுக்கு முன்பாக மனத்தாழ்மையாய் நடப்பதை."
+   }
+  },
+  {
+   "id": "ya-isa116",
+   "ref": [
+    "ISA",
+    11,
+    6
+   ],
+   "answer": false,
+   "en": "The wolf will attack and eat the lamb.",
+   "ta": "ஓனாய் ஆட்டுக்குட்டியைத் தாக்கிக் கொல்லும்.",
+   "why": {
+    "en": "The wolf will live with the lamb in peace.",
+    "ta": "ஓனாய் ஆட்டுக்குட்டியோடே தங்கும்."
+   }
+  },
+  {
+   "id": "ya-isa4110",
+   "ref": [
+    "ISA",
+    41,
+    10
+   ],
+   "answer": false,
+   "en": "God said, \"Be scared, for I am far away from you.\"",
+   "ta": "பயப்படு; நான் உன்னைவிட்டுத் தூரமாயிருக்கிறேன் என்று கர்த்தர் சொல்லுகிறார்.",
+   "why": {
+    "en": "God said, \"Fear not, for I am with you.\"",
+    "ta": "நீ பயப்படாதே, நான் உன்னுடனே இருக்கிறேன்."
+   }
+  },
+  {
+   "id": "ya-est416",
+   "ref": [
+    "EST",
+    4,
+    16
+   ],
+   "answer": false,
+   "en": "Esther told the Jews to stop praying for her.",
+   "ta": "எஸ்தர் யூதரை எனக்காக உபவாசம்பண்ண வேண்டாம் என்றாள்.",
+   "why": {
+    "en": "Esther asked the Jews to fast and pray for her.",
+    "ta": "எனக்காக உபவாசம்பண்ணுங்கள்."
+   }
+  },
+  {
+   "id": "yb-name-jesus",
+   "ref": [
+    "MAT",
+    1,
+    21
+   ],
+   "answer": true,
+   "en": "The baby was named Jesus, because he would save people from their sins.",
+   "ta": "இயேசு என்ற பெயர் வைக்கப்பட்டது; ஏனெனில் அவர் தம்முடைய ஜனங்களின் பாவங்களை நீக்கி அவர்களை இரட்சிப்பார்."
+  },
+  {
+   "id": "yb-wise-east",
+   "ref": [
+    "MAT",
+    2,
+    1
+   ],
+   "answer": true,
+   "en": "Wise men came from the east to Jerusalem.",
+   "ta": "கிழக்கிலிருந்து சாஸ்திரிகள் எருசலேமுக்கு வந்தார்கள்."
+  },
+  {
+   "id": "yb-shepherds-field",
+   "ref": [
+    "LUK",
+    2,
+    8
+   ],
+   "answer": true,
+   "en": "Shepherds were in the fields at night, watching their sheep.",
+   "ta": "அந்த நாட்டிலே மேய்ப்பர்கள் வயல்வெளியில் தங்கி, இராத்திரியிலே தங்கள் மந்தையைக் காத்துக்கொண்டிருந்தார்கள்."
+  },
+  {
+   "id": "yb-grew-wise",
+   "ref": [
+    "LUK",
+    2,
+    52
+   ],
+   "answer": true,
+   "en": "Jesus grew bigger and wiser as a boy.",
+   "ta": "இயேசுவானவர் ஞானத்திலும், வளர்த்தியிலும் அதிகமதிகமாய் விருத்தியடைந்தார்."
+  },
+  {
+   "id": "yb-love-enemies",
+   "ref": [
+    "MAT",
+    5,
+    44
+   ],
+   "answer": true,
+   "en": "Jesus said we should love our enemies.",
+   "ta": "இயேசு சொன்னார்: உங்கள் சத்துருக்களைச் சிநேகியுங்கள்."
+  },
+  {
+   "id": "yb-our-father",
+   "ref": [
+    "MAT",
+    6,
+    9
+   ],
+   "answer": true,
+   "en": "Jesus taught us to pray, \"Our Father in heaven.\"",
+   "ta": "இயேசு நமக்கு ஜெபம் கற்றுக்கொடுத்தார்: பரமண்டலங்களிலிருக்கிற எங்கள் பிதாவே."
+  },
+  {
+   "id": "yb-birds",
+   "ref": [
+    "MAT",
+    6,
+    26
+   ],
+   "answer": true,
+   "en": "God feeds the birds of the air.",
+   "ta": "ஆகாயத்துப் பட்சிகளையும் உங்கள் பரமபிதா பிழைப்பூட்டுகிறார்."
+  },
+  {
+   "id": "yb-ask",
+   "ref": [
+    "MAT",
+    7,
+    7
+   ],
+   "answer": true,
+   "en": "Jesus said, \"Ask, and it will be given to you.\"",
+   "ta": "இயேசு சொன்னார்: கேளுங்கள், அப்பொழுது உங்களுக்குக் கொடுக்கப்படும்."
+  },
+  {
+   "id": "yb-rock-house",
+   "ref": [
+    "MAT",
+    7,
+    24
+   ],
+   "answer": true,
+   "en": "A wise man built his house on the rock.",
+   "ta": "புத்தியுள்ள மனுஷன் தன் வீட்டைக் கன்மலையின்மேல் கட்டினான்."
+  },
+  {
+   "id": "yb-leper",
+   "ref": [
+    "MAT",
+    8,
+    3
+   ],
+   "answer": true,
+   "en": "Jesus touched a man with leprosy and made him clean.",
+   "ta": "இயேசு தமது கையை நீட்டி அவனைத்தொட்டார்; குஷ்டரோகம் நீங்கி அவன் சுத்தமானான்."
+  },
+  {
+   "id": "yb-fever-hand",
+   "ref": [
+    "MAT",
+    8,
+    15
+   ],
+   "answer": true,
+   "en": "Jesus touched a woman's hand, and her fever went away.",
+   "ta": "இயேசு அவள் கையைத் தொட்டார்; ஜுரம் அவளைவிட்டு நீங்கிற்று."
+  },
+  {
+   "id": "yb-matthew-called",
+   "ref": [
+    "MAT",
+    9,
+    9
+   ],
+   "answer": true,
+   "en": "Jesus called a man named Matthew to follow him.",
+   "ta": "இயேசு மத்தேயு என்னும் ஒரு மனுஷனை: எனக்குப் பின்சென்றுவா என்றார்."
+  },
+  {
+   "id": "yb-sower",
+   "ref": [
+    "MAT",
+    13,
+    3
+   ],
+   "answer": true,
+   "en": "Jesus told a story about a farmer who sowed seeds.",
+   "ta": "இயேசு விதைக்கிறவனைப்பற்றி உவமைகளாகச் சொன்னார்."
+  },
+  {
+   "id": "yb-mustard",
+   "ref": [
+    "MAT",
+    13,
+    32
+   ],
+   "answer": true,
+   "en": "A tiny mustard seed grows into a big tree.",
+   "ta": "கடுகு விதை சிறிதாயிருந்தும், வளர்ந்து பெரிய மரமாகும்."
+  },
+  {
+   "id": "yb-4000-men",
+   "ref": [
+    "MAT",
+    15,
+    38
+   ],
+   "answer": true,
+   "en": "Jesus fed 4,000 men, not counting women and children.",
+   "ta": "ஸ்திரீகளும் பிள்ளைகளும் தவிர, சாப்பிட்ட புருஷர் நாலாயிரம் பேராயிருந்தார்கள்."
+  },
+  {
+   "id": "yb-last-supper-bread",
+   "ref": [
+    "MAT",
+    26,
+    26
+   ],
+   "answer": true,
+   "en": "At the Last Supper, Jesus shared bread with his disciples.",
+   "ta": "இயேசு அப்பத்தை எடுத்து, ஆசீர்வதித்து, சீஷர்களுக்குக் கொடுத்தார்."
+  },
+  {
+   "id": "yb-gethsemane",
+   "ref": [
+    "MAT",
+    26,
+    36
+   ],
+   "answer": true,
+   "en": "Jesus went to a place called Gethsemane to pray.",
+   "ta": "இயேசு கெத்செமனே என்னப்பட்ட இடத்திற்கு வந்து ஜெபம்பண்ணினார்."
+  },
+  {
+   "id": "yb-simon-cross",
+   "ref": [
+    "MAT",
+    27,
+    32
+   ],
+   "answer": true,
+   "en": "A man named Simon helped carry Jesus' cross.",
+   "ta": "சிரேனே ஊரானாகிய சீமோன் என்னப்பட்ட ஒரு மனுஷன் இயேசுவின் சிலுவையைச் சுமந்தான்."
+  },
+  {
+   "id": "yb-women-tomb",
+   "ref": [
+    "MAT",
+    28,
+    1
+   ],
+   "answer": true,
+   "en": "Early on the first day of the week, some women went to Jesus' tomb.",
+   "ta": "வாரத்தின் முதலாம் நாள் விடிந்துவருகையில், மகதலேனா மரியாளும் மற்ற மரியாளும் கல்லறையைப் பார்க்க வந்தார்கள்."
+  },
+  {
+   "id": "yb-not-here",
+   "ref": [
+    "MAT",
+    28,
+    6
+   ],
+   "answer": true,
+   "en": "The angel said, \"He is not here. He is risen, as he said.\"",
+   "ta": "அவர் இங்கே இல்லை; தாம் சொன்னபடியே உயிர்த்தெழுந்தார்."
+  },
+  {
+   "id": "yb-forgive-them",
+   "ref": [
+    "LUK",
+    23,
+    34
+   ],
+   "answer": true,
+   "en": "On the cross, Jesus prayed, \"Father, forgive them.\"",
+   "ta": "இயேசு: பிதாவே, இவர்களுக்கு மன்னியும் என்றார்."
+  },
+  {
+   "id": "yb-peace-friends",
+   "ref": [
+    "LUK",
+    24,
+    36
+   ],
+   "answer": true,
+   "en": "After he rose, Jesus said to his friends, \"Peace be with you.\"",
+   "ta": "இயேசு தாமே அவர்கள் நடுவிலே நின்று: உங்களுக்குச் சமாதானம் என்றார்."
+  },
+  {
+   "id": "yb-mary-name",
+   "ref": [
+    "JHN",
+    20,
+    16
+   ],
+   "answer": true,
+   "en": "At the tomb, Jesus called Mary by her name.",
+   "ta": "இயேசு அவளை நோக்கி: மரியாளே என்றார்."
+  },
+  {
+   "id": "yb-light-world",
+   "ref": [
+    "JHN",
+    8,
+    12
+   ],
+   "answer": true,
+   "en": "Jesus said, \"I am the light of the world.\"",
+   "ta": "இயேசு: நான் உலகத்திற்கு ஒளியாயிருக்கிறேன் என்றார்."
+  },
+  {
+   "id": "yb-good-shepherd",
+   "ref": [
+    "JHN",
+    10,
+    11
+   ],
+   "answer": true,
+   "en": "Jesus said, \"I am the good shepherd.\"",
+   "ta": "நானே நல்ல மேய்ப்பன் என்றார்."
+  },
+  {
+   "id": "yb-way-truth",
+   "ref": [
+    "JHN",
+    14,
+    6
+   ],
+   "answer": true,
+   "en": "Jesus said, \"I am the way, the truth, and the life.\"",
+   "ta": "இயேசு: நானே வழியும் சத்தியமும் ஜீவனுமாயிருக்கிறேன்."
+  },
+  {
+   "id": "yb-roof-hole",
+   "ref": [
+    "MRK",
+    2,
+    4
+   ],
+   "answer": true,
+   "en": "Friends made an opening in the roof to lower a sick man to Jesus.",
+   "ta": "அவர்கள் மேற்கூரையைப் பிரித்துத் திறப்பாக்கி, திமிர்வாதக்காரன் கிடக்கிற படுக்கையை இறக்கினார்கள்."
+  },
+  {
+   "id": "yb-lost-coin",
+   "ref": [
+    "LUK",
+    15,
+    8
+   ],
+   "answer": true,
+   "en": "A woman lost one coin and searched for it carefully.",
+   "ta": "ஒரு ஸ்திரீ தன் ஒரு வெள்ளிக்காசு காணாமற்போனபோது, அதைக் கண்டுபிடிக்கிறவரைக்கும் ஜாக்கிரதையாய்த் தேடினாள்."
+  },
+  {
+   "id": "yb-3000-baptised",
+   "ref": [
+    "ACT",
+    2,
+    41
+   ],
+   "answer": true,
+   "en": "On one day, about 3,000 people were baptised.",
+   "ta": "அன்றையத்தினம் ஏறக்குறைய மூவாயிரம்பேர் ஞானஸ்நானம் பெற்றார்கள்."
+  },
+  {
+   "id": "yb-angel-peter",
+   "ref": [
+    "ACT",
+    12,
+    7
+   ],
+   "answer": true,
+   "en": "An angel came to Peter in prison, and his chains fell off.",
+   "ta": "கர்த்தருடைய தூதன் பேதுருவிடம் வந்தான்; அவனுடைய சங்கிலிகள் அவன் கைகளிலிருந்து விழுந்தது."
+  },
+  {
+   "id": "yb-gift-life",
+   "ref": [
+    "ROM",
+    6,
+    23
+   ],
+   "answer": true,
+   "en": "God's gift to us is eternal life through Jesus Christ.",
+   "ta": "தேவனுடைய கிருபைவரமோ, நம்முடைய கர்த்தராகிய இயேசுகிறிஸ்துவினால் உண்டான நித்தியஜீவன்."
+  },
+  {
+   "id": "yb-greatest-love",
+   "ref": [
+    "1CO",
+    13,
+    13
+   ],
+   "answer": true,
+   "en": "Of faith, hope and love, the greatest is love.",
+   "ta": "விசுவாசம், நம்பிக்கை, அன்பு இம்மூன்றில் அன்பே பெரியது."
+  },
+  {
+   "id": "yb-fruit-love",
+   "ref": [
+    "GAL",
+    5,
+    22
+   ],
+   "answer": true,
+   "en": "The fruit of the Spirit is love, joy and peace.",
+   "ta": "ஆவியின் கனியோ, அன்பு, சந்தோஷம், சமாதானம்."
+  },
+  {
+   "id": "yb-kind-forgive",
+   "ref": [
+    "EPH",
+    4,
+    32
+   ],
+   "answer": true,
+   "en": "We should be kind to one another and forgive one another.",
+   "ta": "ஒருவருக்கொருவர் தயவாயிருந்து, ஒருவருக்காருவர் மன்னியுங்கள்."
+  },
+  {
+   "id": "yb-all-things",
+   "ref": [
+    "PHP",
+    4,
+    13
+   ],
+   "answer": true,
+   "en": "Paul said, \"I can do all things through Christ who gives me strength.\"",
+   "ta": "என்னைப் பெலப்படுத்துகிற கிறிஸ்துவினாலே எல்லாவற்றையுஞ்செய்ய எனக்குப் பெலனுண்டு."
+  },
+  {
+   "id": "yb-god-is-love",
+   "ref": [
+    "1JN",
+    4,
+    8
+   ],
+   "answer": true,
+   "en": "The Bible says God is love.",
+   "ta": "தேவன் அன்பாகவே இருக்கிறார்."
+  },
+  {
+   "id": "yb-tears-wiped",
+   "ref": [
+    "REV",
+    21,
+    4
+   ],
+   "answer": true,
+   "en": "God will wipe away every tear from our eyes.",
+   "ta": "அவர்களுடைய கண்ணீர் யாவையும் தேவன் துடைப்பார்."
+  },
+  {
+   "id": "yb-cares-god",
+   "ref": [
+    "1PE",
+    5,
+    7
+   ],
+   "answer": true,
+   "en": "We can give God our worries, because he cares for us.",
+   "ta": "அவர் உங்களை விசாரிக்கிறவரானபடியால், உங்கள் கவலைகளையெல்லாம் அவர்மேல் வைத்துவிடுங்கள்."
+  },
+  {
+   "id": "yb-palace",
+   "ref": [
+    "LUK",
+    2,
+    7
+   ],
+   "answer": false,
+   "en": "Jesus was born in a big palace.",
+   "ta": "இயேசு ஒரு பெரிய அரண்மனையில் பிறந்தார்.",
+   "why": {
+    "en": "He was laid in a manger, because there was no room for them in the inn.",
+    "ta": "சத்திரத்திலே அவர்களுக்கு இடமில்லாதிருந்தபடியினால், அவர் முன்னணையிலே கிடத்தப்பட்டார்."
+   }
+  },
+  {
+   "id": "yb-stones-bread",
+   "ref": [
+    "MAT",
+    4,
+    4
+   ],
+   "answer": false,
+   "en": "Jesus turned stones into bread when the devil asked him to.",
+   "ta": "சோதனைக்காரன் கேட்டபோது இயேசு கற்களை அப்பங்களாக்கினார்.",
+   "why": {
+    "en": "He said no. People live by every word that comes from God's mouth.",
+    "ta": "அவர் மறுத்தார்; மனுஷன் தேவனுடைய வாயிலிருந்து புறப்படுகிற ஒவ்வொரு வார்த்தையினாலும் பிழைப்பான் என்றார்."
+   }
+  },
+  {
+   "id": "yb-hit-back",
+   "ref": [
+    "MAT",
+    5,
+    39
+   ],
+   "answer": false,
+   "en": "Jesus said we should hit back when someone hits us.",
+   "ta": "ஒருவன் நம்மை அடித்தால் நாம் திரும்ப அடிக்கவேண்டும் என்று இயேசு சொன்னார்.",
+   "why": {
+    "en": "He said not to resist evil, and to turn the other cheek.",
+    "ta": "தீமையோடு எதிர்த்து நிற்கவேண்டாம்; மறு கன்னத்தையும் திருப்பிக் கொடு என்றார்."
+   }
+  },
+  {
+   "id": "yb-matthew-fisher",
+   "ref": [
+    "MAT",
+    9,
+    9
+   ],
+   "answer": false,
+   "en": "Matthew was a fisherman.",
+   "ta": "மத்தேயு ஒரு மீனவன்.",
+   "why": {
+    "en": "Jesus found Matthew sitting at the tax office.",
+    "ta": "இயேசு மத்தேயுவை ஆயத்துறையில் உட்கார்ந்திருக்கக்கண்டு அழைத்தார்."
+   }
+  },
+  {
+   "id": "yb-twenty-friends",
+   "ref": [
+    "MAT",
+    26,
+    20
+   ],
+   "answer": false,
+   "en": "Jesus ate the Last Supper with 20 friends.",
+   "ta": "இயேசு இருபது நண்பர்களோடு கடைசிப் பந்தியிருந்தார்.",
+   "why": {
+    "en": "He sat down with the twelve disciples.",
+    "ta": "அவர் பன்னிருவரோடுங்கூட பந்தியிருந்தார்."
+   }
+  },
+  {
+   "id": "yb-never-denied",
+   "ref": [
+    "MAT",
+    26,
+    75
+   ],
+   "answer": false,
+   "en": "Peter never denied knowing Jesus.",
+   "ta": "பேதுரு இயேசுவை அறியேன் என்று ஒருபோதும் மறுதலிக்கவில்லை.",
+   "why": {
+    "en": "Jesus said Peter would deny him three times, and it happened.",
+    "ta": "நீ என்னை மூன்று தரம் மறுதலிப்பாய் என்று இயேசு சொன்னார்."
+   }
+  },
+  {
+   "id": "yb-stone-stayed",
+   "ref": [
+    "MAT",
+    28,
+    2
+   ],
+   "answer": false,
+   "en": "The stone stayed in front of the tomb after Jesus rose.",
+   "ta": "இயேசு உயிர்த்தெழுந்தபின்பும் கல் கல்லறையின் வாசலிலேயே இருந்தது.",
+   "why": {
+    "en": "An angel rolled the stone away from the door.",
+    "ta": "கர்த்தருடைய தூதன் வாசலிலிருந்த கல்லைப் புரட்டித் தள்ளினான்."
+   }
+  },
+  {
+   "id": "yb-priest-helped",
+   "ref": [
+    "LUK",
+    10,
+    31
+   ],
+   "answer": false,
+   "en": "The priest stopped to help the hurt man.",
+   "ta": "காயப்பட்டவனுக்கு உதவ ஆசாரியன் நின்றான்.",
+   "why": {
+    "en": "He saw the man and passed by on the other side.",
+    "ta": "அவனைக்கண்டு, பக்கமாய் விலகிப்போனான்."
+   }
+  },
+  {
+   "id": "yb-bird-door",
+   "ref": [
+    "ACT",
+    12,
+    7
+   ],
+   "answer": false,
+   "en": "A bird opened the prison door for Peter.",
+   "ta": "ஒரு பறவை பேதுருவுக்காகச் சிறைக்கதவைத் திறந்தது.",
+   "why": {
+    "en": "An angel of the Lord came, and Peter's chains fell off.",
+    "ta": "கர்த்தருடைய தூதன் வந்தான்; அவனுடைய சங்கிலிகள் கழன்று விழுந்தன."
+   }
+  },
+  {
+   "id": "yb-doors-shut",
+   "ref": [
+    "ACT",
+    16,
+    26
+   ],
+   "answer": false,
+   "en": "The prison doors stayed shut after the earthquake.",
+   "ta": "பூமியதிர்ச்சிக்குப் பின்பும் சிறைச்சாலையின் கதவுகள் மூடியே இருந்தன.",
+   "why": {
+    "en": "Right away, all the doors were opened.",
+    "ta": "உடனே கதவுகளெல்லாம் திறவுண்டது."
+   }
+  },
+  {
+   "id": "yb-love-proud",
+   "ref": [
+    "1CO",
+    13,
+    4
+   ],
+   "answer": false,
+   "en": "Love is proud and boastful.",
+   "ta": "அன்பு பெருமையும் தற்பெருமையும் உள்ளது.",
+   "why": {
+    "en": "Love is patient and kind, and is not puffed up.",
+    "ta": "அன்பு நீடிய சாந்தமும் தயவுமுள்ளது; அது இறுமாப்பாயிராது."
+   }
+  },
+  {
+   "id": "yb-fruit-anger",
+   "ref": [
+    "GAL",
+    5,
+    22
+   ],
+   "answer": false,
+   "en": "The fruit of the Spirit is anger and fear.",
+   "ta": "ஆவியின் கனியோ கோபமும் பயமும்.",
+   "why": {
+    "en": "The fruit of the Spirit is love, joy and peace.",
+    "ta": "ஆவியின் கனியோ, அன்பு, சந்தோஷம், சமாதானம்."
+   }
+  },
+  {
+   "id": "yb-by-myself",
+   "ref": [
+    "PHP",
+    4,
+    13
+   ],
+   "answer": false,
+   "en": "Paul said he could do everything by himself.",
+   "ta": "பவுல் எல்லாவற்றையும் தன் சொந்த பெலத்தினால் செய்யலாம் என்றான்.",
+   "why": {
+    "en": "He said he can do all things through Christ who gives him strength.",
+    "ta": "என்னைப் பெலப்படுத்துகிற கிறிஸ்துவினாலே எல்லாவற்றையுஞ்செய்ய எனக்குப் பெலனுண்டு."
+   }
+  },
+  {
+   "id": "yb-god-not-care",
+   "ref": [
+    "1PE",
+    5,
+    7
+   ],
+   "answer": false,
+   "en": "God does not care about our worries.",
+   "ta": "நம்முடைய கவலைகளைத் தேவன் கவனிப்பதில்லை.",
+   "why": {
+    "en": "God cares for us, so we can give him our worries.",
+    "ta": "அவர் உங்களை விசாரிக்கிறவர்; உங்கள் கவலைகளையெல்லாம் அவர்மேல் வைத்துவிடுங்கள்."
+   }
+  },
+  {
+   "id": "yb-far-away",
+   "ref": [
+    "REV",
+    21,
+    3
+   ],
+   "answer": false,
+   "en": "In heaven, God will be far away from his people.",
+   "ta": "பரலோகத்தில் தேவன் தம்முடைய ஜனங்களுக்குத் தூரமாயிருப்பார்.",
+   "why": {
+    "en": "God will live with his people.",
+    "ta": "அவர்களிடத்திலே அவர் வாசமாயிருப்பார்; தேவன்தாமே அவர்களோடேகூட இருப்பார்."
+   }
+  },
+  {
+   "id": "yb-children-never",
+   "ref": [
+    "COL",
+    3,
+    20
+   ],
+   "answer": false,
+   "en": "Children should never obey their parents.",
+   "ta": "பிள்ளைகள் தங்கள் பெற்றோருக்குக் கீழ்ப்படியவே வேண்டாம்.",
+   "why": {
+    "en": "Children should obey their parents in all things, because it pleases the Lord.",
+    "ta": "பிள்ளைகளே, உங்களைப் பெற்றாருக்கு எல்லாக் காரியத்திலேயும் கீழ்ப்படியுங்கள்; இது கர்த்தருக்குப் பிரியமானது."
+   }
+  },
+  {
+   "id": "yb-stone-eyes",
+   "ref": [
+    "JHN",
+    9,
+    6
+   ],
+   "answer": false,
+   "en": "Jesus healed a blind man by putting a stone on his eyes.",
+   "ta": "குருடனின் கண்களின்மேல் ஒரு கல்லை வைத்து இயேசு அவனைக் குணமாக்கினார்.",
+   "why": {
+    "en": "He made mud with his spit and put it on the man's eyes.",
+    "ta": "இயேசு தரையிலே துப்பி, உமிழ்நீரினால் சேறுண்டாக்கி, அந்தச் சேற்றைக் குருடனுடைய கண்களின்மேல் பூசினார்."
+   }
+  },
+  {
+   "id": "yb-front-door",
+   "ref": [
+    "MRK",
+    2,
+    4
+   ],
+   "answer": false,
+   "en": "Friends lowered the sick man through the front door.",
+   "ta": "நோயுள்ள மனுஷனை நண்பர்கள் முன் வாசல் வழியாக இறக்கினார்கள்.",
+   "why": {
+    "en": "They uncovered the roof and let the bed down through it.",
+    "ta": "அவர்கள் மேற்கூரையைப் பிரித்துத் திறப்பாக்கி, படுக்கையை இறக்கினார்கள்."
+   }
+  },
+  {
+   "id": "yb-only-12",
+   "ref": [
+    "ACT",
+    2,
+    41
+   ],
+   "answer": false,
+   "en": "Only 12 people were baptised that day.",
+   "ta": "அன்று பன்னிரண்டு பேர் மட்டுமே ஞானஸ்நானம் பெற்றார்கள்.",
+   "why": {
+    "en": "About 3,000 people were added to them that day.",
+    "ta": "அன்றையத்தினம் ஏறக்குறைய மூவாயிரம்பேர் சேர்த்துக்கொள்ளப்பட்டார்கள்."
+   }
+  },
+  {
+   "id": "yb-wages-life",
+   "ref": [
+    "ROM",
+    6,
+    23
+   ],
+   "answer": false,
+   "en": "The wages of sin is life.",
+   "ta": "பாவத்தின் சம்பளம் ஜீவன்.",
+   "why": {
+    "en": "The wages of sin is death.",
+    "ta": "பாவத்தின் சம்பளம் மரணம்."
+   }
+  },
+  {
+   "id": "yb-hope-greatest",
+   "ref": [
+    "1CO",
+    13,
+    13
+   ],
+   "answer": false,
+   "en": "Hope is the greatest of these.",
+   "ta": "விசுவாசம், நம்பிக்கை, அன்பு இவைகளில் நம்பிக்கையே பெரியது.",
+   "why": {
+    "en": "Love is the greatest of these.",
+    "ta": "இவைகளில் அன்பே பெரியது."
+   }
+  },
+  {
+   "id": "yb-unkind",
+   "ref": [
+    "EPH",
+    4,
+    32
+   ],
+   "answer": false,
+   "en": "We should be unkind to people who hurt us.",
+   "ta": "நம்மைத் துன்பப்படுத்துகிறவர்களிடம் கடினமாயிருக்கவேண்டும்.",
+   "why": {
+    "en": "We should be kind to one another and forgive one another.",
+    "ta": "ஒருவருக்கொருவர் தயவாயிருந்து, ஒருவருக்காருவர் மன்னியுங்கள்."
+   }
+  },
+  {
+   "id": "yb-tears-heaven",
+   "ref": [
+    "REV",
+    21,
+    4
+   ],
+   "answer": false,
+   "en": "There will be tears in heaven.",
+   "ta": "பரலோகத்தில் கண்ணீர் இருக்கும்.",
+   "why": {
+    "en": "God will wipe away every tear from our eyes.",
+    "ta": "அவர்களுடைய கண்ணீர் யாவையும் தேவன் துடைப்பார்."
+   }
+  },
+  {
+   "id": "yb-from-west",
+   "ref": [
+    "MAT",
+    2,
+    1
+   ],
+   "answer": false,
+   "en": "The wise men came from the west.",
+   "ta": "சாஸ்திரிகள் மேற்கிலிருந்து வந்தார்கள்.",
+   "why": {
+    "en": "They came from the east.",
+    "ta": "கிழக்கிலிருந்து சாஸ்திரிகள் எருசலேமுக்கு வந்தார்கள்."
+   }
+  },
+  {
+   "id": "yb-sleeping-town",
+   "ref": [
+    "LUK",
+    2,
+    8
+   ],
+   "answer": false,
+   "en": "The shepherds were sleeping in town when Jesus was born.",
+   "ta": "இயேசு பிறந்தபோது மேய்ப்பர்கள் ஊரில் தூங்கிக்கொண்டிருந்தார்கள்.",
+   "why": {
+    "en": "They were out in the fields, keeping watch over their flock.",
+    "ta": "வயல்வெளியில் தங்கி, இராத்திரியிலே தங்கள் மந்தையைக் காத்துக்கொண்டிருந்தார்கள்."
+   }
+  },
+  {
+   "id": "yb-stopped-growing",
+   "ref": [
+    "LUK",
+    2,
+    52
+   ],
+   "answer": false,
+   "en": "Jesus stopped growing when he was a baby.",
+   "ta": "இயேசு குழந்தையாயிருந்தபோதே வளர்வதை நிறுத்தினார்.",
+   "why": {
+    "en": "He grew in wisdom and in favour with God and man.",
+    "ta": "இயேசுவானவர் ஞானத்திலும், வளர்த்தியிலும், தேவகிருபையிலும், மனுஷர் தயவிலும் அதிகமதிகமாய் விருத்தியடைந்தார்."
+   }
+  },
+  {
+   "id": "yb-dont-ask",
+   "ref": [
+    "MAT",
+    7,
+    7
+   ],
+   "answer": false,
+   "en": "Jesus said, \"Do not ask God for anything.\"",
+   "ta": "இயேசு: தேவனிடத்தில் எதையும் கேட்கவேண்டாம் என்றார்.",
+   "why": {
+    "en": "He said, \"Ask, and it will be given to you.\"",
+    "ta": "கேளுங்கள், அப்பொழுது உங்களுக்குக் கொடுக்கப்படும்."
+   }
+  },
+  {
+   "id": "yb-wont-touch",
+   "ref": [
+    "MAT",
+    8,
+    3
+   ],
+   "answer": false,
+   "en": "Jesus would not touch people who had leprosy.",
+   "ta": "குஷ்டரோகிகளை இயேசு ஒருபோதும் தொடமாட்டார்.",
+   "why": {
+    "en": "He stretched out his hand and touched the man.",
+    "ta": "இயேசு தமது கையை நீட்டி அவனைத்தொட்டார்."
+   }
+  },
+  {
+   "id": "yb-bethlehem-house",
+   "ref": [
+    "MAT",
+    26,
+    36
+   ],
+   "answer": false,
+   "en": "Jesus prayed in a house in Bethlehem.",
+   "ta": "இயேசு பெத்லகேமிலுள்ள ஒரு வீட்டில் ஜெபம்பண்ணினார்.",
+   "why": {
+    "en": "He went to a place called Gethsemane to pray.",
+    "ta": "இயேசு கெத்செமனே என்னப்பட்ட இடத்திற்கு வந்து ஜெபம்பண்ணினார்."
+   }
+  },
+  {
+   "id": "yb-dry-land",
+   "ref": [
+    "ACT",
+    8,
+    38
+   ],
+   "answer": false,
+   "en": "Philip baptised the man on dry land.",
+   "ta": "பிலிப்பு அந்த மனுஷனை உலர்ந்த நிலத்தில் ஞானஸ்நானம் கொடுத்தான்.",
+   "why": {
+    "en": "They went down into the water, and Philip baptised him.",
+    "ta": "தண்ணீரில் இறங்கினார்கள், பிலிப்பு அவனுக்கு ஞானஸ்நானங்கொடுத்தான்."
+   }
   }
  ],
  "who": [
@@ -3574,6 +7586,3270 @@
     "பவுல்",
     "பேதுரு",
     "தீமோத்தேயு"
+   ]
+  },
+  {
+   "id": "wa-seth",
+   "ref": [
+    "GEN",
+    4,
+    25
+   ],
+   "en": [
+    "My mother said God gave me to her in place of my brother Abel. Who am I?",
+    "Seth",
+    "Enoch",
+    "Noah"
+   ],
+   "ta": [
+    "ஆபேலுக்குப் பதிலாக தேவன் என்னை என் தாய்க்குக் கொடுத்தார். நான் யார்?",
+    "சேத்",
+    "ஏனோக்கு",
+    "நோவா"
+   ]
+  },
+  {
+   "id": "wa-enoch",
+   "ref": [
+    "GEN",
+    5,
+    24
+   ],
+   "en": [
+    "I walked with God every day, and then God took me to be with him. Who am I?",
+    "Enoch",
+    "Noah",
+    "Adam"
+   ],
+   "ta": [
+    "நான் தேவனோடே நடந்தேன்; தேவன் என்னை எடுத்துக்கொண்டார். நான் யார்?",
+    "ஏனோக்கு",
+    "நோவா",
+    "ஆதாம்"
+   ]
+  },
+  {
+   "id": "wa-methuselah",
+   "ref": [
+    "GEN",
+    5,
+    27
+   ],
+   "en": [
+    "I lived for 969 years. Who am I?",
+    "Methuselah",
+    "Enoch",
+    "Noah"
+   ],
+   "ta": [
+    "நான் தொளாயிரத்து அறுபத்தொன்பது வருஷம் வாழ்ந்தேன். நான் யார்?",
+    "மெத்தூசலா",
+    "ஏனோக்கு",
+    "நோவா"
+   ]
+  },
+  {
+   "id": "wa-lot",
+   "ref": [
+    "GEN",
+    19,
+    16
+   ],
+   "en": [
+    "Two angels took me by the hand and led me out of a very bad city. Who am I?",
+    "Lot",
+    "Abraham",
+    "Isaac"
+   ],
+   "ta": [
+    "இரண்டு தூதர்கள் என் கையைப் பிடித்து, கெட்ட பட்டணத்துக்கு வெளியே கொண்டுபோனார்கள். நான் யார்?",
+    "லோத்து",
+    "ஆபிராம்",
+    "ஈசாக்கு"
+   ]
+  },
+  {
+   "id": "wa-isaac",
+   "ref": [
+    "GEN",
+    22,
+    7
+   ],
+   "en": [
+    "I saw the fire and the wood, and I asked my father, 'Where is the lamb?' Who am I?",
+    "Isaac",
+    "Jacob",
+    "Esau"
+   ],
+   "ta": [
+    "இதோ, நெருப்பும் கட்டையும் இருக்கிறது; ஆட்டுக்குட்டி எங்கே என்று நான் என் தகப்பனிடம் கேட்டேன். நான் யார்?",
+    "ஈசாக்கு",
+    "யாக்கோபு",
+    "ஏசா"
+   ]
+  },
+  {
+   "id": "wa-rachel",
+   "ref": [
+    "GEN",
+    29,
+    20
+   ],
+   "en": [
+    "Jacob worked seven years for me, and they seemed like just a few days, because he loved me. Who am I?",
+    "Rachel",
+    "Sarah",
+    "Hagar"
+   ],
+   "ta": [
+    "யாக்கோபு எனக்காக ஏழு வருஷம் வேலைசெய்தான்; அவன் என்மேல் வைத்த பிரியத்தினாலே அவை கொஞ்சநாளாகத் தோன்றின. நான் யார்?",
+    "ராகேல்",
+    "சாராள்",
+    "ஆகார்"
+   ]
+  },
+  {
+   "id": "wa-leah",
+   "ref": [
+    "GEN",
+    29,
+    35
+   ],
+   "en": [
+    "I said, 'Now I will praise the LORD,' and I named my son Judah. Who am I?",
+    "Leah",
+    "Rachel",
+    "Sarah"
+   ],
+   "ta": [
+    "இப்பொழுது கர்த்தரைத் துதிப்பேன் என்று சொல்லி, என் மகனுக்கு யூதா என்று பேரிட்டேன். நான் யார்?",
+    "லேயாள்",
+    "ராகேல்",
+    "சாராள்"
+   ]
+  },
+  {
+   "id": "wa-benjamin",
+   "ref": [
+    "GEN",
+    43,
+    34
+   ],
+   "en": [
+    "At dinner, my brother Joseph gave me five times more food than my brothers got. Who am I?",
+    "Benjamin",
+    "Judah",
+    "Reuben"
+   ],
+   "ta": [
+    "சாப்பாட்டில் என் சகோதரன் யோசேப்பு எனக்கு மற்றவர்களைவிட ஐந்துமடங்கு அதிகமாகக் கொடுத்தான். நான் யார்?",
+    "பென்யமீன்",
+    "யூதா",
+    "ரூபன்"
+   ]
+  },
+  {
+   "id": "wa-pharaoh",
+   "ref": [
+    "EXO",
+    5,
+    2
+   ],
+   "en": [
+    "I said, 'Who is the LORD? I will not let his people go.' Who am I?",
+    "Pharaoh",
+    "Aaron",
+    "Moses"
+   ],
+   "ta": [
+    "கர்த்தர் யார்? நான் இஸ்ரவேலைப் போகவிடுவதில்லை என்றேன். நான் யார்?",
+    "பார்வோன்",
+    "ஆரோன்",
+    "மோசே"
+   ]
+  },
+  {
+   "id": "wa-miriam",
+   "ref": [
+    "EXO",
+    15,
+    20
+   ],
+   "en": [
+    "I was a prophetess. After the sea, I took a tambourine, and the women danced after me. Who am I?",
+    "Miriam",
+    "Deborah",
+    "Ruth"
+   ],
+   "ta": [
+    "நான் தீர்க்கதரிசியானவள். கடலைக் கடந்தபின் நான் தம்புரை எடுத்தேன்; பெண்கள் நடனத்தோடு எனக்குப் பின்னே போனார்கள். நான் யார்?",
+    "மிரியாம்",
+    "தெபொராள்",
+    "ரூத்"
+   ]
+  },
+  {
+   "id": "wa-caleb",
+   "ref": [
+    "NUM",
+    14,
+    24
+   ],
+   "en": [
+    "God said I followed him fully, so he would bring me into the good land. Who am I?",
+    "Caleb",
+    "Joshua",
+    "Gideon"
+   ],
+   "ta": [
+    "நான் கர்த்தரை உத்தமமாய்ப் பின்பற்றினேன்; அதனால் அவர் என்னை அந்த நல்ல தேசத்துக்குள் சேரப்பண்ணுவார். நான் யார்?",
+    "காலேப்",
+    "யோசுவா",
+    "கிதியோன்"
+   ]
+  },
+  {
+   "id": "wa-rahab",
+   "ref": [
+    "JOS",
+    2,
+    6
+   ],
+   "en": [
+    "I hid two men under the stalks of flax on my roof. Who am I?",
+    "Rahab",
+    "Ruth",
+    "Deborah"
+   ],
+   "ta": [
+    "வீட்டின்மேல் இருந்த சணல் தட்டைகளுக்குள் இருவரை நான் மறைத்து வைத்தேன். நான் யார்?",
+    "ராகாப்",
+    "ரூத்",
+    "தெபொராள்"
+   ]
+  },
+  {
+   "id": "wa-deborah",
+   "ref": [
+    "JDG",
+    4,
+    5
+   ],
+   "en": [
+    "I was a prophetess. I judged Israel while I lived under a palm tree. Who am I?",
+    "Deborah",
+    "Miriam",
+    "Esther"
+   ],
+   "ta": [
+    "நான் தீர்க்கதரிசியானவள். பேரீச்சமரத்தின்கீழே குடியிருந்து இஸ்ரவேலை நியாயம் விசாரித்தேன். நான் யார்?",
+    "தெபொராள்",
+    "மிரியாம்",
+    "எஸ்தர்"
+   ]
+  },
+  {
+   "id": "wa-boaz",
+   "ref": [
+    "RUT",
+    2,
+    8
+   ],
+   "en": [
+    "Ruth gathered grain in my field. I told her to stay close to my servant girls. Who am I?",
+    "Boaz",
+    "Jesse",
+    "Samuel"
+   ],
+   "ta": [
+    "ரூத் என் வயலில் பொறுக்கினாள்; இங்கே என் ஊழியக்காரப் பெண்களோடு கூடவே இரு என்று நான் அவளுக்குச் சொன்னேன். நான் யார்?",
+    "போவாஸ்",
+    "ஈசாய்",
+    "சாமுவேல்"
+   ]
+  },
+  {
+   "id": "wa-naomi",
+   "ref": [
+    "RUT",
+    1,
+    20
+   ],
+   "en": [
+    "I said, 'Do not call me Naomi. Call me Mara, because God has made my life bitter.' Who am I?",
+    "Naomi",
+    "Ruth",
+    "Miriam"
+   ],
+   "ta": [
+    "என்னை நகோமி என்று சொல்லாதீர்கள்; மாராள் என்று சொல்லுங்கள்; சர்வவல்லவர் எனக்கு மிகுந்த கசப்பைக் கட்டளையிட்டார். நான் யார்?",
+    "நகோமி",
+    "ரூத்",
+    "மிரியாம்"
+   ]
+  },
+  {
+   "id": "wa-jesse",
+   "ref": [
+    "1SA",
+    16,
+    11
+   ],
+   "en": [
+    "My youngest son was out with the sheep when Samuel came to visit my family. Who am I?",
+    "Jesse",
+    "Saul",
+    "Eli"
+   ],
+   "ta": [
+    "சாமுவேல் வந்தபோது, என் இளையவன் ஆடுகளை மேய்த்துக்கொண்டிருந்தான். நான் யார்?",
+    "ஈசாய்",
+    "சவுல்",
+    "ஏலி"
+   ]
+  },
+  {
+   "id": "wa-absalom",
+   "ref": [
+    "2SA",
+    18,
+    9
+   ],
+   "en": [
+    "I rode my mule, and my head got caught in a big oak tree. Who am I?",
+    "Absalom",
+    "Solomon",
+    "Nathan"
+   ],
+   "ta": [
+    "நான் கோவேறு கழுதையின்மேல் ஏறிவரும்போது, என் தலை ஒரு பெரிய கர்வாலி மரத்தில் மாட்டிக்கொண்டது. நான் யார்?",
+    "அப்சலோம்",
+    "சாலொமோன்",
+    "நாத்தான்"
+   ]
+  },
+  {
+   "id": "wa-nathan",
+   "ref": [
+    "2SA",
+    12,
+    7
+   ],
+   "en": [
+    "I looked at King David and said, 'You are the man!' Who am I?",
+    "Nathan",
+    "Samuel",
+    "Elijah"
+   ],
+   "ta": [
+    "நான் தாவீது ராஜாவைப் பார்த்து, நீயே அந்த மனுஷன் என்றேன். நான் யார்?",
+    "நாத்தான்",
+    "சாமுவேல்",
+    "எலியா"
+   ]
+  },
+  {
+   "id": "wa-elisha",
+   "ref": [
+    "2KI",
+    2,
+    9
+   ],
+   "en": [
+    "My teacher was taken up to heaven. I asked him for a double share of his spirit. Who am I?",
+    "Elisha",
+    "Daniel",
+    "Esau"
+   ],
+   "ta": [
+    "என் ஆசிரியர் பரலோகத்துக்கு எடுத்துக்கொள்ளப்பட்டார்; நான் அவருடைய ஆவியின் வரம் எனக்கு இரட்டிப்பாகக் கிடைக்கவேண்டும் என்று கேட்டேன். நான் யார்?",
+    "எலிசா",
+    "தானியேல்",
+    "ஏசா"
+   ]
+  },
+  {
+   "id": "wa-josiah",
+   "ref": [
+    "2KI",
+    22,
+    1
+   ],
+   "en": [
+    "I was only eight years old when I became king. Who am I?",
+    "Josiah",
+    "Saul",
+    "Solomon"
+   ],
+   "ta": [
+    "நான் ராஜாவாகிறபோது எட்டு வயதாயிருந்தேன். நான் யார்?",
+    "யோசியா",
+    "சவுல்",
+    "சாலொமோன்"
+   ]
+  },
+  {
+   "id": "wa-hezekiah",
+   "ref": [
+    "2KI",
+    20,
+    5
+   ],
+   "en": [
+    "I was very sick. I cried and prayed, and the LORD heard my prayer and healed me. Who am I?",
+    "Hezekiah",
+    "Josiah",
+    "Saul"
+   ],
+   "ta": [
+    "நான் மிகவும் வியாதியாயிருந்தேன். நான் அழுது ஜெபம்பண்ணினேன்; கர்த்தர் என் ஜெபத்தைக் கேட்டு என்னைக் குணமாக்கினார். நான் யார்?",
+    "எசேக்கியா",
+    "யோசியா",
+    "சவுல்"
+   ]
+  },
+  {
+   "id": "wa-isaiah",
+   "ref": [
+    "ISA",
+    6,
+    8
+   ],
+   "en": [
+    "God asked, 'Whom shall I send?' I said, 'Here I am. Send me!' Who am I?",
+    "Isaiah",
+    "Jeremiah",
+    "Ezra"
+   ],
+   "ta": [
+    "யாரை அனுப்புவேன் என்று ஆண்டவர் கேட்டார். நான், இதோ, அடியேன் இருக்கிறேன்; என்னை அனுப்பும் என்றேன். நான் யார்?",
+    "ஏசாயா",
+    "எரேமியா",
+    "எஸ்றா"
+   ]
+  },
+  {
+   "id": "wa-jeremiah",
+   "ref": [
+    "JER",
+    1,
+    6
+   ],
+   "en": [
+    "I said to the LORD, 'I cannot speak. I am only a child.' Who am I?",
+    "Jeremiah",
+    "Isaiah",
+    "Ezekiel"
+   ],
+   "ta": [
+    "நான் பேச அறியேன்; நான் சிறுபிள்ளையாயிருக்கிறேன் என்றேன். நான் யார்?",
+    "எரேமியா",
+    "ஏசாயா",
+    "எசேக்கியேல்"
+   ]
+  },
+  {
+   "id": "wa-ezra",
+   "ref": [
+    "EZR",
+    7,
+    10
+   ],
+   "en": [
+    "I wanted to learn God's law, obey it, and teach it to God's people. Who am I?",
+    "Ezra",
+    "Nehemiah",
+    "Daniel"
+   ],
+   "ta": [
+    "கர்த்தருடைய வேதத்தை ஆராயவும், அதின்படி செய்யவும், இஸ்ரவேலுக்கு உபதேசிக்கவும் நான் என் இருதயத்தைப் பக்குவப்படுத்தினேன். நான் யார்?",
+    "எஸ்றா",
+    "நெகேமியா",
+    "தானியேல்"
+   ]
+  },
+  {
+   "id": "wa-mordecai",
+   "ref": [
+    "EST",
+    4,
+    14
+   ],
+   "en": [
+    "I told Queen Esther, 'Maybe God made you queen for a time like this.' Who am I?",
+    "Mordecai",
+    "Daniel",
+    "Nehemiah"
+   ],
+   "ta": [
+    "எஸ்தரிடம்: யாருக்குத் தெரியும், நீ இப்படிப்பட்ட காலத்துக்கு உதவும்படி ராஜமேன்மை பெற்றிருக்கலாம் என்றேன். நான் யார்?",
+    "மொர்தெகாய்",
+    "தானியேல்",
+    "நெகேமியா"
+   ]
+  },
+  {
+   "id": "wa-job",
+   "ref": [
+    "JOB",
+    1,
+    21
+   ],
+   "en": [
+    "I lost my children and all that I had. Yet I said, 'Blessed be the name of the LORD.' Who am I?",
+    "Job",
+    "Daniel",
+    "Joseph"
+   ],
+   "ta": [
+    "என் பிள்ளைகளையும் என் உடைமைகளையும் இழந்தேன்; ஆனாலும், கர்த்தருடைய நாமத்துக்கு ஸ்தோத்திரம் என்றேன். நான் யார்?",
+    "யோபு",
+    "தானியேல்",
+    "யோசேப்பு"
+   ]
+  },
+  {
+   "id": "wa-shadrach",
+   "ref": [
+    "DAN",
+    3,
+    18
+   ],
+   "en": [
+    "The king told us to bow down to his gold statue. My friends and I said, 'We will not bow down.' Who am I?",
+    "Shadrach",
+    "Daniel",
+    "Joseph"
+   ],
+   "ta": [
+    "ராஜா பொற்சிலையைப் பணிந்துகொள்ளச் சொன்னார். நானும் என் நண்பர்களும், நாங்கள் பணிந்துகொள்வதுமில்லை என்றோம். நான் யார்?",
+    "சாத்ராக்",
+    "தானியேல்",
+    "யோசேப்பு"
+   ]
+  },
+  {
+   "id": "wa-nebuchadnezzar",
+   "ref": [
+    "DAN",
+    4,
+    33
+   ],
+   "en": [
+    "For a time, God made me eat grass like an ox. Who am I?",
+    "Nebuchadnezzar",
+    "Pharaoh",
+    "Balaam"
+   ],
+   "ta": [
+    "சிலகாலம் நான் மாடுகளைப்போல் புல்லை மேய்ந்தேன். நான் யார்?",
+    "நேபுகாத்நேச்சார்",
+    "பார்வோன்",
+    "பிலேயாம்"
+   ]
+  },
+  {
+   "id": "wa-reuben",
+   "ref": [
+    "GEN",
+    37,
+    21
+   ],
+   "en": [
+    "I tried to save my little brother Joseph from our other brothers. Who am I?",
+    "Reuben",
+    "Judah",
+    "Esau"
+   ],
+   "ta": [
+    "நான் என் தம்பி யோசேப்பை அவர்கள் கைக்குத் தப்புவித்தேன். நான் யார்?",
+    "ரூபன்",
+    "யூதா",
+    "ஏசா"
+   ]
+  },
+  {
+   "id": "wa-judah",
+   "ref": [
+    "GEN",
+    44,
+    33
+   ],
+   "en": [
+    "I offered to stay as a servant in place of my youngest brother. Who am I?",
+    "Judah",
+    "Reuben",
+    "Esau"
+   ],
+   "ta": [
+    "இளையவனுக்குப் பதிலாக நான் என் ஆண்டவனுக்கு அடிமையாயிருப்பேன் என்றேன். நான் யார்?",
+    "யூதா",
+    "ரூபன்",
+    "ஏசா"
+   ]
+  },
+  {
+   "id": "wa-joshua",
+   "ref": [
+    "JOS",
+    24,
+    15
+   ],
+   "en": [
+    "I said, 'As for me and my family, we will serve the LORD.' Who am I?",
+    "Joshua",
+    "Caleb",
+    "Moses"
+   ],
+   "ta": [
+    "நானும் என் வீட்டாரும் கர்த்தரையே சேவிப்போம் என்றேன். நான் யார்?",
+    "யோசுவா",
+    "காலேப்",
+    "மோசே"
+   ]
+  },
+  {
+   "id": "wa-ezekiel",
+   "ref": [
+    "EZK",
+    37,
+    3
+   ],
+   "en": [
+    "God took me to a valley full of dry bones and asked, 'Can these bones live?' Who am I?",
+    "Ezekiel",
+    "Jeremiah",
+    "Isaiah"
+   ],
+   "ta": [
+    "கர்த்தர் என்னை எலும்புகள் நிறைந்த பள்ளத்தாக்கின் நடுவில் நிறுத்தி, இந்த எலும்புகள் உயிரடையுமா என்று கேட்டார். நான் யார்?",
+    "எசேக்கியேல்",
+    "எரேமியா",
+    "ஏசாயா"
+   ]
+  },
+  {
+   "id": "wa-daniel",
+   "ref": [
+    "DAN",
+    1,
+    12
+   ],
+   "en": [
+    "I asked for vegetables and water for ten days. Who am I?",
+    "Daniel",
+    "Joseph",
+    "Elijah"
+   ],
+   "ta": [
+    "பத்து நாளைக்கு எங்களுக்குப் பருப்பும் தண்ணீரும் கொடுங்கள் என்று நான் கேட்டேன். நான் யார்?",
+    "தானியேல்",
+    "யோசேப்பு",
+    "எலியா"
+   ]
+  },
+  {
+   "id": "wa-moses",
+   "ref": [
+    "EXO",
+    4,
+    10
+   ],
+   "en": [
+    "I told the LORD, 'I am slow of speech and slow of tongue.' Who am I?",
+    "Moses",
+    "Aaron",
+    "Joshua"
+   ],
+   "ta": [
+    "நான் திக்குவாயும் மந்த நாவும் உள்ளவன் என்று கர்த்தரிடம் சொன்னேன். நான் யார்?",
+    "மோசே",
+    "ஆரோன்",
+    "யோசுவா"
+   ]
+  },
+  {
+   "id": "wa-abraham",
+   "ref": [
+    "GEN",
+    12,
+    1
+   ],
+   "en": [
+    "The LORD said to me, 'Leave your country and go to a land I will show you.' Who am I?",
+    "Abraham",
+    "Lot",
+    "Isaac"
+   ],
+   "ta": [
+    "கர்த்தர் என்னை நோக்கி: நீ உன் தேசத்தை விட்டுப் புறப்பட்டு, நான் காண்பிக்கும் தேசத்துக்குப் போ என்றார். நான் யார்?",
+    "ஆபிரகாம்",
+    "லோத்து",
+    "ஈசாக்கு"
+   ]
+  },
+  {
+   "id": "wa-jacob",
+   "ref": [
+    "GEN",
+    32,
+    28
+   ],
+   "en": [
+    "God changed my name to Israel, because I fought with God and with men and won. Who am I?",
+    "Jacob",
+    "Esau",
+    "Isaac"
+   ],
+   "ta": [
+    "தேவனோடும் மனிதரோடும் போராடி ஜெயித்தேன்; அதனால் இனி என் பேர் இஸ்ரவேல் என்னப்படும். நான் யார்?",
+    "யாக்கோபு",
+    "ஏசா",
+    "ஈசாக்கு"
+   ]
+  },
+  {
+   "id": "wa-esau",
+   "ref": [
+    "GEN",
+    25,
+    34
+   ],
+   "en": [
+    "I gave up my special birthright for some bread and stew. Who am I?",
+    "Esau",
+    "Jacob",
+    "Isaac"
+   ],
+   "ta": [
+    "அப்பத்துக்கும் பயற்றங்கூழுக்கும் ஈடாக என் சேஷ்ட புத்திரபாகத்தை அலட்சியம்பண்ணினேன். நான் யார்?",
+    "ஏசா",
+    "யாக்கோபு",
+    "ஈசாக்கு"
+   ]
+  },
+  {
+   "id": "wa-joseph",
+   "ref": [
+    "GEN",
+    40,
+    13
+   ],
+   "en": [
+    "In prison, I told the king's cup-bearer that in three days he would get his job back. Who am I?",
+    "Joseph",
+    "Moses",
+    "Jacob"
+   ],
+   "ta": [
+    "சிறையில் நான் பார்வோனின் பானபாத்திரக்காரனிடம், மூன்று நாளைக்குள்ளே உன்னை மறுபடியும் உன் நிலையிலே நிறுத்துவார் என்றேன். நான் யார்?",
+    "யோசேப்பு",
+    "மோசே",
+    "யாக்கோபு"
+   ]
+  },
+  {
+   "id": "wa-hagar",
+   "ref": [
+    "GEN",
+    16,
+    13
+   ],
+   "en": [
+    "I was alone in the desert, and God saw me. So I called him 'The God who sees me.' Who am I?",
+    "Hagar",
+    "Sarah",
+    "Rachel"
+   ],
+   "ta": [
+    "நான் வனாந்தரத்தில் தனியாயிருந்தேன்; தேவன் என்னைக் கண்டார். நான் அவரை 'என்னைக் காண்கிற தேவன்' என்று அழைத்தேன். நான் யார்?",
+    "ஆகார்",
+    "சாராள்",
+    "ராகேல்"
+   ]
+  },
+  {
+   "id": "wa-ishmael",
+   "ref": [
+    "GEN",
+    21,
+    17
+   ],
+   "en": [
+    "I was a boy crying in the desert, and God heard my voice. Who am I?",
+    "Ishmael",
+    "Isaac",
+    "Esau"
+   ],
+   "ta": [
+    "நான் வனாந்தரத்தில் பிள்ளையாய் அழுதேன்; தேவன் என் சத்தத்தைக் கேட்டார். நான் யார்?",
+    "இஸ்மவேல்",
+    "ஈசாக்கு",
+    "ஏசா"
+   ]
+  },
+  {
+   "id": "wa-aaron",
+   "ref": [
+    "NUM",
+    17,
+    8
+   ],
+   "en": [
+    "My stick budded, bloomed, and gave almonds. Who am I?",
+    "Aaron",
+    "Moses",
+    "Joshua"
+   ],
+   "ta": [
+    "என் கோல் துளிர்த்து, பூப்பூத்து, வாதுமைப்பழங்களைக் கொடுத்தது. நான் யார்?",
+    "ஆரோன்",
+    "மோசே",
+    "யோசுவா"
+   ]
+  },
+  {
+   "id": "wa-elijah",
+   "ref": [
+    "1KI",
+    17,
+    1
+   ],
+   "en": [
+    "I told King Ahab that there would be no rain for these years. Who am I?",
+    "Elijah",
+    "Elisha",
+    "Daniel"
+   ],
+   "ta": [
+    "நான் ஆகாப் ராஜாவிடம், இந்த வருஷங்களில் மழை பெய்யாது என்றேன். நான் யார்?",
+    "எலியா",
+    "எலிசா",
+    "தானியேல்"
+   ]
+  },
+  {
+   "id": "wa-nehemiah",
+   "ref": [
+    "NEH",
+    2,
+    4
+   ],
+   "en": [
+    "The king asked what I wanted. First I prayed to the God of heaven. Who am I?",
+    "Nehemiah",
+    "Ezra",
+    "Daniel"
+   ],
+   "ta": [
+    "ராஜா நான் கேட்கிற காரியம் என்ன என்றார்; நான் முதலில் பரலோகத்தின் தேவனிடம் ஜெபம்பண்ணினேன். நான் யார்?",
+    "நெகேமியா",
+    "எஸ்றா",
+    "தானியேல்"
+   ]
+  },
+  {
+   "id": "wa-mephibosheth",
+   "ref": [
+    "2SA",
+    9,
+    7
+   ],
+   "en": [
+    "King David let me eat at his table every day, because of my father Jonathan. Who am I?",
+    "Mephibosheth",
+    "Absalom",
+    "Nathan"
+   ],
+   "ta": [
+    "தாவீது ராஜா என் தகப்பனாகிய யோனத்தானுக்காக எனக்குத் தயைசெய்து, தம்முடைய பந்தியில் நித்தம் அப்பம் புசிக்கச்செய்தார். நான் யார்?",
+    "மேவிபோசேத்",
+    "அப்சலோம்",
+    "நாத்தான்"
+   ]
+  },
+  {
+   "id": "wa-abigail",
+   "ref": [
+    "1SA",
+    25,
+    18
+   ],
+   "en": [
+    "I brought bread, wine, sheep, and figs to David. Who am I?",
+    "Abigail",
+    "Hannah",
+    "Miriam"
+   ],
+   "ta": [
+    "நான் அப்பங்களையும் திராட்சரசத்தையும் ஆடுகளையும் அத்திப்பழ அடைகளையும் கழுதைகள்மேல் ஏற்றினேன். நான் யார்?",
+    "அபிகாயில்",
+    "அன்னாள்",
+    "மிரியாம்"
+   ]
+  },
+  {
+   "id": "wa-saul",
+   "ref": [
+    "1SA",
+    9,
+    2
+   ],
+   "en": [
+    "I was taller than all the other people in Israel. Who am I?",
+    "Saul",
+    "David",
+    "Samuel"
+   ],
+   "ta": [
+    "இஸ்ரவேலில் எல்லா ஜனங்களும் என் தோளுக்குக் கீழாயிருக்கும்படி நான் உயரமாயிருந்தேன். நான் யார்?",
+    "சவுல்",
+    "தாவீது",
+    "சாமுவேல்"
+   ]
+  },
+  {
+   "id": "wa-hur",
+   "ref": [
+    "EXO",
+    17,
+    12
+   ],
+   "en": [
+    "While Israel fought, I held up Moses' hands with Aaron. Who am I?",
+    "Hur",
+    "Joshua",
+    "Caleb"
+   ],
+   "ta": [
+    "இஸ்ரவேல் போரிட்டபோது, ஆரோனோடு சேர்ந்து நான் மோசேயின் கைகளைத் தாங்கினேன். நான் யார்?",
+    "ஊர்",
+    "யோசுவா",
+    "காலேப்"
+   ]
+  },
+  {
+   "id": "wa-gideon",
+   "ref": [
+    "JDG",
+    6,
+    12
+   ],
+   "en": [
+    "An angel appeared to me and said, 'You mighty man of valour, the LORD is with you.' Who am I?",
+    "Gideon",
+    "Joshua",
+    "Saul"
+   ],
+   "ta": [
+    "கர்த்தருடைய தூதன் எனக்குத் தரிசனமாகி: பராக்கிரமசாலியே, கர்த்தர் உன்னோடே இருக்கிறார் என்றார். நான் யார்?",
+    "கிதியோன்",
+    "யோசுவா",
+    "சவுல்"
+   ]
+  },
+  {
+   "id": "wa-samuel",
+   "ref": [
+    "1SA",
+    16,
+    1
+   ],
+   "en": [
+    "The LORD told me to stop being sad about Saul, and sent me to Jesse's house to find a new king. Who am I?",
+    "Samuel",
+    "Eli",
+    "Nathan"
+   ],
+   "ta": [
+    "சவுலுக்காக நீ எந்தமட்டும் துக்கித்துக்கொண்டிருப்பாய் என்று கர்த்தர் என்னிடம் சொன்னார்; ஈசாயினிடத்துக்குப் போ என்றார். நான் யார்?",
+    "சாமுவேல்",
+    "ஏலி",
+    "நாத்தான்"
+   ]
+  },
+  {
+   "id": "wa-jabez",
+   "ref": [
+    "1CH",
+    4,
+    10
+   ],
+   "en": [
+    "I prayed, 'Bless me, and make my land bigger.' God gave me what I asked. Who am I?",
+    "Jabez",
+    "Gideon",
+    "Hur"
+   ],
+   "ta": [
+    "நான் இஸ்ரவேலின் தேவனை நோக்கி: என்னை ஆசீர்வதித்து, என் எல்லையைப் பெரிதாக்கும் என்று ஜெபித்தேன்; நான் கேட்டதைத் தேவன் அருளினார். நான் யார்?",
+    "யாபேஸ்",
+    "கிதியோன்",
+    "ஊர்"
+   ]
+  },
+  {
+   "id": "wa-ruth",
+   "ref": [
+    "RUT",
+    2,
+    3
+   ],
+   "en": [
+    "I went to gather leftover grain in a field that belonged to Boaz. Who am I?",
+    "Ruth",
+    "Naomi",
+    "Esther"
+   ],
+   "ta": [
+    "போவாசுக்குச் சொந்தமான வயலில், அறுக்கிறவர்கள் பிறகே நான் பொறுக்கினேன். நான் யார்?",
+    "ரூத்",
+    "நகோமி",
+    "எஸ்தர்"
+   ]
+  },
+  {
+   "id": "wa-jonathan",
+   "ref": [
+    "1SA",
+    14,
+    13
+   ],
+   "en": [
+    "My armour-bearer and I climbed up to the enemy camp, using our hands and feet. Who am I?",
+    "Jonathan",
+    "Saul",
+    "David"
+   ],
+   "ta": [
+    "நான் கைகளாலும் கால்களாலும் தவழ்ந்து ஏறினேன்; என் ஆயுததாரி என் பின்னாலே ஏறினான். நான் யார்?",
+    "யோனத்தான்",
+    "சவுல்",
+    "தாவீது"
+   ]
+  },
+  {
+   "id": "wa-naaman",
+   "ref": [
+    "2KI",
+    5,
+    1
+   ],
+   "en": [
+    "I was a brave army captain, but I had a skin disease. Who am I?",
+    "Naaman",
+    "Hiram",
+    "Abimelech"
+   ],
+   "ta": [
+    "நான் சீரிய ராஜாவின் படைத்தலைவன், மகா பராக்கிரமசாலி; ஆனாலும் நான் குஷ்டரோகியாயிருந்தேன். நான் யார்?",
+    "நாகமான்",
+    "ஈராம்",
+    "அபிமெலேக்"
+   ]
+  },
+  {
+   "id": "wa-eli",
+   "ref": [
+    "1SA",
+    3,
+    18
+   ],
+   "en": [
+    "A young boy told me God's hard message. I said, 'It is the LORD. Let him do what seems good.' Who am I?",
+    "Eli",
+    "Nathan",
+    "Gideon"
+   ],
+   "ta": [
+    "ஒரு பிள்ளை எனக்கு எல்லாவற்றையும் அறிவித்தான்; நான், அவர் கர்த்தர், அவர் தமது பார்வைக்கு நலமானதைச் செய்வாராக என்றேன். நான் யார்?",
+    "ஏலி",
+    "நாத்தான்",
+    "கிதியோன்"
+   ]
+  },
+  {
+   "id": "wa-simeon",
+   "ref": [
+    "GEN",
+    42,
+    24
+   ],
+   "en": [
+    "My brother Joseph tied me up in front of my other brothers. Who am I?",
+    "Simeon",
+    "Reuben",
+    "Levi"
+   ],
+   "ta": [
+    "அவர்கள் கண்களுக்கு முன்பாக என் சகோதரன் யோசேப்பு என்னைக் கட்டுவித்தான். நான் யார்?",
+    "சிமியோன்",
+    "ரூபன்",
+    "லேவி"
+   ]
+  },
+  {
+   "id": "wa-noah",
+   "ref": [
+    "GEN",
+    8,
+    7
+   ],
+   "en": [
+    "After the flood, I sent a raven out of the ark. Who am I?",
+    "Noah",
+    "Enoch",
+    "Seth"
+   ],
+   "ta": [
+    "வெள்ளம் வடிந்தபின் நான் ஒரு காகத்தைப் பேழையிலிருந்து வெளியே விட்டேன். நான் யார்?",
+    "நோவா",
+    "ஏனோக்கு",
+    "சேத்"
+   ]
+  },
+  {
+   "id": "wa-adam",
+   "ref": [
+    "GEN",
+    2,
+    19
+   ],
+   "en": [
+    "God brought every animal and bird to me, and I gave each one a name. Who am I?",
+    "Adam",
+    "Noah",
+    "Cain"
+   ],
+   "ta": [
+    "தேவனாகிய கர்த்தர் எல்லா மிருகங்களையும் பறவைகளையும் என்னிடம் கொண்டுவந்தார்; நான் அவைகளுக்குப் பேரிட்டேன். நான் யார்?",
+    "ஆதாம்",
+    "நோவா",
+    "காயீன்"
+   ]
+  },
+  {
+   "id": "wa-elisha-axe",
+   "ref": [
+    "2KI",
+    6,
+    6
+   ],
+   "en": [
+    "I threw a stick into the water, and the heavy iron axe head floated. Who am I?",
+    "Elisha",
+    "Daniel",
+    "Joseph"
+   ],
+   "ta": [
+    "நான் ஒரு கொம்பை வெட்டி அங்கே எறிந்தேன்; இரும்பு மிதந்தது. நான் யார்?",
+    "எலிசா",
+    "தானியேல்",
+    "யோசேப்பு"
+   ]
+  },
+  {
+   "id": "wa-orpah",
+   "ref": [
+    "RUT",
+    1,
+    14
+   ],
+   "en": [
+    "I kissed my mother-in-law goodbye and went back home. Who am I?",
+    "Orpah",
+    "Ruth",
+    "Naomi"
+   ],
+   "ta": [
+    "நான் என் மாமியை முத்தமிட்டுப் போய்விட்டேன். நான் யார்?",
+    "ஒர்பாள்",
+    "ரூத்",
+    "நகோமி"
+   ]
+  },
+  {
+   "id": "wa-hannah",
+   "ref": [
+    "1SA",
+    2,
+    1
+   ],
+   "en": [
+    "I sang to God, 'My heart rejoices in the LORD.' Who am I?",
+    "Hannah",
+    "Miriam",
+    "Deborah"
+   ],
+   "ta": [
+    "என் இருதயம் கர்த்தருக்குள் களிகூருகிறது என்று நான் ஜெபம்பண்ணினேன். நான் யார்?",
+    "அன்னாள்",
+    "மிரியாம்",
+    "தெபொராள்"
+   ]
+  },
+  {
+   "id": "wa-solomon",
+   "ref": [
+    "1KI",
+    4,
+    32
+   ],
+   "en": [
+    "I spoke three thousand proverbs, and I wrote one thousand and five songs. Who am I?",
+    "Solomon",
+    "David",
+    "Moses"
+   ],
+   "ta": [
+    "நான் மூவாயிரம் நீதிமொழிகளைச் சொன்னேன்; ஆயிரத்து ஐந்து பாட்டுகளை இயற்றினேன். நான் யார்?",
+    "சாலொமோன்",
+    "தாவீது",
+    "மோசே"
+   ]
+  },
+  {
+   "id": "wa-eve",
+   "ref": [
+    "GEN",
+    4,
+    1
+   ],
+   "en": [
+    "I had my first son and said, 'I have gotten a man from the LORD.' Who am I?",
+    "Eve",
+    "Sarah",
+    "Rachel"
+   ],
+   "ta": [
+    "நான் என் முதல் மகனைப் பெற்று, கர்த்தரால் ஒரு மனுஷனைப் பெற்றேன் என்றேன். நான் யார்?",
+    "ஏவாள்",
+    "சாராள்",
+    "ராகேல்"
+   ]
+  },
+  {
+   "id": "wb-elizabeth",
+   "ref": [
+    "LUK",
+    1,
+    13
+   ],
+   "en": [
+    "An angel told my husband that I would have a baby named John. Who am I?",
+    "Elizabeth",
+    "Mary",
+    "Sarah"
+   ],
+   "ta": [
+    "ஒரு தூதன் என் கணவரிடம், நான் யோவான் என்னும் குழந்தையைப் பெறுவேன் என்று சொன்னார். நான் யார்?",
+    "எலிசபெத்து",
+    "மரியாள்",
+    "சாராள்"
+   ]
+  },
+  {
+   "id": "wb-zechariah",
+   "ref": [
+    "LUK",
+    1,
+    20
+   ],
+   "en": [
+    "God made me unable to speak until my baby was born. Who am I?",
+    "Zechariah",
+    "Joseph",
+    "Simeon"
+   ],
+   "ta": [
+    "குழந்தை பிறக்கும்வரை என்னால் பேச முடியாமல் போனது. நான் யார்?",
+    "சகரியா",
+    "யோசேப்பு",
+    "சிமியோன்"
+   ]
+  },
+  {
+   "id": "wb-simeon",
+   "ref": [
+    "LUK",
+    2,
+    26
+   ],
+   "en": [
+    "God told me I would not die until I saw the Lord's Christ. Who am I?",
+    "Simeon",
+    "Peter",
+    "Abraham"
+   ],
+   "ta": [
+    "கர்த்தருடைய கிறிஸ்துவைக் காணும்வரை நான் மரிக்கமாட்டேன் என்று தேவன் எனக்குச் சொன்னார். நான் யார்?",
+    "சிமியோன்",
+    "பேதுரு",
+    "ஆபிரகாம்"
+   ]
+  },
+  {
+   "id": "wb-anna",
+   "ref": [
+    "LUK",
+    2,
+    37
+   ],
+   "en": [
+    "I was a very old widow, and I prayed in the Temple night and day. Who am I?",
+    "Anna",
+    "Eve",
+    "Ruth"
+   ],
+   "ta": [
+    "நான் மிகவும் வயதான விதவை. இரவும் பகலும் தேவாலயத்தில் ஜெபம்பண்ணினேன். நான் யார்?",
+    "அன்னாள்",
+    "ஏவாள்",
+    "ரூத்"
+   ]
+  },
+  {
+   "id": "wb-joseph-husband",
+   "ref": [
+    "MAT",
+    1,
+    20
+   ],
+   "en": [
+    "An angel came to me in a dream and told me to take Mary as my wife. Who am I?",
+    "Joseph",
+    "Moses",
+    "Peter"
+   ],
+   "ta": [
+    "ஒரு தூதன் சொப்பனத்தில் எனக்குக் காணப்பட்டு, மரியாளை என் மனைவியாக ஏற்றுக்கொள்ளப் பயப்படாதே என்றார். நான் யார்?",
+    "யோசேப்பு",
+    "மோசே",
+    "பேதுரு"
+   ]
+  },
+  {
+   "id": "wb-mary-song",
+   "ref": [
+    "LUK",
+    1,
+    46
+   ],
+   "en": [
+    "I sang a song of praise: My soul doth magnify the Lord. Who am I?",
+    "Mary",
+    "Elizabeth",
+    "Anna"
+   ],
+   "ta": [
+    "நான் தேவனைப் புகழ்ந்து பாடினேன்: என் ஆத்துமா கர்த்தரை மகிமைப்படுத்துகிறது. நான் யார்?",
+    "மரியாள்",
+    "எலிசபெத்து",
+    "அன்னாள்"
+   ]
+  },
+  {
+   "id": "wb-mary-servant",
+   "ref": [
+    "LUK",
+    1,
+    38
+   ],
+   "en": [
+    "I said, I am the Lord's servant. Let it be as you have said. Who am I?",
+    "Mary",
+    "Martha",
+    "Eve"
+   ],
+   "ta": [
+    "நான் ஆண்டவருக்கு அடிமை, உம்முடைய வார்த்தையின்படி எனக்கு ஆகக்கடவது என்றேன். நான் யார்?",
+    "மரியாள்",
+    "மார்த்தாள்",
+    "ஏவாள்"
+   ]
+  },
+  {
+   "id": "wb-andrew",
+   "ref": [
+    "JHN",
+    1,
+    41
+   ],
+   "en": [
+    "I found my brother Simon and told him, We have found the Messiah! Who am I?",
+    "Andrew",
+    "John",
+    "James"
+   ],
+   "ta": [
+    "நான் என் சகோதரன் சீமோனைக் கண்டு, மேசியாவைக் கண்டோம் என்றேன். நான் யார்?",
+    "அந்திரேயா",
+    "யோவான்",
+    "யாக்கோபு"
+   ]
+  },
+  {
+   "id": "wb-andrew-boy",
+   "ref": [
+    "JHN",
+    6,
+    9
+   ],
+   "en": [
+    "I told Jesus about a boy who had five loaves and two small fish. Who am I?",
+    "Andrew",
+    "Matthew",
+    "Thomas"
+   ],
+   "ta": [
+    "ஒரு பையனிடம் ஐந்து அப்பமும் இரண்டு மீனும் இருப்பதை இயேசுவிடம் சொன்னேன். நான் யார்?",
+    "அந்திரேயா",
+    "மத்தேயு",
+    "தோமா"
+   ]
+  },
+  {
+   "id": "wb-james",
+   "ref": [
+    "MAT",
+    4,
+    21
+   ],
+   "en": [
+    "I was mending nets in a boat with my father when Jesus called me. Who am I?",
+    "James",
+    "Andrew",
+    "Thomas"
+   ],
+   "ta": [
+    "நான் படகில் என் தகப்பனுடன் வலைகளைப் பழுதுபார்த்துக்கொண்டிருந்தபோது இயேசு என்னை அழைத்தார். நான் யார்?",
+    "யாக்கோபு",
+    "அந்திரேயா",
+    "தோமா"
+   ]
+  },
+  {
+   "id": "wb-john",
+   "ref": [
+    "JHN",
+    13,
+    23
+   ],
+   "en": [
+    "I leaned on Jesus' chest at supper. Jesus loved me very much. Who am I?",
+    "John",
+    "Peter",
+    "Thomas"
+   ],
+   "ta": [
+    "சாப்பிடும்போது நான் இயேசுவின் மார்பிலே சாய்ந்துகொண்டேன். இயேசு என்னை மிகவும் நேசித்தார். நான் யார்?",
+    "யோவான்",
+    "பேதுரு",
+    "தோமா"
+   ]
+  },
+  {
+   "id": "wb-matthew",
+   "ref": [
+    "MAT",
+    9,
+    9
+   ],
+   "en": [
+    "I sat at the tax table. Jesus said, Follow me, and I got up and went with him. Who am I?",
+    "Matthew",
+    "Peter",
+    "Thomas"
+   ],
+   "ta": [
+    "நான் ஆயத்துறையில் உட்கார்ந்திருந்தேன். இயேசு, எனக்குப் பின்சென்றுவா என்றார்; நான் எழுந்து அவருக்குப் பின்சென்றேன். நான் யார்?",
+    "மத்தேயு",
+    "பேதுரு",
+    "தோமா"
+   ]
+  },
+  {
+   "id": "wb-philip",
+   "ref": [
+    "JHN",
+    6,
+    5
+   ],
+   "en": [
+    "Jesus asked me, Where can we buy bread for all these people? Who am I?",
+    "Philip",
+    "Andrew",
+    "Thomas"
+   ],
+   "ta": [
+    "இயேசு என்னிடம், இவர்கள் சாப்பிடத்தக்கதாக அப்பங்களை எங்கே கொள்ளலாம் என்று கேட்டார். நான் யார்?",
+    "பிலிப்பு",
+    "அந்திரேயா",
+    "தோமா"
+   ]
+  },
+  {
+   "id": "wb-nathanael",
+   "ref": [
+    "JHN",
+    1,
+    47
+   ],
+   "en": [
+    "Jesus said I was a true Israelite with no deceit in me. Who am I?",
+    "Nathanael",
+    "Peter",
+    "Thomas"
+   ],
+   "ta": [
+    "இயேசு என்னைக் கபடற்ற உத்தம இஸ்ரவேலன் என்றார். நான் யார்?",
+    "நாத்தான்வேல்",
+    "பேதுரு",
+    "தோமா"
+   ]
+  },
+  {
+   "id": "wb-thomas",
+   "ref": [
+    "JHN",
+    14,
+    5
+   ],
+   "en": [
+    "I said, Lord, we do not know the way. How can we know it? Who am I?",
+    "Thomas",
+    "Andrew",
+    "Philip"
+   ],
+   "ta": [
+    "ஆண்டவரே, நீர் போகிற இடத்தை அறியோமே, வழியை நாங்கள் எப்படி அறிவோம் என்றேன். நான் யார்?",
+    "தோமா",
+    "அந்திரேயா",
+    "பிலிப்பு"
+   ]
+  },
+  {
+   "id": "wb-judas",
+   "ref": [
+    "MAT",
+    26,
+    15
+   ],
+   "en": [
+    "I was one of the twelve. I agreed to hand Jesus over for thirty pieces of silver. Who am I?",
+    "Judas Iscariot",
+    "Peter",
+    "Thomas"
+   ],
+   "ta": [
+    "நான் பன்னிருவரில் ஒருவன். முப்பது வெள்ளிக்காசுக்கு இயேசுவை ஒப்புக்கொடுக்க உடன்பட்டேன். நான் யார்?",
+    "யூதாஸ்காரியோத்து",
+    "பேதுரு",
+    "தோமா"
+   ]
+  },
+  {
+   "id": "wb-peter-rock",
+   "ref": [
+    "MAT",
+    16,
+    18
+   ],
+   "en": [
+    "Jesus said he would build his church on this rock, which was me. Who am I?",
+    "Peter",
+    "Andrew",
+    "Thomas"
+   ],
+   "ta": [
+    "இந்தக் கல்லின்மேல் என் சபையைக் கட்டுவேன் என்று இயேசு சொன்னார்; அந்தக் கல் நான். நான் யார்?",
+    "பேதுரு",
+    "அந்திரேயா",
+    "தோமா"
+   ]
+  },
+  {
+   "id": "wb-peter-love",
+   "ref": [
+    "JHN",
+    21,
+    15
+   ],
+   "en": [
+    "Jesus asked me if I loved him more than these. Who am I?",
+    "Peter",
+    "Judas",
+    "Thomas"
+   ],
+   "ta": [
+    "இயேசு, இவர்களிலும் அதிகமாய் நீ என்னிடத்தில் அன்பாயிருக்கிறாயா என்று கேட்டார். நான் யார்?",
+    "பேதுரு",
+    "யூதாஸ்காரியோத்து",
+    "தோமா"
+   ]
+  },
+  {
+   "id": "wb-peter-prison",
+   "ref": [
+    "ACT",
+    12,
+    7
+   ],
+   "en": [
+    "An angel came to me in prison, and my chains fell off. Who am I?",
+    "Peter",
+    "John",
+    "Nathanael"
+   ],
+   "ta": [
+    "சிறையில் இருந்தபோது ஒரு தூதன் வந்தார்; என் சங்கிலிகள் கைகளிலிருந்து விழுந்தன. நான் யார்?",
+    "பேதுரு",
+    "யோவான்",
+    "நாத்தான்வேல்"
+   ]
+  },
+  {
+   "id": "wb-peter-lame",
+   "ref": [
+    "ACT",
+    3,
+    6
+   ],
+   "en": [
+    "I told a lame man to get up and walk in the name of Jesus. Who am I?",
+    "Peter",
+    "John",
+    "Thomas"
+   ],
+   "ta": [
+    "நசரேயனாகிய இயேசுகிறிஸ்துவின் நாமத்தினாலே எழுந்து நட என்றேன். நான் யார்?",
+    "பேதுரு",
+    "யோவான்",
+    "தோமா"
+   ]
+  },
+  {
+   "id": "wb-mary-magdalene-tomb",
+   "ref": [
+    "MRK",
+    16,
+    9
+   ],
+   "en": [
+    "Jesus made me well. After he rose, I was the first one to see him. Who am I?",
+    "Mary Magdalene",
+    "Anna",
+    "Elizabeth"
+   ],
+   "ta": [
+    "இயேசு என்னைக் குணமாக்கினார். அவர் உயிர்த்தெழுந்தபின்பு அவரை முதலில் கண்டேன். நான் யார்?",
+    "மகதலேனா மரியாள்",
+    "அன்னாள்",
+    "எலிசபெத்து"
+   ]
+  },
+  {
+   "id": "wb-mary-magdalene-news",
+   "ref": [
+    "JHN",
+    20,
+    18
+   ],
+   "en": [
+    "I told Jesus' friends, I have seen the Lord! Who am I?",
+    "Mary Magdalene",
+    "Martha",
+    "Eve"
+   ],
+   "ta": [
+    "நான் கர்த்தரைக் கண்டேன் என்று இயேசுவின் சீஷருக்குச் சொன்னேன். நான் யார்?",
+    "மகதலேனா மரியாள்",
+    "மார்த்தாள்",
+    "ஏவாள்"
+   ]
+  },
+  {
+   "id": "wb-jairus",
+   "ref": [
+    "MRK",
+    5,
+    23
+   ],
+   "en": [
+    "I was a leader in the synagogue. I begged Jesus to heal my little daughter. Who am I?",
+    "Jairus",
+    "Stephen",
+    "Peter"
+   ],
+   "ta": [
+    "நான் ஜெபஆலயத்தலைவன். என் சின்ன மகளைக் குணமாக்கும்படி இயேசுவிடம் வேண்டிக்கொண்டேன். நான் யார்?",
+    "யவீரு",
+    "ஸ்தேவான்",
+    "பேதுரு"
+   ]
+  },
+  {
+   "id": "wb-bartimaeus",
+   "ref": [
+    "MRK",
+    10,
+    47
+   ],
+   "en": [
+    "I was blind and sat by the road begging. I shouted, Jesus, Son of David, have mercy on me! Who am I?",
+    "Bartimaeus",
+    "Jonah",
+    "Stephen"
+   ],
+   "ta": [
+    "நான் குருடனாயிருந்து வழியருகே உட்கார்ந்து பிச்சை கேட்டேன். இயேசுவே, தாவீதின் குமாரனே, எனக்கு இரங்கும் என்று சத்தமிட்டேன். நான் யார்?",
+    "பர்திமேயு",
+    "யோனா",
+    "ஸ்தேவான்"
+   ]
+  },
+  {
+   "id": "wb-nicodemus",
+   "ref": [
+    "JHN",
+    3,
+    2
+   ],
+   "en": [
+    "I was a ruler of the Jews. I came to Jesus at night to ask him questions. Who am I?",
+    "Nicodemus",
+    "Pilate",
+    "Peter"
+   ],
+   "ta": [
+    "நான் யூதருக்குள்ளே அதிகாரியாயிருந்தேன். இரவில் இயேசுவினிடத்தில் வந்தேன். நான் யார்?",
+    "நிக்கொதேமு",
+    "பிலாத்து",
+    "பேதுரு"
+   ]
+  },
+  {
+   "id": "wb-simon-cyrene",
+   "ref": [
+    "MRK",
+    15,
+    21
+   ],
+   "en": [
+    "I came from Cyrene, and the soldiers made me carry Jesus' cross. Who am I?",
+    "Simon",
+    "Andrew",
+    "Matthew"
+   ],
+   "ta": [
+    "நான் சிரேனே ஊரான். படைவீரர்கள் அவருடைய சிலுவையைச் சுமக்கும்படி என்னைப் பலவந்தம்பண்ணினார்கள். நான் யார்?",
+    "சீமோன்",
+    "அந்திரேயா",
+    "மத்தேயு"
+   ]
+  },
+  {
+   "id": "wb-joseph-arimathea",
+   "ref": [
+    "MAT",
+    27,
+    60
+   ],
+   "en": [
+    "I was a rich man and a follower of Jesus. I put Jesus in my new tomb. Who am I?",
+    "Joseph",
+    "Jacob",
+    "Simon"
+   ],
+   "ta": [
+    "நான் ஐசுவரியவான், இயேசுவுக்குச் சீஷனாயிருந்தேன். இயேசுவின் சரீரத்தை என் புதிய கல்லறையில் வைத்தேன். நான் யார்?",
+    "யோசேப்பு",
+    "யாக்கோபு",
+    "சீமோன்"
+   ]
+  },
+  {
+   "id": "wb-pilate",
+   "ref": [
+    "MAT",
+    27,
+    24
+   ],
+   "en": [
+    "I washed my hands in front of the crowd and said, I am innocent of this man's blood. Who am I?",
+    "Pilate",
+    "Peter",
+    "Moses"
+   ],
+   "ta": [
+    "ஜனங்களுக்கு முன்பாகக் கைகளைக் கழுவி, இந்த நீதிமானுடைய இரத்தப்பழிக்கு நான் குற்றமற்றவன் என்றேன். நான் யார்?",
+    "பிலாத்து",
+    "பேதுரு",
+    "மோசே"
+   ]
+  },
+  {
+   "id": "wb-herod",
+   "ref": [
+    "MAT",
+    2,
+    1
+   ],
+   "en": [
+    "I was the king when Jesus was born in Bethlehem. Who am I?",
+    "Herod",
+    "David",
+    "Moses"
+   ],
+   "ta": [
+    "இயேசு பெத்லகேமிலே பிறந்தபொழுது நான் ராஜாவாயிருந்தேன். நான் யார்?",
+    "ஏரோது",
+    "தாவீது",
+    "மோசே"
+   ]
+  },
+  {
+   "id": "wb-stephen",
+   "ref": [
+    "ACT",
+    7,
+    60
+   ],
+   "en": [
+    "People were angry that I told them about Jesus. I prayed for them. Who am I?",
+    "Stephen",
+    "Philip",
+    "Silas"
+   ],
+   "ta": [
+    "நான் இயேசுவைப்பற்றிச் சொன்னதால் ஜனங்கள் கோபமடைந்தார்கள். நான் அவர்களுக்காக ஜெபம்பண்ணினேன். நான் யார்?",
+    "ஸ்தேவான்",
+    "பிலிப்பு",
+    "சீலா"
+   ]
+  },
+  {
+   "id": "wb-cornelius",
+   "ref": [
+    "ACT",
+    10,
+    3
+   ],
+   "en": [
+    "I was a Roman army officer who always prayed to God. An angel came to me in a vision. Who am I?",
+    "Cornelius",
+    "Lydia",
+    "Barnabas"
+   ],
+   "ta": [
+    "நான் ஒரு பட்டாளத்தின் நூற்றுக்கு அதிபதி. எப்பொழுதும் தேவனை நோக்கி ஜெபம்பண்ணினேன். ஒரு தூதன் தரிசனத்தில் எனக்குக் காணப்பட்டார். நான் யார்?",
+    "கொர்நேலியு",
+    "லீதியாள்",
+    "பர்னபா"
+   ]
+  },
+  {
+   "id": "wb-dorcas",
+   "ref": [
+    "ACT",
+    9,
+    39
+   ],
+   "en": [
+    "The widows showed the coats and clothes that I had made for them. Who am I?",
+    "Dorcas",
+    "Rhoda",
+    "Priscilla"
+   ],
+   "ta": [
+    "விதவைகள் நான் அவர்களுக்குச் செய்திருந்த அங்கிகளையும் வஸ்திரங்களையும் காண்பித்தார்கள். நான் யார்?",
+    "தொற்காள்",
+    "ரோதை",
+    "பிரிஸ்கில்லா"
+   ]
+  },
+  {
+   "id": "wb-ananias",
+   "ref": [
+    "ACT",
+    9,
+    17
+   ],
+   "en": [
+    "God sent me to pray for Saul, so that he could see again. Who am I?",
+    "Ananias",
+    "Zechariah",
+    "Matthias"
+   ],
+   "ta": [
+    "சவுல் மறுபடியும் பார்வையடையும்படி தேவன் என்னை அவனிடத்தில் அனுப்பினார். நான் யார்?",
+    "அனனியா",
+    "சகரியா",
+    "மத்தியா"
+   ]
+  },
+  {
+   "id": "wb-lydia",
+   "ref": [
+    "ACT",
+    16,
+    15
+   ],
+   "en": [
+    "I sold purple cloth. I invited Paul and his friends to stay in my home. Who am I?",
+    "Lydia",
+    "Dorcas",
+    "Rhoda"
+   ],
+   "ta": [
+    "நான் இரத்தாம்பரம் விற்கிறவள். பவுலையும் அவருடைய நண்பர்களையும் என் வீட்டில் தங்கும்படி அழைத்தேன். நான் யார்?",
+    "லீதியாள்",
+    "தொற்காள்",
+    "ரோதை"
+   ]
+  },
+  {
+   "id": "wb-silas",
+   "ref": [
+    "ACT",
+    16,
+    25
+   ],
+   "en": [
+    "I was in prison with Paul. At midnight we prayed and sang praises to God. Who am I?",
+    "Silas",
+    "Barnabas",
+    "Aquila"
+   ],
+   "ta": [
+    "பவுலுடன் நான் சிறையில் இருந்தேன். நடுராத்திரியில் ஜெபம்பண்ணித் தேவனைத் துதித்துப் பாடினோம். நான் யார்?",
+    "சீலா",
+    "பர்னபா",
+    "ஆக்கில்லா"
+   ]
+  },
+  {
+   "id": "wb-barnabas",
+   "ref": [
+    "ACT",
+    4,
+    36
+   ],
+   "en": [
+    "The apostles gave me a name that means Son of Encouragement. Who am I?",
+    "Barnabas",
+    "Silas",
+    "Peter"
+   ],
+   "ta": [
+    "அப்போஸ்தலர் எனக்கு ஆறுதலின் மகன் என்று அர்த்தங்கொள்ளும் பெயர் கொடுத்தார்கள். நான் யார்?",
+    "பர்னபா",
+    "சீலா",
+    "பேதுரு"
+   ]
+  },
+  {
+   "id": "wb-timothy",
+   "ref": [
+    "1TI",
+    1,
+    2
+   ],
+   "en": [
+    "Paul called me his own son in the faith. Who am I?",
+    "Timothy",
+    "Silas",
+    "Luke"
+   ],
+   "ta": [
+    "பவுல் விசுவாசத்தில் உத்தம குமாரனாகிய என்று எனக்கு எழுதினார். நான் யார்?",
+    "தீமோத்தேயு",
+    "சீலா",
+    "லூக்கா"
+   ]
+  },
+  {
+   "id": "wb-lois",
+   "ref": [
+    "2TI",
+    1,
+    5
+   ],
+   "en": [
+    "My faith lived in me first, then in my daughter, and then in my grandson. Who am I?",
+    "Lois",
+    "Sarah",
+    "Ruth"
+   ],
+   "ta": [
+    "என் விசுவாசம் முதலில் எனக்குள் நிலைத்திருந்தது; பின்பு என் மகளுக்குள்ளும், என் பேரனுக்குள்ளும் நிலைத்திருந்தது. நான் யார்?",
+    "லோவிசாள்",
+    "சாராள்",
+    "ரூத்"
+   ]
+  },
+  {
+   "id": "wb-eunice",
+   "ref": [
+    "2TI",
+    1,
+    5
+   ],
+   "en": [
+    "My mother had a strong faith, and my faith was passed on to my son. Who am I?",
+    "Eunice",
+    "Mary",
+    "Rhoda"
+   ],
+   "ta": [
+    "என் தாயிடம் வலிமையான விசுவாசம் இருந்தது; என் விசுவாசம் என் மகனுக்குள் சென்றது. நான் யார்?",
+    "ஐனிக்கேயாள்",
+    "மரியாள்",
+    "ரோதை"
+   ]
+  },
+  {
+   "id": "wb-eutychus",
+   "ref": [
+    "ACT",
+    20,
+    9
+   ],
+   "en": [
+    "I fell asleep sitting in a window while Paul talked for a long time. Who am I?",
+    "Eutychus",
+    "Silas",
+    "Barnabas"
+   ],
+   "ta": [
+    "பவுல் நெடுநேரம் பிரசங்கம்பண்ணும்போது நான் ஜன்னலில் உட்கார்ந்து தூங்கிவிட்டேன். நான் யார்?",
+    "ஐத்திகு",
+    "சீலா",
+    "பர்னபா"
+   ]
+  },
+  {
+   "id": "wb-rhoda",
+   "ref": [
+    "ACT",
+    12,
+    13
+   ],
+   "en": [
+    "Peter knocked at the gate, and I came to listen. Who am I?",
+    "Rhoda",
+    "Priscilla",
+    "Lydia"
+   ],
+   "ta": [
+    "பேதுரு வாசற்கதவைத் தட்டினபோது, நான் கேட்கும்படி வந்தேன். நான் யார்?",
+    "ரோதை",
+    "பிரிஸ்கில்லா",
+    "லீதியாள்"
+   ]
+  },
+  {
+   "id": "wb-luke",
+   "ref": [
+    "COL",
+    4,
+    14
+   ],
+   "en": [
+    "I was a doctor, and Paul called me beloved. Who am I?",
+    "Luke",
+    "Peter",
+    "Thomas"
+   ],
+   "ta": [
+    "நான் ஒரு வைத்தியன். பவுல் என்னைப் பிரியமான வைத்தியன் என்றார். நான் யார்?",
+    "லூக்கா",
+    "பேதுரு",
+    "தோமா"
+   ]
+  },
+  {
+   "id": "wb-cleopas",
+   "ref": [
+    "LUK",
+    24,
+    18
+   ],
+   "en": [
+    "I was walking to Emmaus and talked with a stranger about the things in Jerusalem. Who am I?",
+    "Cleopas",
+    "Silas",
+    "Thomas"
+   ],
+   "ta": [
+    "நான் எம்மாவுக்குப் போகும்போது, எருசலேமில் நடந்தவைகளைக்குறித்து ஒருவருடன் பேசினேன். நான் யார்?",
+    "கிலெயோப்பா",
+    "சீலா",
+    "தோமா"
+   ]
+  },
+  {
+   "id": "wb-paul-wall",
+   "ref": [
+    "ACT",
+    9,
+    25
+   ],
+   "en": [
+    "Friends let me down over a wall in a basket at night so I could escape. Who am I?",
+    "Paul",
+    "Peter",
+    "Silas"
+   ],
+   "ta": [
+    "நண்பர்கள் இராத்திரியிலே என்னை ஒரு கூடையிலே வைத்து மதில்வழியாய் இறக்கிவிட்டார்கள். நான் யார்?",
+    "பவுல்",
+    "பேதுரு",
+    "சீலா"
+   ]
+  },
+  {
+   "id": "wb-paul-servant",
+   "ref": [
+    "ROM",
+    1,
+    1
+   ],
+   "en": [
+    "I call myself a servant of Jesus Christ, called to be an apostle. Who am I?",
+    "Paul",
+    "Peter",
+    "Thomas"
+   ],
+   "ta": [
+    "நான் இயேசு கிறிஸ்துவின் ஊழியக்காரன். அப்போஸ்தலனாகும்படி அழைக்கப்பட்டவன். நான் யார்?",
+    "பவுல்",
+    "பேதுரு",
+    "தோமா"
+   ]
+  },
+  {
+   "id": "wb-john-patmos",
+   "ref": [
+    "REV",
+    1,
+    9
+   ],
+   "en": [
+    "I was sent to a small island called Patmos for telling God's word. Who am I?",
+    "John",
+    "Stephen",
+    "Silas"
+   ],
+   "ta": [
+    "நான் தேவவசனத்தினிமித்தம் பத்மு என்னும் தீவிலே இருந்தேன். நான் யார்?",
+    "யோவான்",
+    "ஸ்தேவான்",
+    "சீலா"
+   ]
+  },
+  {
+   "id": "wb-jesus-way",
+   "ref": [
+    "JHN",
+    14,
+    6
+   ],
+   "en": [
+    "I am the way, the truth, and the life. Who am I?",
+    "Jesus",
+    "Moses",
+    "Noah"
+   ],
+   "ta": [
+    "நானே வழியும் சத்தியமும் ஜீவனுமாயிருக்கிறேன். நான் யார்?",
+    "இயேசு",
+    "மோசே",
+    "நோவா"
+   ]
+  },
+  {
+   "id": "wb-jesus-shepherd",
+   "ref": [
+    "JHN",
+    10,
+    11
+   ],
+   "en": [
+    "I am the good shepherd. I give my life for my sheep. Who am I?",
+    "Jesus",
+    "Abraham",
+    "Moses"
+   ],
+   "ta": [
+    "நானே நல்ல மேய்ப்பன். ஆடுகளுக்காக என் ஜீவனைக் கொடுக்கிறேன். நான் யார்?",
+    "இயேசு",
+    "ஆபிரகாம்",
+    "மோசே"
+   ]
+  },
+  {
+   "id": "wb-jesus-towel",
+   "ref": [
+    "JHN",
+    13,
+    5
+   ],
+   "en": [
+    "I poured water into a bowl and washed my friends' feet. Who am I?",
+    "Jesus",
+    "Moses",
+    "Noah"
+   ],
+   "ta": [
+    "நான் பாத்திரத்தில் தண்ணீரை வார்த்து, என் சீஷருடைய கால்களைக் கழுவினேன். நான் யார்?",
+    "இயேசு",
+    "மோசே",
+    "நோவா"
+   ]
+  },
+  {
+   "id": "wb-jesus-forgive",
+   "ref": [
+    "LUK",
+    23,
+    34
+   ],
+   "en": [
+    "I prayed, Father, forgive them, for they do not know what they do. Who am I?",
+    "Jesus",
+    "Peter",
+    "Thomas"
+   ],
+   "ta": [
+    "பிதாவே, இவர்களுக்கு மன்னியும், தாங்கள் செய்கிறது இன்னதென்று அறியாதிருக்கிறார்களே என்று ஜெபம்பண்ணினேன். நான் யார்?",
+    "இயேசு",
+    "பேதுரு",
+    "தோமா"
+   ]
+  },
+  {
+   "id": "wb-jesus-resurrection",
+   "ref": [
+    "JHN",
+    11,
+    25
+   ],
+   "en": [
+    "I am the resurrection and the life. Who am I?",
+    "Jesus",
+    "Moses",
+    "Elijah"
+   ],
+   "ta": [
+    "நானே உயிர்த்தெழுதலும் ஜீவனுமாயிருக்கிறேன். நான் யார்?",
+    "இயேசு",
+    "மோசே",
+    "எலியா"
+   ]
+  },
+  {
+   "id": "wb-jesus-light",
+   "ref": [
+    "JHN",
+    8,
+    12
+   ],
+   "en": [
+    "I am the light of the world. Who am I?",
+    "Jesus",
+    "Samuel",
+    "Abraham"
+   ],
+   "ta": [
+    "நான் உலகத்திற்கு ஒளியாயிருக்கிறேன். நான் யார்?",
+    "இயேசு",
+    "சாமுவேல்",
+    "ஆபிரகாம்"
+   ]
+  },
+  {
+   "id": "wb-jesus-rest",
+   "ref": [
+    "MAT",
+    11,
+    28
+   ],
+   "en": [
+    "Come to me, all of you who are tired and weighed down, and I will give you rest. Who am I?",
+    "Jesus",
+    "Matthew",
+    "Peter"
+   ],
+   "ta": [
+    "வருத்தப்பட்டுப் பாரஞ்சுமக்கிறவர்களே, என்னிடத்தில் வாருங்கள்; நான் இளைப்பாருதல் தருவேன். நான் யார்?",
+    "இயேசு",
+    "மத்தேயு",
+    "பேதுரு"
+   ]
+  },
+  {
+   "id": "wc-noah2",
+   "ref": [
+    "GEN",
+    8,
+    20
+   ],
+   "art": "altar",
+   "en": [
+    "When I came out of the ark, I built an altar to the LORD. Who am I?",
+    "Noah",
+    "Abraham",
+    "Moses"
+   ],
+   "ta": [
+    "பேழையிலிருந்து வெளியே வந்தபோது கர்த்தருக்கு ஒரு பலிபீடத்தைக் கட்டினேன். நான் யார்?",
+    "நோவா",
+    "ஆபிரகாம்",
+    "மோசே"
+   ]
+  },
+  {
+   "id": "wc-abraham2",
+   "ref": [
+    "GEN",
+    21,
+    5
+   ],
+   "en": [
+    "I was 100 years old when my son Isaac was born. Who am I?",
+    "Abraham",
+    "Noah",
+    "Jacob"
+   ],
+   "ta": [
+    "என் மகன் ஈசாக்கு பிறந்தபோது எனக்கு நூறு வயது. நான் யார்?",
+    "ஆபிரகாம்",
+    "நோவா",
+    "யாக்கோபு"
+   ]
+  },
+  {
+   "id": "wc-isaac2",
+   "ref": [
+    "GEN",
+    24,
+    67
+   ],
+   "art": "camel",
+   "en": [
+    "My father's servant found Rebekah, and she became my wife. Who am I?",
+    "Isaac",
+    "Jacob",
+    "Esau"
+   ],
+   "ta": [
+    "என் தகப்பனுடைய வேலைக்காரன் ரெபெக்காளைக் கண்டுபிடித்தான்; அவள் என் மனைவியானாள். நான் யார்?",
+    "ஈசாக்கு",
+    "யாக்கோபு",
+    "ஏசா"
+   ]
+  },
+  {
+   "id": "wc-jacob2",
+   "ref": [
+    "GEN",
+    29,
+    20
+   ],
+   "en": [
+    "I worked seven years so that I could marry Rachel. Who am I?",
+    "Jacob",
+    "Isaac",
+    "Laban"
+   ],
+   "ta": [
+    "ராகேலை மணந்துகொள்ள நான் ஏழு வருஷம் வேலைசெய்தேன். நான் யார்?",
+    "யாக்கோபு",
+    "ஈசாக்கு",
+    "லாபான்"
+   ]
+  },
+  {
+   "id": "wc-esau2",
+   "ref": [
+    "GEN",
+    25,
+    27
+   ],
+   "en": [
+    "I was a hairy man and a clever hunter. Who am I?",
+    "Esau",
+    "Jacob",
+    "Abel"
+   ],
+   "ta": [
+    "நான் வேட்டையில் வல்லவன்; என் உடம்பெல்லாம் ரோமம். நான் யார்?",
+    "ஏசா",
+    "யாக்கோபு",
+    "ஆபேல்"
+   ]
+  },
+  {
+   "id": "wc-cain",
+   "ref": [
+    "GEN",
+    4,
+    2
+   ],
+   "en": [
+    "I was the first son of Adam and Eve, and I worked the ground. Who am I?",
+    "Cain",
+    "Abel",
+    "Seth"
+   ],
+   "ta": [
+    "நான் ஆதாம் ஏவாளின் முதல் மகன்; நிலத்தைப் பயிரிட்டேன். நான் யார்?",
+    "காயீன்",
+    "ஆபேல்",
+    "சேத்"
+   ]
+  },
+  {
+   "id": "wc-joseph2",
+   "ref": [
+    "GEN",
+    41,
+    29
+   ],
+   "art": "sheaves",
+   "en": [
+    "I told Pharaoh his dreams meant seven years of plenty and seven years of hunger. Who am I?",
+    "Joseph",
+    "Daniel",
+    "Moses"
+   ],
+   "ta": [
+    "பார்வோனின் சொப்பனங்களுக்கு அர்த்தம் சொன்னேன்: ஏழு வருஷம் பரிபூரணம், ஏழு வருஷம் பஞ்சம். நான் யார்?",
+    "யோசேப்பு",
+    "தானியேல்",
+    "மோசே"
+   ]
+  },
+  {
+   "id": "wc-joseph3",
+   "ref": [
+    "GEN",
+    50,
+    20
+   ],
+   "en": [
+    "I told my brothers, \"You meant it for evil, but God meant it for good.\" Who am I?",
+    "Joseph",
+    "Reuben",
+    "Benjamin"
+   ],
+   "ta": [
+    "\"நீங்கள் எனக்குத் தீமை செய்ய நினைத்தீர்கள்; தேவனோ அதை நன்மையாக முடியப்பண்ணினார்\" என்று என் சகோதரரிடம் சொன்னேன். நான் யார்?",
+    "யோசேப்பு",
+    "ரூபன்",
+    "பென்யமீன்"
+   ]
+  },
+  {
+   "id": "wc-moses2",
+   "ref": [
+    "EXO",
+    2,
+    3
+   ],
+   "art": "river",
+   "en": [
+    "When I was a baby, my mother hid me in a basket by the river. Who am I?",
+    "Moses",
+    "Samuel",
+    "Isaac"
+   ],
+   "ta": [
+    "நான் குழந்தையாயிருந்தபோது என் தாய் என்னை ஒரு நாணற்பெட்டியில் வைத்து நதியோரத்தில் ஒளித்தாள். நான் யார்?",
+    "மோசே",
+    "சாமுவேல்",
+    "ஈசாக்கு"
+   ]
+  },
+  {
+   "id": "wc-moses3",
+   "ref": [
+    "EXO",
+    31,
+    18
+   ],
+   "art": "stones",
+   "en": [
+    "God gave me two tablets of stone, written by his own finger. Who am I?",
+    "Moses",
+    "Aaron",
+    "Joshua"
+   ],
+   "ta": [
+    "தேவன் தம்முடைய விரலால் எழுதப்பட்ட இரண்டு கற்பலகைகளை எனக்குக் கொடுத்தார். நான் யார்?",
+    "மோசே",
+    "ஆரோன்",
+    "யோசுவா"
+   ]
+  },
+  {
+   "id": "wc-aaron2",
+   "ref": [
+    "EXO",
+    7,
+    10
+   ],
+   "en": [
+    "I threw down my rod in front of Pharaoh, and it became a serpent. Who am I?",
+    "Aaron",
+    "Moses",
+    "Joshua"
+   ],
+   "ta": [
+    "பார்வோனுக்கு முன்பாக என் கோலைப் போட்டேன்; அது சர்ப்பமாயிற்று. நான் யார்?",
+    "ஆரோன்",
+    "மோசே",
+    "யோசுவா"
+   ]
+  },
+  {
+   "id": "wc-joshua2",
+   "ref": [
+    "JOS",
+    2,
+    1
+   ],
+   "en": [
+    "I sent two spies to look at the city of Jericho. Who am I?",
+    "Joshua",
+    "Caleb",
+    "Gideon"
+   ],
+   "ta": [
+    "எரிகோ பட்டணத்தைப் பார்க்க இரண்டு வேவுகாரரை அனுப்பினேன். நான் யார்?",
+    "யோசுவா",
+    "காலேப்",
+    "கிதியோன்"
+   ]
+  },
+  {
+   "id": "wc-rahab2",
+   "ref": [
+    "JOS",
+    2,
+    21
+   ],
+   "en": [
+    "I tied a red cord in my window. Who am I?",
+    "Rahab",
+    "Ruth",
+    "Deborah"
+   ],
+   "ta": [
+    "என் ஜன்னலில் சிவப்புக் கயிற்றைக் கட்டினேன். நான் யார்?",
+    "ராகாப்",
+    "ரூத்",
+    "தெபொராள்"
+   ]
+  },
+  {
+   "id": "wc-gideon2",
+   "ref": [
+    "JDG",
+    7,
+    20
+   ],
+   "art": "lamp",
+   "en": [
+    "My men blew trumpets and broke jars with lamps inside. Who am I?",
+    "Gideon",
+    "Samson",
+    "Joshua"
+   ],
+   "ta": [
+    "என் ஆட்கள் எக்காளங்களை ஊதி, தீவட்டிகள் இருந்த பானைகளை உடைத்தார்கள். நான் யார்?",
+    "கிதியோன்",
+    "சிம்சோன்",
+    "யோசுவா"
+   ]
+  },
+  {
+   "id": "wc-samson2",
+   "ref": [
+    "JDG",
+    16,
+    29
+   ],
+   "en": [
+    "God gave me strength one last time, and I pushed down the two big pillars. Who am I?",
+    "Samson",
+    "Goliath",
+    "Gideon"
+   ],
+   "ta": [
+    "தேவன் கடைசி முறையாக எனக்குப் பலம் தந்தார்; இரண்டு பெரிய தூண்களைத் தள்ளினேன். நான் யார்?",
+    "சிம்சோன்",
+    "கோலியாத்",
+    "கிதியோன்"
+   ]
+  },
+  {
+   "id": "wc-samuel2",
+   "ref": [
+    "1SA",
+    16,
+    13
+   ],
+   "en": [
+    "I poured oil on young David's head to show he would be king. Who am I?",
+    "Samuel",
+    "Saul",
+    "Nathan"
+   ],
+   "ta": [
+    "தாவீது ராஜாவாவான் என்று காட்ட அவன் தலையின்மேல் தைலத்தை ஊற்றினேன். நான் யார்?",
+    "சாமுவேல்",
+    "சவுல்",
+    "நாத்தான்"
+   ]
+  },
+  {
+   "id": "wc-david2",
+   "ref": [
+    "2SA",
+    6,
+    14
+   ],
+   "art": "harp",
+   "en": [
+    "I danced before the LORD with all my might. Who am I?",
+    "David",
+    "Saul",
+    "Solomon"
+   ],
+   "ta": [
+    "நான் என் முழுப் பலத்தோடும் கர்த்தருக்கு முன்பாக நடனமாடினேன். நான் யார்?",
+    "தாவீது",
+    "சவுல்",
+    "சாலொமோன்"
+   ]
+  },
+  {
+   "id": "wc-david3",
+   "ref": [
+    "1SA",
+    16,
+    11
+   ],
+   "art": "sheep",
+   "en": [
+    "I was the youngest son of Jesse, and I was out looking after the sheep. Who am I?",
+    "David",
+    "Jonathan",
+    "Samuel"
+   ],
+   "ta": [
+    "நான் ஈசாயின் இளைய மகன்; ஆடுகளை மேய்த்துக்கொண்டிருந்தேன். நான் யார்?",
+    "தாவீது",
+    "யோனத்தான்",
+    "சாமுவேல்"
+   ]
+  },
+  {
+   "id": "wc-saul2",
+   "ref": [
+    "1SA",
+    10,
+    1
+   ],
+   "art": "crown",
+   "en": [
+    "Samuel poured oil on my head, and I became Israel's first king. Who am I?",
+    "Saul",
+    "David",
+    "Solomon"
+   ],
+   "ta": [
+    "சாமுவேல் என் தலையின்மேல் தைலத்தை ஊற்றினான்; நான் இஸ்ரவேலின் முதல் ராஜாவானேன். நான் யார்?",
+    "சவுல்",
+    "தாவீது",
+    "சாலொமோன்"
+   ]
+  },
+  {
+   "id": "wc-solomon2",
+   "ref": [
+    "1KI",
+    3,
+    27
+   ],
+   "art": "crown",
+   "en": [
+    "Two women both said a baby was theirs, and I found the real mother. Who am I?",
+    "Solomon",
+    "David",
+    "Saul"
+   ],
+   "ta": [
+    "ஒரு குழந்தை தன்னுடையது என்று இரண்டு ஸ்திரீகள் சொன்னார்கள்; நான் உண்மையான தாயைக் கண்டுபிடித்தேன். நான் யார்?",
+    "சாலொமோன்",
+    "தாவீது",
+    "சவுல்"
+   ]
+  },
+  {
+   "id": "wc-elijah2",
+   "ref": [
+    "2KI",
+    2,
+    11
+   ],
+   "en": [
+    "A chariot of fire came, and I went up to heaven in a whirlwind. Who am I?",
+    "Elijah",
+    "Elisha",
+    "Enoch"
+   ],
+   "ta": [
+    "அக்கினி ரதம் வந்தது; நான் சுழல்காற்றில் பரலோகத்துக்கு ஏறிப்போனேன். நான் யார்?",
+    "எலியா",
+    "எலிசா",
+    "ஏனோக்கு"
+   ]
+  },
+  {
+   "id": "wc-elisha2",
+   "ref": [
+    "2KI",
+    4,
+    6
+   ],
+   "art": "cup",
+   "en": [
+    "I helped a poor widow fill jar after jar with oil. Who am I?",
+    "Elisha",
+    "Elijah",
+    "Samuel"
+   ],
+   "ta": [
+    "ஒரு ஏழை விதவை பாத்திரம் பாத்திரமாக எண்ணெய் நிரப்ப உதவினேன். நான் யார்?",
+    "எலிசா",
+    "எலியா",
+    "சாமுவேல்"
+   ]
+  },
+  {
+   "id": "wc-jonah2",
+   "ref": [
+    "JON",
+    4,
+    6
+   ],
+   "art": "sun",
+   "en": [
+    "God made a plant grow to give me shade from the hot sun. Who am I?",
+    "Jonah",
+    "Elijah",
+    "Daniel"
+   ],
+   "ta": [
+    "வெயிலிலிருந்து எனக்கு நிழல் தர தேவன் ஒரு ஆமணக்குச் செடியை முளைக்கப்பண்ணினார். நான் யார்?",
+    "யோனா",
+    "எலியா",
+    "தானியேல்"
+   ]
+  },
+  {
+   "id": "wc-daniel2",
+   "ref": [
+    "DAN",
+    5,
+    17
+   ],
+   "en": [
+    "I read the strange writing on the king's wall and told him what it meant. Who am I?",
+    "Daniel",
+    "Joseph",
+    "Ezra"
+   ],
+   "ta": [
+    "ராஜாவின் சுவரில் எழுதப்பட்ட எழுத்தை வாசித்து அதின் அர்த்தத்தைச் சொன்னேன். நான் யார்?",
+    "தானியேல்",
+    "யோசேப்பு",
+    "எஸ்றா"
+   ]
+  },
+  {
+   "id": "wc-esther2",
+   "ref": [
+    "EST",
+    4,
+    16
+   ],
+   "art": "crown",
+   "en": [
+    "I said, \"I will go in to the king. If I perish, I perish.\" Who am I?",
+    "Esther",
+    "Ruth",
+    "Deborah"
+   ],
+   "ta": [
+    "\"நான் ராஜாவினிடத்தில் பிரவேசிப்பேன்; நான் செத்தாலும் சாகிறேன்\" என்றேன். நான் யார்?",
+    "எஸ்தர்",
+    "ரூத்",
+    "தெபொராள்"
+   ]
+  },
+  {
+   "id": "wc-jeremiah2",
+   "ref": [
+    "JER",
+    38,
+    6
+   ],
+   "en": [
+    "They let me down with ropes into a muddy pit. Who am I?",
+    "Jeremiah",
+    "Joseph",
+    "Daniel"
+   ],
+   "ta": [
+    "என்னைக் கயிறுகளினால் உளையுள்ள ஒரு துரவிலே இறக்கிவிட்டார்கள். நான் யார்?",
+    "எரேமியா",
+    "யோசேப்பு",
+    "தானியேல்"
+   ]
+  },
+  {
+   "id": "wc-jesus2",
+   "ref": [
+    "LUK",
+    2,
+    46
+   ],
+   "en": [
+    "When I was 12, I sat in the temple listening and asking questions. Who am I?",
+    "Jesus",
+    "Samuel",
+    "John"
+   ],
+   "ta": [
+    "எனக்குப் பன்னிரண்டு வயதானபோது தேவாலயத்தில் போதகர் நடுவில் உட்கார்ந்து கேள்விகள் கேட்டேன். நான் யார்?",
+    "இயேசு",
+    "சாமுவேல்",
+    "யோவான்"
+   ]
+  },
+  {
+   "id": "wc-jesus3",
+   "ref": [
+    "MRK",
+    4,
+    39
+   ],
+   "art": "boat",
+   "en": [
+    "I said to the wind and the sea, \"Peace, be still,\" and it was calm. Who am I?",
+    "Jesus",
+    "Peter",
+    "Jonah"
+   ],
+   "ta": [
+    "காற்றையும் கடலையும் பார்த்து \"இரையாதே, அமைதலாயிரு\" என்றேன்; அமைதல் உண்டாயிற்று. நான் யார்?",
+    "இயேசு",
+    "பேதுரு",
+    "யோனா"
+   ]
+  },
+  {
+   "id": "wc-jesus4",
+   "ref": [
+    "JHN",
+    6,
+    11
+   ],
+   "art": "loaves",
+   "en": [
+    "I gave thanks for five loaves and two fish, and fed thousands of people. Who am I?",
+    "Jesus",
+    "Elisha",
+    "Moses"
+   ],
+   "ta": [
+    "ஐந்து அப்பங்களுக்கும் இரண்டு மீன்களுக்கும் ஸ்தோத்திரம்பண்ணி ஆயிரக்கணக்கானோருக்கு உணவளித்தேன். நான் யார்?",
+    "இயேசு",
+    "எலிசா",
+    "மோசே"
+   ]
+  },
+  {
+   "id": "wc-mary2",
+   "ref": [
+    "LUK",
+    2,
+    7
+   ],
+   "art": "star",
+   "en": [
+    "I laid my baby in a manger, because there was no room in the inn. Who am I?",
+    "Mary",
+    "Elizabeth",
+    "Sarah"
+   ],
+   "ta": [
+    "சத்திரத்தில் இடமில்லாததால் என் குழந்தையை முன்னணையில் கிடத்தினேன். நான் யார்?",
+    "மரியாள்",
+    "எலிசபெத்து",
+    "சாராள்"
+   ]
+  },
+  {
+   "id": "wc-josephh2",
+   "ref": [
+    "MAT",
+    2,
+    14
+   ],
+   "art": "donkey",
+   "en": [
+    "I got up at night and took Mary and the baby Jesus to Egypt to keep them safe. Who am I?",
+    "Joseph",
+    "Peter",
+    "Zechariah"
+   ],
+   "ta": [
+    "இராத்திரியில் எழுந்து மரியாளையும் குழந்தை இயேசுவையும் பாதுகாக்க எகிப்துக்குக் கொண்டுபோனேன். நான் யார்?",
+    "யோசேப்பு",
+    "பேதுரு",
+    "சகரியா"
+   ]
+  },
+  {
+   "id": "wc-elizabeth2",
+   "ref": [
+    "LUK",
+    1,
+    41
+   ],
+   "en": [
+    "When Mary came to visit me, my baby jumped for joy inside me. Who am I?",
+    "Elizabeth",
+    "Anna",
+    "Martha"
+   ],
+   "ta": [
+    "மரியாள் என்னைப் பார்க்க வந்தபோது என் வயிற்றிலிருந்த பிள்ளை துள்ளினது. நான் யார்?",
+    "எலிசபெத்து",
+    "அன்னாள்",
+    "மார்த்தாள்"
+   ]
+  },
+  {
+   "id": "wc-johnb2",
+   "ref": [
+    "MAT",
+    3,
+    4
+   ],
+   "art": "camel",
+   "en": [
+    "I wore clothes of camel's hair and ate locusts and wild honey. Who am I?",
+    "John the Baptist",
+    "Elijah",
+    "Peter"
+   ],
+   "ta": [
+    "நான் ஒட்டகமயிர் உடை உடுத்தி, வெட்டுக்கிளியையும் காட்டுத் தேனையும் புசித்தேன். நான் யார்?",
+    "யோவான் ஸ்நானகன்",
+    "எலியா",
+    "பேதுரு"
+   ]
+  },
+  {
+   "id": "wc-johnb3",
+   "ref": [
+    "JHN",
+    1,
+    29
+   ],
+   "art": "sheep",
+   "en": [
+    "I saw Jesus coming and said, \"Behold the Lamb of God!\" Who am I?",
+    "John the Baptist",
+    "Andrew",
+    "Simeon"
+   ],
+   "ta": [
+    "இயேசு வருகிறதைக் கண்டு \"இதோ, தேவ ஆட்டுக்குட்டி\" என்றேன். நான் யார்?",
+    "யோவான் ஸ்நானகன்",
+    "அந்திரேயா",
+    "சிமியோன்"
+   ]
+  },
+  {
+   "id": "wc-peter2",
+   "ref": [
+    "LUK",
+    5,
+    6
+   ],
+   "art": "boat",
+   "en": [
+    "Jesus told me where to let down my nets, and we caught so many fish the nets began to break. Who am I?",
+    "Peter",
+    "Matthew",
+    "Thomas"
+   ],
+   "ta": [
+    "இயேசு சொன்னபடி வலையைப் போட்டேன்; வலை கிழிந்துபோகத்தக்கதாக திரளான மீன்கள் அகப்பட்டன. நான் யார்?",
+    "பேதுரு",
+    "மத்தேயு",
+    "தோமா"
+   ]
+  },
+  {
+   "id": "wc-peter3",
+   "ref": [
+    "ACT",
+    2,
+    41
+   ],
+   "en": [
+    "I preached about Jesus, and about 3,000 people were baptised that day. Who am I?",
+    "Peter",
+    "Paul",
+    "Philip"
+   ],
+   "ta": [
+    "நான் இயேசுவைப் பற்றிப் பிரசங்கித்தேன்; அன்றைய தினம் ஏறக்குறைய மூவாயிரம் பேர் ஞானஸ்நானம் பெற்றார்கள். நான் யார்?",
+    "பேதுரு",
+    "பவுல்",
+    "பிலிப்பு"
+   ]
+  },
+  {
+   "id": "wc-martha2",
+   "ref": [
+    "JHN",
+    11,
+    27
+   ],
+   "en": [
+    "I told Jesus, \"I believe that you are the Christ, the Son of God.\" Who am I?",
+    "Martha",
+    "Ruth",
+    "Elizabeth"
+   ],
+   "ta": [
+    "\"நீர் தேவனுடைய குமாரனாகிய கிறிஸ்து என்று விசுவாசிக்கிறேன்\" என்று இயேசுவிடம் சொன்னேன். நான் யார்?",
+    "மார்த்தாள்",
+    "ரூத்",
+    "எலிசபெத்து"
+   ]
+  },
+  {
+   "id": "wc-marybethany",
+   "ref": [
+    "JHN",
+    12,
+    3
+   ],
+   "en": [
+    "I poured costly perfume on Jesus' feet and wiped them with my hair. Who am I?",
+    "Mary",
+    "Martha",
+    "Anna"
+   ],
+   "ta": [
+    "விலையேறப்பெற்ற தைலத்தை இயேசுவின் பாதங்களில் பூசி, என் தலைமயிரால் துடைத்தேன். நான் யார்?",
+    "மரியாள்",
+    "மார்த்தாள்",
+    "அன்னாள்"
+   ]
+  },
+  {
+   "id": "wc-lazarus2",
+   "ref": [
+    "JHN",
+    11,
+    1
+   ],
+   "en": [
+    "My sisters were Mary and Martha, and I lived in Bethany. Who am I?",
+    "Lazarus",
+    "Peter",
+    "John"
+   ],
+   "ta": [
+    "என் சகோதரிகள் மரியாளும் மார்த்தாளும்; நான் பெத்தானியாவில் இருந்தேன். நான் யார்?",
+    "லாசரு",
+    "பேதுரு",
+    "யோவான்"
+   ]
+  },
+  {
+   "id": "wc-zacchaeus2",
+   "ref": [
+    "LUK",
+    19,
+    8
+   ],
+   "art": "coins",
+   "en": [
+    "After Jesus came to my house, I gave half of my goods to the poor. Who am I?",
+    "Zacchaeus",
+    "Matthew",
+    "Nicodemus"
+   ],
+   "ta": [
+    "இயேசு என் வீட்டுக்கு வந்தபின் என் ஆஸ்தியில் பாதியை ஏழைகளுக்குக் கொடுத்தேன். நான் யார்?",
+    "சகேயு",
+    "மத்தேயு",
+    "நிக்கொதேமு"
+   ]
+  },
+  {
+   "id": "wc-paul2",
+   "ref": [
+    "ACT",
+    28,
+    1
+   ],
+   "art": "boat",
+   "en": [
+    "My ship was wrecked, and we all reached an island called Melita safely. Who am I?",
+    "Paul",
+    "Peter",
+    "Jonah"
+   ],
+   "ta": [
+    "என் கப்பல் உடைந்தது; நாங்கள் எல்லாரும் மெலித்தா என்னும் தீவுக்குச் சுகமாய்ச் சேர்ந்தோம். நான் யார்?",
+    "பவுல்",
+    "பேதுரு",
+    "யோனா"
+   ]
+  },
+  {
+   "id": "wc-paul3",
+   "ref": [
+    "ACT",
+    16,
+    25
+   ],
+   "en": [
+    "At midnight in prison, Silas and I prayed and sang praises to God. Who am I?",
+    "Paul",
+    "Peter",
+    "Stephen"
+   ],
+   "ta": [
+    "நடுராத்திரியில் சிறைச்சாலையில் சீலாவும் நானும் ஜெபம்பண்ணி தேவனைத் துதித்துப் பாடினோம். நான் யார்?",
+    "பவுல்",
+    "பேதுரு",
+    "ஸ்தேவான்"
+   ]
+  },
+  {
+   "id": "wc-timothy2",
+   "ref": [
+    "2TI",
+    3,
+    15
+   ],
+   "art": "scroll",
+   "en": [
+    "From the time I was a child, I knew the holy Scriptures. Who am I?",
+    "Timothy",
+    "Titus",
+    "Mark"
+   ],
+   "ta": [
+    "சிறுவயதுமுதல் பரிசுத்த வேதாகமத்தை அறிந்திருந்தேன். நான் யார்?",
+    "தீமோத்தேயு",
+    "தீத்து",
+    "மாற்கு"
+   ]
+  },
+  {
+   "id": "wc-philip2",
+   "ref": [
+    "ACT",
+    8,
+    35
+   ],
+   "en": [
+    "I explained God's word to a man riding in a chariot, and then I baptised him. Who am I?",
+    "Philip",
+    "Peter",
+    "Paul"
+   ],
+   "ta": [
+    "இரதத்தில் போய்க்கொண்டிருந்த ஒருவருக்கு வேதவாக்கியத்தை விளக்கி, அவருக்கு ஞானஸ்நானம் கொடுத்தேன். நான் யார்?",
+    "பிலிப்பு",
+    "பேதுரு",
+    "பவுல்"
+   ]
+  },
+  {
+   "id": "wc-caleb2",
+   "ref": [
+    "JOS",
+    14,
+    10
+   ],
+   "en": [
+    "I was 85 years old, and still as strong as when I was young. Who am I?",
+    "Caleb",
+    "Joshua",
+    "Moses"
+   ],
+   "ta": [
+    "எனக்கு எண்பத்தைந்து வயதானபோதும் என் இளமையில் இருந்ததுபோலவே பலமாயிருந்தேன். நான் யார்?",
+    "காலேப்",
+    "யோசுவா",
+    "மோசே"
+   ]
+  },
+  {
+   "id": "wc-hannah2",
+   "ref": [
+    "1SA",
+    1,
+    28
+   ],
+   "en": [
+    "I gave my son Samuel to serve the LORD all his life. Who am I?",
+    "Hannah",
+    "Sarah",
+    "Rachel"
+   ],
+   "ta": [
+    "என் மகன் சாமுவேலை அவன் உயிரோடிருக்கும் நாளெல்லாம் கர்த்தருக்கு ஒப்புக்கொடுத்தேன். நான் யார்?",
+    "அன்னாள்",
+    "சாராள்",
+    "ராகேல்"
+   ]
+  },
+  {
+   "id": "wc-samuel3",
+   "ref": [
+    "1SA",
+    3,
+    19
+   ],
+   "art": "lamp",
+   "en": [
+    "I grew up, and the LORD was with me. All Israel knew I was God's prophet. Who am I?",
+    "Samuel",
+    "Eli",
+    "Saul"
+   ],
+   "ta": [
+    "நான் வளர்ந்தேன்; கர்த்தர் என்னோடே இருந்தார்; நான் கர்த்தருடைய தீர்க்கதரிசி என்று இஸ்ரவேலர் எல்லாரும் அறிந்தார்கள். நான் யார்?",
+    "சாமுவேல்",
+    "ஏலி",
+    "சவுல்"
    ]
   }
  ],
