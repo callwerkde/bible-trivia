@@ -14,7 +14,7 @@ import { ReportButton } from '../components/Report';
 import { ChallengeFromResult } from '../components/ChallengeFromResult';
 import { Reveal } from '../components/Reveal';
 import { questionTarget } from '../online/reports';
-import { maxScoreFor } from '../engine/scoring';
+import { scoreParts } from '../engine/scoring';
 
 export function Results({ result, xp, onAgain, onHome }: { result: RoundResult; xp: number; onAgain: () => void; onHome: () => void }) {
   const t = useT();
@@ -23,7 +23,8 @@ export function Results({ result, xp, onAgain, onHome }: { result: RoundResult; 
   const lang = qLang === 'both' ? uiLang : qLang;
   const second = qLang === 'both' ? (lang === 'en' ? 'ta' : 'en') : null;
   const mode = MODES[result.mode];
-  const maxScore = result.maxScore ?? maxScoreFor(result.log.map((l) => l.q), false);
+  // The answers' points out of a fixed total; speed and combo bonus shown beside it.
+  const { points, max: maxScore, bonus } = scoreParts(result.log, result.score);
   const pct = result.total ? Math.round((result.correct / result.total) * 100) : 0;
   // A heart earned by this round: shown once, then cleared.
   const [reviewOpen, setReviewOpen] = useState(false);
@@ -34,7 +35,7 @@ export function Results({ result, xp, onAgain, onHome }: { result: RoundResult; 
 
   async function share() {
     const grid = result.log.map((l) => (l.correct ? '🟩' : '🟥')).join('');
-    const text = `${t.appName} — ${t.modeName[result.mode]}\n${grid}\n${result.correct}/${result.total} · ${result.score}/${maxScore}`;
+    const text = `${t.appName} — ${t.modeName[result.mode]}\n${grid}\n${result.correct}/${result.total} · ${points}/${maxScore}${bonus ? ` +${bonus}` : ''}`;
     try {
       if (navigator.share) await navigator.share({ text });
       else await navigator.clipboard.writeText(text);
@@ -53,12 +54,17 @@ export function Results({ result, xp, onAgain, onHome }: { result: RoundResult; 
       >
         <IconTile horse={mode.horse} icon={MODE_ICON[result.mode]} size={56} />
         <p className="eyebrow">{t.resultsTitle}</p>
-        <h1 className="display result-score" aria-label={t.scoreOutOf(result.score, maxScore)}>
-          {result.score}
+        <h1 className="display result-score" aria-label={t.scoreOutOf(points, maxScore)}>
+          {points}
           <span className="result-slash">/</span>
           {maxScore}
         </h1>
-        <p className="caption">{t.scoreOutOf(result.score, maxScore)}</p>
+        {bonus > 0 && (
+          <motion.span className="result-bonus" initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ ...spring.flick, delay: 0.25 }}>
+            {t.bonusN(bonus)}
+          </motion.span>
+        )}
+        <p className="caption">{t.scoreOutOf(points, maxScore)}</p>
         <p className="caption">{t.modeName[result.mode]}</p>
         <div className="result-stats">
           <div>

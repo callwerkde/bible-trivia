@@ -378,6 +378,7 @@
 .result-hero .display.result-score { font-size: clamp(2.4rem, 12vw, 3.6rem); }
 .result-score { display: flex; align-items: baseline; justify-content: center; gap: 0.12em; white-space: nowrap; font-variant-numeric: tabular-nums; }
 .result-score .result-slash { color: var(--text-2); font-weight: 600; }
+.result-bonus { display: inline-block; margin-top: 2px; padding: 3px 10px; border-radius: 999px; font-weight: 700; font-size: 0.9rem; color: var(--accent-ink); background: var(--accent-wash); }
 .result-stats { display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; margin-top: 14px; gap: 8px; }
 .result-stats div { display: flex; flex-direction: column; }
 .result-stats strong { font-size: 1.2rem; }

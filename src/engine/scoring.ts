@@ -31,12 +31,18 @@ export function pointsFor(opts: {
   return Math.round(pts * comboMult);
 }
 
+/** The points a question is worth on its own: 10 × difficulty, with no speed or combo bonus. */
+export const basePoints = (difficulty: 1 | 2 | 3) => Math.round(BASE_POINTS * [1, 1.5, 2][difficulty - 1]);
+
 /**
- * The most a round could have scored: every question answered right, at once, with
- * the combo building from the first answer.
+ * A round's score split in two: the points for the answers themselves (out of a fixed
+ * total, so the same answers always give the same score), and the bonus on top from
+ * answering fast and from combos.
  */
-export function maxScoreFor(questions: { difficulty: 1 | 2 | 3 }[], timed: boolean): number {
-  return questions.reduce((sum, q, i) => sum + pointsFor({ correct: true, difficulty: q.difficulty, secondsLeft: timed ? 1 : undefined, secondsTotal: timed ? 1 : undefined, combo: i }), 0);
+export function scoreParts(log: { q: { difficulty: 1 | 2 | 3 }; correct: boolean }[], score: number): { points: number; max: number; bonus: number } {
+  const points = log.reduce((n, l) => n + (l.correct ? basePoints(l.q.difficulty) : 0), 0);
+  const max = log.reduce((n, l) => n + basePoints(l.q.difficulty), 0);
+  return { points, max, bonus: Math.max(0, score - points) };
 }
 
 /** XP needed to finish level n (n ≥ 1). Grows gently. */

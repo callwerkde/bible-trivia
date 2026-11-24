@@ -7,7 +7,7 @@ import { roundPool } from '../engine/content';
 import { MODES, isKidsMode, type ModeId } from '../engine/modes';
 import type { KidsGame } from '../engine/kids';
 import { pickDaily, pickQuestions } from '../engine/picker';
-import { isCorrect, maxScoreFor, pointsFor } from '../engine/scoring';
+import { isCorrect, pointsFor } from '../engine/scoring';
 import type { Lang, Question } from '../engine/types';
 import { BOOK_BY_CODE, formatRef } from '../i18n/books';
 import { STRINGS } from '../i18n/strings';
@@ -40,8 +40,6 @@ export interface RoundResult {
   /** Set when this round was a friend challenge. */
   challengeId?: string;
   score: number;
-  /** The most this round could have scored (all right, at once). */
-  maxScore?: number;
   correct: number;
   total: number;
   bestCombo: number;
@@ -186,14 +184,13 @@ export function Game({
       onDone({
         mode: modeId,
         score: finalScore,
-        maxScore: maxScoreFor(finalLog.map((l) => l.q), perQuestion > 0),
         correct: finalLog.filter((l) => l.correct).length,
         total: finalLog.length,
         bestCombo: finalBest,
         log: finalLog,
       });
     },
-    [modeId, onDone, perQuestion],
+    [modeId, onDone],
   );
 
   const goNext = useCallback(() => {
