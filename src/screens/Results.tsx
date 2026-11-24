@@ -55,7 +55,8 @@ export function Results({ result, xp, onAgain, onHome }: { result: RoundResult; 
         <p className="eyebrow">{t.resultsTitle}</p>
         <h1 className="display result-score" aria-label={t.scoreOutOf(result.score, maxScore)}>
           {result.score}
-          <span className="result-max">/ {maxScore}</span>
+          <span className="result-slash">/</span>
+          {maxScore}
         </h1>
         <p className="caption">{t.scoreOutOf(result.score, maxScore)}</p>
         <p className="caption">{t.modeName[result.mode]}</p>
