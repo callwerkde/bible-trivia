@@ -3,7 +3,7 @@ export type Lang = 'en' | 'ta';
 export type ArtKey =
   | 'ark' | 'fish' | 'lion' | 'sling' | 'bush' | 'star' | 'loaves' | 'horse' | 'tree'
   | 'scroll' | 'coat' | 'ladder' | 'dove' | 'sheaves' | 'sheep' | 'sun' | 'crown' | 'well'
-  | 'harp' | 'boat' | 'river' | 'altar' | 'path' | 'elder' | 'raven' | 'tower' | 'tent' | 'stars' | 'cave' | 'bow' | 'camel' | 'stones' | 'coins' | 'ring' | 'cup' | 'cows' | 'sacks' | 'wagon' | 'donkey' | 'lamp' | 'sword'
+  | 'harp' | 'boat' | 'river' | 'altar' | 'path' | 'elder' | 'raven' | 'tower' | 'tent' | 'stars' | 'cave' | 'bow' | 'rainbow' | 'camel' | 'stones' | 'coins' | 'ring' | 'cup' | 'cows' | 'sacks' | 'wagon' | 'donkey' | 'lamp' | 'sword'
   // action scenes (src/art/Scenes*.tsx)
   | 'callFishers' | 'cainAbel' | 'prayCall' | 'walkWithGod' | 'noahRaven' | 'noahDove' | 'noahAltar' | 'jacobAltar'
   | 'nightAltar' | 'abramJourney' | 'abramLot' | 'abram318' | 'hagarAngel' | 'abrahamPleads' | 'buyCave' | 'moriahJourney'

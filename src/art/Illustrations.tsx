@@ -602,6 +602,25 @@ const Bow = () => (
   </>
 );
 
+/** A rainbow over the hills, with a cloud at each end: God's promise after the flood. */
+const Rainbow = () => {
+  const bands = ['#e0493e', '#f0913a', '#f2c94c', '#6fb36b', '#5b8fd6', '#8a6bc4'];
+  return (
+    <>
+      <rect x={6} y={6} width={148} height={108} rx={20} fill="#dceaf5" />
+      {bands.map((c, i) => {
+        const r = 62 - i * 7;
+        return <path key={c} d={`M${80 - r} 96 A${r} ${r} 0 0 1 ${80 + r} 96`} fill="none" stroke={c} strokeWidth={7.5} />;
+      })}
+      <path d="M14 96 A66 66 0 0 1 146 96 M42 96 A38 38 0 0 1 118 96" fill="none" {...line} strokeWidth={2.4} />
+      <path d="M6 100 q30 -14 60 -2 q34 -14 88 0 V114 H6 Z" fill={C.pale} {...line} />
+      {[[30, 92], [134, 92]].map(([x, y]) => (
+        <path key={x} d={`M${x - 20} ${y} q0 -12 12 -10 q4 -12 16 -6 q12 -2 12 10 q8 2 0 10 H${x - 16} q-8 -2 -4 -4 Z`} fill={C.white} {...line} strokeWidth={2.4} />
+      ))}
+    </>
+  );
+};
+
 /** A camel with its saddle: Laban's chase, Rachel's hiding place. */
 const Camel = () => (
   <>
@@ -891,6 +910,7 @@ const ART: Record<ArtKey, () => ReactElement> = {
   stars: Stars,
   cave: Cave,
   bow: Bow,
+  rainbow: Rainbow,
   camel: Camel,
   stones: Stones,
   coins: Coins,
