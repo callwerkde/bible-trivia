@@ -327,22 +327,32 @@ function MainApp() {
       });
     },
   });
-  // Put the new version in without asking when nobody would notice: while the app is in the
-  // background, or just after opening it. Mid-game, the "Update ready" note waits instead.
-  const openedAt = useRef(Date.now());
+  // Put the new version in without asking whenever it won't interrupt anything: on a main
+  // tab (and not typing), or while the app is in the background. In a game or another
+  // screen it waits, and goes in as soon as the player is back on a tab.
   const routeKind = route.kind;
   useEffect(() => {
     if (!needRefresh) return;
     const apply = () => void updateServiceWorker(true);
-    if (document.visibilityState === 'hidden' || (Date.now() - openedAt.current < 15_000 && routeKind === 'tab')) {
+    const typing = () => {
+      const el = document.activeElement as HTMLElement | null;
+      return !!el && (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.isContentEditable);
+    };
+    if (document.visibilityState === 'hidden' || (routeKind === 'tab' && !typing())) {
       apply();
       return;
     }
-    const away = () => {
-      if (document.visibilityState === 'hidden') apply();
+    // (After a field loses focus, check once focus has settled.)
+    const later = () =>
+      setTimeout(() => {
+        if (document.visibilityState === 'hidden' || (routeKind === 'tab' && !typing())) apply();
+      }, 0);
+    document.addEventListener('visibilitychange', later);
+    document.addEventListener('focusout', later);
+    return () => {
+      document.removeEventListener('visibilitychange', later);
+      document.removeEventListener('focusout', later);
     };
-    document.addEventListener('visibilitychange', away);
-    return () => document.removeEventListener('visibilitychange', away);
   }, [needRefresh, routeKind, updateServiceWorker]);
 
   // Background content sync (no-op until Supabase is configured).
