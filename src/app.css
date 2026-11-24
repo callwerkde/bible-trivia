@@ -2318,3 +2318,5 @@ textarea.field.post-body-input:lang(ta) { line-height: 1.85; }
 
 .lib-new { display: inline-block; margin: 0 6px 0 4px; padding: 1px 8px; border-radius: 999px; background: var(--red); color: #fff; font-size: 0.7rem; font-weight: 700; vertical-align: 2px; }
 .lib-item-title .lib-new { margin-left: 0; }
+
+.route-loading { min-height: 60vh; }

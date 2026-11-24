@@ -9,7 +9,9 @@ import { cachedBooks } from '../online/stock';
 import { drillQuestion } from './drill';
 import { baseIdOf, trueFalseFrom, whichBookFromSaying, whichBookFromVerse } from './derived';
 import { VERSES } from './verses';
-import { KIDS_QUESTIONS, kidsPool, type KidsGame } from './kids';
+import type { KidsGame } from './kids';
+// The kids' questions load on demand (they're a separate file).
+const kids = () => import('./kids');
 
 export const PACKS = [ot, nt, knowledge] as unknown as QuestionPack[];
 
@@ -18,9 +20,8 @@ export const KNOWLEDGE = (knowledge as unknown as QuestionPack).questions;
 
 export const ALL_QUESTIONS: Question[] = PACKS.flatMap((p) => p.questions);
 
-// (Kids questions are kept apart from the other games, but found by id.)
 export const QUESTION_BY_ID: Record<string, Question> = Object.fromEntries(
-  [...ALL_QUESTIONS, ...KIDS_QUESTIONS].map((q) => [q.id, q]),
+  ALL_QUESTIONS.map((q) => [q.id, q]),
 );
 
 /**
@@ -88,7 +89,8 @@ export async function roundPool(source: RoundSource): Promise<Question[]> {
           return id.startsWith('tf~') ? trueFalseFrom(from) : whichBookFromSaying(from);
         })
         .filter((q): q is Question => Boolean(q));
-      return [...base, ...extra, ...drill, ...made, ...KIDS_QUESTIONS];
+      const kidsQs = source.ids.some((id) => id.startsWith('kd-')) ? (await kids()).KIDS_QUESTIONS : [];
+      return [...base, ...extra, ...drill, ...made, ...kidsQs];
     }
     case 'truefalse': {
       // The 12 written true/false questions, plus book questions turned into statements.
@@ -97,7 +99,7 @@ export async function roundPool(source: RoundSource): Promise<Question[]> {
       return [...base, ...extra.map(trueFalseFrom).filter((q): q is Question => Boolean(q))];
     }
     case 'kids':
-      return kidsPool(source.game);
+      return (await kids()).kidsPool(source.game);
     case 'knowledge': {
       const pool = await questionPool();
       return pool.filter((q) => q.id.startsWith('kn-'));

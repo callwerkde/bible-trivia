@@ -32,6 +32,8 @@ export default defineConfig({
       workbox: {
         // Question packs are bundled JS, so the whole app (fonts included) works offline.
         globPatterns: ['**/*.{js,css,html,svg,png,woff2}'],
+        // The main file is about 2 MB: allow up to 4 MB so a growing app never fails to build.
+        maximumFileSizeToCacheInBytes: 4 * 1024 * 1024,
         // Push notifications: shows them and opens the right screen on tap.
         importScripts: ['push-handler.js'],
         // On the very first visit, start caching straight away (no reload needed),

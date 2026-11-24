@@ -1,5 +1,5 @@
 import { AnimatePresence, MotionConfig, motion } from 'motion/react';
-import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { Suspense, lazy, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { useRegisterSW } from 'virtual:pwa-register/react';
 import { Atmosphere } from './components/Atmosphere';
 import { ArtSticker } from './components/ArtSticker';
@@ -9,35 +9,22 @@ import { Pressable } from './components/Pressable';
 import { Home } from './screens/Home';
 import { Practice, type PracticeAction } from './screens/Practice';
 import { MemoryVerses } from './screens/MemoryVerses';
-import { Timeline } from './screens/Timeline';
-import { Library } from './screens/Library';
-import { AdminReports } from './screens/AdminReports';
 import { syncKids } from './online/kids';
-import { KidsMatch } from './screens/KidsMatch';
-import { KidsOrder } from './screens/KidsOrder';
-import { KidsVerses } from './screens/KidsVerses';
-import { KidsColour } from './screens/KidsColour';
-import { KidsCount, KidsOdd } from './screens/KidsGames';
-import { KidsStories } from './screens/KidsStories';
-import { storyQuestionIds } from './engine/kids';
+
 import { Community } from './screens/Community';
 import { clearPendingJoin, readPendingJoin, savePendingJoin } from './online/community';
-import { Genealogy } from './screens/Genealogy';
 import { ErrorBoundary } from './components/ErrorBoundary';
-import { AdminTimeline } from './screens/AdminTimeline';
 import { Notebook } from './screens/Notebook';
 import { SavedGames } from './screens/SavedGames';
 import { drillRound } from './engine/drill';
 import type { GameSnapshot } from './engine/resume';
 import { Gospel, type GospelSection } from './screens/Gospel';
-import { AdminFaqs } from './screens/AdminFaqs';
 import { Recall } from './screens/Recall';
 import { QuizPick } from './screens/QuizPick';
 import { NewPasswordSheet } from './components/NewPasswordSheet';
 import { keepPushAlive, syncPushLanguage } from './online/push';
 import { Settings } from './screens/Settings';
 import { Thought, Thoughts } from './screens/Thoughts';
-import { Admin, AdminThoughts } from './screens/AdminThoughts';
 import { loadCachedPosts, syncPosts, getPost } from './online/posts';
 import type { Post } from './engine/posts';
 import { Game, type RoundResult } from './screens/Game';
@@ -58,6 +45,23 @@ import { pickQuestions } from './engine/picker';
 import { roundPool } from './engine/content';
 import { useApp, useT } from './store';
 import { spring } from './motion/springs';
+
+// Screens opened from the menus load when first opened (smaller first download).
+const Timeline = lazy(() => import('./screens/Timeline').then((m) => ({ default: m.Timeline })));
+const Library = lazy(() => import('./screens/Library').then((m) => ({ default: m.Library })));
+const AdminReports = lazy(() => import('./screens/AdminReports').then((m) => ({ default: m.AdminReports })));
+const KidsMatch = lazy(() => import('./screens/KidsMatch').then((m) => ({ default: m.KidsMatch })));
+const KidsOrder = lazy(() => import('./screens/KidsOrder').then((m) => ({ default: m.KidsOrder })));
+const KidsVerses = lazy(() => import('./screens/KidsVerses').then((m) => ({ default: m.KidsVerses })));
+const KidsColour = lazy(() => import('./screens/KidsColour').then((m) => ({ default: m.KidsColour })));
+const KidsCount = lazy(() => import('./screens/KidsGames').then((m) => ({ default: m.KidsCount })));
+const KidsOdd = lazy(() => import('./screens/KidsGames').then((m) => ({ default: m.KidsOdd })));
+const KidsStories = lazy(() => import('./screens/KidsStories').then((m) => ({ default: m.KidsStories })));
+const Genealogy = lazy(() => import('./screens/Genealogy').then((m) => ({ default: m.Genealogy })));
+const AdminTimeline = lazy(() => import('./screens/AdminTimeline').then((m) => ({ default: m.AdminTimeline })));
+const AdminFaqs = lazy(() => import('./screens/AdminFaqs').then((m) => ({ default: m.AdminFaqs })));
+const Admin = lazy(() => import('./screens/AdminThoughts').then((m) => ({ default: m.Admin })));
+const AdminThoughts = lazy(() => import('./screens/AdminThoughts').then((m) => ({ default: m.AdminThoughts })));
 
 type Route =
   | { kind: 'tab'; tab: Tab }
@@ -552,6 +556,7 @@ function MainApp() {
           >
             <ScrollPlace screenKey={screenKey} positions={scrollPos} current={currentScreen} />
             <ErrorBoundary resetKey={key} title={t.crashTitle} body={t.crashBody} home={t.tabPlay} onHome={() => goTab('play')}>
+            <Suspense fallback={<div className="route-loading" aria-busy="true" />}>
             {route.kind === 'tab' && route.tab === 'play' && <Home onPlay={play} onMemory={() => setRoute({ kind: 'memory' })} onTimeline={() => setRoute({ kind: 'timeline' })} onGenealogy={() => setRoute({ kind: 'genealogy' })} onLibrary={() => setRoute({ kind: 'library' })} onKidsMatch={() => setRoute({ kind: 'kidsMatch' })} onKidsOrder={() => setRoute({ kind: 'kidsOrder' })} onKids={(kind) => setRoute({ kind })} onResume={resumeGame} onShowSaved={() => setRoute({ kind: 'saved' })} onOpenPost={(post) => setRoute({ kind: 'post', post, from: 'home' })} onShowPosts={showThoughts} />}
             {route.kind === 'tab' && route.tab === 'friends' && (
               <Community
@@ -572,7 +577,7 @@ function MainApp() {
             {route.kind === 'library' && <Library onExit={() => goTab(lastTab)} />}
             {route.kind === 'kidsMatch' && <KidsMatch onExit={() => goTab(lastTab)} />}
             {route.kind === 'kidsOrder' && <KidsOrder onExit={() => goTab(lastTab)} />}
-            {route.kind === 'kidsStories' && <KidsStories onExit={() => goTab(lastTab)} onQuiz={(story) => setRoute({ kind: 'game', mode: 'kids', run: Date.now(), ids: storyQuestionIds(story) })} />}
+            {route.kind === 'kidsStories' && <KidsStories onExit={() => goTab(lastTab)} onQuiz={(story) => void import('./engine/kids').then((k) => setRoute({ kind: 'game', mode: 'kids', run: Date.now(), ids: k.storyQuestionIds(story) }))} />}
             {route.kind === 'kidsVerses' && <KidsVerses onExit={() => goTab(lastTab)} />}
             {route.kind === 'kidsOdd' && <KidsOdd onExit={() => goTab(lastTab)} />}
             {route.kind === 'kidsCount' && <KidsCount onExit={() => goTab(lastTab)} />}
@@ -600,6 +605,7 @@ function MainApp() {
                 onHome={() => goTab(route.result.challengeId ? 'friends' : lastTab)}
               />
             )}
+            </Suspense>
             </ErrorBoundary>
           </motion.div>
         </AnimatePresence>
