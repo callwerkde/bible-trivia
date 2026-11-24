@@ -375,6 +375,8 @@
   text-align: center;
 }
 .result-hero .display { font-size: 3.6rem; font-variant-numeric: tabular-nums; }
+.result-score { display: flex; align-items: baseline; gap: 6px; }
+.result-max { font-size: 0.45em; font-weight: 700; color: var(--text-2); }
 .result-stats { display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; margin-top: 14px; gap: 8px; }
 .result-stats div { display: flex; flex-direction: column; }
 .result-stats strong { font-size: 1.2rem; }

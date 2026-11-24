@@ -14,6 +14,7 @@ import { ReportButton } from '../components/Report';
 import { ChallengeFromResult } from '../components/ChallengeFromResult';
 import { Reveal } from '../components/Reveal';
 import { questionTarget } from '../online/reports';
+import { maxScoreFor } from '../engine/scoring';
 
 export function Results({ result, xp, onAgain, onHome }: { result: RoundResult; xp: number; onAgain: () => void; onHome: () => void }) {
   const t = useT();
@@ -22,6 +23,7 @@ export function Results({ result, xp, onAgain, onHome }: { result: RoundResult; 
   const lang = qLang === 'both' ? uiLang : qLang;
   const second = qLang === 'both' ? (lang === 'en' ? 'ta' : 'en') : null;
   const mode = MODES[result.mode];
+  const maxScore = result.maxScore ?? maxScoreFor(result.log.map((l) => l.q), false);
   const pct = result.total ? Math.round((result.correct / result.total) * 100) : 0;
   // A heart earned by this round: shown once, then cleared.
   const [reviewOpen, setReviewOpen] = useState(false);
@@ -32,7 +34,7 @@ export function Results({ result, xp, onAgain, onHome }: { result: RoundResult; 
 
   async function share() {
     const grid = result.log.map((l) => (l.correct ? '🟩' : '🟥')).join('');
-    const text = `${t.appName} — ${t.modeName[result.mode]}\n${grid}\n${result.correct}/${result.total} · ${result.score}`;
+    const text = `${t.appName} — ${t.modeName[result.mode]}\n${grid}\n${result.correct}/${result.total} · ${result.score}/${maxScore}`;
     try {
       if (navigator.share) await navigator.share({ text });
       else await navigator.clipboard.writeText(text);
@@ -51,7 +53,11 @@ export function Results({ result, xp, onAgain, onHome }: { result: RoundResult; 
       >
         <IconTile horse={mode.horse} icon={MODE_ICON[result.mode]} size={56} />
         <p className="eyebrow">{t.resultsTitle}</p>
-        <h1 className="display">{result.score}</h1>
+        <h1 className="display result-score" aria-label={t.scoreOutOf(result.score, maxScore)}>
+          {result.score}
+          <span className="result-max">/ {maxScore}</span>
+        </h1>
+        <p className="caption">{t.scoreOutOf(result.score, maxScore)}</p>
         <p className="caption">{t.modeName[result.mode]}</p>
         <div className="result-stats">
           <div>

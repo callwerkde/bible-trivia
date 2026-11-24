@@ -31,6 +31,14 @@ export function pointsFor(opts: {
   return Math.round(pts * comboMult);
 }
 
+/**
+ * The most a round could have scored: every question answered right, at once, with
+ * the combo building from the first answer.
+ */
+export function maxScoreFor(questions: { difficulty: 1 | 2 | 3 }[], timed: boolean): number {
+  return questions.reduce((sum, q, i) => sum + pointsFor({ correct: true, difficulty: q.difficulty, secondsLeft: timed ? 1 : undefined, secondsTotal: timed ? 1 : undefined, combo: i }), 0);
+}
+
 /** XP needed to finish level n (n ≥ 1). Grows gently. */
 export function xpForLevel(n: number): number {
   return Math.round(100 * Math.pow(n, 1.35));
