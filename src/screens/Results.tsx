@@ -14,7 +14,7 @@ import { ReportButton } from '../components/Report';
 import { ChallengeFromResult } from '../components/ChallengeFromResult';
 import { Reveal } from '../components/Reveal';
 import { questionTarget } from '../online/reports';
-import { scoreParts } from '../engine/scoring';
+import { basePoints, scoreParts } from '../engine/scoring';
 
 export function Results({ result, xp, onAgain, onHome }: { result: RoundResult; xp: number; onAgain: () => void; onHome: () => void }) {
   const t = useT();
@@ -140,6 +140,7 @@ export function Results({ result, xp, onAgain, onHome }: { result: RoundResult; 
               <Reveal q={l.q} primary={lang} secondary={second} choice={l.choice} />
             </div>
             <div className="review-actions">
+              <ReviewPoints worth={basePoints(l.q.difficulty)} correct={l.correct} earned={l.pts} />
               {!l.q.id.startsWith('gen-') && <SaveButton id={l.q.id} />}
               <ReportButton target={questionTarget(l.q)} compact />
             </div>
@@ -148,5 +149,20 @@ export function Results({ result, xp, onAgain, onHome }: { result: RoundResult; 
       </ul>
       )}
     </div>
+  );
+}
+
+/** A question's points in the answer list: "15/15" (or "0/15"), and its bonus. */
+function ReviewPoints({ worth, correct, earned }: { worth: number; correct: boolean; earned?: number }) {
+  const t = useT();
+  const got = correct ? worth : 0;
+  const bonus = earned !== undefined ? Math.max(0, earned - got) : 0;
+  return (
+    <span className={`review-pts ${got ? 'is-got' : 'is-missed'}`} aria-label={t.ptsEarned(got, worth, bonus)}>
+      <strong>
+        {got}/{worth}
+      </strong>
+      {bonus > 0 && <small>+{bonus}</small>}
+    </span>
   );
 }

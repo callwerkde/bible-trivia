@@ -19,7 +19,7 @@ export interface GameSnapshot {
   bestCombo: number;
   lives: number;
   roundLeft: number;
-  log: { id: string; choice: number | boolean | null; correct: boolean }[];
+  log: { id: string; choice: number | boolean | null; correct: boolean; pts?: number }[];
   scope?: { book: string; chapter: number | null };
   challengeId?: string;
   day: string;

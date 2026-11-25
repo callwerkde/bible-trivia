@@ -7,7 +7,7 @@ import { roundPool } from '../engine/content';
 import { MODES, isKidsMode, type ModeId } from '../engine/modes';
 import type { KidsGame } from '../engine/kids';
 import { pickDaily, pickQuestions } from '../engine/picker';
-import { isCorrect, pointsFor } from '../engine/scoring';
+import { basePoints, isCorrect, pointsFor } from '../engine/scoring';
 import type { Lang, Question } from '../engine/types';
 import { BOOK_BY_CODE, formatRef } from '../i18n/books';
 import { STRINGS } from '../i18n/strings';
@@ -33,6 +33,8 @@ export interface AnswerLog {
   q: Question;
   choice: number | boolean | null;
   correct: boolean;
+  /** Points this answer earned, bonus included. */
+  pts?: number;
 }
 
 export interface RoundResult {
@@ -137,7 +139,7 @@ export function Game({
         setBestCombo(resume.bestCombo);
         setLives(resume.lives);
         if (resume.roundLeft) setRoundLeft(resume.roundLeft);
-        setLog(resume.log.map((l) => ({ q: byId.get(l.id)!, choice: l.choice, correct: l.correct })).filter((l) => l.q));
+        setLog(resume.log.map((l) => ({ q: byId.get(l.id)!, choice: l.choice, correct: l.correct, pts: l.pts })).filter((l) => l.q));
       }
       setQuestions(qs);
       ready.current = true;
@@ -165,7 +167,7 @@ export function Game({
       bestCombo,
       lives,
       roundLeft,
-      log: log.map((l) => ({ id: l.q.id, choice: l.choice, correct: l.correct })),
+      log: log.map((l) => ({ id: l.q.id, choice: l.choice, correct: l.correct, pts: l.pts })),
       ...(scope ? { scope } : {}),
       ...(challengeId ? { challengeId } : {}),
     });
@@ -224,7 +226,7 @@ export function Game({
       setCombo(nextCombo);
       setBestCombo((b) => Math.max(b, nextCombo));
       if (!ok && mode.lives !== undefined) setLives((l) => l - 1);
-      setLog((l) => [...l, { q, choice, correct: ok }]);
+      setLog((l) => [...l, { q, choice, correct: ok, pts }]);
       void recordAnswer({ questionId: q.id, book: q.book, correct: ok, mode: modeId, at: Date.now() }).catch(() => {});
     },
     [q, answered, combo, mode, qLeft, modeId],
@@ -328,6 +330,8 @@ export function Game({
                   {mode.types.length > 1 && typeLabel && <span>{typeLabel}</span>}
                 </span>
               </span>
+              {/* What this question is worth; once answered, what it earned (bonus on top). */}
+              <QuestionPoints worth={basePoints(q.difficulty)} earned={answered ? (log[log.length - 1]?.pts ?? 0) : null} />
               {combo >= 2 && (
                 <motion.span className="combo" initial={{ scale: 0.6, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={spring.flick}>
                   ×{combo}
@@ -612,5 +616,24 @@ function Feedback({ q, answered, primary, secondary, last, onNext, lives, kids }
         document.body,
       )}
     </motion.div>
+  );
+}
+
+/** "15 pts" before answering; "+15" (and "+3" bonus) or "0" after. */
+export function QuestionPoints({ worth, earned }: { worth: number; earned: number | null }) {
+  const t = useT();
+  if (earned === null)
+    return (
+      <span className="q-pts" aria-label={t.ptsWorth(worth)}>
+        {t.ptsShort(worth)}
+      </span>
+    );
+  const got = earned > 0 ? worth : 0;
+  const bonus = Math.max(0, earned - got);
+  return (
+    <motion.span className={`q-pts ${got ? 'is-got' : 'is-missed'}`} initial={{ scale: 0.7 }} animate={{ scale: 1 }} transition={spring.flick} aria-label={t.ptsEarned(got, worth, bonus)}>
+      {got ? `+${got}` : '0'}
+      {bonus > 0 && <small>+{bonus}</small>}
+    </motion.span>
   );
 }
